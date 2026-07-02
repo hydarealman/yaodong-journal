@@ -1,15 +1,17 @@
 ---
-title: "Linux操作系统"
-slug: "linux操作系统"
-date: 1970-01-21T23:10:23+08:00
+title: Linux操作系统
+slug: linux操作系统
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://linux操作系统"
+source_file: feishu://linux操作系统
 source_size: 691
 source_lines: 51
 tags:
-  - "工具"
+- Linux
+- 工具
+- 操作系统
 categories:
-  - "编程开发"
+- 编程
 ---
 
 # Linux操作系统

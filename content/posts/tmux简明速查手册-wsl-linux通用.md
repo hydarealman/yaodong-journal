@@ -1,15 +1,17 @@
 ---
-title: "tmux简明速查手册(WSL/Linux通用)"
-slug: "tmux简明速查手册-wsl-linux通用"
-date: 1970-01-21T23:10:24+08:00
+title: tmux简明速查手册(WSL/Linux通用)
+slug: tmux简明速查手册-wsl-linux通用
+date: 1970-01-21 23:10:24+08:00
 draft: false
-source_file: "feishu://tmux简明速查手册-wsl-linux通用"
+source_file: feishu://tmux简明速查手册-wsl-linux通用
 source_size: 622
 source_lines: 31
 tags:
-  - "工具"
+- tmux
+- 工具
+- Linux
 categories:
-  - "编程开发"
+- 编程
 ---
 
 # tmux简明速查手册(WSL/Linux通用)

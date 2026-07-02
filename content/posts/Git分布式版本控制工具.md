@@ -1,15 +1,16 @@
 ---
-title: "Git分布式版本控制工具"
-slug: "git分布式版本控制工具"
-date: 1970-01-21T23:10:23+08:00
+title: Git分布式版本控制工具
+slug: git分布式版本控制工具
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://git分布式版本控制工具"
+source_file: feishu://git分布式版本控制工具
 source_size: 4078
 source_lines: 167
 tags:
-  - "工具"
+- Git
+- 工具
 categories:
-  - "编程开发"
+- 编程
 ---
 
 # Git分布式版本控制工具

@@ -1,13 +1,17 @@
 ---
-title: "vision-lab开发日志"
-slug: "vision-lab开发日志"
-date: 1970-01-21T23:10:24+08:00
+title: vision-lab开发日志
+slug: vision-lab开发日志
+date: 1970-01-21 23:10:24+08:00
 draft: false
-source_file: "feishu://vision-lab开发日志"
+source_file: feishu://vision-lab开发日志
 source_size: 2601
 source_lines: 159
-tags: []
-categories: []
+tags:
+- 机器人
+- 视觉
+- 开发日志
+categories:
+- 机器人
 ---
 
 # vision-lab开发日志

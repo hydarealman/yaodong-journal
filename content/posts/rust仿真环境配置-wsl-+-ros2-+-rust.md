@@ -1,17 +1,18 @@
 ---
-title: "rust仿真环境配置: wsl + ros2 + rust"
-slug: "rust仿真环境配置-wsl-+-ros2-+-rust"
-date: 1970-01-21T23:10:24+08:00
+title: 'rust仿真环境配置: wsl + ros2 + rust'
+slug: rust仿真环境配置-wsl-+-ros2-+-rust
+date: 1970-01-21 23:10:24+08:00
 draft: false
-source_file: "feishu://rust仿真环境配置-wsl-+-ros2-+-rust"
+source_file: feishu://rust仿真环境配置-wsl-+-ros2-+-rust
 source_size: 1055
 source_lines: 70
 tags:
-  - "ROS"
-  - "Python"
+- ROS
+- Rust
+- 机器人
+- 环境配置
 categories:
-  - "机器人视觉"
-  - "编程开发"
+- 机器人
 ---
 
 # rust仿真环境配置: wsl + ros2 + rust

@@ -1,15 +1,18 @@
 ---
-title: "MPC"
-slug: "mpc"
-date: 1970-01-21T23:10:23+08:00
+title: MPC
+slug: mpc
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://mpc"
+source_file: feishu://mpc
 source_size: 209
 source_lines: 7
 tags:
-  - "算法"
+- 算法
+- MPC
+- 控制
+- 机器人
 categories:
-  - "算法数学"
+- 机器人
 ---
 
 # MPC

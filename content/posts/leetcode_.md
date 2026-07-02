@@ -1,15 +1,17 @@
 ---
-title: "leetcode_"
-slug: "leetcode_"
-date: 2026-06-06T16:02:11+08:00
+title: leetcode_
+slug: leetcode_
+date: 2026-06-06 16:02:11+08:00
 draft: false
-source_file: "leetcode_.md"
+source_file: leetcode_.md
 source_size: 14094
 source_lines: 436
 tags:
-  - "算法"
+- 算法
+- C/C++
+- Leetcode
 categories:
-  - "算法数学"
+- 编程
 ---
 
 # leetcode

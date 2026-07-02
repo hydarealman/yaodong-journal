@@ -1,13 +1,18 @@
 ---
-title: "opencv知识库---整理"
-slug: "opencv知识库-整理"
-date: 2026-06-06T16:05:04+08:00
+title: opencv知识库---整理
+slug: opencv知识库-整理
+date: 2026-06-06 16:05:04+08:00
 draft: false
-source_file: "opencv知识库---整理.md"
+source_file: opencv知识库---整理.md
 source_size: 29865
 source_lines: 921
-tags: []
-categories: []
+tags:
+- OpenCV
+- Python
+- 视觉
+- 机器人
+categories:
+- 机器人
 ---
 
 # opencv知识库\-\-\-整理

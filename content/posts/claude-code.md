@@ -1,13 +1,18 @@
 ---
-title: "Claude Code"
-slug: "claude-code"
-date: 1970-01-21T23:10:24+08:00
+title: Claude Code
+slug: claude-code
+date: 1970-01-21 23:10:24+08:00
 draft: false
-source_file: "feishu://claude-code"
+source_file: feishu://claude-code
 source_size: 1274
 source_lines: 66
-tags: []
-categories: []
+tags:
+- AI
+- Claude
+- 工具
+- CLI
+categories:
+- 编程
 ---
 
 # Claude Code

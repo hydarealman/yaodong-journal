@@ -1,13 +1,17 @@
 ---
-title: "QT"
-slug: "qt"
-date: 1970-01-21T23:10:24+08:00
+title: QT
+slug: qt
+date: 1970-01-21 23:10:24+08:00
 draft: false
-source_file: "feishu://qt"
+source_file: feishu://qt
 source_size: 8671
 source_lines: 258
-tags: []
-categories: []
+tags:
+- QT
+- C/C++
+- GUI
+categories:
+- 编程
 ---
 
 # QT

@@ -1,15 +1,17 @@
 ---
-title: "lab相关文献阅读"
-slug: "lab相关文献阅读"
-date: 1970-01-21T23:10:23+08:00
+title: lab相关文献阅读
+slug: lab相关文献阅读
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://lab相关文献阅读"
+source_file: feishu://lab相关文献阅读
 source_size: 7003
 source_lines: 196
 tags:
-  - "读书"
+- 读书
+- 文献
+- 机器人
 categories:
-  - "学习记录"
+- 学习笔记
 ---
 
 # lab相关文献阅读

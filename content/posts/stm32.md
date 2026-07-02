@@ -1,15 +1,17 @@
 ---
-title: "stm32"
-slug: "stm32"
-date: 1970-01-21T23:10:23+08:00
+title: stm32
+slug: stm32
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://stm32"
+source_file: feishu://stm32
 source_size: 41855
 source_lines: 1181
 tags:
-  - "机器人"
+- 嵌入式
+- 机器人
+- 硬件
 categories:
-  - "机器人视觉"
+- 机器人
 ---
 
 # stm32

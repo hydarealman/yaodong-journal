@@ -1,15 +1,17 @@
 ---
-title: "数学建模 - matlab"
-slug: "数学建模-matlab"
-date: 1970-01-21T23:10:23+08:00
+title: 数学建模 - matlab
+slug: 数学建模-matlab
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://数学建模-matlab"
+source_file: feishu://数学建模-matlab
 source_size: 5392
 source_lines: 153
 tags:
-  - "算法"
+- 数学
+- 建模
+- Matlab
 categories:
-  - "算法数学"
+- 算法与数学
 ---
 
 # 数学建模 - matlab

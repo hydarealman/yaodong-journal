@@ -1,14 +1,17 @@
 ---
-title: "xv6 for RISC-V"
-slug: "xv6-for-risc-v"
-date: 1970-01-21T23:10:23+08:00
+title: xv6 for RISC-V
+slug: xv6-for-risc-v
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://xv6-for-risc-v"
+source_file: feishu://xv6-for-risc-v
 source_size: 29029
 source_lines: 1125
 tags:
-  - "读书"
-categories: []
+- 操作系统
+- 读书
+- RISC-V
+categories:
+- 编程
 ---
 
 # xv6 for RISC-V

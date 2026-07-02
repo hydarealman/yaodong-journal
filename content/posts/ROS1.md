@@ -1,15 +1,16 @@
 ---
-title: "ROS1"
-slug: "ros1"
-date: 1970-01-21T23:10:23+08:00
+title: ROS1
+slug: ros1
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://ros1"
+source_file: feishu://ros1
 source_size: 26450
 source_lines: 789
 tags:
-  - "ROS"
+- ROS
+- 机器人
 categories:
-  - "机器人视觉"
+- 机器人
 ---
 
 # ROS1

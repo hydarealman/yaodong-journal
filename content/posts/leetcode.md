@@ -1,15 +1,17 @@
 ---
-title: "leetcode"
-slug: "leetcode"
-date: 1970-01-21T23:10:23+08:00
+title: leetcode
+slug: leetcode
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://leetcode"
+source_file: feishu://leetcode
 source_size: 13126
 source_lines: 220
 tags:
-  - "算法"
+- 算法
+- C/C++
+- Leetcode
 categories:
-  - "算法数学"
+- 编程
 ---
 
 # leetcode

@@ -1,15 +1,18 @@
 ---
-title: "SLAM"
-slug: "slam"
-date: 1970-01-21T23:10:23+08:00
+title: SLAM
+slug: slam
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://slam"
+source_file: feishu://slam
 source_size: 9118
 source_lines: 255
 tags:
-  - "ROS"
+- ROS
+- 机器人
+- SLAM
+- 算法
 categories:
-  - "机器人视觉"
+- 机器人
 ---
 
 # SLAM

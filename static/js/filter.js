@@ -116,7 +116,7 @@
       tagFilters.addEventListener('click', function (e) {
         var pill = e.target.closest('.wander-tags__pill');
         if (!pill) return;
-        activeTag = pill.dataset.tag || '';
+        activeTag = (pill.dataset.tag || '').toLowerCase();
         var pills = tagFilters.querySelectorAll('.wander-tags__pill');
         for (var i = 0; i < pills.length; i++) {
           pills[i].classList.toggle('active', pills[i] === pill);

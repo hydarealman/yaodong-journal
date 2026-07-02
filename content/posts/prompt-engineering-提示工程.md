@@ -1,14 +1,17 @@
 ---
-title: "Prompt Engineering 提示工程"
-slug: "prompt-engineering-提示工程"
-date: 1970-01-21T23:10:23+08:00
+title: Prompt Engineering 提示工程
+slug: prompt-engineering-提示工程
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://prompt-engineering-提示工程"
+source_file: feishu://prompt-engineering-提示工程
 source_size: 4731
 source_lines: 186
 tags:
-  - "AI"
-categories: []
+- AI
+- 提示工程
+- LLM
+categories:
+- AI
 ---
 
 # Prompt Engineering 提示工程

@@ -1,15 +1,17 @@
 ---
-title: "rm第四阶段学习---自瞄"
-slug: "rm第四阶段学习-自瞄"
-date: 1970-01-21T23:10:23+08:00
+title: rm第四阶段学习---自瞄
+slug: rm第四阶段学习-自瞄
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://rm第四阶段学习-自瞄"
+source_file: feishu://rm第四阶段学习-自瞄
 source_size: 2122
 source_lines: 66
 tags:
-  - "机器人"
+- 自瞄
+- 机器人
+- 学习
 categories:
-  - "机器人视觉"
+- 机器人
 ---
 
 # rm第四阶段学习---自瞄

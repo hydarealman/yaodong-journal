@@ -1,16 +1,18 @@
 ---
-title: "rust仿真环境配置_ wsl + ros2 + rust"
-slug: "rust仿真环境配置_-wsl-+-ros2-+-rust"
-date: 2026-06-06T16:15:30+08:00
+title: rust仿真环境配置_ wsl + ros2 + rust
+slug: rust仿真环境配置_-wsl-+-ros2-+-rust
+date: 2026-06-06 16:15:30+08:00
 draft: false
-source_file: "rust仿真环境配置_ wsl + ros2 + rust.md"
+source_file: rust仿真环境配置_ wsl + ros2 + rust.md
 source_size: 1194
 source_lines: 123
 tags:
-  - "ROS"
+- ROS
+- Rust
+- 机器人
+- 环境配置
 categories:
-  - "机器人视觉"
-  - "编程开发"
+- 机器人
 ---
 
 # rust仿真环境配置: wsl \+ ros2 \+ rust

@@ -1,14 +1,18 @@
 ---
-title: "OpenVINO"
-slug: "openvino"
-date: 1970-01-21T23:10:23+08:00
+title: OpenVINO
+slug: openvino
+date: 1970-01-21 23:10:23+08:00
 draft: false
-source_file: "feishu://openvino"
+source_file: feishu://openvino
 source_size: 1819
 source_lines: 50
 tags:
-  - "AI"
-categories: []
+- AI
+- 深度学习
+- 工具
+- Intel
+categories:
+- AI
 ---
 
 # OpenVINO
