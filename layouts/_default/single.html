@@ -79,6 +79,9 @@
       {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
       {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
 
+      {{- /* ── Series navigation ── */ -}}
+      {{- partial "series_nav.html" . }}
+
       {{- if .Content }}
       <div class="post-content md-content">
         {{- if not (.Param "disableAnchoredHeadings") }}
@@ -88,6 +91,9 @@
       {{- end }}
 
       {{- partial "extend_post_content.html" . }}
+
+      {{- /* ── Related posts ── */ -}}
+      {{- partial "related_posts.html" . }}
 
       <footer class="post-footer">
         {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}

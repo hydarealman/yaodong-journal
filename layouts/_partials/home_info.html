@@ -1,5 +1,14 @@
 {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
 {{- $pinned := first 4 (sort (where $posts "Params.pinned" true) "Weight" "asc") -}}
+{{- $allTags := slice -}}
+{{- range $posts -}}
+  {{- range .Params.tags -}}
+    {{- if not (in $allTags .) -}}
+      {{- $allTags = $allTags | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $allTags = sort $allTags -}}
 {{- $tags := site.Taxonomies.tags -}}
 {{- $categories := site.Taxonomies.categories -}}
 {{- $words := 0 -}}
@@ -7,62 +16,111 @@
 
 {{- with site.Params.homeInfoParams }}
 <section class="wander-hero">
-    <div class="wander-hero__inner">
-        <div class="wander-hero__brand">
-            <span class="wander-hero__dots" aria-hidden="true"></span>
-            <h1 class="wander-hero__title">{{ .Title | markdownify }}</h1>
-        </div>
-        {{- with .Content }}
-        <p class="wander-hero__desc">{{ . | $.Page.RenderString (dict "display" "inline") }}</p>
-        {{- end }}
+  <h1 class="wander-hero__title">{{ .Title | markdownify }}</h1>
+  {{- with .Content }}
+  <p class="wander-hero__desc">{{ . | $.Page.RenderString (dict "display" "inline") }}</p>
+  {{- end }}
 
-        <div class="wander-hero__stats" aria-label="站点统计">
-            <span><strong>{{ len $posts }}</strong> 篇文章</span>
-            <span class="wander-hero__sep"></span>
-            <span><strong>{{ len $tags }}</strong> 个标签</span>
-            <span class="wander-hero__sep"></span>
-            <span><strong>{{ len $categories }}</strong> 个分类</span>
-            <span class="wander-hero__sep"></span>
-            <span><strong>{{ div $words 1000 }}</strong>k 字</span>
-        </div>
+  <div class="wander-hero__stats" aria-label="站点统计">
+    <span><strong>{{ len $posts }}</strong> 篇文章</span>
+    <span class="wander-hero__sep"></span>
+    <span><strong>{{ len $tags }}</strong> 个标签</span>
+    <span class="wander-hero__sep"></span>
+    <span><strong>{{ len $categories }}</strong> 个分类</span>
+    <span class="wander-hero__sep"></span>
+    <span><strong>{{ div $words 1000 }}</strong>k 字</span>
+  </div>
 
-        <nav class="wander-hero__nav" aria-label="快捷导航">
-            <a href="{{ "posts/" | relURL }}">全部文章</a>
-            <a href="{{ "archives/" | relURL }}">归档</a>
-            <a href="{{ "tags/" | relURL }}">标签</a>
-            <a href="{{ "search/" | relURL }}">搜索</a>
-        </nav>
-    </div>
+  {{- /* ── Search bar ── */ -}}
+  <div class="wander-search">
+    <svg class="wander-search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input class="wander-search__input" id="post-search" type="search" placeholder="搜索文章…" autocomplete="off">
+    <span class="wander-search__count" id="filter-count" aria-live="polite">{{ len $posts }} 篇</span>
+  </div>
+
+  {{- /* ── Tag filter pills ── */ -}}
+  <div class="wander-tags" id="tag-filters">
+    <button class="wander-tags__pill active" data-tag="">全部</button>
+    {{- range $allTags }}
+    <button class="wander-tags__pill" data-tag="{{ . | plainify }}">{{ . }}</button>
+    {{- end }}
+  </div>
 </section>
 
 {{- if $pinned }}
-<section class="wander-featured" aria-label="置顶文章">
-    <h2 class="wander-featured__heading">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
-        置顶
-    </h2>
-    <div class="wander-featured__list">
-        {{- range $pinned }}
-        <a class="wander-featured__card" href="{{ .Permalink }}">
-            <span class="wander-featured__card-title">{{ .Title }}</span>
-            <span class="wander-featured__card-meta">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-                {{- with .Params.tags }}
-                <span class="wander-featured__card-tags">
-                    {{- range first 2 . }}
-                    <span>{{ . }}</span>
-                    {{- end }}
-                </span>
-                {{- end }}
-            </span>
-        </a>
+<section class="wander-featured" aria-label="置顶文章" id="pinned-section">
+  <h2 class="wander-featured__heading">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+    置顶
+  </h2>
+  <div class="wander-featured__list">
+    {{- range $pinned }}
+    <a class="wander-featured__card" href="{{ .Permalink }}">
+      <span class="wander-featured__card-title">{{ .Title }}</span>
+      <span class="wander-featured__card-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{- with .Params.tags }}
+        <span class="wander-featured__card-tags">
+          {{- range first 3 . }}<span>{{ . }}</span>{{- end }}
+        </span>
         {{- end }}
-    </div>
+      </span>
+    </a>
+    {{- end }}
+  </div>
 </section>
 {{- end }}
 
 <footer class="wander-hero__social">
-    {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+  {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
 </footer>
 
 {{- end -}}
+
+{{- /* ── Filtering script ── */ -}}
+<script>
+(() => {
+  const searchInput = document.getElementById('post-search');
+  const tagFilters = document.getElementById('tag-filters');
+  const filterCount = document.getElementById('filter-count');
+  const postList = document.querySelector('.post-list');
+  const pinnedSection = document.getElementById('pinned-section');
+  if (!postList) return;
+
+  let activeTag = '';
+
+  const filter = () => {
+    const query = (searchInput?.value || '').toLowerCase().trim();
+    const items = postList.querySelectorAll('.post-entry');
+    let visible = 0;
+
+    items.forEach((item) => {
+      const tags = (item.dataset.tags || '').toLowerCase();
+      const title = (item.dataset.title || '').toLowerCase();
+      const summary = (item.dataset.summary || '').toLowerCase();
+      const matchTag = !activeTag || tags.split(',').some(t => t.trim() === activeTag);
+      const matchSearch = !query || title.includes(query) || summary.includes(query) || tags.includes(query);
+      const show = matchTag && matchSearch;
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    if (filterCount) filterCount.textContent = visible + ' 篇';
+    // Hide pinned section when filtering
+    if (pinnedSection) pinnedSection.style.display = (query || activeTag) ? 'none' : '';
+  };
+
+  if (searchInput) searchInput.addEventListener('input', filter);
+  if (tagFilters) {
+    tagFilters.addEventListener('click', (e) => {
+      const pill = e.target.closest('.wander-tags__pill');
+      if (!pill) return;
+      activeTag = pill.dataset.tag || '';
+      tagFilters.querySelectorAll('.wander-tags__pill').forEach(p => p.classList.toggle('active', p === pill));
+      filter();
+    });
+  }
+})();
+</script>

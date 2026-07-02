@@ -1,0 +1,35 @@
+{{- /* related_posts.html — show 3 related articles by tag overlap */ -}}
+{{- $current := . -}}
+{{- $currentTags := .Params.tags -}}
+{{- if $currentTags }}
+  {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+  {{- $related := slice -}}
+  {{- range $posts }}
+    {{- if ne .Permalink $current.Permalink }}
+      {{- $overlap := 0 }}
+      {{- range .Params.tags }}
+        {{- if in $currentTags . }}
+          {{- $overlap = add $overlap 1 }}
+        {{- end }}
+      {{- end }}
+      {{- if gt $overlap 0 }}
+        {{- $related = $related | append (dict "page" . "score" $overlap) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- $related = sort $related "score" "desc" }}
+  {{- $related = first 3 $related }}
+  {{- if gt (len $related) 0 }}
+  <section class="related-posts" aria-label="相关文章">
+    <h2 class="related-posts__heading">相关文章</h2>
+    <div class="related-posts__list">
+      {{- range $related }}
+      <a class="related-posts__item" href="{{ .page.Permalink }}">
+        <span>{{ .page.Title }}</span>
+        <span class="date">{{ .page.Date.Format "2006-01-02" }}</span>
+      </a>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+{{- end }}

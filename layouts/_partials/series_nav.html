@@ -1,0 +1,39 @@
+{{- /* series_nav.html — show series navigation if article belongs to a series */ -}}
+{{- $current := . -}}
+{{- $seriesName := .Params.series -}}
+{{- if $seriesName }}
+  {{- /* Find all pages in the same series, sorted by date */ -}}
+  {{- $allInSeries := where site.RegularPages "Params.series" "==" $seriesName -}}
+  {{- $allInSeries = sort $allInSeries "Date" "asc" -}}
+
+  {{- /* Find current position */ -}}
+  {{- $index := -1 }}
+  {{- range $i, $p := $allInSeries }}
+    {{- if eq $p.Permalink $current.Permalink }}
+      {{- $index = $i }}
+    {{- end }}
+  {{- end }}
+
+  {{- if gt (len $allInSeries) 1 }}
+  <nav class="series-nav" aria-label="系列导航">
+    <div class="series-nav__header">
+      这是 <strong>「{{ $seriesName }}」</strong> 系列的第 <strong>{{ add $index 1 }}</strong> 篇（共 <strong>{{ len $allInSeries }}</strong> 篇）
+    </div>
+    <div class="series-nav__links">
+      {{- if gt $index 0 }}
+        {{- $prev := index $allInSeries (sub $index 1) }}
+        <a href="{{ $prev.Permalink }}" title="{{ $prev.Title }}">← {{ $prev.Title | truncate 30 }}</a>
+      {{- else }}
+        <span class="disabled">← 已是第一篇</span>
+      {{- end }}
+
+      {{- if lt $index (sub (len $allInSeries) 1) }}
+        {{- $next := index $allInSeries (add $index 1) }}
+        <a href="{{ $next.Permalink }}" title="{{ $next.Title }}">{{ $next.Title | truncate 30 }} →</a>
+      {{- else }}
+        <span class="disabled">已是最后一篇 →</span>
+      {{- end }}
+    </div>
+  </nav>
+  {{- end }}
+{{- end }}

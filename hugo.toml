@@ -42,7 +42,7 @@ buildExpired = false
   keywords = ["Hugo", "Blog", "Notes", "个人博客", "技术笔记"]
   author = "dong"
   DateFormat = "2006-01-02"
-  defaultTheme = "dark"
+  defaultTheme = "auto"
   disableThemeToggle = false
   ShowReadingTime = true
   ShowShareButtons = false
@@ -56,7 +56,16 @@ buildExpired = false
   showtoc = true
   tocopen = true
   mainSections = ["posts"]
-  comments = false
+  comments = true
+
+  [params.giscus]
+    repo = "hydarealman/wander"
+    repoId = "R_kgDOS5PAig"
+    category = "General"
+    categoryId = "DIC_kwDOS5PAis4DAWkL"
+    mapping = "pathname"
+    theme = "preferred_color_scheme"
+    lang = "zh-CN"
   hideFooter = false
 
   [params.assets]
@@ -95,7 +104,7 @@ buildExpired = false
     noClasses = false
     codeFences = true
     guessSyntax = true
-    lineNos = false
+    lineNos = true
     style = "github"
 
   [markup.goldmark]
