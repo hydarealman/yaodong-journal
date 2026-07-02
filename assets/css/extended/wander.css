@@ -234,6 +234,20 @@ body {
   white-space: nowrap;
 }
 
+/* ── Keyword highlight ────────────────────── */
+
+mark.wander-hl {
+  background: var(--hl-bg, #fde68a);
+  color: var(--hl-text, #1a1a1a);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+[data-theme="dark"] mark.wander-hl {
+  --hl-bg: #854d0e;
+  --hl-text: #fef3c7;
+}
+
 /* ── Tag filter pills ────────────────────── */
 
 .wander-tags {
