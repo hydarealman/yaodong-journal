@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on wander</title>
+    <link>https://hydarealman.github.io/wander/tags/</link>
+    <description>Recent content in Tags on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>机器人</title>
+      <link>https://hydarealman.github.io/wander/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+      <pubDate>Sun, 28 Jun 2026 12:44:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>工具</title>
+      <link>https://hydarealman.github.io/wander/tags/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:40 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ROS</title>
+      <link>https://hydarealman.github.io/wander/tags/ros/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:30 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/ros/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>复盘</title>
+      <link>https://hydarealman.github.io/wander/tags/%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:19 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/%E5%A4%8D%E7%9B%98/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>算法</title>
+      <link>https://hydarealman.github.io/wander/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 06 Jun 2026 16:10:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://hydarealman.github.io/wander/tags/python/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://hydarealman.github.io/wander/tags/ai/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C/C&#43;&#43;</title>
+      <link>https://hydarealman.github.io/wander/tags/c/c&#43;&#43;/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/c/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>读书</title>
+      <link>https://hydarealman.github.io/wander/tags/%E8%AF%BB%E4%B9%A6/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/tags/%E8%AF%BB%E4%B9%A6/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

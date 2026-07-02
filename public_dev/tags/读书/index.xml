@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>读书 on wander</title>
+    <link>https://hydarealman.github.io/wander/tags/%E8%AF%BB%E4%B9%A6/</link>
+    <description>Recent content in 读书 on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/tags/%E8%AF%BB%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lab相关文献阅读</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/lab%E7%9B%B8%E5%85%B3%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/lab%E7%9B%B8%E5%85%B3%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</guid>
+      <description>&lt;h1 id=&#34;lab相关文献阅读&#34;&gt;lab相关文献阅读&lt;/h1&gt;
+&lt;p&gt;阅读方法:
+image.png&lt;/p&gt;
+&lt;p&gt;笔记归档
+image.png&lt;/p&gt;
+&lt;h2 id=&#34;文献一-人工智能驱动的作物表型解析-进展与挑战&#34;&gt;文献一: 人工智能驱动的作物表型解析: 进展与挑战&lt;/h2&gt;
+&lt;p&gt;这是一篇综述文章，本身不提出新算法，而是系统梳理了AI在六个表型维度上的已有技术方案和应用进展：
+image.png&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>xv6 for RISC-V</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/</guid>
+      <description>&lt;h1 id=&#34;xv6-for-risc-v&#34;&gt;xv6 for RISC-V&lt;/h1&gt;
+&lt;h2 id=&#34;jyy-xv6导读&#34;&gt;jyy xv6导读&lt;/h2&gt;
+&lt;h3 id=&#34;基础知识&#34;&gt;基础知识&lt;/h3&gt;
+&lt;p&gt;应用视角的操作系统: 对象 + API
+把操作系统当提供服务的黑盒子&lt;/p&gt;
+&lt;p&gt;xv6:Unix v6的现代&amp;quot;克隆&amp;quot;&lt;/p&gt;
+&lt;p&gt;文件关系
+源文件 (.c/.cpp)  →  编译  →  目标文件 (.o)  →  链接  →  可执行文件
+↓
+依赖文件 (.d)  →  告诉构建系统何时需要重新编译&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深入理解计算机系统</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;h1 id=&#34;深入理解计算机系统&#34;&gt;深入理解计算机系统&lt;/h1&gt;
+&lt;h1 id=&#34;第一章计算机系统漫游&#34;&gt;第一章:计算机系统漫游&lt;/h1&gt;
+&lt;h2 id=&#34;11信息就是位上下文&#34;&gt;1.1信息就是位+上下文&lt;/h2&gt;
+&lt;p&gt;基本思想：系统中所有的信息————包括磁盘文件，内存中的程序，内存中存放的用户数据以及网络上传送的数据，都是由一串比特表示的。区分不同数据对象的唯一方法是我们读到这些数据对象的上下文。
+C语言的起源：
+C语言最开始作为一种用于Unix系统的程序语言开发出来的。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

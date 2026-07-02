@@ -1,0 +1,556 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>xv6 for RISC-V | wander</title><meta name=keywords content="读书"><meta name=description content='xv6 for RISC-V
+jyy xv6导读
+基础知识
+应用视角的操作系统: 对象 + API
+把操作系统当提供服务的黑盒子
+xv6:Unix v6的现代"克隆"
+文件关系
+源文件 (.c/.cpp)  →  编译  →  目标文件 (.o)  →  链接  →  可执行文件
+↓
+依赖文件 (.d)  →  告诉构建系统何时需要重新编译'><meta name=author content="dong"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/><link crossorigin=anonymous href=/wander/assets/css/stylesheet.0af188802f5b9d57040c63f6322b3edbb8d667e734f3720bac584f3280ed4145.css integrity="sha256-CvGIgC9bnVcEDGP2Mis+27jWZ+c083ILrFhPMoDtQUU=" rel="preload stylesheet" as=style><link rel=icon href=https://hydarealman.github.io/wander/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://hydarealman.github.io/wander/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://hydarealman.github.io/wander/favicon-32x32.png><link rel=apple-touch-icon href=https://hydarealman.github.io/wander/apple-touch-icon.png><link rel=mask-icon href=https://hydarealman.github.io/wander/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:image" content="https://hydarealman.github.io/wander/images/og-default.png"><meta property="twitter:image" content="https://hydarealman.github.io/wander/images/og-default.png"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/><link rel=manifest href=https://hydarealman.github.io/wander/manifest.json><meta name=theme-color content="#ffffff" media="(prefers-color-scheme: light)"><meta name=theme-color content="#0d1117" media="(prefers-color-scheme: dark)"><meta name=mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="default"><meta name=apple-mobile-web-app-title content="wander"><script>"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("https://hydarealman.github.io/wander/sw.js")})</script><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//cdn.jsdelivr.net><link rel=dns-prefetch href=//giscus.app><meta property="og:url" content="https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/"><meta property="og:site_name" content="wander"><meta property="og:title" content="xv6 for RISC-V"><meta property="og:description" content='xv6 for RISC-V jyy xv6导读 基础知识 应用视角的操作系统: 对象 + API 把操作系统当提供服务的黑盒子
+xv6:Unix v6的现代"克隆"
+文件关系 源文件 (.c/.cpp) → 编译 → 目标文件 (.o) → 链接 → 可执行文件 ↓ 依赖文件 (.d) → 告诉构建系统何时需要重新编译'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="1970-01-21T23:10:23+08:00"><meta property="article:modified_time" content="2026-06-29T10:28:17+08:00"><meta property="article:tag" content="读书"><meta name=twitter:card content="summary"><meta name=twitter:title content="xv6 for RISC-V"><meta name=twitter:description content='xv6 for RISC-V jyy xv6导读 基础知识 应用视角的操作系统: 对象 + API 把操作系统当提供服务的黑盒子
+xv6:Unix v6的现代"克隆"
+文件关系 源文件 (.c/.cpp) → 编译 → 目标文件 (.o) → 链接 → 可执行文件 ↓ 依赖文件 (.d) → 告诉构建系统何时需要重新编译'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://hydarealman.github.io/wander/posts/"},{"@type":"ListItem","position":2,"name":"xv6 for RISC-V","item":"https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"xv6 for RISC-V","name":"xv6 for RISC-V","description":"xv6 for RISC-V jyy xv6导读 基础知识 应用视角的操作系统: 对象 + API 把操作系统当提供服务的黑盒子\nxv6:Unix v6的现代\u0026quot;克隆\u0026quot;\n文件关系 源文件 (.c/.cpp) → 编译 → 目标文件 (.o) → 链接 → 可执行文件 ↓ 依赖文件 (.d) → 告诉构建系统何时需要重新编译\n","keywords":["读书"],"articleBody":"xv6 for RISC-V jyy xv6导读 基础知识 应用视角的操作系统: 对象 + API 把操作系统当提供服务的黑盒子\nxv6:Unix v6的现代\"克隆\"\n文件关系 源文件 (.c/.cpp) → 编译 → 目标文件 (.o) → 链接 → 可执行文件 ↓ 依赖文件 (.d) → 告诉构建系统何时需要重新编译\n1.源文件 (Source Files) .c - C语言源文件 .cpp/.cc - C++源文件 .h/.hpp - 头文件\n2.目标文件 (Object Files) - .o 文件 编译后的中间二进制文件\n依赖文件 (Dependency Files) - .d 文件 记录编译依赖关系的Makefile片段 编译时同时生成依赖文件 gcc -c main.c -o main.o -MMD -MF main.d\n程序的执行(状态变化序列)有时比代码(状态机)更容易理解 使用工具进行“ tracing ”（追踪） 理解并发Bug 建立确定性心智模型\n阅读makefile文件可以比较好的帮助理解代码\nxv6文件结构 kernel/目录 - 操作系统内核 包含了xv6操作系统的所有内核代码,这是操作系统的核心部分\nmkfs/目录 - 文件系统创建工具 包含创建xv6系统镜像的工具\nuser/目录 - 用户空间程序 包含所有在用户空间运行的程序\nxv6 22个系统调用 image.png\nxv6进程的地址空间 image.png\nxv6系统调用 image.png\nTrampoline(跳板) image.png\n程序的状态 image.png\n虚拟化: 状态的管理 image.png\n状态的封存：Trivial的操作系统实现 image.png\n状态的封存: 体系结构相关的处理 image.png\n再次调试系统调用 image.png\n调用usertrap()后的系统状态 image.png\n小结: 状态机的封存 image.png\ninvariant状态 invariant(不变式)在计算机科学中指在程序的某些关键点上必须始终为真的条件或约束 状态机被封存\n总结 image.png\n操作系统是中断处理程序 操作系统是状态机的管理者\n缓存系统bio.c/bio.h LRU 最近使用的（最新） 最久未用的（最旧） ↓ ↓ [head] ←→ [bufA] ←→ [bufB] ←→ [bufC] ←→ ... ←→ [bufZ] ←→ [head] ↑ 最新使用 最旧使用 ↑ └─────────────────────────────────────────────────────────────┘ 循环连接 xv6的LRU维护特点: 惰性更新 + 只在释放时移动 核心原则： 缓存命中时：不移动缓冲区在LRU中的位置 缓存未命中时：从链表尾部查找空闲缓冲区 缓冲区释放时：只有当引用计数归零 (refcnt == 0) 时才移动到链表头部\n传统LRU 假设: 最近被访问的数据，在不久的将来很可能再次被访问 很久没有被访问的数据，未来也不太可能被访问\n每次访问缓存项时,都会将其移动到链表的头部 当缓存满的时候删除尾部节点(最久未使用)\n传统LRU -\u003e 来自leetcode\n缓存系统 bcache（缓存系统） ╔═══════════════════════════════════╗ ║ struct spinlock lock; ║ ← 保护整个系统 ║ ║ ║ struct buf buf[NBUF]; ║ ← 缓冲区数组 ║ ┌─────────┐ ┌─────────┐ ║ ║ │ buf[0] │ │ buf[1] │ ... ║ ← 每个都是struct buf ║ │ valid=1 │ │ valid=0 │ ║ ║ │ dev=1 │ │ dev=1 │ ║ ║ │ blk=123 │ │ blk=456 │ ║ ║ │ data[] │ │ data[] │ ║ ║ └─────────┘ └─────────┘ ║ ║ ║ ║ struct buf head; ║ ← LRU链表头 ║ prev → buf[28] ║ ║ next → buf[1] ║ ╚═══════════════════════════════════╝ ↑ ↑ ↑ 通过prev/next指针连接所有缓冲区 形成LRU双向循环链表 睡眠锁sleeplock.h/sleeplock.c 补充: 也叫条件锁或长时间持有的锁\n// Long-term locks for processes struct sleeplock { uint locked; // Is the lock held? struct spinlock lk; // spinlock protecting this sleep lock\n// For debugging: char *name; // Name of lock. int pid; // Process holding lock };\n// Sleeping locks\n#include “types.h” #include “riscv.h” #include “defs.h” #include “param.h” #include “memlayout.h” #include “spinlock.h” #include “proc.h” #include “sleeplock.h”\nvoid initsleeplock(struct sleeplock *lk, char *name) { initlock(\u0026lk-\u003elk, “sleep lock”); lk-\u003ename = name; lk-\u003elocked = 0; lk-\u003epid = 0; }\nvoid acquiresleep(struct sleeplock *lk) { acquire(\u0026lk-\u003elk); while (lk-\u003elocked) { sleep(lk, \u0026lk-\u003elk); } lk-\u003elocked = 1; lk-\u003epid = myproc()-\u003epid; release(\u0026lk-\u003elk); }\nvoid releasesleep(struct sleeplock *lk) { acquire(\u0026lk-\u003elk); lk-\u003elocked = 0; lk-\u003epid = 0; wakeup(lk); release(\u0026lk-\u003elk); }\nint holdingsleep(struct sleeplock *lk) { int r;\nacquire(\u0026lk-\u003elk); r = lk-\u003elocked \u0026\u0026 (lk-\u003epid == myproc()-\u003epid); release(\u0026lk-\u003elk); return r; }\n自旋锁spinlock.c/spinlock.h // Mutual exclusion lock. struct spinlock { uint locked; // Is the lock held?\n// For debugging: char *name; // Name of lock. struct cpu *cpu; // The cpu holding the lock. };\n// Mutual exclusion spin locks.\n#include “types.h” #include “param.h” #include “memlayout.h” #include “spinlock.h” #include “riscv.h” #include “proc.h” #include “defs.h”\nvoid initlock(struct spinlock *lk, char *name) { lk-\u003ename = name; lk-\u003elocked = 0; lk-\u003ecpu = 0; }\n// Acquire the lock. // Loops (spins) until the lock is acquired. void acquire(struct spinlock *lk) { push_off(); // disable interrupts to avoid deadlock. if(holding(lk)) panic(“acquire”);\n// On RISC-V, sync_lock_test_and_set turns into an atomic swap: // a5 = 1 // s1 = \u0026lk-\u003elocked // amoswap.w.aq a5, a5, (s1) while(__sync_lock_test_and_set(\u0026lk-\u003elocked, 1) != 0) ;\n// Tell the C compiler and the processor to not move loads or stores // past this point, to ensure that the critical section’s memory // references happen strictly after the lock is acquired. // On RISC-V, this emits a fence instruction. __sync_synchronize();\n// Record info about lock acquisition for holding() and debugging. lk-\u003ecpu = mycpu(); }\n// Release the lock. void release(struct spinlock *lk) { if(!holding(lk)) panic(“release”);\nlk-\u003ecpu = 0;\n// Tell the C compiler and the CPU to not move loads or stores // past this point, to ensure that all the stores in the critical // section are visible to other CPUs before the lock is released, // and that loads in the critical section occur strictly before // the lock is released. // On RISC-V, this emits a fence instruction. __sync_synchronize();\n// Release the lock, equivalent to lk-\u003elocked = 0. // This code doesn’t use a C assignment, since the C standard // implies that an assignment might be implemented with // multiple store instructions. // On RISC-V, sync_lock_release turns into an atomic swap: // s1 = \u0026lk-\u003elocked // amoswap.w zero, zero, (s1) __sync_lock_release(\u0026lk-\u003elocked);\npop_off(); }\n// Check whether this cpu is holding the lock. // Interrupts must be off. int holding(struct spinlock *lk) { int r; r = (lk-\u003elocked \u0026\u0026 lk-\u003ecpu == mycpu()); return r; }\n// push_off/pop_off are like intr_off()/intr_on() except that they are matched: // it takes two pop_off()s to undo two push_off()s. Also, if interrupts // are initially off, then push_off, pop_off leaves them off.\nvoid push_off(void) { int old = intr_get();\n// disable interrupts to prevent an involuntary context // switch while using mycpu(). intr_off();\nif(mycpu()-\u003enoff == 0) mycpu()-\u003eintena = old; mycpu()-\u003enoff += 1; }\nvoid pop_off(void) { struct cpu *c = mycpu(); if(intr_get()) panic(“pop_off - interruptible”); if(c-\u003enoff \u003c 1) panic(“pop_off”); c-\u003enoff -= 1; if(c-\u003enoff == 0 \u0026\u0026 c-\u003eintena) intr_on(); }\n自旋锁和睡眠锁对比 ELF/elf.h xv6引导加载器(Boot Loader)/bootmain.c 加载内核: 从硬盘读取 xv6 内核（ELF 格式的可执行文件） 内存布局: 将内核的各部分放到正确内存位置 转交控制权: 跳转到内核的入口点，启动操作系统\n控制台/console.c 环形缓冲区 -\u003e 循环队列 环形缓冲区是一种循环队列数据结构,特别适合处理生产者-消费者场景的数据流 直线缓冲区: 满了就得停，或者移动所有数据 环形缓冲区: 跑到终点后回到起点,可以无限循环使用 image.png\nimage.png\nimage.png\n两个指针之间应该空一个空格 不然WriteIndex和readIndex重合的话就会分不清楚缓冲区是满了还是空了\nxv6的控制台缓冲区是一个支持行编辑的生产者-消费者环形缓冲区: 生产者(consoleintr): 接收键盘中断,写入字符 消费者(consoleread): 响应read系统调用,读取字符 三个指针: 实现复杂的行编辑功能(退格,删除行等)\n串口UART/uart.c UART和USART的区别 UART: 通用异步收发器 功能: 仅支持异步串行通信 特点: 没有时钟线,依赖双方约定的波特率\nUSART: 通用同步/异步收发器 功能: 支持同步和异步两种通信模式 特点: 可以配置为同步模式(有时钟线)或异步模式\n管道/pipe.c 环形缓冲区: image.png\n进程proc.c/proc.h 文件日志系统/log.c 解决: 崩溃恢复(Crash Recovery) 不要直接修改真正的磁盘数据块。先把你打算做的修改.全部写到一个叫做\"日志区\"的专用地方。只有当日志区完整记录了所有修改后,才把它们搬运到真正的目的地.\n这样，如果断电： 断在日志写完之前：重启后，系统发现日志不完整，直接丢弃。就像操作从未发生过。文件系统完好。 断在日志写完之后：重启后，系统发现日志里有完整的操作记录，于是重新执行这些操作（Replay）。文件系统完好。\n内核主函数/main.c RISC-V 平台级中断控制器（PLIC）的驱动程序/plic.c PLIC -\u003e Platform Level Interrupt Controller\n中断是一种硬件通知机制，允许外部设备或内部异常打断处理器的正常执行流程，让处理器立即处理紧急事件。\n中断的类型: 外部中断（硬件中断） 内部中断（异常/陷阱）\n系统调用/syscall.c/syscall.h 进程相关系统调用/sysproc.c 中断和异常处理/trap.c 用户程序执行ecall指令 ↓ CPU设置stvec寄存器指向uservec（在trampoline中） ↓ CPU跳转到uservec（汇编代码） ↓ uservec保存用户寄存器到trapframe ↓ uservec设置内核栈，跳转到usertrap（C代码） ↓ usertrap调用syscall()处理系统调用 ↓ prepare_return准备返回用户空间 ↓ userret（在trampoline中）恢复用户寄存器 ↓ 返回用户程序继续执行\n文件系统/sysfile.c 虚拟内存管理/vm.c/vm.h xv6: a simple Unix-like teaching operating system xv6在RISC-V架构与x86架构的区别 trampoline.s/蹦床代码 trampoline是一段特殊的汇编代码,位于用户地址空间和内核地址空间的相同虚拟地址处\n主要功能: 1.在用户态和内核态之间安全地切换 2.保存和恢复用户上下文 3.切换页表 4.跳转到内核陷阱处理程序\n共享映射: trampoline页面在内核页表和所有用户页表中都映射到相同的虚拟地址\n（TRAMPOLINE = 0x3ffffff000）\n权限设置： 在用户页表中,trampoline页面被标记为可执行但不可写;在内核页表中,可读可写\n位置固定: 总是位于地址空间的最高页\nxv6的系统调用实现: image.png\ntrampoline（蹦床）和trapframe（陷阱帧）是处理用户态和内核态之间切换的关键机制。它们共同协作以实现安全的上下文切换和系统调用处理。\n协作流程: 1.用户程序通过ecall进入内核 2.trampoline保存用户上下文到trapframe 3.内核处理系统调用/陷阱 4.trampoline从trapframe恢复用户上下文 5.返回用户程序继续执行\ntrampoline.s # # low-level code to handle traps from user space into # the kernel, and returns from kernel to user. # # the kernel maps the page holding this code # at the same virtual address (TRAMPOLINE) # in user and kernel space so that it continues # to work when it switches page tables. # kernel.ld causes this code to start at # a page boundary. #\n#include “riscv.h” #include “memlayout.h”\n.section trampsec .globl trampoline .globl usertrap trampoline: .align 4 .globl uservec uservec: # # trap.c sets stvec to point here, so # traps from user space start here, # in supervisor mode, but with a # user page table. #\n# save user a0 in sscratch so # a0 can be used to get at TRAPFRAME. csrw sscratch, a0 # each process has a separate p-\u003etrapframe memory area, # but it's mapped to the same virtual address # (TRAPFRAME) in every process's user page table. li a0, TRAPFRAME # save the user registers in TRAPFRAME sd ra, 40(a0) sd sp, 48(a0) sd gp, 56(a0) sd tp, 64(a0) sd t0, 72(a0) sd t1, 80(a0) sd t2, 88(a0) sd s0, 96(a0) sd s1, 104(a0) sd a1, 120(a0) sd a2, 128(a0) sd a3, 136(a0) sd a4, 144(a0) sd a5, 152(a0) sd a6, 160(a0) sd a7, 168(a0) sd s2, 176(a0) sd s3, 184(a0) sd s4, 192(a0) sd s5, 200(a0) sd s6, 208(a0) sd s7, 216(a0) sd s8, 224(a0) sd s9, 232(a0) sd s10, 240(a0) sd s11, 248(a0) sd t3, 256(a0) sd t4, 264(a0) sd t5, 272(a0) sd t6, 280(a0) # save the user a0 in p-\u003etrapframe-\u003ea0 csrr t0, sscratch sd t0, 112(a0) # initialize kernel stack pointer, from p-\u003etrapframe-\u003ekernel_sp ld sp, 8(a0) # make tp hold the current hartid, from p-\u003etrapframe-\u003ekernel_hartid ld tp, 32(a0) # load the address of usertrap(), from p-\u003etrapframe-\u003ekernel_trap ld t0, 16(a0) # fetch the kernel page table address, from p-\u003etrapframe-\u003ekernel_satp. ld t1, 0(a0) # wait for any previous memory operations to complete, so that # they use the user page table. sfence.vma zero, zero # install the kernel page table. csrw satp, t1 # flush now-stale user entries from the TLB. sfence.vma zero, zero # call usertrap() jalr t0 .globl userret userret: # usertrap() returns here, with user satp in a0. # return from kernel to user.\n# switch to the user page table. sfence.vma zero, zero csrw satp, a0 sfence.vma zero, zero li a0, TRAPFRAME # restore all but a0 from TRAPFRAME ld ra, 40(a0) ld sp, 48(a0) ld gp, 56(a0) ld tp, 64(a0) ld t0, 72(a0) ld t1, 80(a0) ld t2, 88(a0) ld s0, 96(a0) ld s1, 104(a0) ld a1, 120(a0) ld a2, 128(a0) ld a3, 136(a0) ld a4, 144(a0) ld a5, 152(a0) ld a6, 160(a0) ld a7, 168(a0) ld s2, 176(a0) ld s3, 184(a0) ld s4, 192(a0) ld s5, 200(a0) ld s6, 208(a0) ld s7, 216(a0) ld s8, 224(a0) ld s9, 232(a0) ld s10, 240(a0) ld s11, 248(a0) ld t3, 256(a0) ld t4, 264(a0) ld t5, 272(a0) ld t6, 280(a0) # restore user a0 ld a0, 112(a0) # return to user mode and user pc. # usertrapret() set up sstatus and sepc. sret 处理器的虚拟化 为什么死循环不能使计算机被彻底卡死?\n原理上: 1.硬件会发生中断(类似于强行插入的ecall) 2.切换到操作系统代码执行 3.操作系统代码可以切换到另一个进程执行\nxv6面经 惰性分配内存 内存写时复制 内存的超售机制 xv6的物理内存如何分配 定时器回调如何实现 xv6配置环境的时候申请多大物理内存 xv6内存的惰性分配 惰性分配的问题: 频繁触发缺页异常陷入内核态开销很大\n惰性分配的优化方法: 预取,根据进程访问局部性预取相邻的多个页,文件映射时,linux默认readhead为128KB\n文件系统的读写全流程 xv6是什么类型的操作系统介绍一下,是否是实时操作系统 操作系统分几个模块 虚拟地址翻译过程 系统调用的详细过程 进程同步的策略,进程,线程如何同步 有看过linux内核设计吗 考虑后面看一下\n中山OS 短期调度 image.png\n中期调度 767f41d251ad2e9cf2b4af58522ec6c.png\n进程调度总览 image.png\nvscode gdb调试 1.继续:(Continue)/F5 含义: 解除暂停,全速奔跑吧 发生什么: xv6会从当前暂停的地方恢复运行,CPU全速工作 直到遇到下一个断点,它才会再次停下来\n2.逐过程(Step Over)/F10 含义: 往下走一行,但我不想进这个函数里面看 发生什么: 执行当前高亮的一行代码 如果这行代码调用一个函数,调试器会瞬间把那个函数跑完,然后停在下一行\n3.单步调试(Step Into)/F11 含义: 往下走一行,如果有函数,我要钻进去看细节 发生什么: 执行当前行 如果这行函数调用了函数,调试器会跳进那个函数的内部,停在那个函数的第一行\n4.跳出(Step Out)/shift + F11 含义: “我不小心钻进来了,或者我看腻了,快带我出去” 发生什么: 让我当前所在的函数瞬间执行完剩下的所有代码 然后停在调用它的那行代码的下一行\n光标停在的哪一行,执行了吗? 没有执行 当黄色的高亮条(光标)停在某一行代码上时,代表CPU\"正准备\"执行这一行代码,但还没下手\nxv6-lab lab1-util Boot xv6/启动xv6 Sleep/睡眠 为xv6实现UNIX的sleep程序;你的sleep程序应暂停用户指定的时钟滴答数.一个滴答是xv6内核 定义的时间单位,即定时器芯片两次中断之间的间隔.你的解决方法应放在文件user/sleep.c中\npingpong/乒乓 编写一个程序,利用UNIX系统调用,通过一对管道(每个方向一个),在两个进程之间\"乒乓\"传递一个字节 具体流程如下: 1.父进程应该向子进程发送一个字节 2.子进程应该: 接收这个字节 打印: received ping (其中是它的进程ID) 把这个字节写回管道,发给父进程 退出 3.父进程应该: 从子进程读取这个字节 打印: received pong 退出 一些提示: 使用pipe来创建管道 使用fork来创建子进程 使用read从管道读取,使用write向管道写入 使用getpid获取当前进程的ID 别忘了把程序名加入到Makefile的UPROGS列表中 xv6的用户程序能用的库函数很少,你可以查看user/user.h里的列表\n预期输出:\n$ pingpong 4: received ping 3: received pong $\nprimes/质数 素数筛 Sieve of Eratosthenes（埃拉托斯特尼筛法） 编写一个并发版本的\"素数筛\"程序,通过管道(pipes)来筛选素数.这个创意归功于Unix管道的发明者Doug Mcllroy\n使用pipe和fork来建立一个流水线 1.每一个进程将数字2到35输入到管道中 2.对于每一个新发现的素数,你需要创建一个新的进程 这个新进程从它的左邻居(通过一个管道)读取数据 将筛选后的数据写给它的右邻居(通过另一个管道) 3.因为xv6的资源(文件描述符和进程数)有限,第一个进程只要算到35就可以停止了\n一些提示: 严谨关闭文件描述符: 非常重要! 每个进程必须关闭它不需要的文件描述符.否则,你的程序会在还没算到35之前就耗尽xv6的资源(xv6默认每个进程只能打开16个文件).\n等待子进程: 当第一个进程处理完35后,它应该等待这个流水线结束(包括所有的子进程,孙子进程等).主进程应该在所有输出打印完毕,且所有其他进程都退出之后才退出\n读取结束信号: 当管道的写入端（Write-side）被关闭时，read 函数会返回 0。利用这个特性来判断什么时候结束。\n直接传整数: 最简单的方法是直接向管道写入 32 位（4字节）的 int，而不是像字符串那样用 ASCII 格式读写。\n按需创建: 你应该只在需要的时候(发现新素数时)才创建新的进程,不要一开始就全创建好\n别忘了把程序加入Makefile UPROGS中\n6de8c40ce3633da02e99069d27316c4.jpg\nfind/查找 编写一个简单版本的UNIX find 程序: 在一个目录树(directory tree) 中查找所有具有特定名称的文件. 你的代码应该写在 user/find.c 文件中\n[提示 (Hints) 解析] 看看user/ls.c 是如何读取目录的: 这是最重要的一条提示! 在Unix中，目录其实也是一种\"文件\", 里面存的是\"目录项\"(文件或子目录的名字和它们对应的索引节点号).ls.c里有完整读取目录的代码模板 使用递归(recursion): 因为目录里面可能还有目录,所以当程序遇到目录时,需要调用自己进入子目录继续找 不需要递归遍历.和..: .代表当前目录, ..代表上一级目录.如果不跳过他们,程序就会在原地无限打转 文件系统的更改在qemu运行期间是持久的: 如果你建了文件,下次启动还在. 如果想得到干净的文件系统,可以运行make clean然后再make qemu 你需要使用C语言的字符串: 复习一下C语言里字符串是如何\\0结尾的 注意,不能像Python里那样 == 比较字符串: 必须使用strcmp() 函数 把程序添加到Makefile的UPROGS中: 这样编译系统才会把你的find.c编译成可在xv6里运行的命令\nXARGS 写一个简化版的xargs程序.它需要从标准输入(stdin)一行一行地读取数据,然后对每一行执行指定的命令,把读取到的这一行内容作为参数喂给这个命令\n例子 1：echo hello too | xargs echo bye 左边输出：hello too（通过管道传给右边）。 右边接收：xargs 读取到了 hello too。 xargs 的动作：xargs 后面跟着的命令是 echo bye。它把 hello too 追加到后面，变成了 echo bye hello too。 最终执行：打印出 bye hello too。 例子 2：echo “1\\n2” | xargs -n 1 echo line (在咱们的 lab 中不需要实现 -n 这个优化，只要按行读取就行)。 第一行是 1，执行 echo line 1。 第二行是 2，执行 echo line 2。\n官方提示(Hints): 用fork和exec对每一行输入调用命令.父进程要用wait等待子进程执行完毕. 逐个字符读取输入,直到遇到换行符\\n kernel/param.h里有一个MAXARG，定义了最大参数个数,声明数组时可以用. 写完时记得把程序加到Makefile的UPROGS\nlab2-system calls 系统调用跟踪（System call tracing）（中等难度） 在本作业中，你将添加一个系统调用跟踪（tracing）功能，这可能会在你调试后续的实验时有所帮助。你将创建一个新的 trace 系统调用来控制跟踪。它应接受一个参数：一个整数“掩码（mask）”，其二进制位指定了要跟踪哪些系统调用。 例如，要跟踪 fork 系统调用，程序需要调用 trace(1 « SYS_fork)，其中 SYS_fork 是 kernel/syscall.h 中定义的系统调用号。你需要修改 xv6 内核，以便在每次系统调用即将返回时，如果掩码中设置了该系统调用对应的位，则打印出一行信息。这行信息应该包含：进程 ID、系统调用的名称和返回值；你不需要打印系统调用的参数。 trace 系统调用应该为调用它的进程及其随后 fork（派生）出的所有子进程启用跟踪，但不应影响其他无关的进程。 我们提供了一个用户级程序 trace，用于在启用跟踪的情况下运行另一个程序（参见 user/trace.c）。当你完成实验后，你应该能看到如下类似的输出： Bash $ trace 32 grep hello README 3: syscall read -\u003e 1023 3: syscall read -\u003e 966 3: syscall read -\u003e 70 3: syscall read -\u003e 0 $ $ trace 2147483647 grep hello README 4: syscall trace -\u003e 0 4: syscall exec -\u003e 3 4: syscall open -\u003e 3 4: syscall read -\u003e 1023 4: syscall read -\u003e 966 4: syscall read -\u003e 70 4: syscall read -\u003e 0 4: syscall close -\u003e 0 $ $ grep hello README $ $ trace 2 usertests forkforkfork usertests starting test forkforkfork: 407: syscall fork -\u003e 408 408: syscall fork -\u003e 409 409: syscall fork -\u003e 410 410: syscall fork -\u003e 411 409: syscall fork -\u003e 412 410: syscall fork -\u003e 413 409: syscall fork -\u003e 414 411: syscall fork -\u003e 415 … $\n输出示例解析：()()()()\n在上面的第一个示例中，trace 调用 grep 且仅跟踪 read 系统调用。参数 32 即为 1 « SYS_read。()()()()\n在第二个示例中，trace 运行 grep 并跟踪所有系统调用；2147483647 这个数字的低 31 位全部为 1。()()()\n在第三个示例中，程序没()有被 trace 运行，因此没有打印任何跟踪输出。()()\n在第四个示例中，usertests 中的 forkforkfork 测试的所()有后代进程的 fork 系统调用都被跟踪了。()\n如果你的程序行为如上所示（进程 ID 具体数字可能不同），那么你的解()决方案就是正确的。\n一些提示（Hints）： 在 Makefile 的 UPROGS 中添加 $U/_trace。 运行 make qemu，你会发现编译器无法编译 user/trace.c，因为该系统调用的用户空间存根（stubs）还不存在： 请在 user/user.h 中为该系统调用添加函数原型。 在 user/usys.pl 中添加存根（stub）。 在 kernel/syscall.h 中添加系统调用编号。 Makefile 会调用 Perl 脚本 user/usys.pl 来生成 user/usys.S（这就是实际的系统调用存根），这些存根使用 RISC-V 的 ecall 指令陷入（transition）到内核。 解决编译问题后，再次运行 make qemu 并在 xv6 shell 中执行 trace 32 grep hello README；它会失败，因为你还没有在内核中实现该系统调用。 在 kernel/sysproc.c 中添加一个 sys_trace() 函数来实现这个新的系统调用。你需要在 proc 结构体（参见 kernel/proc.h）中添加一个新的变量，用来记录传入的参数（掩码）。从用户空间获取系统调用参数的函数位于 kernel/syscall.c 中，你可以在 kernel/sysproc.c 中看到它们的使用示例。 修改 fork() 函数（参见 kernel/proc.c），将跟踪掩码从父进程复制到子进程。 修改 kernel/syscall.c 中的 syscall() 函数以打印跟踪输出。为了打印出系统调用的名称，你需要添加一个包含系统调用名称的字符串数组，以便用系统调用号来进行索引。\n","wordCount":"7923","inLanguage":"zh","datePublished":"1970-01-21T23:10:23+08:00","dateModified":"2026-06-29T10:28:17+08:00","author":{"@type":"Person","name":"dong"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/"},"publisher":{"@type":"Organization","name":"wander","logo":{"@type":"ImageObject","url":"https://hydarealman.github.io/wander/favicon.ico"}}}</script></head><body id=top><div class=reading-progress id=reading-progress aria-hidden=true></div><script>(()=>{const e=document.getElementById("reading-progress");if(!e)return;const t=()=>{const n=document.documentElement.scrollTop||document.body.scrollTop,t=document.documentElement.scrollHeight-document.documentElement.clientHeight;t>0&&(e.style.width=Math.min(100,n/t*100)+"%")};window.addEventListener("scroll",t,{passive:!0}),t()})()</script><header class=header><nav class=header-nav><div class=logo><a href=https://hydarealman.github.io/wander/ accesskey=h title="wander (Alt + H)">wander</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://hydarealman.github.io/wander/posts/ title=文章><span>文章</span></a></li><li><a href=https://hydarealman.github.io/wander/library/ title=索引><span>索引</span></a></li><li><a href=https://hydarealman.github.io/wander/categories/ title=分类><span>分类</span></a></li><li><a href=https://hydarealman.github.io/wander/commits/ title=历史><span>历史</span></a></li><li><a href=https://hydarealman.github.io/wander/archives/ title=归档><span>归档</span></a></li><li><a href=https://hydarealman.github.io/wander/tags/ title=标签><span>标签</span></a></li><li><a href=https://hydarealman.github.io/wander/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://hydarealman.github.io/wander/about/ title=关于><span>关于</span></a></li><li><a href=https://hydarealman.github.io/wander/manual/ title=说明><span>说明</span></a></li></ul></nav></header><main class=main><div class=post-layout data-toc-state=open><button class=toc-float-btn id=toc-float-btn type=button aria-label=展开目录 title=展开目录>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button><aside class=toc-sidebar id=toc-sidebar><div class=toc-sidebar__header><button class=toc-sidebar__collapse id=toc-collapse-btn type=button aria-label=折叠目录 title=折叠目录>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+<span class=toc-sidebar__title><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+目录</span></div><nav class=toc-sidebar__nav><nav id=TableOfContents><ul><li><a href=#jyy-xv6导读>jyy xv6导读</a><ul><li><a href=#基础知识>基础知识</a></li></ul></li></ul><ul><li><ul><li><a href=#xv6文件结构>xv6文件结构</a></li><li><a href=#xv6-22个系统调用>xv6 22个系统调用</a></li><li><a href=#xv6进程的地址空间>xv6进程的地址空间</a></li><li><a href=#xv6系统调用>xv6系统调用</a></li><li><a href=#trampoline跳板>Trampoline(跳板)</a></li><li><a href=#程序的状态>程序的状态</a></li><li><a href=#虚拟化-状态的管理>虚拟化: 状态的管理</a></li><li><a href=#状态的封存trivial的操作系统实现>状态的封存：Trivial的操作系统实现</a></li><li><a href=#状态的封存-体系结构相关的处理>状态的封存: 体系结构相关的处理</a></li><li><a href=#再次调试系统调用>再次调试系统调用</a></li><li><a href=#调用usertrap后的系统状态>调用usertrap()后的系统状态</a></li><li><a href=#小结-状态机的封存>小结: 状态机的封存</a></li><li><a href=#invariant状态>invariant状态</a></li><li><a href=#总结>总结</a></li></ul></li><li><a href=#缓存系统biocbioh>缓存系统bio.c/bio.h</a><ul><li><a href=#lru>LRU</a></li><li><a href=#缓存系统>缓存系统</a></li></ul></li><li><a href=#睡眠锁sleeplockhsleeplockc>睡眠锁sleeplock.h/sleeplock.c</a></li><li><a href=#自旋锁spinlockcspinlockh>自旋锁spinlock.c/spinlock.h</a></li><li><a href=#自旋锁和睡眠锁对比>自旋锁和睡眠锁对比</a></li><li><a href=#elfelfh>ELF/elf.h</a></li><li><a href=#xv6引导加载器boot-loaderbootmainc>xv6引导加载器(Boot Loader)/bootmain.c</a></li><li><a href=#控制台consolec>控制台/console.c</a><ul><li><a href=#环形缓冲区---循环队列>环形缓冲区 -> 循环队列</a></li></ul></li><li><a href=#串口uartuartc>串口UART/uart.c</a><ul><li><a href=#uart和usart的区别>UART和USART的区别</a></li></ul></li><li><a href=#管道pipec>管道/pipe.c</a></li><li><a href=#进程proccproch>进程proc.c/proc.h</a></li><li><a href=#文件日志系统logc>文件日志系统/log.c</a></li><li><a href=#内核主函数mainc>内核主函数/main.c</a></li><li><a href=#risc-v-平台级中断控制器plic的驱动程序plicc>RISC-V 平台级中断控制器（PLIC）的驱动程序/plic.c</a></li><li><a href=#系统调用syscallcsyscallh>系统调用/syscall.c/syscall.h</a></li><li><a href=#进程相关系统调用sysprocc>进程相关系统调用/sysproc.c</a></li><li><a href=#中断和异常处理trapc>中断和异常处理/trap.c</a></li><li><a href=#文件系统sysfilec>文件系统/sysfile.c</a></li><li><a href=#虚拟内存管理vmcvmh>虚拟内存管理/vm.c/vm.h</a></li><li><a href=#xv6-a-simple-unix-like-teaching-operating-system>xv6: a simple Unix-like teaching operating system</a></li><li><a href=#xv6在risc-v架构与x86架构的区别>xv6在RISC-V架构与x86架构的区别</a></li><li><a href=#trampolines蹦床代码>trampoline.s/蹦床代码</a></li><li><a href=#xv6面经>xv6面经</a><ul><li><a href=#惰性分配内存>惰性分配内存</a></li><li><a href=#内存写时复制>内存写时复制</a></li><li><a href=#内存的超售机制>内存的超售机制</a></li><li><a href=#xv6的物理内存如何分配>xv6的物理内存如何分配</a></li><li><a href=#定时器回调如何实现>定时器回调如何实现</a></li><li><a href=#xv6配置环境的时候申请多大物理内存>xv6配置环境的时候申请多大物理内存</a></li><li><a href=#xv6内存的惰性分配>xv6内存的惰性分配</a></li><li><a href=#文件系统的读写全流程>文件系统的读写全流程</a></li><li><a href=#xv6是什么类型的操作系统介绍一下是否是实时操作系统>xv6是什么类型的操作系统介绍一下,是否是实时操作系统</a></li><li><a href=#操作系统分几个模块>操作系统分几个模块</a></li><li><a href=#虚拟地址翻译过程>虚拟地址翻译过程</a></li><li><a href=#系统调用的详细过程>系统调用的详细过程</a></li><li><a href=#进程同步的策略进程线程如何同步>进程同步的策略,进程,线程如何同步</a></li><li><a href=#有看过linux内核设计吗>有看过linux内核设计吗</a></li></ul></li><li><a href=#中山os>中山OS</a></li><li><a href=#vscode-gdb调试>vscode gdb调试</a></li><li><a href=#xv6-lab>xv6-lab</a><ul><li><a href=#lab1-util>lab1-util</a></li><li><a href=#lab2-system-calls>lab2-system calls</a></li></ul></li></ul></nav></nav></aside><div class=post-content-area><article class=post-single><header class=post-header><nav class=breadcrumbs role=navigation aria-label=Breadcrumb><a href=/wander/>主页</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+<a href=/wander/posts/>Posts</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg></nav><h1 class="post-title entry-hint-parent">xv6 for RISC-V</h1><div class=post-meta><span title='1970-01-21 23:10:23 +0800 CST'>1970-01-21</span>&nbsp;·&nbsp;<span>16 分钟</span>&nbsp;·&nbsp;<span>7923 字</span>&nbsp;·&nbsp;<span class=local-views>本机 <span data-view-path=/wander/posts/1970/01/xv6-for-risc-v/>0</span> 次</span>&nbsp;·&nbsp;<span>dong</span>&nbsp;·&nbsp;
+<span class=meta-gitinfo title=修复大小标题显示失败的bug><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>更新于 2026年6月29日</span>
+<a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener class=meta-gitinfo-hash>@197fd12</a>
+</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/hydarealman/wander/edit/main/content/posts/xv6-for-risc-v.md rel="noopener noreferrer edit" target=_blank>编辑此页</a></span></div></header><div class="post-content md-content"><h1 id=xv6-for-risc-v>xv6 for RISC-V<a hidden class=anchor aria-hidden=true href=#xv6-for-risc-v>#</a></h1><h2 id=jyy-xv6导读>jyy xv6导读<a hidden class=anchor aria-hidden=true href=#jyy-xv6导读>#</a></h2><h3 id=基础知识>基础知识<a hidden class=anchor aria-hidden=true href=#基础知识>#</a></h3><p>应用视角的操作系统: 对象 + API
+把操作系统当提供服务的黑盒子</p><p>xv6:Unix v6的现代"克隆"</p><p>文件关系
+源文件 (.c/.cpp) → 编译 → 目标文件 (.o) → 链接 → 可执行文件
+↓
+依赖文件 (.d) → 告诉构建系统何时需要重新编译</p><p>1.源文件 (Source Files)
+.c - C语言源文件
+.cpp/.cc - C++源文件
+.h/.hpp - 头文件</p><p>2.目标文件 (Object Files) - .o 文件
+编译后的中间二进制文件</p><ol start=3><li>依赖文件 (Dependency Files) - .d 文件
+记录编译依赖关系的Makefile片段</li></ol><h1 id=编译时同时生成依赖文件>编译时同时生成依赖文件<a hidden class=anchor aria-hidden=true href=#编译时同时生成依赖文件>#</a></h1><p>gcc -c main.c -o main.o -MMD -MF main.d</p><p>程序的执行(状态变化序列)有时比代码(状态机)更容易理解
+使用工具进行“ tracing ”（追踪）
+理解并发Bug
+建立确定性心智模型</p><p>阅读makefile文件可以比较好的帮助理解代码</p><h3 id=xv6文件结构>xv6文件结构<a hidden class=anchor aria-hidden=true href=#xv6文件结构>#</a></h3><p>kernel/目录 - 操作系统内核
+包含了xv6操作系统的所有内核代码,这是操作系统的核心部分</p><p>mkfs/目录 - 文件系统创建工具
+包含创建xv6系统镜像的工具</p><p>user/目录 - 用户空间程序
+包含所有在用户空间运行的程序</p><h3 id=xv6-22个系统调用>xv6 22个系统调用<a hidden class=anchor aria-hidden=true href=#xv6-22个系统调用>#</a></h3><p>image.png</p><h3 id=xv6进程的地址空间>xv6进程的地址空间<a hidden class=anchor aria-hidden=true href=#xv6进程的地址空间>#</a></h3><p>image.png</p><h3 id=xv6系统调用>xv6系统调用<a hidden class=anchor aria-hidden=true href=#xv6系统调用>#</a></h3><p>image.png</p><h3 id=trampoline跳板>Trampoline(跳板)<a hidden class=anchor aria-hidden=true href=#trampoline跳板>#</a></h3><p>image.png</p><h3 id=程序的状态>程序的状态<a hidden class=anchor aria-hidden=true href=#程序的状态>#</a></h3><p>image.png</p><h3 id=虚拟化-状态的管理>虚拟化: 状态的管理<a hidden class=anchor aria-hidden=true href=#虚拟化-状态的管理>#</a></h3><p>image.png</p><h3 id=状态的封存trivial的操作系统实现>状态的封存：Trivial的操作系统实现<a hidden class=anchor aria-hidden=true href=#状态的封存trivial的操作系统实现>#</a></h3><p>image.png</p><h3 id=状态的封存-体系结构相关的处理>状态的封存: 体系结构相关的处理<a hidden class=anchor aria-hidden=true href=#状态的封存-体系结构相关的处理>#</a></h3><p>image.png</p><h3 id=再次调试系统调用>再次调试系统调用<a hidden class=anchor aria-hidden=true href=#再次调试系统调用>#</a></h3><p>image.png</p><h3 id=调用usertrap后的系统状态>调用usertrap()后的系统状态<a hidden class=anchor aria-hidden=true href=#调用usertrap后的系统状态>#</a></h3><p>image.png</p><h3 id=小结-状态机的封存>小结: 状态机的封存<a hidden class=anchor aria-hidden=true href=#小结-状态机的封存>#</a></h3><p>image.png</p><h3 id=invariant状态>invariant状态<a hidden class=anchor aria-hidden=true href=#invariant状态>#</a></h3><p>invariant(不变式)在计算机科学中指在程序的某些关键点上必须始终为真的条件或约束
+状态机被封存</p><h3 id=总结>总结<a hidden class=anchor aria-hidden=true href=#总结>#</a></h3><p>image.png</p><p>操作系统是中断处理程序
+操作系统是状态机的管理者</p><h2 id=缓存系统biocbioh>缓存系统bio.c/bio.h<a hidden class=anchor aria-hidden=true href=#缓存系统biocbioh>#</a></h2><h3 id=lru>LRU<a hidden class=anchor aria-hidden=true href=#lru>#</a></h3><pre><code>     最近使用的（最新）                         最久未用的（最旧）
+           ↓                                          ↓
+[head] ←→ [bufA] ←→ [bufB] ←→ [bufC] ←→ ... ←→ [bufZ] ←→ [head]
+  ↑        最新使用                                  最旧使用      ↑
+  └─────────────────────────────────────────────────────────────┘
+                循环连接
+</code></pre><p>xv6的LRU维护特点: 惰性更新 + 只在释放时移动
+核心原则：
+缓存命中时：不移动缓冲区在LRU中的位置
+缓存未命中时：从链表尾部查找空闲缓冲区
+缓冲区释放时：只有当引用计数归零 (refcnt == 0) 时才移动到链表头部</p><p>传统LRU
+假设:
+最近被访问的数据，在不久的将来很可能再次被访问
+很久没有被访问的数据，未来也不太可能被访问</p><p>每次访问缓存项时,都会将其移动到链表的头部
+当缓存满的时候删除尾部节点(最久未使用)</p><p>传统LRU -> 来自leetcode</p><h3 id=缓存系统>缓存系统<a hidden class=anchor aria-hidden=true href=#缓存系统>#</a></h3><pre><code>          bcache（缓存系统）
+    ╔═══════════════════════════════════╗
+    ║ struct spinlock lock;            ║ ← 保护整个系统
+    ║                                   ║
+    ║ struct buf buf[NBUF];            ║ ← 缓冲区数组
+    ║ ┌─────────┐ ┌─────────┐         ║
+    ║ │ buf[0]  │ │ buf[1]  │ ...     ║ ← 每个都是struct buf
+    ║ │ valid=1 │ │ valid=0 │         ║
+    ║ │ dev=1   │ │ dev=1   │         ║
+    ║ │ blk=123 │ │ blk=456 │         ║
+    ║ │ data[]  │ │ data[]  │         ║
+    ║ └─────────┘ └─────────┘         ║
+    ║                                   ║
+    ║ struct buf head;                ║ ← LRU链表头
+    ║   prev → buf[28]                ║
+    ║   next → buf[1]                 ║
+    ╚═══════════════════════════════════╝
+             ↑        ↑        ↑
+   通过prev/next指针连接所有缓冲区
+   形成LRU双向循环链表
+</code></pre><h2 id=睡眠锁sleeplockhsleeplockc>睡眠锁sleeplock.h/sleeplock.c<a hidden class=anchor aria-hidden=true href=#睡眠锁sleeplockhsleeplockc>#</a></h2><p>补充: 也叫条件锁或长时间持有的锁</p><p>// Long-term locks for processes
+struct sleeplock {
+uint locked; // Is the lock held?
+struct spinlock lk; // spinlock protecting this sleep lock</p><p>// For debugging:
+char *name; // Name of lock.
+int pid; // Process holding lock
+};</p><p>// Sleeping locks</p><p>#include &ldquo;types.h&rdquo;
+#include &ldquo;riscv.h&rdquo;
+#include &ldquo;defs.h&rdquo;
+#include &ldquo;param.h&rdquo;
+#include &ldquo;memlayout.h&rdquo;
+#include &ldquo;spinlock.h&rdquo;
+#include &ldquo;proc.h&rdquo;
+#include &ldquo;sleeplock.h&rdquo;</p><p>void
+initsleeplock(struct sleeplock *lk, char *name)
+{
+initlock(&amp;lk->lk, &ldquo;sleep lock&rdquo;);
+lk->name = name;
+lk->locked = 0;
+lk->pid = 0;
+}</p><p>void
+acquiresleep(struct sleeplock *lk)
+{
+acquire(&amp;lk->lk);
+while (lk->locked) {
+sleep(lk, &amp;lk->lk);
+}
+lk->locked = 1;
+lk->pid = myproc()->pid;
+release(&amp;lk->lk);
+}</p><p>void
+releasesleep(struct sleeplock *lk)
+{
+acquire(&amp;lk->lk);
+lk->locked = 0;
+lk->pid = 0;
+wakeup(lk);
+release(&amp;lk->lk);
+}</p><p>int
+holdingsleep(struct sleeplock *lk)
+{
+int r;</p><p>acquire(&amp;lk->lk);
+r = lk->locked && (lk->pid == myproc()->pid);
+release(&amp;lk->lk);
+return r;
+}</p><h2 id=自旋锁spinlockcspinlockh>自旋锁spinlock.c/spinlock.h<a hidden class=anchor aria-hidden=true href=#自旋锁spinlockcspinlockh>#</a></h2><p>// Mutual exclusion lock.
+struct spinlock {
+uint locked; // Is the lock held?</p><p>// For debugging:
+char *name; // Name of lock.
+struct cpu *cpu; // The cpu holding the lock.
+};</p><p>// Mutual exclusion spin locks.</p><p>#include &ldquo;types.h&rdquo;
+#include &ldquo;param.h&rdquo;
+#include &ldquo;memlayout.h&rdquo;
+#include &ldquo;spinlock.h&rdquo;
+#include &ldquo;riscv.h&rdquo;
+#include &ldquo;proc.h&rdquo;
+#include &ldquo;defs.h&rdquo;</p><p>void
+initlock(struct spinlock *lk, char *name)
+{
+lk->name = name;
+lk->locked = 0;
+lk->cpu = 0;
+}</p><p>// Acquire the lock.
+// Loops (spins) until the lock is acquired.
+void
+acquire(struct spinlock *lk)
+{
+push_off(); // disable interrupts to avoid deadlock.
+if(holding(lk))
+panic(&ldquo;acquire&rdquo;);</p><p>// On RISC-V, sync_lock_test_and_set turns into an atomic swap:
+// a5 = 1
+// s1 = &amp;lk->locked
+// amoswap.w.aq a5, a5, (s1)
+while(__sync_lock_test_and_set(&amp;lk->locked, 1) != 0)
+;</p><p>// Tell the C compiler and the processor to not move loads or stores
+// past this point, to ensure that the critical section&rsquo;s memory
+// references happen strictly after the lock is acquired.
+// On RISC-V, this emits a fence instruction.
+__sync_synchronize();</p><p>// Record info about lock acquisition for holding() and debugging.
+lk->cpu = mycpu();
+}</p><p>// Release the lock.
+void
+release(struct spinlock *lk)
+{
+if(!holding(lk))
+panic(&ldquo;release&rdquo;);</p><p>lk->cpu = 0;</p><p>// Tell the C compiler and the CPU to not move loads or stores
+// past this point, to ensure that all the stores in the critical
+// section are visible to other CPUs before the lock is released,
+// and that loads in the critical section occur strictly before
+// the lock is released.
+// On RISC-V, this emits a fence instruction.
+__sync_synchronize();</p><p>// Release the lock, equivalent to lk->locked = 0.
+// This code doesn&rsquo;t use a C assignment, since the C standard
+// implies that an assignment might be implemented with
+// multiple store instructions.
+// On RISC-V, sync_lock_release turns into an atomic swap:
+// s1 = &amp;lk->locked
+// amoswap.w zero, zero, (s1)
+__sync_lock_release(&amp;lk->locked);</p><p>pop_off();
+}</p><p>// Check whether this cpu is holding the lock.
+// Interrupts must be off.
+int
+holding(struct spinlock *lk)
+{
+int r;
+r = (lk->locked && lk->cpu == mycpu());
+return r;
+}</p><p>// push_off/pop_off are like intr_off()/intr_on() except that they are matched:
+// it takes two pop_off()s to undo two push_off()s. Also, if interrupts
+// are initially off, then push_off, pop_off leaves them off.</p><p>void
+push_off(void)
+{
+int old = intr_get();</p><p>// disable interrupts to prevent an involuntary context
+// switch while using mycpu().
+intr_off();</p><p>if(mycpu()->noff == 0)
+mycpu()->intena = old;
+mycpu()->noff += 1;
+}</p><p>void
+pop_off(void)
+{
+struct cpu *c = mycpu();
+if(intr_get())
+panic(&ldquo;pop_off - interruptible&rdquo;);
+if(c->noff &lt; 1)
+panic(&ldquo;pop_off&rdquo;);
+c->noff -= 1;
+if(c->noff == 0 && c->intena)
+intr_on();
+}</p><h2 id=自旋锁和睡眠锁对比>自旋锁和睡眠锁对比<a hidden class=anchor aria-hidden=true href=#自旋锁和睡眠锁对比>#</a></h2><h2 id=elfelfh>ELF/elf.h<a hidden class=anchor aria-hidden=true href=#elfelfh>#</a></h2><h2 id=xv6引导加载器boot-loaderbootmainc>xv6引导加载器(Boot Loader)/bootmain.c<a hidden class=anchor aria-hidden=true href=#xv6引导加载器boot-loaderbootmainc>#</a></h2><p>加载内核: 从硬盘读取 xv6 内核（ELF 格式的可执行文件）
+内存布局: 将内核的各部分放到正确内存位置
+转交控制权: 跳转到内核的入口点，启动操作系统</p><h2 id=控制台consolec>控制台/console.c<a hidden class=anchor aria-hidden=true href=#控制台consolec>#</a></h2><h3 id=环形缓冲区---循环队列>环形缓冲区 -> 循环队列<a hidden class=anchor aria-hidden=true href=#环形缓冲区---循环队列>#</a></h3><p>环形缓冲区是一种循环队列数据结构,特别适合处理生产者-消费者场景的数据流
+直线缓冲区: 满了就得停，或者移动所有数据
+环形缓冲区: 跑到终点后回到起点,可以无限循环使用
+image.png</p><p>image.png</p><p>image.png</p><p>两个指针之间应该空一个空格
+不然WriteIndex和readIndex重合的话就会分不清楚缓冲区是满了还是空了</p><p>xv6的控制台缓冲区是一个支持行编辑的生产者-消费者环形缓冲区:
+生产者(consoleintr): 接收键盘中断,写入字符
+消费者(consoleread): 响应read系统调用,读取字符
+三个指针: 实现复杂的行编辑功能(退格,删除行等)</p><h2 id=串口uartuartc>串口UART/uart.c<a hidden class=anchor aria-hidden=true href=#串口uartuartc>#</a></h2><h3 id=uart和usart的区别>UART和USART的区别<a hidden class=anchor aria-hidden=true href=#uart和usart的区别>#</a></h3><p>UART: 通用异步收发器
+功能: 仅支持异步串行通信
+特点: 没有时钟线,依赖双方约定的波特率</p><p>USART: 通用同步/异步收发器
+功能: 支持同步和异步两种通信模式
+特点: 可以配置为同步模式(有时钟线)或异步模式</p><h2 id=管道pipec>管道/pipe.c<a hidden class=anchor aria-hidden=true href=#管道pipec>#</a></h2><p>环形缓冲区:
+image.png</p><h2 id=进程proccproch>进程proc.c/proc.h<a hidden class=anchor aria-hidden=true href=#进程proccproch>#</a></h2><h2 id=文件日志系统logc>文件日志系统/log.c<a hidden class=anchor aria-hidden=true href=#文件日志系统logc>#</a></h2><p>解决: 崩溃恢复(Crash Recovery)
+不要直接修改真正的磁盘数据块。先把你打算做的修改.全部写到一个叫做"日志区"的专用地方。只有当日志区完整记录了所有修改后,才把它们搬运到真正的目的地.</p><p>这样，如果断电：
+断在日志写完之前：重启后，系统发现日志不完整，直接丢弃。就像操作从未发生过。文件系统完好。
+断在日志写完之后：重启后，系统发现日志里有完整的操作记录，于是重新执行这些操作（Replay）。文件系统完好。</p><h2 id=内核主函数mainc>内核主函数/main.c<a hidden class=anchor aria-hidden=true href=#内核主函数mainc>#</a></h2><h2 id=risc-v-平台级中断控制器plic的驱动程序plicc>RISC-V 平台级中断控制器（PLIC）的驱动程序/plic.c<a hidden class=anchor aria-hidden=true href=#risc-v-平台级中断控制器plic的驱动程序plicc>#</a></h2><p>PLIC -> Platform Level Interrupt Controller</p><p>中断是一种硬件通知机制，允许外部设备或内部异常打断处理器的正常执行流程，让处理器立即处理紧急事件。</p><p>中断的类型:
+外部中断（硬件中断）
+内部中断（异常/陷阱）</p><h2 id=系统调用syscallcsyscallh>系统调用/syscall.c/syscall.h<a hidden class=anchor aria-hidden=true href=#系统调用syscallcsyscallh>#</a></h2><h2 id=进程相关系统调用sysprocc>进程相关系统调用/sysproc.c<a hidden class=anchor aria-hidden=true href=#进程相关系统调用sysprocc>#</a></h2><h2 id=中断和异常处理trapc>中断和异常处理/trap.c<a hidden class=anchor aria-hidden=true href=#中断和异常处理trapc>#</a></h2><p>用户程序执行ecall指令
+↓
+CPU设置stvec寄存器指向uservec（在trampoline中）
+↓
+CPU跳转到uservec（汇编代码）
+↓
+uservec保存用户寄存器到trapframe
+↓
+uservec设置内核栈，跳转到usertrap（C代码）
+↓
+usertrap调用syscall()处理系统调用
+↓
+prepare_return准备返回用户空间
+↓
+userret（在trampoline中）恢复用户寄存器
+↓
+返回用户程序继续执行</p><h2 id=文件系统sysfilec>文件系统/sysfile.c<a hidden class=anchor aria-hidden=true href=#文件系统sysfilec>#</a></h2><h2 id=虚拟内存管理vmcvmh>虚拟内存管理/vm.c/vm.h<a hidden class=anchor aria-hidden=true href=#虚拟内存管理vmcvmh>#</a></h2><h2 id=xv6-a-simple-unix-like-teaching-operating-system>xv6: a simple Unix-like teaching operating system<a hidden class=anchor aria-hidden=true href=#xv6-a-simple-unix-like-teaching-operating-system>#</a></h2><h2 id=xv6在risc-v架构与x86架构的区别>xv6在RISC-V架构与x86架构的区别<a hidden class=anchor aria-hidden=true href=#xv6在risc-v架构与x86架构的区别>#</a></h2><h2 id=trampolines蹦床代码>trampoline.s/蹦床代码<a hidden class=anchor aria-hidden=true href=#trampolines蹦床代码>#</a></h2><p>trampoline是一段特殊的汇编代码,位于用户地址空间和内核地址空间的相同虚拟地址处</p><p>主要功能:
+1.在用户态和内核态之间安全地切换
+2.保存和恢复用户上下文
+3.切换页表
+4.跳转到内核陷阱处理程序</p><p>共享映射:
+trampoline页面在内核页表和所有用户页表中都映射到相同的虚拟地址<br>（TRAMPOLINE = 0x3ffffff000）</p><p>权限设置：
+在用户页表中,trampoline页面被标记为可执行但不可写;在内核页表中,可读可写</p><p>位置固定:
+总是位于地址空间的最高页</p><p>xv6的系统调用实现:
+image.png</p><p>trampoline（蹦床）和trapframe（陷阱帧）是处理用户态和内核态之间切换的关键机制。它们共同协作以实现安全的上下文切换和系统调用处理。</p><p>协作流程:
+1.用户程序通过ecall进入内核
+2.trampoline保存用户上下文到trapframe
+3.内核处理系统调用/陷阱
+4.trampoline从trapframe恢复用户上下文
+5.返回用户程序继续执行</p><p>trampoline.s
+#
+# low-level code to handle traps from user space into
+# the kernel, and returns from kernel to user.
+#
+# the kernel maps the page holding this code
+# at the same virtual address (TRAMPOLINE)
+# in user and kernel space so that it continues
+# to work when it switches page tables.
+# kernel.ld causes this code to start at
+# a page boundary.
+#</p><p>#include &ldquo;riscv.h&rdquo;
+#include &ldquo;memlayout.h&rdquo;</p><p>.section trampsec
+.globl trampoline
+.globl usertrap
+trampoline:
+.align 4
+.globl uservec
+uservec:<br>#
+# trap.c sets stvec to point here, so
+# traps from user space start here,
+# in supervisor mode, but with a
+# user page table.
+#</p><pre><code>    # save user a0 in sscratch so
+    # a0 can be used to get at TRAPFRAME.
+    csrw sscratch, a0
+
+    # each process has a separate p-&gt;trapframe memory area,
+    # but it's mapped to the same virtual address
+    # (TRAPFRAME) in every process's user page table.
+    li a0, TRAPFRAME
+    
+    # save the user registers in TRAPFRAME
+    sd ra, 40(a0)
+    sd sp, 48(a0)
+    sd gp, 56(a0)
+    sd tp, 64(a0)
+    sd t0, 72(a0)
+    sd t1, 80(a0)
+    sd t2, 88(a0)
+    sd s0, 96(a0)
+    sd s1, 104(a0)
+    sd a1, 120(a0)
+    sd a2, 128(a0)
+    sd a3, 136(a0)
+    sd a4, 144(a0)
+    sd a5, 152(a0)
+    sd a6, 160(a0)
+    sd a7, 168(a0)
+    sd s2, 176(a0)
+    sd s3, 184(a0)
+    sd s4, 192(a0)
+    sd s5, 200(a0)
+    sd s6, 208(a0)
+    sd s7, 216(a0)
+    sd s8, 224(a0)
+    sd s9, 232(a0)
+    sd s10, 240(a0)
+    sd s11, 248(a0)
+    sd t3, 256(a0)
+    sd t4, 264(a0)
+    sd t5, 272(a0)
+    sd t6, 280(a0)
+
+    # save the user a0 in p-&gt;trapframe-&gt;a0
+    csrr t0, sscratch
+    sd t0, 112(a0)
+
+    # initialize kernel stack pointer, from p-&gt;trapframe-&gt;kernel_sp
+    ld sp, 8(a0)
+
+    # make tp hold the current hartid, from p-&gt;trapframe-&gt;kernel_hartid
+    ld tp, 32(a0)
+
+    # load the address of usertrap(), from p-&gt;trapframe-&gt;kernel_trap
+    ld t0, 16(a0)
+
+    # fetch the kernel page table address, from p-&gt;trapframe-&gt;kernel_satp.
+    ld t1, 0(a0)
+
+    # wait for any previous memory operations to complete, so that
+    # they use the user page table.
+    sfence.vma zero, zero
+
+    # install the kernel page table.
+    csrw satp, t1
+
+    # flush now-stale user entries from the TLB.
+    sfence.vma zero, zero
+
+    # call usertrap()
+    jalr t0
+</code></pre><p>.globl userret
+userret:
+# usertrap() returns here, with user satp in a0.
+# return from kernel to user.</p><pre><code>    # switch to the user page table.
+    sfence.vma zero, zero
+    csrw satp, a0
+    sfence.vma zero, zero
+
+    li a0, TRAPFRAME
+
+    # restore all but a0 from TRAPFRAME
+    ld ra, 40(a0)
+    ld sp, 48(a0)
+    ld gp, 56(a0)
+    ld tp, 64(a0)
+    ld t0, 72(a0)
+    ld t1, 80(a0)
+    ld t2, 88(a0)
+    ld s0, 96(a0)
+    ld s1, 104(a0)
+    ld a1, 120(a0)
+    ld a2, 128(a0)
+    ld a3, 136(a0)
+    ld a4, 144(a0)
+    ld a5, 152(a0)
+    ld a6, 160(a0)
+    ld a7, 168(a0)
+    ld s2, 176(a0)
+    ld s3, 184(a0)
+    ld s4, 192(a0)
+    ld s5, 200(a0)
+    ld s6, 208(a0)
+    ld s7, 216(a0)
+    ld s8, 224(a0)
+    ld s9, 232(a0)
+    ld s10, 240(a0)
+    ld s11, 248(a0)
+    ld t3, 256(a0)
+    ld t4, 264(a0)
+    ld t5, 272(a0)
+    ld t6, 280(a0)
+
+    # restore user a0
+    ld a0, 112(a0)
+    
+    # return to user mode and user pc.
+    # usertrapret() set up sstatus and sepc.
+    sret
+</code></pre><p>处理器的虚拟化
+为什么死循环不能使计算机被彻底卡死?</p><p>原理上:
+1.硬件会发生中断(类似于强行插入的ecall)
+2.切换到操作系统代码执行
+3.操作系统代码可以切换到另一个进程执行</p><h2 id=xv6面经>xv6面经<a hidden class=anchor aria-hidden=true href=#xv6面经>#</a></h2><h3 id=惰性分配内存>惰性分配内存<a hidden class=anchor aria-hidden=true href=#惰性分配内存>#</a></h3><h3 id=内存写时复制>内存写时复制<a hidden class=anchor aria-hidden=true href=#内存写时复制>#</a></h3><h3 id=内存的超售机制>内存的超售机制<a hidden class=anchor aria-hidden=true href=#内存的超售机制>#</a></h3><h3 id=xv6的物理内存如何分配>xv6的物理内存如何分配<a hidden class=anchor aria-hidden=true href=#xv6的物理内存如何分配>#</a></h3><h3 id=定时器回调如何实现>定时器回调如何实现<a hidden class=anchor aria-hidden=true href=#定时器回调如何实现>#</a></h3><h3 id=xv6配置环境的时候申请多大物理内存>xv6配置环境的时候申请多大物理内存<a hidden class=anchor aria-hidden=true href=#xv6配置环境的时候申请多大物理内存>#</a></h3><h3 id=xv6内存的惰性分配>xv6内存的惰性分配<a hidden class=anchor aria-hidden=true href=#xv6内存的惰性分配>#</a></h3><p>惰性分配的问题:
+频繁触发缺页异常陷入内核态开销很大</p><p>惰性分配的优化方法:
+预取,根据进程访问局部性预取相邻的多个页,文件映射时,linux默认readhead为128KB</p><h3 id=文件系统的读写全流程>文件系统的读写全流程<a hidden class=anchor aria-hidden=true href=#文件系统的读写全流程>#</a></h3><h3 id=xv6是什么类型的操作系统介绍一下是否是实时操作系统>xv6是什么类型的操作系统介绍一下,是否是实时操作系统<a hidden class=anchor aria-hidden=true href=#xv6是什么类型的操作系统介绍一下是否是实时操作系统>#</a></h3><h3 id=操作系统分几个模块>操作系统分几个模块<a hidden class=anchor aria-hidden=true href=#操作系统分几个模块>#</a></h3><h3 id=虚拟地址翻译过程>虚拟地址翻译过程<a hidden class=anchor aria-hidden=true href=#虚拟地址翻译过程>#</a></h3><h3 id=系统调用的详细过程>系统调用的详细过程<a hidden class=anchor aria-hidden=true href=#系统调用的详细过程>#</a></h3><h3 id=进程同步的策略进程线程如何同步>进程同步的策略,进程,线程如何同步<a hidden class=anchor aria-hidden=true href=#进程同步的策略进程线程如何同步>#</a></h3><h3 id=有看过linux内核设计吗>有看过linux内核设计吗<a hidden class=anchor aria-hidden=true href=#有看过linux内核设计吗>#</a></h3><p>考虑后面看一下</p><h2 id=中山os>中山OS<a hidden class=anchor aria-hidden=true href=#中山os>#</a></h2><p>短期调度
+image.png</p><p>中期调度
+767f41d251ad2e9cf2b4af58522ec6c.png</p><p>进程调度总览
+image.png</p><h2 id=vscode-gdb调试>vscode gdb调试<a hidden class=anchor aria-hidden=true href=#vscode-gdb调试>#</a></h2><p>1.继续:(Continue)/F5
+含义: 解除暂停,全速奔跑吧
+发生什么:
+xv6会从当前暂停的地方恢复运行,CPU全速工作
+直到遇到下一个断点,它才会再次停下来</p><p>2.逐过程(Step Over)/F10
+含义: 往下走一行,但我不想进这个函数里面看
+发生什么:
+执行当前高亮的一行代码
+如果这行代码调用一个函数,调试器会瞬间把那个函数跑完,然后停在下一行</p><p>3.单步调试(Step Into)/F11
+含义: 往下走一行,如果有函数,我要钻进去看细节
+发生什么:
+执行当前行
+如果这行函数调用了函数,调试器会跳进那个函数的内部,停在那个函数的第一行</p><p>4.跳出(Step Out)/shift + F11
+含义: &ldquo;我不小心钻进来了,或者我看腻了,快带我出去&rdquo;
+发生什么:
+让我当前所在的函数瞬间执行完剩下的所有代码
+然后停在调用它的那行代码的下一行</p><p>光标停在的哪一行,执行了吗?
+没有执行
+当黄色的高亮条(光标)停在某一行代码上时,代表CPU"正准备"执行这一行代码,但还没下手</p><h2 id=xv6-lab>xv6-lab<a hidden class=anchor aria-hidden=true href=#xv6-lab>#</a></h2><h3 id=lab1-util>lab1-util<a hidden class=anchor aria-hidden=true href=#lab1-util>#</a></h3><h4 id=boot-xv6启动xv6>Boot xv6/启动xv6<a hidden class=anchor aria-hidden=true href=#boot-xv6启动xv6>#</a></h4><h4 id=sleep睡眠>Sleep/睡眠<a hidden class=anchor aria-hidden=true href=#sleep睡眠>#</a></h4><p>为xv6实现UNIX的sleep程序;你的sleep程序应暂停用户指定的时钟滴答数.一个滴答是xv6内核 定义的时间单位,即定时器芯片两次中断之间的间隔.你的解决方法应放在文件user/sleep.c中</p><h4 id=pingpong乒乓>pingpong/乒乓<a hidden class=anchor aria-hidden=true href=#pingpong乒乓>#</a></h4><p>编写一个程序,利用UNIX系统调用,通过一对管道(每个方向一个),在两个进程之间"乒乓"传递一个字节
+具体流程如下:
+1.父进程应该向子进程发送一个字节
+2.子进程应该:
+接收这个字节
+打印<pid>: received ping (其中<pid>是它的进程ID)
+把这个字节写回管道,发给父进程
+退出
+3.父进程应该:
+从子进程读取这个字节
+打印<pid>: received pong
+退出
+一些提示:
+使用pipe来创建管道
+使用fork来创建子进程
+使用read从管道读取,使用write向管道写入
+使用getpid获取当前进程的ID
+别忘了把程序名加入到Makefile的UPROGS列表中
+xv6的用户程序能用的库函数很少,你可以查看user/user.h里的列表</p><p>预期输出:</p><p>$ pingpong
+4: received ping
+3: received pong
+$</p><h4 id=primes质数-素数筛-sieve-of-eratosthenes埃拉托斯特尼筛法>primes/质数 素数筛 Sieve of Eratosthenes（埃拉托斯特尼筛法）<a hidden class=anchor aria-hidden=true href=#primes质数-素数筛-sieve-of-eratosthenes埃拉托斯特尼筛法>#</a></h4><p>编写一个并发版本的"素数筛"程序,通过管道(pipes)来筛选素数.这个创意归功于Unix管道的发明者Doug Mcllroy</p><p>使用pipe和fork来建立一个流水线
+1.每一个进程将数字2到35输入到管道中
+2.对于每一个新发现的素数,你需要创建一个新的进程
+这个新进程从它的左邻居(通过一个管道)读取数据
+将筛选后的数据写给它的右邻居(通过另一个管道)
+3.因为xv6的资源(文件描述符和进程数)有限,第一个进程只要算到35就可以停止了</p><p>一些提示:
+严谨关闭文件描述符: 非常重要! 每个进程必须关闭它不需要的文件描述符.否则,你的程序会在还没算到35之前就耗尽xv6的资源(xv6默认每个进程只能打开16个文件).</p><p>等待子进程: 当第一个进程处理完35后,它应该等待这个流水线结束(包括所有的子进程,孙子进程等).主进程应该在所有输出打印完毕,且所有其他进程都退出之后才退出</p><p>读取结束信号: 当管道的写入端（Write-side）被关闭时，read 函数会返回 0。利用这个特性来判断什么时候结束。</p><p>直接传整数: 最简单的方法是直接向管道写入 32 位（4字节）的 int，而不是像字符串那样用 ASCII 格式读写。</p><p>按需创建: 你应该只在需要的时候(发现新素数时)才创建新的进程,不要一开始就全创建好</p><p>别忘了把程序加入Makefile UPROGS中</p><p>6de8c40ce3633da02e99069d27316c4.jpg</p><h4 id=find查找>find/查找<a hidden class=anchor aria-hidden=true href=#find查找>#</a></h4><p>编写一个简单版本的UNIX find 程序: 在一个目录树(directory tree) 中查找所有具有特定名称的文件. 你的代码应该写在 user/find.c 文件中</p><p>[提示 (Hints) 解析]
+看看user/ls.c 是如何读取目录的: 这是最重要的一条提示! 在Unix中，目录其实也是一种"文件", 里面存的是"目录项"(文件或子目录的名字和它们对应的索引节点号).ls.c里有完整读取目录的代码模板
+使用递归(recursion): 因为目录里面可能还有目录,所以当程序遇到目录时,需要调用自己进入子目录继续找
+不需要递归遍历.和..: .代表当前目录, ..代表上一级目录.如果不跳过他们,程序就会在原地无限打转
+文件系统的更改在qemu运行期间是持久的: 如果你建了文件,下次启动还在. 如果想得到干净的文件系统,可以运行make clean然后再make qemu
+你需要使用C语言的字符串: 复习一下C语言里字符串是如何\0结尾的
+注意,不能像Python里那样 == 比较字符串: 必须使用strcmp() 函数
+把程序添加到Makefile的UPROGS中: 这样编译系统才会把你的find.c编译成可在xv6里运行的命令</p><h4 id=xargs>XARGS<a hidden class=anchor aria-hidden=true href=#xargs>#</a></h4><p>写一个简化版的xargs程序.它需要从标准输入(stdin)一行一行地读取数据,然后对每一行执行指定的命令,把读取到的这一行内容作为参数喂给这个命令</p><p>例子 1：echo hello too | xargs echo bye
+左边输出：hello too（通过管道传给右边）。
+右边接收：xargs 读取到了 hello too。
+xargs 的动作：xargs 后面跟着的命令是 echo bye。它把 hello too 追加到后面，变成了 echo bye hello too。
+最终执行：打印出 bye hello too。
+例子 2：echo &ldquo;1\n2&rdquo; | xargs -n 1 echo line (在咱们的 lab 中不需要实现 -n 这个优化，只要按行读取就行)。
+第一行是 1，执行 echo line 1。
+第二行是 2，执行 echo line 2。</p><p>官方提示(Hints):
+用fork和exec对每一行输入调用命令.父进程要用wait等待子进程执行完毕.
+逐个字符读取输入,直到遇到换行符\n
+kernel/param.h里有一个MAXARG，定义了最大参数个数,声明数组时可以用.
+写完时记得把程序加到Makefile的UPROGS</p><h3 id=lab2-system-calls>lab2-system calls<a hidden class=anchor aria-hidden=true href=#lab2-system-calls>#</a></h3><h4 id=系统调用跟踪system-call-tracing中等难度>系统调用跟踪（System call tracing）（中等难度）<a hidden class=anchor aria-hidden=true href=#系统调用跟踪system-call-tracing中等难度>#</a></h4><p>在本作业中，你将添加一个系统调用跟踪（tracing）功能，这可能会在你调试后续的实验时有所帮助。你将创建一个新的 trace 系统调用来控制跟踪。它应接受一个参数：一个整数“掩码（mask）”，其二进制位指定了要跟踪哪些系统调用。
+例如，要跟踪 fork 系统调用，程序需要调用 trace(1 &#171; SYS_fork)，其中 SYS_fork 是 kernel/syscall.h 中定义的系统调用号。你需要修改 xv6 内核，以便在每次系统调用即将返回时，如果掩码中设置了该系统调用对应的位，则打印出一行信息。这行信息应该包含：进程 ID、系统调用的名称和返回值；你不需要打印系统调用的参数。
+trace 系统调用应该为调用它的进程及其随后 fork（派生）出的所有子进程启用跟踪，但不应影响其他无关的进程。
+我们提供了一个用户级程序 trace，用于在启用跟踪的情况下运行另一个程序（参见 user/trace.c）。当你完成实验后，你应该能看到如下类似的输出：
+Bash
+$ trace 32 grep hello README
+3: syscall read -> 1023
+3: syscall read -> 966
+3: syscall read -> 70
+3: syscall read -> 0
+$
+$ trace 2147483647 grep hello README
+4: syscall trace -> 0
+4: syscall exec -> 3
+4: syscall open -> 3
+4: syscall read -> 1023
+4: syscall read -> 966
+4: syscall read -> 70
+4: syscall read -> 0
+4: syscall close -> 0
+$
+$ grep hello README
+$
+$ trace 2 usertests forkforkfork
+usertests starting
+test forkforkfork: 407: syscall fork -> 408
+408: syscall fork -> 409
+409: syscall fork -> 410
+410: syscall fork -> 411
+409: syscall fork -> 412
+410: syscall fork -> 413
+409: syscall fork -> 414
+411: syscall fork -> 415
+&mldr;
+$<br>输出示例解析：()()()()</p><p>在上面的第一个示例中，trace 调用 grep 且仅跟踪 read 系统调用。参数 32 即为 1 &#171; SYS_read。()()()()</p><p>在第二个示例中，trace 运行 grep 并跟踪所有系统调用；2147483647 这个数字的低 31 位全部为 1。()()()</p><p>在第三个示例中，程序没()有被 trace 运行，因此没有打印任何跟踪输出。()()</p><p>在第四个示例中，usertests 中的 forkforkfork 测试的所()有后代进程的 fork 系统调用都被跟踪了。()</p><p>如果你的程序行为如上所示（进程 ID 具体数字可能不同），那么你的解()决方案就是正确的。</p><p>一些提示（Hints）：
+在 Makefile 的 UPROGS 中添加 $U/_trace。
+运行 make qemu，你会发现编译器无法编译 user/trace.c，因为该系统调用的用户空间存根（stubs）还不存在：
+请在 user/user.h 中为该系统调用添加函数原型。
+在 user/usys.pl 中添加存根（stub）。
+在 kernel/syscall.h 中添加系统调用编号。 Makefile 会调用 Perl 脚本 user/usys.pl 来生成 user/usys.S（这就是实际的系统调用存根），这些存根使用 RISC-V 的 ecall 指令陷入（transition）到内核。 解决编译问题后，再次运行 make qemu 并在 xv6 shell 中执行 trace 32 grep hello README；它会失败，因为你还没有在内核中实现该系统调用。
+在 kernel/sysproc.c 中添加一个 sys_trace() 函数来实现这个新的系统调用。你需要在 proc 结构体（参见 kernel/proc.h）中添加一个新的变量，用来记录传入的参数（掩码）。从用户空间获取系统调用参数的函数位于 kernel/syscall.c 中，你可以在 kernel/sysproc.c 中看到它们的使用示例。
+修改 fork() 函数（参见 kernel/proc.c），将跟踪掩码从父进程复制到子进程。
+修改 kernel/syscall.c 中的 syscall() 函数以打印跟踪输出。为了打印出系统调用的名称，你需要添加一个包含系统调用名称的字符串数组，以便用系统调用号来进行索引。</p><p><img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_0a3ea6.png alt="图片 1" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_523fbd.png alt="图片 2" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_f00d18.png alt="图片 3" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_55a461.png alt="图片 4" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_57dd27.png alt="图片 5" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_4f6460.png alt="图片 6" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_3cbcae.png alt="图片 7" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_89aa53.png alt="图片 8" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_f40951.png alt="图片 9" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_627ba7.png alt="图片 10" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_7b01d4.png alt="图片 11" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_3d89d2.png alt="图片 12" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_86cfea.png alt="图片 13" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_5376a2.png alt="图片 14" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_74f0b7.png alt="图片 15" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_789efe.png alt="图片 16" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_7e03ba.png alt="图片 17" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_2e6c2e.png alt="图片 18" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/767f41d251ad2e9cf2b4af58522ec6c_3b9296.png alt="图片 19" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/image_ccf172.png alt="图片 20" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px">
+<img src=https://hydarealman.github.io/wander/images/feishu/xv6-for-risc-v/6de8c40ce3633da02e99069d27316c4_8a0bb1.jpg alt="图片 21" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px"></p></div><section class=like-panel data-like-doc=/wander/posts/1970/01/xv6-for-risc-v/ data-like-title="xv6 for RISC-V" aria-label=文章点赞><div class=like-copy><strong>这篇文章有帮助吗？</strong>
+<span>给它点个赞，后续整理文章时会优先照顾高赞内容。</span></div><button class=like-button type=button aria-pressed=false>
+<span class=like-button-mark>赞</span>
+<span class=like-count data-like-count>0</span></button><p class=like-status data-like-status>点赞数据加载中</p></section><section class=post-githistory><details><summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>文档修订记录</span>
+<span class=post-githistory-count>5 次修订</span></summary><div class=post-githistory-body><ol class=git-timeline><li class=git-timeline-item><time datetime=2026-06-29T10:28:17+08:00>06-29</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener title=查看此次提交>197fd12</a>
+<span class=git-timeline-msg>修复大小标题显示失败的bug</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:57:52+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/38272c2998bf755548a368978b06d0ea98af3c92 target=_blank rel=noopener title=查看此次提交>38272c2</a>
+<span class=git-timeline-msg>Feat: TOC sidebar + git commit history timeline + fix 20 post titles to match filenames</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:19:16+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/edc8d798c832c2447d2317a4e3d81d8002ce81ba target=_blank rel=noopener title=查看此次提交>edc8d79</a>
+<span class=git-timeline-msg>博客界面更换 一些笑哦bug维修</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T13:17:23+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/bce812d720c0f54a403db7f482d6d5eb340718af target=_blank rel=noopener title=查看此次提交>bce812d</a>
+<span class=git-timeline-msg>6_28飞书文档同步更新</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T12:44:45+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/8c0c2ac0bab9de15941c1438df8468c29690f1b7 target=_blank rel=noopener title=查看此次提交>8c0c2ac</a>
+<span class=git-timeline-msg>飞书同步test</span>
+<span class=git-timeline-author>hydarealman</span></div></li></ol><a class=post-githistory-full href=https://github.com/hydarealman/wander/commits/main/content/posts/xv6-for-risc-v.md target=_blank rel=noopener>在 GitHub 上查看完整历史
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div></details></section><section class=related-posts aria-label=相关文章><h2 class=related-posts__heading>相关文章</h2><div class=related-posts__list><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/1970/01/lab%E7%9B%B8%E5%85%B3%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/><span>lab相关文献阅读</span>
+<span class=date>1970-01-21</span>
+</a><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/1970/01/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/><span>深入理解计算机系统</span>
+<span class=date>1970-01-21</span></a></div></section><footer class=post-footer><ul class=post-tags><li><a href=https://hydarealman.github.io/wander/tags/%E8%AF%BB%E4%B9%A6/>读书</a></li></ul><nav class=paginav><a class=prev href=https://hydarealman.github.io/wander/posts/1970/01/vscode%E5%91%BD%E4%BB%A4%E8%A1%8C/><span class=title>« 上一页</span>
+<span>Vscode命令行</span>
+</a><a class=next href=https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%89%E8%A3%85ch343%E7%9A%84%E9%A9%B1%E5%8A%A8/><span class=title>下一页 »</span>
+<span>安装ch343的驱动</span></a></nav></footer><div class=giscus-wrapper><script src=https://giscus.app/client.js data-repo=hydarealman/wander data-repo-id=R_kgDOS5PAig data-category=General data-category-id=DIC_kwDOS5PAis4DAWkL data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></div><div class=toc-mobile-backdrop id=toc-backdrop></div></div><script>(()=>{const t=document.querySelector(".post-layout"),n=document.getElementById("toc-sidebar"),l=document.getElementById("toc-collapse-btn"),d=document.getElementById("toc-float-btn"),o=document.getElementById("toc-backdrop");if(!t||!n)return;const i="wander:toc:open",a=()=>t.dataset.tocState==="open",e=e=>{t.dataset.tocState=e?"open":"closed";try{localStorage.setItem(i,e?"1":"0")}catch{}e&&(document.body.style.overflow="")},r=()=>{e(!a())};l.addEventListener("click",r),d.addEventListener("click",r),o&&o.addEventListener("click",()=>e(!1)),document.addEventListener("keydown",t=>{t.key==="Escape"&&a()&&e(!1)});const u=(()=>{try{return localStorage.getItem(i)}catch{return null}})();u==="0"&&e(!1);const c=n.querySelector(".toc-sidebar__nav");if(c){const e=t=>{if(!t||!t.children)return;Array.from(t.children).forEach(t=>{if(t.tagName!=="LI")return;const n=t.querySelector(":scope > ul"),s=t.querySelector(":scope > a");if(s){const i=document.createElement("div");i.className="toc-row";const o=document.createElement("button");o.className="toc-toggle",o.type="button",o.setAttribute("aria-label","展开/折叠子标题"),o.innerHTML='<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',n&&n.children.length>0?(t.classList.add("has-children"),o.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation(),t.classList.toggle("collapsed");try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.setItem(n,t.classList.contains("collapsed")?"1":"0")}}catch{}})):o.classList.add("toc-toggle--placeholder"),t.insertBefore(i,t.firstChild),i.appendChild(o),i.appendChild(s);try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.getItem(n)==="1"&&t.classList.add("collapsed")}}catch{}n&&e(n)}})},t=c.querySelector(":scope > ul");t&&e(t)}const s=n.querySelectorAll('.toc-sidebar__nav a[href^="#"]');if(s.length&&"IntersectionObserver"in window){const e=[];if(s.forEach(t=>{const s=t.getAttribute("href").slice(1),n=document.getElementById(s);n&&e.push({el:n,a:t})}),e.length){const t=new IntersectionObserver(e=>{let t=null;e.forEach(e=>{if(e.isIntersecting){const n=e.target.getAttribute("id");t||(t=n)}}),t&&s.forEach(e=>{const n=e.getAttribute("href");e.classList.toggle("active",n==="#"+t)})},{rootMargin:"-20% 0px -70% 0px"});e.forEach(e=>t.observe(e.el))}}})()</script></main><footer class=footer><span>&copy; 2026 <a href=https://hydarealman.github.io/wander/>wander</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script id=wander-like-config type=application/json>{"provider":"local","supabaseAnonKey":"","supabaseUrl":"","table":"doc_likes"}</script><script>(()=>{const e=e=>`wander:view:${e}`,t=e=>new URL(e,window.location.origin).pathname,n=document.querySelector("article.post-single");if(n&&window.location.pathname.includes("/posts/")){const t=e(window.location.pathname),n=Number(localStorage.getItem(t)||0)+1;localStorage.setItem(t,String(n))}document.querySelectorAll("[data-view-path]").forEach(n=>{const s=e(t(n.getAttribute("data-view-path")||window.location.pathname));n.textContent=localStorage.getItem(s)||"0"})})(),(()=>{const l=document.getElementById("wander-like-config"),t=l?JSON.parse(l.textContent||"{}"):{},f=(t.provider||"local").toLowerCase(),o=f==="supabase"&&t.supabaseUrl&&t.supabaseAnonKey,s=e=>`wander:liked:${e}`,d=e=>`wander:like-count:${e}`,m=e=>String(e||"").replace(/\/+$/,""),r=m(t.supabaseUrl),h=t.table||"doc_likes",c=()=>({apikey:t.supabaseAnonKey,Authorization:`Bearer ${t.supabaseAnonKey}`,"Content-Type":"application/json"}),a=(e,t)=>{e.dataset.liked=t?"true":"false",e.setAttribute("aria-pressed",t?"true":"false");const n=e.querySelector(".like-button-mark");n&&(n.textContent=t?"已赞":"赞")},e=(e,t)=>{const n=e.querySelector("[data-like-status]");n&&(n.textContent=t)},n=(e,t)=>{const n=e.querySelector("[data-like-count]");n&&(n.textContent=String(Math.max(0,Number(t)||0)))},i=e=>Number(localStorage.getItem(d(e))||0),u=(e,t)=>localStorage.setItem(d(e),String(t));async function p(e){const n=`${r}/rest/v1/${encodeURIComponent(h)}?doc_id=eq.${encodeURIComponent(e)}&select=count`,t=await fetch(n,{headers:c()});if(!t.ok)throw new Error(`HTTP ${t.status}`);const s=await t.json();return Number(s?.[0]?.count||0)}async function g(e,t){const n=await fetch(`${r}/rest/v1/rpc/increment_doc_like`,{method:"POST",headers:c(),body:JSON.stringify({p_doc_id:e,p_title:t})});if(!n.ok)throw new Error(`HTTP ${n.status}`);const s=await n.json();return Number(s||0)}async function v(t){const c=t.querySelector(".like-button"),r=t.dataset.likeDoc||window.location.pathname,d=t.dataset.likeTitle||document.title,l=localStorage.getItem(s(r))==="1";if(a(c,l),o)try{n(t,await p(r)),e(t,l?"你已经赞过这篇文章":"点赞会同步到全站统计")}catch{n(t,i(r)),e(t,"远程点赞暂不可用，当前使用本机点赞")}else n(t,i(r)),e(t,l?"你已经在本机赞过这篇文章":"当前是本机点赞；配置 Supabase 后可同步给所有访客");c.addEventListener("click",async()=>{if(localStorage.getItem(s(r))==="1"){e(t,o?"你已经赞过这篇文章":"你已经在本机赞过这篇文章");return}c.disabled=!0,e(t,"正在记录点赞");try{let l;o?l=await g(r,d):(l=i(r)+1,u(r,l)),localStorage.setItem(s(r),"1"),a(c,!0),n(t,l),e(t,o?"感谢点赞，已同步到全站":"感谢点赞，已记录在本机")}catch{const o=i(r)+1;u(r,o),localStorage.setItem(s(r),"1"),a(c,!0),n(t,o),e(t,"远程同步失败，已先记录在本机")}finally{c.disabled=!1}})}document.querySelectorAll(".like-panel").forEach(v)})()</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

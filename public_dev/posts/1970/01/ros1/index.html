@@ -1,0 +1,455 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>ROS1 | wander</title><meta name=keywords content="ROS"><meta name=description content="ROS1
+学习网址
+https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html
+创建工作空间功能包流程
+遇到的bug:
+最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误."><meta name=author content="dong"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/ros1/><link crossorigin=anonymous href=/wander/assets/css/stylesheet.0af188802f5b9d57040c63f6322b3edbb8d667e734f3720bac584f3280ed4145.css integrity="sha256-CvGIgC9bnVcEDGP2Mis+27jWZ+c083ILrFhPMoDtQUU=" rel="preload stylesheet" as=style><link rel=icon href=https://hydarealman.github.io/wander/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://hydarealman.github.io/wander/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://hydarealman.github.io/wander/favicon-32x32.png><link rel=apple-touch-icon href=https://hydarealman.github.io/wander/apple-touch-icon.png><link rel=mask-icon href=https://hydarealman.github.io/wander/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://hydarealman.github.io/wander/posts/1970/01/ros1/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:image" content="https://hydarealman.github.io/wander/images/og-default.png"><meta property="twitter:image" content="https://hydarealman.github.io/wander/images/og-default.png"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/ros1/><link rel=manifest href=https://hydarealman.github.io/wander/manifest.json><meta name=theme-color content="#ffffff" media="(prefers-color-scheme: light)"><meta name=theme-color content="#0d1117" media="(prefers-color-scheme: dark)"><meta name=mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="default"><meta name=apple-mobile-web-app-title content="wander"><script>"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("https://hydarealman.github.io/wander/sw.js")})</script><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//cdn.jsdelivr.net><link rel=dns-prefetch href=//giscus.app><meta property="og:url" content="https://hydarealman.github.io/wander/posts/1970/01/ros1/"><meta property="og:site_name" content="wander"><meta property="og:title" content="ROS1"><meta property="og:description" content="ROS1 学习网址 https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html
+创建工作空间功能包流程 遇到的bug: 最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误."><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="1970-01-21T23:10:23+08:00"><meta property="article:modified_time" content="2026-06-29T10:28:17+08:00"><meta property="article:tag" content="ROS"><meta name=twitter:card content="summary"><meta name=twitter:title content="ROS1"><meta name=twitter:description content="ROS1 学习网址 https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html
+创建工作空间功能包流程 遇到的bug: 最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://hydarealman.github.io/wander/posts/"},{"@type":"ListItem","position":2,"name":"ROS1","item":"https://hydarealman.github.io/wander/posts/1970/01/ros1/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ROS1","name":"ROS1","description":"ROS1 学习网址 https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html\n创建工作空间功能包流程 遇到的bug: 最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误.\n","keywords":["ROS"],"articleBody":"ROS1 学习网址 https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html\n创建工作空间功能包流程 遇到的bug: 最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误.\n1.创建工作空间目录结构\nmkdir -p ~/catkin_ws/src 2.初始化工作空间\ncd ~/catkin_ws/src catkin_init_workspace 3.编译工作空间\ncd ~/catkin_ws catkin_make 4.创建功能包 （1.）进入src目录:\ncd ~/catkin_ws/src (2.) 创建功能包\ncatkin_create_pkg my_first_pkg roscpp rospy std_msgs\n5.编写C++节点代码\ncd ~/catkin_ws/src/my_first_pkg touch src/hello_ros.cpp 6.示例代码\n#include “ros/ros.h” // ROS 核心头文件\nint main(int argc, char **argv) { // 初始化 ROS 节点，节点名必须唯一 ros::init(argc, argv, “hello_ros_node”); // 创建节点句柄，用于管理节点资源 ros::NodeHandle nh; // 在控制台输出信息 ROS_INFO(“Hello, ROS World!”); return 0; } 7.配置编译规则 1.找到add_executable部分,添加你的可执行文件生成规则\nadd_executable(hello_ros_node src/hello_ros.cpp) hello_ros_node: 可执行文件的目标名称(在CMake内部使用) -\u003e 不是源文件名(这个名字是自己定义的) src/hello_ros.cpp: 源文件路径(相对于CMakeLists.txt)\n2.找到target_link_libraries部分,为你的可执行文件链接必要的catkin库:\ntarget_link_libraries(hello_ros_node ${catkin_LIBRARIES}) hello_ros_node: 之前add_executable定义的目标名称 \u0026{catkin_LIBRARIES}: CMake变量,包含所有需要的ROS库\n8.编译并运行节点 (1)回到工作空间根目录重新编译\ncd ~/catkin_ws catkin_make (2)在运行节点前,必须启动ROS核心,打开一个新的终端标签页或窗口\nroscore (3)配置当前终端的环境变量,使其能够找到你工作空间编译好的功能包和节点\nsource ~/catkin_ws/devel/setup.bash (4)运行节点\nrosrun my_first_pkg hello_ros_node\n9.补充,设置环境变量(持久化)\necho “source ~/catkin_ws/devel/setup.bash” » ~/.bashrc source ~/.bashrc # 使更改立即生效\n2.初始化 创建功能包: 1.进入工作空间的src目录:\ncd ~/catkin_ws/src 2.使用 catkin_create_pkg 命令创建功能包\ncatkin_create_pkg [depend1] [depend2] [depend3] … 3.整理功能包结构:\ncd my_robot mkdir scripts src launch msg srv 4.回到工作空间根目录编译功能包\ncd ~/catkin_ws catkin_make 刷新当前终端的环境变量\nsource devel/setup.bash 5.验证功能包创建成功 可以使用 rospack 命令来查找或查看你的包信息：\nrospack find my_robot # 查找功能包路径 roscd my_robot # 切换到功能包目录 rosls my_robot # 列出功能包内容\nros::spin()和ros::spinOnce()的区别 ros::spin() 阻塞行为: 阻塞,调用后不返回,持续处理回调 循环机制: 内部自带无限循环,直到节点关闭 使用场景: 节点仅需要处理回调函数,无其他周期性任务 使用场景: 节点仅需要处理回调函数,无其他周期性任务 控制灵活性: 低,无法在循环内添加其他任务 后续代码: 其后的代码不会被执行(除非节点关闭)\nros::spinceOnce() 阻塞行为：非阻塞,调用后立即返回,只处理一次当前回调队列 循环机制: 需外部循环(while(ros::ok()))配合 使用场景: 节点需同时处理回调函数和其他周期性任务 控制灵活性: 高,可在调用前后执行自定义代码 后续代码: 其后的代码会继续执行\nroscore的作用 roscore是ROS系统的总指挥部和信息中心,它提供了节点之间通信所必须的基础设施 ROS Master: 作用: 管理所有节点的注册,发现和连接,充当节点通信的\"名称服务\"和\"协调员\" Parameter Server: 一个全局的键值存储服务器,用于节点间共享配置参数和初始设置 rosout节点: 收集所有节点的日志输出,并提供统一的日志记录和查看接口\nroscore为ROS的分布式计算提供了核心的通信基础设施.在ROS1中,任何节点在启动时都需要向ROS Master注册,并通过它来发现其他节点,从而建立点对点的直接通信,没有roscore,节点就像失去了通讯录和电话号码,节点就像失去了通讯录和电话号码的员工，无法找到彼此并进行协作\nros::spinceOnce()和ros::spin()的区别 ros::spin() 阻塞式: 进入一个无限循环,持续处理ROS回调 不会返回: 一旦调用,程序会已知停留在这个函数中,知道节点被关闭 适用于: 只需要处理回调而不需要执行其他任务的简单节点\nros::spinceOnce() 非阻塞式: 处理当前时刻所有挂起的回调,然后立即返回 继续执行：调用后程序会继续执行后面的代码 适用于: 需要在循环中同时处理回到和执行其他任务的节点\nROS的并发模型 ros::spin()不会阻塞其他节点: 每个节点是独立进程： ROS节点是独立的进程,每个节点有自己的执行线程 ros的通信是异步的: 节点间的消息传递通过ROS Master和话题/服务实现,不依赖对方节点的执行装填\nros::spin()只阻塞当前节点: 它只影响调用它的节点,不会影响系统中其他节点的运行\nROS工具类: 1.ros::Rate ros::Rate是ROS中一个非常重要的实用工具类,用于控制循环(尤其是主循环)的执行频率(速率). 它的目的是让循环以尽可能接近的固定频率运行\n没有速率控制: 1.循环会尽可能快的运行: 这可能导致CPU占用率过高,浪费计算资源 2.执行时间不稳定: 每次循环执行的任务耗时可能不同,导致循环的实际时间波动很大 3.难以与其他节点同步: 如果你的节点需要以特定频率发布数据或执行控制,没有速率控制就无法保证这个频率\nros::Rate loop_rate(10); // 期望以10Hz(每秒10次)运行\nwhile(ros::ok()) { loop_rate.sleep(); // 关键! 在这里睡眠以控制速率\n2.时间相关 ros::Time： 表示一个时间点，它由秒和纳秒两部分组成,通常用于时间戳\nros::Duration: 表示一个时间段或事件间隔, 它也由秒和纳秒组成\nros::Timer: 用于创建周期性的定时回调，类似于ros::Rate但更面向事件，你不需要自己写while循环,只需设置一个回调函数和周期,ROS就会定期调用它 与ros:: Rate的区别: Timer在后台线程中触发回调,不会阻塞你的主线程.而ros::Rate通常用于阻塞主循环以控制其频率\nvoid timerCallback(const ros::TimerEvent\u0026 event) { // 这个函数会被定期调用 ROS_INFO(“Timer called. Expected period: %.4f, Actual last period: %.4f”, event.current_expected.toSec(), event.last_duration.toSec()); }\nint main(int argc, char** argv) { ros::init(argc, argv, “timer_node”); ros::NodeHandle nh;\n// 创建一个定时器，每 1.0 秒调用一次 timerCallback 函数 ros::Timer timer = nh.createTimer(ros::Duration(1.0), timerCallback);\n// 进入自旋，等待回调 ros::spin(); return 0; }\n3.tf tf2_ros::TransformListener 用于侦听和缓存由 TransformBroadcaster发布的坐标变换(tf)数据\ntf2_ros::TransformBroadcaster 用于发布坐标变换关系\ntf2::doTransform()和tfBuffer.transform() 用于执行实际的坐标变换,将一个点或姿态从一个坐标系转换到另一个坐标系\n4.日志与诊断 ROS_INFO(),ROS_WARN(),ROS_ERROR(),ROS_FATAL()（通常用于导致节点无法继续运行的致命错误） 这些是宏,而不是类,但极其常用,它们提供了不同级别的日志输出功能，替代了std::cout 输出会带有时间戳,节点名,消息级别等信息,非常利于调试\n5.节点句柄与参数服务 ros::NodeHandle 这是你与ROS系统交互的主要入口,几乎所有操作(创建发布者/订阅者,获取/设置参数,创建定时器等)都需要通过它 它提供了访问参数服务器的方法\n6.多线程处理(Spinners) 用于处理回调函数,特别是在有多个订阅或服务时 ros::MultiThreadedSpinner spinner(4); 使用一个线程池来处理回调,可以并行处理多个回调。如果一个回调函数执行时间很长,它不会阻塞其他回调的执行\nros::AsyncSpinner 类似于MultiThreadedSpinner ，但更灵活,可以随时启动和通知\nros::NodeHandle nh; ros::NodeHandle private_nh(\"~\"); // 私有节点句柄，用于访问私有参数\nstd::string default_name = “robot”; // 从参数服务器获取参数，如果不存在则使用默认值 nh.paramstd::string(“robot_name”, robot_name, default_name); // 设置参数 nh.setParam(“control_frequency”, 30.0);\n录制与回放数据步骤 1.启动节点并列出话题\n//1.启动核心 roscore //2.启动各种节点 … //3.source工作空间 source catkin_ws/devel/setup.bash //4.列出话题 rostopic list -v //或者 rostopic list 2.创建文件并开始录制\n//1.创建文件 mkdir bagfiles //2.进入文件路径 cd bagfiles //3.录制当前发布的所有话题数据 rosbag record -a 3.检查并回放bag文件\n//在bag包所在目录下执行命令 //查看bag包 rosbag info //回放bag文件以再现系统运行过程 rosbag play 4.录制数据子集\nrosbag record -o subset /turtle/command_velocity /turtlel/pose\n5.录制指定话题\nrosbag record \u003c话题1\u003e \u003c话题2\u003e … \u003c话题N\u003e\n录制单个话题 rosbag record /turtle1/cmd_vel\n录制多个话题 rosbag record /turtle1/cmd_vel /turtle1/pose /odom\n录制不同类型的话题 rosbag record /scan /tf /camera/rgb/image_raw\nrosbag的局限性 在前述部分中你可能已经注意到了turtle的路径可能并没有完全映射到原先通过键盘控制时产生的路径—-整体形状应该是差不多的,但没有完全一样,造成该问题的原因是turtlesim的移动路径对系统定时精度的变化非常敏感。rosbag受制于其本身的性能无法完全复制录制时的系统运行行为,rosplay也一样,对于turtlesim这样的节点,当 处理消息的过程中系统定时发生极小变化时也会使其行为发生微妙变化,用户不应该期望能够完美的模仿系统行为\n超级终端 安装:\nsudo apt install terminator\n快捷键 0ad8c37504e42b9e10a9eab9b806f3b.jpg\n快捷键冲突bug解决 ibus-setup 把占用的快捷键给去除掉\nROSTF广播 一,核心概念： 1.坐标系(Frame): .以字符串 .构成树状结构 2.变换: .包含平移(x,y,z) 和旋转(四元数qx,qy,qz,qw) .描述子坐标系相对于父坐标系的位置姿态\n二,广播变换: 1.静态变换广播\n#include geometry_msgs::TransformStamped static_transform; static_transform.header.stamp = ros::Time::now(); static_transform.header.frame_id = “parent_frame”; static_transform.child_frame_id = “child_frame”; static_transform.transform.translation.x = 0.5; static_transform.transform.translation.y = 0.0; static_transform.transform.translation.z = 0.2; static_transform.transform.rotation = tf::createQuaternionMsgFromYaw(M_PI/4); // 45度\ntf2_ros::StaticTransformBroadcaster broadcaster; broadcaster.sendTransform(static_transform); 动态变换广播\n#include tf2_ros::TransformBroadcaster broadcaster; geometry_msgs::TransformStamped transform;\nvoid publishTransform() { transform.header.stamp = ros::Time::now(); transform.header.frame_id = “odom”; transform.child_frame_id = “base_link”; transform.transform.translation.x = x_position; transform.transform.rotation = tf::createQuaternionMsgFromRollPitchYaw(roll, pitch, yaw); broadcaster.sendTransform(transform); }\n三.监听变换 1.查询最新变换\n#include #include tf2_ros::Buffer tfBuffer; tf2_ros::TransformListener tfListener(tfBuffer);\ngeometry_msgs::TransformStamped transform; try { transform = tfBuffer.lookupTransform(“target_frame”, “source_frame”, ros::Time(0)); // 获取最新可用变换 double x = transform.transform.translation.x; // 使用变换数据… } catch (tf2::TransformException \u0026ex) { ROS_ERROR(\"%s\", ex.what()); } 2.指定时间戳查询\n// 查询特定时刻的变换（需保证时间戳在tf树范围内） transform = tfBuffer.lookupTransform(“map”, “base_link”, ros::Time(ros::Time::now() - ros::Duration(1.0)));\n3.等待可用变换\n// 阻塞等待直到变换可用（超时2秒） tfBuffer.canTransform(“map”, “base_link”, ros::Time::now(), ros::Duration(2.0));\n四,常用工具函数 1.欧拉角 \u003c-\u003e 四元数转换\n#include #include // 欧拉角转四元数 tf2::Quaternion quat; quat.setRPY(roll, pitch, yaw); geometry_msgs::Quaternion quat_msg = tf2::toMsg(quat);\n// 四元数转欧拉角 tf2::fromMsg(quat_msg, quat); tf2::Matrix3x3(quat).getRPY(roll, pitch, yaw); 2.坐标点变换\ngeometry_msgs::PointStamped point_in, point_out; point_in.header.frame_id = “camera”; point_in.point.x = 1.0;\ntfBuffer.transform(point_in, point_out, “map”); // 将点从camera系转换到map系\n五,调试命令 1.查看坐标系树\nrosrun tf2_tools view_frames.py # 生成frames.pdf 2.检查特定变换\nrosrun tf tf_echo source_frame target_frame 3.可视化坐标系(RViz)\n六,常见问题 1.时间戳不匹配 错误: Lookup would require extrapolation into the past 解决: 确保广播时间戳 \u003e= 监听器查询的时间 2.坐标系未连接 错误: Could not find a connection between ‘map’ and ‘base_link’ 3.使用tf2替代旧版tf\nTF时间戳 一，时间戳的核心作用: 1.时空一致性 每个变换,必须携带时间戳,表示该位姿数据的有效时刻 2.避免时间外推错误\n二，时间戳的四种使用场景 查询最新变换 (零延迟)\n// 优先使用：获取最新发布的变换（即使时间戳稍旧） transform = tfBuffer.lookupTransform(“target”, “source”, ros::Time(0));\n指定历史时刻变换\n// 查询特定时刻的位姿（如匹配传感器数据时间戳） ros::Time sensor_stamp = scan_msg-\u003eheader.stamp; transform = tfBuffer.lookupTransform(“map”, “base_link”, sensor_stamp);\n3.时间旅行查询\n// 组合：查询从source_time到target_time的完整变换链 transform = tfBuffer.lookupTransform(“target_frame”, ros::Time::now(), “source_frame”, sensor_stamp, “fixed_frame”); // 固定参考系\n4.等待未来变换\n// 阻塞等待直到指定变换可用（超时5秒） if (tfBuffer.canTransform(“map”, “base_link”, ros::Time::now(), ros::Duration(5.0))) { transform = tfBuffer.lookupTransform(“map”, “base_link”, ros::Time::now()); }\n清理ROS日志 1.检查当前日志大小:\nrosclean check\n2.清理所有ROS日志:\nrosclean purge 3.执行后系统会提醒你确认是否删除,输入y并按回车即可\n4.ros日志文件的作用: 记录节点运行状态 辅助调试俄故障排除\n可以使用less,cat,tail-f 或grep 等linux命令直接查看或过滤日志文件\n查看实时日志流:\nrostopic echo /rosout\n检查ROS日志配置 rosrun rqt_console rqt_console\nROS常用组件 演示小乌龟 roslaunch turtle_tf2 turtle_tf2_demo_cpp.launch 或者(上面的是cpp节点写的,下面的是python节点写的) roslaunch turtle_tf2 turtle_tf2_demo.launch\nTF坐标变换(TransForm Frame) 概述 TF坐标变换: 实现不同类别的坐标系之间的转换 (因为不可以将物体相对于该传感器的方位信息,等价于机器人系统或机器人其他组件的方位信息) -\u003e 所以需要坐标系之间的变换\n概念: tf: TransForm Frame 坐标系: ROS中是通过坐标系开标定物体的,确切的将是通过右手坐标系来标定的 作用: 在ROS中用于实现不同坐标系之间的点或向量的转换\n说明: 在ROS中坐标变换最初对应的是tf,不过在hyfro版本开始,tf被废弃,迁移到tf2,后者更为简洁高效,tf2对应的常用功能包有: tf2_geometry_msgs 可以将ROS消息转换为tf2消息 tf2: 封装了坐标系变换常用消息 四元数 \u003c-\u003e 欧拉角 tf2_ros: 为tf2提供了rscpp和rospy绑定,封装了坐标变换常用的API\n坐标msg消息 在坐标转换实现中常用的msg: geometry_msgs/TransformStamped 和 geometry_msgs/PointStamped 前者用于传输坐标系相关位置信息,后者用于传输某个坐标系内坐标点的信息,在坐标变换中,频繁的需要使用坐标系的相对位置以及坐标点的信息\n1.geometry_msgs/TransformStamped 命令行键入: rosmsg info geometry_msgs/TransformStamped\nstd_msgs/Header header # 头信息 uint32 seq #|– 序列号 time stamp #|– 时间戳 string frame_id #|– 坐标 ID string child_frame_id #子坐标系的id geometry_msgs/Transform transform #坐标信息 geometry_msgs/Vector3 translation #偏移量 float64 x #|–x 方向的偏移量 float64 y #|–y 方向的偏移量 float64 z #|–z 方向的偏移量 geometry_msgs/Quaternion rotation # 四元数 float64 x float64 y float64 z float64 w 四元数用于表示坐标的相对姿态 2.geometry_msgs/PointStamped 命令行键入: rosmsg info geometry_msgs/PointStamped\nstd_msgs/Header header # 头信息 uint32 seq #| – 序列号 time stamp #| – 时间戳 string frame_id #| – 所属坐标系的id geometry_msgs/Point point # 点坐标 (x,y,z坐标) float64 x float64 y float64 z\n静态坐标变换 指两个坐标系之间的相对位置是固定的 实现分析: 1.坐标系相对关系,可以通过发布方发布 2.订阅方,订阅到发布的坐标系相对关系,再传入坐标点信息(可以写死),然后借助于tf实现坐标变换,并将结果输出\n实现流程: 1.新建功能包,添加依赖 (创建项目功能包依赖于 tf2 tf2_ros tf2_geometry_msgs roscpp rospy std_msgs geometry_msgs) 2.编写发布方实现 3.编写订阅方实现 4.执行并查看结果\n发布方:\n/* 静态坐标变换发布方: 发布关于laser 坐标系的位置信息\n实现流程: 1.包含头文件 2.初始化ROS节点 3.创建静态坐标转换广播器 4.创建坐标信息 5.广播器发布坐标信息 6.spin() */\n#include “ros/ros.h” // ros核心功能 #include “tf2_ros/static_transform_broadcaster.h” // 静态变换广播器 #include “geometry_msgs/TransformStamped.h” // 变换消息结构 #include “tf2/LinearMath/Quaternion.h”// 四元数操作\nint main(int argc, char *argv[]) { setlocale(LC_ALL,\"\"); // 支持中文字符 ros::init(argc,argv,“static_pub”); // 初始化节点,名为\"static_pub\" ros::NodeHandle nh; // 创建节点句柄\ntf2_ros::StaticTransformBroadcaster pub; // 创建静态变换广播器 // 设置变换消息 geometry_msgs::TransformStamped tfs; tfs.header.stamp = ros::Time::now(); // 当前时间戳 tfs.header.frame_id = \"base_link\"; // 父坐标系 tfs.child_frame_id = \"laser\"; // 子坐标系 tfs.transform.translation.x = 0.2; // x轴偏移0.2米 tfs.transform.translation.y = 0.0; // y轴无偏移 tfs.transform.translation.z = 0.5; // z轴偏移0.5米 // 设置旋转 tf2::Quaternion qtn; qtn.setRPY(0,0,0); tfs.transform.rotation.x = qtn.getX(); tfs.transform.rotation.y = qtn.getY(); tfs.transform.rotation.z = qtn.getZ(); tfs.transform.rotation.w = qtn.getW(); pub.sendTransform(tfs); // 发布静态变换 ros::spin(); // 保持节点运行 return 0; }\n订阅方\n#include “ros/ros.h” #include “tf2_ros/transform_listener.h” #include “tf2_ros/buffer.h” #include “geometry_msgs/PointStamped.h” #include “tf2_geometry_msgs/tf2_geometry_msgs.h”\nint main(int argc, char* argv[]) {\nsetlocale(LC_ALL,\"\"); ros::init(argc,argv,\"static_sub\"); ros::NodeHandle nh; tf2_ros::Buffer buffer; tf2_ros::TransformListener listener(buffer); geometry_msgs::PointStamped ps; ps.header.frame_id = \"laser\"; ps.header.stamp = ros::Time::now(); ps.point.x = 2.0; ps.point.y = 3.0; ps.point.z = 5.0; ros::Duration(2).sleep(); // 方案1: 在调用转换函数前,执行休眠 ros::Rate rate(10); while (ros::ok) { geometry_msgs::PointStamped ps_out; /* 调用了该 buffer 的转换函数 transform 参数1: 被转换的坐标点 参数2: 目标坐标系 返回值；输出的坐标点 PS1: 调用时必须包含头文件 tf2_geometry_msgs/tf2_geometry_msgs.h PS2: 运行时存在的问题: 抛出异常 base_link 不存在 原因: 订阅数据是一个耗时操作,可能再调用 transform 转换函数,坐标系的 相对关系还没有订阅到,因此出现异常 解决: 方案1: 在调用转换函数前,执行休眠 方案2: 进行异常处理(放一个异常捕获)，捕获后随便做一些处理再让他进入循环 -\u003e 直 到不抛出异常了就正常完成操作 */ try // 方案2: 执行异常捕获 { ps_out = buffer.transform(ps,\"base_link\"); ROS_INFO(\"转换后的坐标值:(%.2f,%.2f,%.2f),参考的坐标系:%s\", ps_out.point.x, ps_out.point.y, ps_out.point.z, ps_out.header.frame_id.c_str() ); } catch (const std::exception\u0026 e) { // std::cerr \u003c\u003c e.what(ps.what() \u003c\u003c '\\n'); ROS_INFO(\"异常消息: %s\",e.what()); } rate.sleep(); ros::spinOnce(); } return 0; }\npackage.xml - 功能包清单文件 作用: 1.定义功能包名称,版本,描述等元数据 2.声明依赖关系 3.指定维护者信息和许可证 创建方式: catkin_create_pkg命令时会自动生成模板 ， 开发者需要手动编辑填充具体内容， 位于功能包的根目录\nCMakeLists.txt - 构建系统文件(功能包目录下) 作用: 定义如何编译源代码 指定可执行文件和库的生成规则\n创建功能包模板命令行 创建一个新功能包 catkin_create_pkg tf01_static roscpp tf2 tf2_ros\n运行节点命令行:\nrosrun tf01_static demo01_static_pub rosrun: ROS的核心命令,用于运行节点 tf01_static: 功能包名 demo01_static_pub: 节点名 定义位置: 在代码中通过ros::init()函数设置 注意: 实际运行的是编译后的可执行文件名,与代码中的节点名可以不同\n核心概念区分: 可执行文件名 - 操作系统层面 定义在CMakeLists.txt中 是磁盘的二进制文件名 通过rosrun \u003c包名\u003e \u003c可执行文件名\u003e 执行 节点名 - ROS系统层面: 定义在代码中ros::init()函数 是ROS图中的标识符 通过rosnode list查看 这里面还有很深的门道: 略\n补充1: 当坐标系之间的相对位置固定时,那么所需参数也是固定的,父坐标系名称,子坐标系名称,x偏移量,y偏移量,x翻滚角度,y俯仰角度,z偏航角度,实现逻辑相同,参数不同,ROS系统已经封装好了专门的节点:\n命令行 // rosrun tf2_ros static_transform_publisher x偏移量 y偏移量 z偏移量 z偏航角度 y俯仰角度 x翻滚角度 父级坐标系 子级坐标系\nrosrun tf2_ros static_trasform_publisher 0.2 0 05 0 0 0 /baselink/laser\n补充2: 可以借助于rviz显示坐标系关系,具体操作 新建窗口输入命令: rviz 在启动的rviz中设置Fixed Frame 为base_link 点击左下的add按钮,在弹出的窗口中选择TF组件,即可显示坐标关系\n配置安装规则: 安装后: 编辑: package.xml\ntf01_static 0.0.0 Static TF broadcaster package Your Name BSD 编辑:\ntf01_static 0.0.0 Static TF broadcaster package Your Name BSD\n代码编写： 需求: 发布两个坐标系的相对关系 流程: 1.包含头文件; 2.设置编码 节点初始化 NodeHandle; 3. 创建发布对象; 4.组织被发布的消息 5.发布数据; 6.spin();\n动态坐标变换 实现流程: 1.新建功能包,添加依赖 2.创建坐标相对关系发布方(同时需要订阅乌龟位姿信息) 3.创建坐标相对关系订阅方 4.执行\nC++ 实现 1.创建功能包 创建项目功能包依赖于: tf2, tf2_ros, tf2_geometry_msgs, roscpp rospy std_msgs geometry_msgs\n2.发布方\nrviz tf: x轴: 红色 前方 y轴: 绿色 左方 z轴：蓝色 上方\n查看特定话题 rqt_plot /debugpub/data rqt_plot /debugpub1/data\nrqt_plot 话题名称\n同时查看多个特定话题 rqt_plot /debugpub/data/data /debugpub1/data/data\n","wordCount":"6776","inLanguage":"zh","datePublished":"1970-01-21T23:10:23+08:00","dateModified":"2026-06-29T10:28:17+08:00","author":{"@type":"Person","name":"dong"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hydarealman.github.io/wander/posts/1970/01/ros1/"},"publisher":{"@type":"Organization","name":"wander","logo":{"@type":"ImageObject","url":"https://hydarealman.github.io/wander/favicon.ico"}}}</script></head><body id=top><div class=reading-progress id=reading-progress aria-hidden=true></div><script>(()=>{const e=document.getElementById("reading-progress");if(!e)return;const t=()=>{const n=document.documentElement.scrollTop||document.body.scrollTop,t=document.documentElement.scrollHeight-document.documentElement.clientHeight;t>0&&(e.style.width=Math.min(100,n/t*100)+"%")};window.addEventListener("scroll",t,{passive:!0}),t()})()</script><header class=header><nav class=header-nav><div class=logo><a href=https://hydarealman.github.io/wander/ accesskey=h title="wander (Alt + H)">wander</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://hydarealman.github.io/wander/posts/ title=文章><span>文章</span></a></li><li><a href=https://hydarealman.github.io/wander/library/ title=索引><span>索引</span></a></li><li><a href=https://hydarealman.github.io/wander/categories/ title=分类><span>分类</span></a></li><li><a href=https://hydarealman.github.io/wander/commits/ title=历史><span>历史</span></a></li><li><a href=https://hydarealman.github.io/wander/archives/ title=归档><span>归档</span></a></li><li><a href=https://hydarealman.github.io/wander/tags/ title=标签><span>标签</span></a></li><li><a href=https://hydarealman.github.io/wander/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://hydarealman.github.io/wander/about/ title=关于><span>关于</span></a></li><li><a href=https://hydarealman.github.io/wander/manual/ title=说明><span>说明</span></a></li></ul></nav></header><main class=main><div class=post-layout data-toc-state=open><button class=toc-float-btn id=toc-float-btn type=button aria-label=展开目录 title=展开目录>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button><aside class=toc-sidebar id=toc-sidebar><div class=toc-sidebar__header><button class=toc-sidebar__collapse id=toc-collapse-btn type=button aria-label=折叠目录 title=折叠目录>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+<span class=toc-sidebar__title><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+目录</span></div><nav class=toc-sidebar__nav><nav id=TableOfContents><ul><li><a href=#创建工作空间功能包流程>创建工作空间功能包流程</a></li><li><a href=#rosspin和rosspinonce的区别>ros::spin()和ros::spinOnce()的区别</a></li><li><a href=#roscore的作用>roscore的作用</a></li><li><a href=#rosspinceonce和rosspin的区别>ros::spinceOnce()和ros::spin()的区别</a></li><li><a href=#ros的并发模型>ROS的并发模型</a></li><li><a href=#ros工具类>ROS工具类:</a><ul><li><a href=#1rosrate>1.ros::Rate</a></li><li><a href=#2时间相关>2.时间相关</a></li><li><a href=#3tf>3.tf</a></li><li><a href=#4日志与诊断>4.日志与诊断</a></li><li><a href=#5节点句柄与参数服务>5.节点句柄与参数服务</a></li><li><a href=#6多线程处理spinners>6.多线程处理(Spinners)</a></li></ul></li><li><a href=#录制与回放数据步骤>录制与回放数据步骤</a></li></ul><ul><li><a href=#超级终端>超级终端</a></li><li><a href=#rostf广播>ROSTF广播</a></li><li><a href=#tf时间戳>TF时间戳</a></li><li><a href=#清理ros日志>清理ROS日志</a></li><li><a href=#ros常用组件>ROS常用组件</a><ul><li><a href=#tf坐标变换transform-frame>TF坐标变换(TransForm Frame)</a></li><li><a href=#概述>概述</a></li><li><a href=#坐标msg消息>坐标msg消息</a></li><li><a href=#静态坐标变换>静态坐标变换</a></li><li><a href=#动态坐标变换>动态坐标变换</a></li></ul></li><li><a href=#rviz>rviz</a></li></ul></nav></nav></aside><div class=post-content-area><article class=post-single><header class=post-header><nav class=breadcrumbs role=navigation aria-label=Breadcrumb><a href=/wander/>主页</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+<a href=/wander/posts/>Posts</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg></nav><h1 class="post-title entry-hint-parent">ROS1</h1><div class=post-meta><span title='1970-01-21 23:10:23 +0800 CST'>1970-01-21</span>&nbsp;·&nbsp;<span>14 分钟</span>&nbsp;·&nbsp;<span>6776 字</span>&nbsp;·&nbsp;<span class=local-views>本机 <span data-view-path=/wander/posts/1970/01/ros1/>0</span> 次</span>&nbsp;·&nbsp;<span class=meta-cats><a href=/wander/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E8%A7%89/>机器人视觉</a></span>&nbsp;·&nbsp;<span>dong</span>&nbsp;·&nbsp;
+<span class=meta-gitinfo title=修复大小标题显示失败的bug><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>更新于 2026年6月29日</span>
+<a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener class=meta-gitinfo-hash>@197fd12</a>
+</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/hydarealman/wander/edit/main/content/posts/ROS1.md rel="noopener noreferrer edit" target=_blank>编辑此页</a></span></div></header><div class="post-content md-content"><h1 id=ros1>ROS1<a hidden class=anchor aria-hidden=true href=#ros1>#</a></h1><p>学习网址
+<a href=https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html>https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html</a></p><h2 id=创建工作空间功能包流程>创建工作空间功能包流程<a hidden class=anchor aria-hidden=true href=#创建工作空间功能包流程>#</a></h2><p>遇到的bug:
+最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误.</p><p>1.创建工作空间目录结构</p><p>mkdir -p ~/catkin_ws/src
+2.初始化工作空间</p><p>cd ~/catkin_ws/src
+catkin_init_workspace
+3.编译工作空间</p><p>cd ~/catkin_ws
+catkin_make
+4.创建功能包
+（1.）进入src目录:</p><p>cd ~/catkin_ws/src
+(2.) 创建功能包</p><p>catkin_create_pkg my_first_pkg roscpp rospy std_msgs</p><p>5.编写C++节点代码</p><p>cd ~/catkin_ws/src/my_first_pkg
+touch src/hello_ros.cpp
+6.示例代码</p><p>#include &ldquo;ros/ros.h&rdquo; // ROS 核心头文件</p><p>int main(int argc, char **argv) {
+// 初始化 ROS 节点，节点名必须唯一
+ros::init(argc, argv, &ldquo;hello_ros_node&rdquo;);
+// 创建节点句柄，用于管理节点资源
+ros::NodeHandle nh;
+// 在控制台输出信息
+ROS_INFO(&ldquo;Hello, ROS World!&rdquo;);
+return 0;
+}
+7.配置编译规则
+1.找到add_executable部分,添加你的可执行文件生成规则</p><p>add_executable(hello_ros_node src/hello_ros.cpp)
+hello_ros_node: 可执行文件的目标名称(在CMake内部使用) -> 不是源文件名(这个名字是自己定义的)
+src/hello_ros.cpp: 源文件路径(相对于CMakeLists.txt)</p><p>2.找到target_link_libraries部分,为你的可执行文件链接必要的catkin库:</p><p>target_link_libraries(hello_ros_node ${catkin_LIBRARIES})
+hello_ros_node: 之前add_executable定义的目标名称
+&{catkin_LIBRARIES}: CMake变量,包含所有需要的ROS库</p><p>8.编译并运行节点
+(1)回到工作空间根目录重新编译</p><p>cd ~/catkin_ws
+catkin_make
+(2)在运行节点前,必须启动ROS核心,打开一个新的终端标签页或窗口</p><p>roscore
+(3)配置当前终端的环境变量,使其能够找到你工作空间编译好的功能包和节点</p><p>source ~/catkin_ws/devel/setup.bash
+(4)运行节点</p><p>rosrun my_first_pkg hello_ros_node</p><p>9.补充,设置环境变量(持久化)</p><p>echo &ldquo;source ~/catkin_ws/devel/setup.bash&rdquo; &#187; ~/.bashrc
+source ~/.bashrc # 使更改立即生效</p><p>2.初始化
+创建功能包:
+1.进入工作空间的src目录:</p><p>cd ~/catkin_ws/src
+2.使用 catkin_create_pkg 命令创建功能包</p><p>catkin_create_pkg &lt;your_package_name> [depend1] [depend2] [depend3] &mldr;
+3.整理功能包结构:</p><p>cd my_robot
+mkdir scripts src launch msg srv
+4.回到工作空间根目录编译功能包</p><p>cd ~/catkin_ws
+catkin_make
+刷新当前终端的环境变量</p><p>source devel/setup.bash
+5.验证功能包创建成功
+可以使用 rospack 命令来查找或查看你的包信息：</p><p>rospack find my_robot # 查找功能包路径
+roscd my_robot # 切换到功能包目录
+rosls my_robot # 列出功能包内容</p><h2 id=rosspin和rosspinonce的区别>ros::spin()和ros::spinOnce()的区别<a hidden class=anchor aria-hidden=true href=#rosspin和rosspinonce的区别>#</a></h2><p>ros::spin()
+阻塞行为: 阻塞,调用后不返回,持续处理回调
+循环机制: 内部自带无限循环,直到节点关闭
+使用场景: 节点仅需要处理回调函数,无其他周期性任务
+使用场景: 节点仅需要处理回调函数,无其他周期性任务
+控制灵活性: 低,无法在循环内添加其他任务
+后续代码: 其后的代码不会被执行(除非节点关闭)</p><p>ros::spinceOnce()
+阻塞行为：非阻塞,调用后立即返回,只处理一次当前回调队列
+循环机制: 需外部循环(while(ros::ok()))配合
+使用场景: 节点需同时处理回调函数和其他周期性任务
+控制灵活性: 高,可在调用前后执行自定义代码
+后续代码: 其后的代码会继续执行</p><h2 id=roscore的作用>roscore的作用<a hidden class=anchor aria-hidden=true href=#roscore的作用>#</a></h2><p>roscore是ROS系统的总指挥部和信息中心,它提供了节点之间通信所必须的基础设施
+ROS Master:
+作用: 管理所有节点的注册,发现和连接,充当节点通信的"名称服务"和"协调员"
+Parameter Server:
+一个全局的键值存储服务器,用于节点间共享配置参数和初始设置
+rosout节点:
+收集所有节点的日志输出,并提供统一的日志记录和查看接口</p><p>roscore为ROS的分布式计算提供了核心的通信基础设施.在ROS1中,任何节点在启动时都需要向ROS Master注册,并通过它来发现其他节点,从而建立点对点的直接通信,没有roscore,节点就像失去了通讯录和电话号码,节点就像失去了通讯录和电话号码的员工，无法找到彼此并进行协作</p><h2 id=rosspinceonce和rosspin的区别>ros::spinceOnce()和ros::spin()的区别<a hidden class=anchor aria-hidden=true href=#rosspinceonce和rosspin的区别>#</a></h2><p>ros::spin()
+阻塞式: 进入一个无限循环,持续处理ROS回调
+不会返回: 一旦调用,程序会已知停留在这个函数中,知道节点被关闭
+适用于: 只需要处理回调而不需要执行其他任务的简单节点</p><p>ros::spinceOnce()
+非阻塞式: 处理当前时刻所有挂起的回调,然后立即返回
+继续执行：调用后程序会继续执行后面的代码
+适用于: 需要在循环中同时处理回到和执行其他任务的节点</p><h2 id=ros的并发模型>ROS的并发模型<a hidden class=anchor aria-hidden=true href=#ros的并发模型>#</a></h2><p>ros::spin()不会阻塞其他节点:
+每个节点是独立进程： ROS节点是独立的进程,每个节点有自己的执行线程
+ros的通信是异步的: 节点间的消息传递通过ROS Master和话题/服务实现,不依赖对方节点的执行装填</p><p>ros::spin()只阻塞当前节点: 它只影响调用它的节点,不会影响系统中其他节点的运行</p><h2 id=ros工具类>ROS工具类:<a hidden class=anchor aria-hidden=true href=#ros工具类>#</a></h2><h3 id=1rosrate>1.ros::Rate<a hidden class=anchor aria-hidden=true href=#1rosrate>#</a></h3><p>ros::Rate是ROS中一个非常重要的实用工具类,用于控制循环(尤其是主循环)的执行频率(速率). 它的目的是让循环以尽可能接近的固定频率运行</p><p>没有速率控制:
+1.循环会尽可能快的运行: 这可能导致CPU占用率过高,浪费计算资源
+2.执行时间不稳定: 每次循环执行的任务耗时可能不同,导致循环的实际时间波动很大
+3.难以与其他节点同步: 如果你的节点需要以特定频率发布数据或执行控制,没有速率控制就无法保证这个频率</p><p>ros::Rate loop_rate(10); // 期望以10Hz(每秒10次)运行</p><p>while(ros::ok()) {
+loop_rate.sleep(); // 关键! 在这里睡眠以控制速率</p><h3 id=2时间相关>2.时间相关<a hidden class=anchor aria-hidden=true href=#2时间相关>#</a></h3><p>ros::Time： 表示一个时间点，它由秒和纳秒两部分组成,通常用于时间戳</p><p>ros::Duration: 表示一个时间段或事件间隔, 它也由秒和纳秒组成</p><p>ros::Timer: 用于创建周期性的定时回调，类似于ros::Rate但更面向事件，你不需要自己写while循环,只需设置一个回调函数和周期,ROS就会定期调用它
+与ros:: Rate的区别: Timer在后台线程中触发回调,不会阻塞你的主线程.而ros::Rate通常用于阻塞主循环以控制其频率</p><p>void timerCallback(const ros::TimerEvent& event) {
+// 这个函数会被定期调用
+ROS_INFO(&ldquo;Timer called. Expected period: %.4f, Actual last period: %.4f&rdquo;,
+event.current_expected.toSec(),
+event.last_duration.toSec());
+}</p><p>int main(int argc, char** argv) {
+ros::init(argc, argv, &ldquo;timer_node&rdquo;);
+ros::NodeHandle nh;</p><p>// 创建一个定时器，每 1.0 秒调用一次 timerCallback 函数
+ros::Timer timer = nh.createTimer(ros::Duration(1.0), timerCallback);</p><p>// 进入自旋，等待回调
+ros::spin();
+return 0;
+}</p><h3 id=3tf>3.tf<a hidden class=anchor aria-hidden=true href=#3tf>#</a></h3><p>tf2_ros::TransformListener 用于侦听和缓存由 TransformBroadcaster发布的坐标变换(tf)数据</p><p>tf2_ros::TransformBroadcaster 用于发布坐标变换关系</p><p>tf2::doTransform()和tfBuffer.transform() 用于执行实际的坐标变换,将一个点或姿态从一个坐标系转换到另一个坐标系</p><h3 id=4日志与诊断>4.日志与诊断<a hidden class=anchor aria-hidden=true href=#4日志与诊断>#</a></h3><p>ROS_INFO(),ROS_WARN(),ROS_ERROR(),ROS_FATAL()（通常用于导致节点无法继续运行的致命错误）
+这些是宏,而不是类,但极其常用,它们提供了不同级别的日志输出功能，替代了std::cout
+输出会带有时间戳,节点名,消息级别等信息,非常利于调试</p><h3 id=5节点句柄与参数服务>5.节点句柄与参数服务<a hidden class=anchor aria-hidden=true href=#5节点句柄与参数服务>#</a></h3><p>ros::NodeHandle
+这是你与ROS系统交互的主要入口,几乎所有操作(创建发布者/订阅者,获取/设置参数,创建定时器等)都需要通过它
+它提供了访问参数服务器的方法</p><h3 id=6多线程处理spinners>6.多线程处理(Spinners)<a hidden class=anchor aria-hidden=true href=#6多线程处理spinners>#</a></h3><p>用于处理回调函数,特别是在有多个订阅或服务时
+ros::MultiThreadedSpinner spinner(4);
+使用一个线程池来处理回调,可以并行处理多个回调。如果一个回调函数执行时间很长,它不会阻塞其他回调的执行</p><p>ros::AsyncSpinner
+类似于MultiThreadedSpinner ，但更灵活,可以随时启动和通知</p><p>ros::NodeHandle nh;
+ros::NodeHandle private_nh("~"); // 私有节点句柄，用于访问私有参数</p><p>std::string default_name = &ldquo;robot&rdquo;;
+// 从参数服务器获取参数，如果不存在则使用默认值
+nh.param<a href=std::string>std::string</a>(&ldquo;robot_name&rdquo;, robot_name, default_name);
+// 设置参数
+nh.setParam(&ldquo;control_frequency&rdquo;, 30.0);</p><h2 id=录制与回放数据步骤>录制与回放数据步骤<a hidden class=anchor aria-hidden=true href=#录制与回放数据步骤>#</a></h2><p>1.启动节点并列出话题</p><p>//1.启动核心
+roscore
+//2.启动各种节点
+&mldr;
+//3.source工作空间
+source catkin_ws/devel/setup.bash
+//4.列出话题
+rostopic list -v
+//或者 rostopic list
+2.创建文件并开始录制</p><p>//1.创建文件
+mkdir bagfiles
+//2.进入文件路径
+cd bagfiles
+//3.录制当前发布的所有话题数据
+rosbag record -a
+3.检查并回放bag文件</p><p>//在bag包所在目录下执行命令
+//查看bag包
+rosbag info <your bagfile>//回放bag文件以再现系统运行过程
+rosbag play <your bagfile>4.录制数据子集</p><p>rosbag record -o subset /turtle/command_velocity /turtlel/pose</p><p>5.录制指定话题</p><p>rosbag record &lt;话题1> &lt;话题2> &mldr; &lt;话题N></p><h1 id=录制单个话题>录制单个话题<a hidden class=anchor aria-hidden=true href=#录制单个话题>#</a></h1><p>rosbag record /turtle1/cmd_vel</p><h1 id=录制多个话题>录制多个话题<a hidden class=anchor aria-hidden=true href=#录制多个话题>#</a></h1><p>rosbag record /turtle1/cmd_vel /turtle1/pose /odom</p><h1 id=录制不同类型的话题>录制不同类型的话题<a hidden class=anchor aria-hidden=true href=#录制不同类型的话题>#</a></h1><p>rosbag record /scan /tf /camera/rgb/image_raw</p><p>rosbag的局限性
+在前述部分中你可能已经注意到了turtle的路径可能并没有完全映射到原先通过键盘控制时产生的路径&mdash;-整体形状应该是差不多的,但没有完全一样,造成该问题的原因是turtlesim的移动路径对系统定时精度的变化非常敏感。rosbag受制于其本身的性能无法完全复制录制时的系统运行行为,rosplay也一样,对于turtlesim这样的节点,当 处理消息的过程中系统定时发生极小变化时也会使其行为发生微妙变化,用户不应该期望能够完美的模仿系统行为</p><h2 id=超级终端>超级终端<a hidden class=anchor aria-hidden=true href=#超级终端>#</a></h2><p>安装:</p><p>sudo apt install terminator</p><p>快捷键
+0ad8c37504e42b9e10a9eab9b806f3b.jpg</p><p>快捷键冲突bug解决
+ibus-setup
+把占用的快捷键给去除掉</p><h2 id=rostf广播>ROSTF广播<a hidden class=anchor aria-hidden=true href=#rostf广播>#</a></h2><p>一,核心概念：
+1.坐标系(Frame):
+.以字符串
+.构成树状结构
+2.变换:
+.包含平移(x,y,z) 和旋转(四元数qx,qy,qz,qw)
+.描述子坐标系相对于父坐标系的位置姿态</p><p>二,广播变换:
+1.静态变换广播</p><p>#include &lt;tf2_ros/static_transform_broadcaster.h></p><p>geometry_msgs::TransformStamped static_transform;
+static_transform.header.stamp = ros::Time::now();
+static_transform.header.frame_id = &ldquo;parent_frame&rdquo;;
+static_transform.child_frame_id = &ldquo;child_frame&rdquo;;
+static_transform.transform.translation.x = 0.5;
+static_transform.transform.translation.y = 0.0;
+static_transform.transform.translation.z = 0.2;
+static_transform.transform.rotation = tf::createQuaternionMsgFromYaw(M_PI/4); // 45度</p><p>tf2_ros::StaticTransformBroadcaster broadcaster;
+broadcaster.sendTransform(static_transform);
+动态变换广播</p><p>#include &lt;tf2_ros/transform_broadcaster.h></p><p>tf2_ros::TransformBroadcaster broadcaster;
+geometry_msgs::TransformStamped transform;</p><p>void publishTransform() {
+transform.header.stamp = ros::Time::now();
+transform.header.frame_id = &ldquo;odom&rdquo;;
+transform.child_frame_id = &ldquo;base_link&rdquo;;
+transform.transform.translation.x = x_position;
+transform.transform.rotation = tf::createQuaternionMsgFromRollPitchYaw(roll, pitch, yaw);
+broadcaster.sendTransform(transform);
+}</p><p>三.监听变换
+1.查询最新变换</p><p>#include &lt;tf2_ros/transform_listener.h>
+#include &lt;geometry_msgs/TransformStamped></p><p>tf2_ros::Buffer tfBuffer;
+tf2_ros::TransformListener tfListener(tfBuffer);</p><p>geometry_msgs::TransformStamped transform;
+try {
+transform = tfBuffer.lookupTransform(&ldquo;target_frame&rdquo;, &ldquo;source_frame&rdquo;, ros::Time(0)); // 获取最新可用变换
+double x = transform.transform.translation.x;
+// 使用变换数据&mldr;
+} catch (tf2::TransformException &amp;ex) {
+ROS_ERROR("%s", ex.what());
+}
+2.指定时间戳查询</p><p>// 查询特定时刻的变换（需保证时间戳在tf树范围内）
+transform = tfBuffer.lookupTransform(&ldquo;map&rdquo;, &ldquo;base_link&rdquo;, ros::Time(ros::Time::now() - ros::Duration(1.0)));</p><p>3.等待可用变换</p><p>// 阻塞等待直到变换可用（超时2秒）
+tfBuffer.canTransform(&ldquo;map&rdquo;, &ldquo;base_link&rdquo;, ros::Time::now(), ros::Duration(2.0));</p><p>四,常用工具函数
+1.欧拉角 &lt;-> 四元数转换</p><p>#include &lt;tf2/LinearMath/Quaternion.h>
+#include &lt;tf2_geometry_msgs/tf2_geometry_msgs.h></p><p>// 欧拉角转四元数
+tf2::Quaternion quat;
+quat.setRPY(roll, pitch, yaw);
+geometry_msgs::Quaternion quat_msg = tf2::toMsg(quat);</p><p>// 四元数转欧拉角
+tf2::fromMsg(quat_msg, quat);
+tf2::Matrix3x3(quat).getRPY(roll, pitch, yaw);
+2.坐标点变换</p><p>geometry_msgs::PointStamped point_in, point_out;
+point_in.header.frame_id = &ldquo;camera&rdquo;;
+point_in.point.x = 1.0;</p><p>tfBuffer.transform(point_in, point_out, &ldquo;map&rdquo;); // 将点从camera系转换到map系</p><p>五,调试命令
+1.查看坐标系树</p><p>rosrun tf2_tools view_frames.py # 生成frames.pdf
+2.检查特定变换</p><p>rosrun tf tf_echo source_frame target_frame
+3.可视化坐标系(RViz)</p><p>六,常见问题
+1.时间戳不匹配
+错误: Lookup would require extrapolation into the past
+解决: 确保广播时间戳 >= 监听器查询的时间
+2.坐标系未连接
+错误: Could not find a connection between &lsquo;map&rsquo; and &lsquo;base_link&rsquo;
+3.使用tf2替代旧版tf</p><h2 id=tf时间戳>TF时间戳<a hidden class=anchor aria-hidden=true href=#tf时间戳>#</a></h2><p>一，时间戳的核心作用:
+1.时空一致性
+每个变换,必须携带时间戳,表示该位姿数据的有效时刻
+2.避免时间外推错误</p><p>二，时间戳的四种使用场景
+查询最新变换 (零延迟)</p><p>// 优先使用：获取最新发布的变换（即使时间戳稍旧）
+transform = tfBuffer.lookupTransform(&ldquo;target&rdquo;, &ldquo;source&rdquo;, ros::Time(0));</p><p>指定历史时刻变换</p><p>// 查询特定时刻的位姿（如匹配传感器数据时间戳）
+ros::Time sensor_stamp = scan_msg->header.stamp;
+transform = tfBuffer.lookupTransform(&ldquo;map&rdquo;, &ldquo;base_link&rdquo;, sensor_stamp);</p><p>3.时间旅行查询</p><p>// 组合：查询从source_time到target_time的完整变换链
+transform = tfBuffer.lookupTransform(&ldquo;target_frame&rdquo;, ros::Time::now(),
+&ldquo;source_frame&rdquo;, sensor_stamp,
+&ldquo;fixed_frame&rdquo;); // 固定参考系</p><p>4.等待未来变换</p><p>// 阻塞等待直到指定变换可用（超时5秒）
+if (tfBuffer.canTransform(&ldquo;map&rdquo;, &ldquo;base_link&rdquo;, ros::Time::now(), ros::Duration(5.0))) {
+transform = tfBuffer.lookupTransform(&ldquo;map&rdquo;, &ldquo;base_link&rdquo;, ros::Time::now());
+}</p><h2 id=清理ros日志>清理ROS日志<a hidden class=anchor aria-hidden=true href=#清理ros日志>#</a></h2><p>1.检查当前日志大小:</p><p>rosclean check</p><p>2.清理所有ROS日志:</p><p>rosclean purge
+3.执行后系统会提醒你确认是否删除,输入y并按回车即可</p><p>4.ros日志文件的作用:
+记录节点运行状态
+辅助调试俄故障排除</p><p>可以使用less,cat,tail-f 或grep 等linux命令直接查看或过滤日志文件</p><p>查看实时日志流:</p><p>rostopic echo /rosout</p><p>检查ROS日志配置
+rosrun rqt_console rqt_console</p><h2 id=ros常用组件>ROS常用组件<a hidden class=anchor aria-hidden=true href=#ros常用组件>#</a></h2><p>演示小乌龟
+roslaunch turtle_tf2 turtle_tf2_demo_cpp.launch
+或者(上面的是cpp节点写的,下面的是python节点写的)
+roslaunch turtle_tf2 turtle_tf2_demo.launch</p><h3 id=tf坐标变换transform-frame>TF坐标变换(TransForm Frame)<a hidden class=anchor aria-hidden=true href=#tf坐标变换transform-frame>#</a></h3><h3 id=概述>概述<a hidden class=anchor aria-hidden=true href=#概述>#</a></h3><p>TF坐标变换: 实现不同类别的坐标系之间的转换
+(因为不可以将物体相对于该传感器的方位信息,等价于机器人系统或机器人其他组件的方位信息) -> 所以需要坐标系之间的变换</p><p>概念:
+tf: TransForm Frame
+坐标系: ROS中是通过坐标系开标定物体的,确切的将是通过右手坐标系来标定的
+作用:
+在ROS中用于实现不同坐标系之间的点或向量的转换</p><p>说明:
+在ROS中坐标变换最初对应的是tf,不过在hyfro版本开始,tf被废弃,迁移到tf2,后者更为简洁高效,tf2对应的常用功能包有:
+tf2_geometry_msgs 可以将ROS消息转换为tf2消息
+tf2: 封装了坐标系变换常用消息 四元数 &lt;-> 欧拉角
+tf2_ros: 为tf2提供了rscpp和rospy绑定,封装了坐标变换常用的API</p><h3 id=坐标msg消息>坐标msg消息<a hidden class=anchor aria-hidden=true href=#坐标msg消息>#</a></h3><p>在坐标转换实现中常用的msg:
+geometry_msgs/TransformStamped 和 geometry_msgs/PointStamped
+前者用于传输坐标系相关位置信息,后者用于传输某个坐标系内坐标点的信息,在坐标变换中,频繁的需要使用坐标系的相对位置以及坐标点的信息</p><p>1.geometry_msgs/TransformStamped
+命令行键入: rosmsg info geometry_msgs/TransformStamped</p><p>std_msgs/Header header # 头信息
+uint32 seq #|&ndash; 序列号
+time stamp #|&ndash; 时间戳
+string frame_id #|&ndash; 坐标 ID
+string child_frame_id #子坐标系的id
+geometry_msgs/Transform transform #坐标信息
+geometry_msgs/Vector3 translation #偏移量
+float64 x #|&ndash;x 方向的偏移量
+float64 y #|&ndash;y 方向的偏移量
+float64 z #|&ndash;z 方向的偏移量
+geometry_msgs/Quaternion rotation # 四元数
+float64 x
+float64 y
+float64 z
+float64 w
+四元数用于表示坐标的相对姿态
+2.geometry_msgs/PointStamped
+命令行键入: rosmsg info geometry_msgs/PointStamped</p><p>std_msgs/Header header # 头信息
+uint32 seq #| &ndash; 序列号
+time stamp #| &ndash; 时间戳
+string frame_id #| &ndash; 所属坐标系的id
+geometry_msgs/Point point # 点坐标 (x,y,z坐标)
+float64 x<br>float64 y<br>float64 z</p><h3 id=静态坐标变换>静态坐标变换<a hidden class=anchor aria-hidden=true href=#静态坐标变换>#</a></h3><p>指两个坐标系之间的相对位置是固定的
+实现分析:
+1.坐标系相对关系,可以通过发布方发布
+2.订阅方,订阅到发布的坐标系相对关系,再传入坐标点信息(可以写死),然后借助于tf实现坐标变换,并将结果输出</p><p>实现流程:
+1.新建功能包,添加依赖
+(创建项目功能包依赖于 tf2 tf2_ros tf2_geometry_msgs roscpp rospy std_msgs geometry_msgs)
+2.编写发布方实现
+3.编写订阅方实现
+4.执行并查看结果</p><p>发布方:</p><p>/*
+静态坐标变换发布方:
+发布关于laser 坐标系的位置信息</p><p>实现流程:
+1.包含头文件
+2.初始化ROS节点
+3.创建静态坐标转换广播器
+4.创建坐标信息
+5.广播器发布坐标信息
+6.spin()
+*/</p><p>#include &ldquo;ros/ros.h&rdquo; // ros核心功能
+#include &ldquo;tf2_ros/static_transform_broadcaster.h&rdquo; // 静态变换广播器
+#include &ldquo;geometry_msgs/TransformStamped.h&rdquo; // 变换消息结构
+#include &ldquo;tf2/LinearMath/Quaternion.h&rdquo;// 四元数操作</p><p>int main(int argc, char *argv[]) {
+setlocale(LC_ALL,""); // 支持中文字符
+ros::init(argc,argv,&ldquo;static_pub&rdquo;); // 初始化节点,名为"static_pub"
+ros::NodeHandle nh; // 创建节点句柄</p><pre><code>tf2_ros::StaticTransformBroadcaster pub; // 创建静态变换广播器
+
+// 设置变换消息
+geometry_msgs::TransformStamped tfs;
+tfs.header.stamp = ros::Time::now();  // 当前时间戳
+tfs.header.frame_id = &quot;base_link&quot;; // 父坐标系
+tfs.child_frame_id = &quot;laser&quot;; // 子坐标系
+tfs.transform.translation.x = 0.2; // x轴偏移0.2米
+tfs.transform.translation.y = 0.0; // y轴无偏移
+tfs.transform.translation.z = 0.5; // z轴偏移0.5米
+
+// 设置旋转
+tf2::Quaternion qtn;
+qtn.setRPY(0,0,0); 
+
+tfs.transform.rotation.x = qtn.getX();
+tfs.transform.rotation.y = qtn.getY();
+tfs.transform.rotation.z = qtn.getZ();
+tfs.transform.rotation.w = qtn.getW();
+
+pub.sendTransform(tfs); // 发布静态变换
+
+ros::spin(); // 保持节点运行
+
+return 0;
+</code></pre><p>}</p><p>订阅方</p><p>#include &ldquo;ros/ros.h&rdquo;
+#include &ldquo;tf2_ros/transform_listener.h&rdquo;
+#include &ldquo;tf2_ros/buffer.h&rdquo;
+#include &ldquo;geometry_msgs/PointStamped.h&rdquo;
+#include &ldquo;tf2_geometry_msgs/tf2_geometry_msgs.h&rdquo;</p><p>int main(int argc, char* argv[]) {</p><pre><code>setlocale(LC_ALL,&quot;&quot;);
+ros::init(argc,argv,&quot;static_sub&quot;);
+ros::NodeHandle nh;
+
+tf2_ros::Buffer buffer;
+tf2_ros::TransformListener listener(buffer);
+geometry_msgs::PointStamped ps;
+ps.header.frame_id = &quot;laser&quot;;
+ps.header.stamp = ros::Time::now();
+ps.point.x = 2.0;
+ps.point.y = 3.0;
+ps.point.z = 5.0;
+
+ros::Duration(2).sleep(); // 方案1: 在调用转换函数前,执行休眠
+ros::Rate rate(10);
+while (ros::ok) {
+
+    geometry_msgs::PointStamped ps_out;
+    /*
+        调用了该 buffer 的转换函数 transform
+        参数1: 被转换的坐标点
+        参数2: 目标坐标系
+        返回值；输出的坐标点
+    
+        PS1: 调用时必须包含头文件 tf2_geometry_msgs/tf2_geometry_msgs.h
+        PS2: 运行时存在的问题: 抛出异常 base_link 不存在
+            原因: 订阅数据是一个耗时操作,可能再调用 transform 转换函数,坐标系的
+                相对关系还没有订阅到,因此出现异常
+            解决: 
+                方案1: 在调用转换函数前,执行休眠
+                方案2: 进行异常处理(放一个异常捕获)，捕获后随便做一些处理再让他进入循环 -&gt; 直                     到不抛出异常了就正常完成操作
+    */
+    try // 方案2: 执行异常捕获
+    {
+        ps_out = buffer.transform(ps,&quot;base_link&quot;);
+
+
+        ROS_INFO(&quot;转换后的坐标值:(%.2f,%.2f,%.2f),参考的坐标系:%s&quot;,
+                    ps_out.point.x,
+                    ps_out.point.y,
+                    ps_out.point.z,
+                    ps_out.header.frame_id.c_str()
+                    );
+    }
+    catch (const std::exception&amp; e)
+    {
+        // std::cerr &lt;&lt; e.what(ps.what() &lt;&lt; '\n');
+        ROS_INFO(&quot;异常消息: %s&quot;,e.what());
+    }
+    
+    rate.sleep(); 
+    ros::spinOnce();
+}
+
+return 0;
+</code></pre><p>}</p><p>package.xml - 功能包清单文件
+作用:
+1.定义功能包名称,版本,描述等元数据
+2.声明依赖关系
+3.指定维护者信息和许可证
+创建方式: catkin_create_pkg命令时会自动生成模板 ，
+开发者需要手动编辑填充具体内容，
+位于功能包的根目录</p><p>CMakeLists.txt - 构建系统文件(功能包目录下)
+作用:
+定义如何编译源代码
+指定可执行文件和库的生成规则</p><p>创建功能包模板命令行
+创建一个新功能包
+catkin_create_pkg tf01_static roscpp tf2 tf2_ros</p><p>运行节点命令行:</p><p>rosrun tf01_static demo01_static_pub
+rosrun: ROS的核心命令,用于运行节点
+tf01_static: 功能包名
+demo01_static_pub: 节点名
+定义位置: 在代码中通过ros::init()函数设置
+注意: 实际运行的是编译后的可执行文件名,与代码中的节点名可以不同</p><p>核心概念区分:
+可执行文件名 - 操作系统层面
+定义在CMakeLists.txt中
+是磁盘的二进制文件名
+通过rosrun &lt;包名> &lt;可执行文件名> 执行
+节点名 - ROS系统层面:
+定义在代码中ros::init()函数
+是ROS图中的标识符
+通过rosnode list查看
+这里面还有很深的门道:<br>略</p><p>补充1:
+当坐标系之间的相对位置固定时,那么所需参数也是固定的,父坐标系名称,子坐标系名称,x偏移量,y偏移量,x翻滚角度,y俯仰角度,z偏航角度,实现逻辑相同,参数不同,ROS系统已经封装好了专门的节点:</p><p>命令行
+// rosrun tf2_ros static_transform_publisher x偏移量 y偏移量 z偏移量 z偏航角度 y俯仰角度 x翻滚角度 父级坐标系 子级坐标系</p><p>rosrun tf2_ros static_trasform_publisher 0.2 0 05 0 0 0 /baselink/laser</p><p>补充2:
+可以借助于rviz显示坐标系关系,具体操作
+新建窗口输入命令: rviz
+在启动的rviz中设置Fixed Frame 为base_link
+点击左下的add按钮,在弹出的窗口中选择TF组件,即可显示坐标关系</p><p>配置安装规则:
+安装后:
+编辑: package.xml</p><p><name>tf01_static</name>
+<version>0.0.0</version>
+<description>Static TF broadcaster package</description>
+<maintainer email=you@example.com>Your Name</maintainer>
+<license>BSD</license>
+编辑:</p><p><name>tf01_static</name>
+<version>0.0.0</version>
+<description>Static TF broadcaster package</description>
+<maintainer email=you@example.com>Your Name</maintainer>
+<license>BSD</license></p><p>代码编写：
+需求: 发布两个坐标系的相对关系
+流程:
+1.包含头文件;
+2.设置编码 节点初始化 NodeHandle;
+3. 创建发布对象;
+4.组织被发布的消息
+5.发布数据;
+6.spin();</p><h3 id=动态坐标变换>动态坐标变换<a hidden class=anchor aria-hidden=true href=#动态坐标变换>#</a></h3><p>实现流程:
+1.新建功能包,添加依赖
+2.创建坐标相对关系发布方(同时需要订阅乌龟位姿信息)
+3.创建坐标相对关系订阅方
+4.执行</p><pre><code>                                                                                                                          C++ 实现
+</code></pre><p>1.创建功能包
+创建项目功能包依赖于: tf2, tf2_ros, tf2_geometry_msgs, roscpp rospy std_msgs geometry_msgs</p><p>2.发布方</p><h2 id=rviz>rviz<a hidden class=anchor aria-hidden=true href=#rviz>#</a></h2><p>tf:
+x轴: 红色 前方
+y轴: 绿色 左方
+z轴：蓝色 上方</p><p>查看特定话题
+rqt_plot /debugpub/data
+rqt_plot /debugpub1/data</p><p>rqt_plot 话题名称</p><p>同时查看多个特定话题
+rqt_plot /debugpub/data/data /debugpub1/data/data</p><p><img src=https://hydarealman.github.io/wander/images/feishu/ros1/0ad8c37504e42b9e10a9eab9b806f3b_eb7712.jpg alt="图片 1" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px"></p></div><section class=like-panel data-like-doc=/wander/posts/1970/01/ros1/ data-like-title=ROS1 aria-label=文章点赞><div class=like-copy><strong>这篇文章有帮助吗？</strong>
+<span>给它点个赞，后续整理文章时会优先照顾高赞内容。</span></div><button class=like-button type=button aria-pressed=false>
+<span class=like-button-mark>赞</span>
+<span class=like-count data-like-count>0</span></button><p class=like-status data-like-status>点赞数据加载中</p></section><section class=post-githistory><details><summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>文档修订记录</span>
+<span class=post-githistory-count>8 次修订</span></summary><div class=post-githistory-body><ol class=git-timeline><li class=git-timeline-item><time datetime=2026-06-29T10:28:17+08:00>06-29</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener title=查看此次提交>197fd12</a>
+<span class=git-timeline-msg>修复大小标题显示失败的bug</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:57:52+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/38272c2998bf755548a368978b06d0ea98af3c92 target=_blank rel=noopener title=查看此次提交>38272c2</a>
+<span class=git-timeline-msg>Feat: TOC sidebar + git commit history timeline + fix 20 post titles to match filenames</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:19:16+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/edc8d798c832c2447d2317a4e3d81d8002ce81ba target=_blank rel=noopener title=查看此次提交>edc8d79</a>
+<span class=git-timeline-msg>博客界面更换 一些笑哦bug维修</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T13:17:23+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/bce812d720c0f54a403db7f482d6d5eb340718af target=_blank rel=noopener title=查看此次提交>bce812d</a>
+<span class=git-timeline-msg>6_28飞书文档同步更新</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T12:44:45+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/8c0c2ac0bab9de15941c1438df8468c29690f1b7 target=_blank rel=noopener title=查看此次提交>8c0c2ac</a>
+<span class=git-timeline-msg>飞书同步test</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-19T01:35:49+08:00>06-19</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/7d342989e6772c9942fd65e7007b44c16c5d4361 target=_blank rel=noopener title=查看此次提交>7d34298</a>
+<span class=git-timeline-msg>Add manual and sortable library</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-19T01:20:56+08:00>06-19</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/9402175f567c89db1e73a6379e3cb1a19a44e042 target=_blank rel=noopener title=查看此次提交>9402175</a>
+<span class=git-timeline-msg>Improve blog layout and pinned posts</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-13T11:05:24+08:00>06-13</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/98d0f153181c32b7e2f6ca6a4c38285f2739007e target=_blank rel=noopener title=查看此次提交>98d0f15</a>
+<span class=git-timeline-msg>Create Hugo blog</span>
+<span class=git-timeline-author>hydarealman</span></div></li></ol><a class=post-githistory-full href=https://github.com/hydarealman/wander/commits/main/content/posts/ROS1.md target=_blank rel=noopener>在 GitHub 上查看完整历史
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div></details></section><section class=related-posts aria-label=相关文章><h2 class=related-posts__heading>相关文章</h2><div class=related-posts__list><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/2026/06/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE_-wsl--ros2--rust/><span>rust仿真环境配置_ wsl + ros2 + rust</span>
+<span class=date>2026-06-06</span>
+</a><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/><span>rust仿真环境配置: wsl + ros2 + rust</span>
+<span class=date>1970-01-21</span>
+</a><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/1970/01/ros2/><span>ROS2</span>
+<span class=date>1970-01-21</span></a></div></section><footer class=post-footer><ul class=post-tags><li><a href=https://hydarealman.github.io/wander/tags/ros/>ROS</a></li></ul><nav class=paginav><a class=prev href=https://hydarealman.github.io/wander/posts/1970/01/rm%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9E%84/><span class=title>« 上一页</span>
+<span>rm第四阶段学习---自瞄</span>
+</a><a class=next href=https://hydarealman.github.io/wander/posts/1970/01/ros2/><span class=title>下一页 »</span>
+<span>ROS2</span></a></nav></footer><div class=giscus-wrapper><script src=https://giscus.app/client.js data-repo=hydarealman/wander data-repo-id=R_kgDOS5PAig data-category=General data-category-id=DIC_kwDOS5PAis4DAWkL data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></div><div class=toc-mobile-backdrop id=toc-backdrop></div></div><script>(()=>{const t=document.querySelector(".post-layout"),n=document.getElementById("toc-sidebar"),l=document.getElementById("toc-collapse-btn"),d=document.getElementById("toc-float-btn"),o=document.getElementById("toc-backdrop");if(!t||!n)return;const i="wander:toc:open",a=()=>t.dataset.tocState==="open",e=e=>{t.dataset.tocState=e?"open":"closed";try{localStorage.setItem(i,e?"1":"0")}catch{}e&&(document.body.style.overflow="")},r=()=>{e(!a())};l.addEventListener("click",r),d.addEventListener("click",r),o&&o.addEventListener("click",()=>e(!1)),document.addEventListener("keydown",t=>{t.key==="Escape"&&a()&&e(!1)});const u=(()=>{try{return localStorage.getItem(i)}catch{return null}})();u==="0"&&e(!1);const c=n.querySelector(".toc-sidebar__nav");if(c){const e=t=>{if(!t||!t.children)return;Array.from(t.children).forEach(t=>{if(t.tagName!=="LI")return;const n=t.querySelector(":scope > ul"),s=t.querySelector(":scope > a");if(s){const i=document.createElement("div");i.className="toc-row";const o=document.createElement("button");o.className="toc-toggle",o.type="button",o.setAttribute("aria-label","展开/折叠子标题"),o.innerHTML='<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',n&&n.children.length>0?(t.classList.add("has-children"),o.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation(),t.classList.toggle("collapsed");try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.setItem(n,t.classList.contains("collapsed")?"1":"0")}}catch{}})):o.classList.add("toc-toggle--placeholder"),t.insertBefore(i,t.firstChild),i.appendChild(o),i.appendChild(s);try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.getItem(n)==="1"&&t.classList.add("collapsed")}}catch{}n&&e(n)}})},t=c.querySelector(":scope > ul");t&&e(t)}const s=n.querySelectorAll('.toc-sidebar__nav a[href^="#"]');if(s.length&&"IntersectionObserver"in window){const e=[];if(s.forEach(t=>{const s=t.getAttribute("href").slice(1),n=document.getElementById(s);n&&e.push({el:n,a:t})}),e.length){const t=new IntersectionObserver(e=>{let t=null;e.forEach(e=>{if(e.isIntersecting){const n=e.target.getAttribute("id");t||(t=n)}}),t&&s.forEach(e=>{const n=e.getAttribute("href");e.classList.toggle("active",n==="#"+t)})},{rootMargin:"-20% 0px -70% 0px"});e.forEach(e=>t.observe(e.el))}}})()</script></main><footer class=footer><span>&copy; 2026 <a href=https://hydarealman.github.io/wander/>wander</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script id=wander-like-config type=application/json>{"provider":"local","supabaseAnonKey":"","supabaseUrl":"","table":"doc_likes"}</script><script>(()=>{const e=e=>`wander:view:${e}`,t=e=>new URL(e,window.location.origin).pathname,n=document.querySelector("article.post-single");if(n&&window.location.pathname.includes("/posts/")){const t=e(window.location.pathname),n=Number(localStorage.getItem(t)||0)+1;localStorage.setItem(t,String(n))}document.querySelectorAll("[data-view-path]").forEach(n=>{const s=e(t(n.getAttribute("data-view-path")||window.location.pathname));n.textContent=localStorage.getItem(s)||"0"})})(),(()=>{const l=document.getElementById("wander-like-config"),t=l?JSON.parse(l.textContent||"{}"):{},f=(t.provider||"local").toLowerCase(),o=f==="supabase"&&t.supabaseUrl&&t.supabaseAnonKey,s=e=>`wander:liked:${e}`,d=e=>`wander:like-count:${e}`,m=e=>String(e||"").replace(/\/+$/,""),r=m(t.supabaseUrl),h=t.table||"doc_likes",c=()=>({apikey:t.supabaseAnonKey,Authorization:`Bearer ${t.supabaseAnonKey}`,"Content-Type":"application/json"}),a=(e,t)=>{e.dataset.liked=t?"true":"false",e.setAttribute("aria-pressed",t?"true":"false");const n=e.querySelector(".like-button-mark");n&&(n.textContent=t?"已赞":"赞")},e=(e,t)=>{const n=e.querySelector("[data-like-status]");n&&(n.textContent=t)},n=(e,t)=>{const n=e.querySelector("[data-like-count]");n&&(n.textContent=String(Math.max(0,Number(t)||0)))},i=e=>Number(localStorage.getItem(d(e))||0),u=(e,t)=>localStorage.setItem(d(e),String(t));async function p(e){const n=`${r}/rest/v1/${encodeURIComponent(h)}?doc_id=eq.${encodeURIComponent(e)}&select=count`,t=await fetch(n,{headers:c()});if(!t.ok)throw new Error(`HTTP ${t.status}`);const s=await t.json();return Number(s?.[0]?.count||0)}async function g(e,t){const n=await fetch(`${r}/rest/v1/rpc/increment_doc_like`,{method:"POST",headers:c(),body:JSON.stringify({p_doc_id:e,p_title:t})});if(!n.ok)throw new Error(`HTTP ${n.status}`);const s=await n.json();return Number(s||0)}async function v(t){const c=t.querySelector(".like-button"),r=t.dataset.likeDoc||window.location.pathname,d=t.dataset.likeTitle||document.title,l=localStorage.getItem(s(r))==="1";if(a(c,l),o)try{n(t,await p(r)),e(t,l?"你已经赞过这篇文章":"点赞会同步到全站统计")}catch{n(t,i(r)),e(t,"远程点赞暂不可用，当前使用本机点赞")}else n(t,i(r)),e(t,l?"你已经在本机赞过这篇文章":"当前是本机点赞；配置 Supabase 后可同步给所有访客");c.addEventListener("click",async()=>{if(localStorage.getItem(s(r))==="1"){e(t,o?"你已经赞过这篇文章":"你已经在本机赞过这篇文章");return}c.disabled=!0,e(t,"正在记录点赞");try{let l;o?l=await g(r,d):(l=i(r)+1,u(r,l)),localStorage.setItem(s(r),"1"),a(c,!0),n(t,l),e(t,o?"感谢点赞，已同步到全站":"感谢点赞，已记录在本机")}catch{const o=i(r)+1;u(r,o),localStorage.setItem(s(r),"1"),a(c,!0),n(t,o),e(t,"远程同步失败，已先记录在本机")}finally{c.disabled=!1}})}document.querySelectorAll(".like-panel").forEach(v)})()</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

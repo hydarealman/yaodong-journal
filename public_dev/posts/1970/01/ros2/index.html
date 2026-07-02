@@ -1,0 +1,441 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>ROS2 | wander</title><meta name=keywords content="ROS"><meta name=description content="ROS2
+第一章ROS2介绍
+暂无
+第二章准备环境与安装ROS2
+暂无
+第三章动手学ROS2基础
+工作空间
+工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营
+src         代码空间
+Install     安装空间
+build       编译空间
+Log         日志空间
+创建工作空间：
+mkdir -p ~/dev-ws/src
+节点：机器人的工作细胞
+执行具体任务的进程
+独立运行的可执行文件
+可使用不同的编程语言
+可分布式运行在不同主机
+通过节点名称进行管理
+节点操作
+ros2 node list   //当前正在运行的节点信息
+ros2 node info  //查看该节点信息
+ros2 topic       //话题
+ros2 bag         //录制"><meta name=author content="dong"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/ros2/><link crossorigin=anonymous href=/wander/assets/css/stylesheet.0af188802f5b9d57040c63f6322b3edbb8d667e734f3720bac584f3280ed4145.css integrity="sha256-CvGIgC9bnVcEDGP2Mis+27jWZ+c083ILrFhPMoDtQUU=" rel="preload stylesheet" as=style><link rel=icon href=https://hydarealman.github.io/wander/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://hydarealman.github.io/wander/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://hydarealman.github.io/wander/favicon-32x32.png><link rel=apple-touch-icon href=https://hydarealman.github.io/wander/apple-touch-icon.png><link rel=mask-icon href=https://hydarealman.github.io/wander/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://hydarealman.github.io/wander/posts/1970/01/ros2/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:image" content="https://hydarealman.github.io/wander/images/og-default.png"><meta property="twitter:image" content="https://hydarealman.github.io/wander/images/og-default.png"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/ros2/><link rel=manifest href=https://hydarealman.github.io/wander/manifest.json><meta name=theme-color content="#ffffff" media="(prefers-color-scheme: light)"><meta name=theme-color content="#0d1117" media="(prefers-color-scheme: dark)"><meta name=mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="default"><meta name=apple-mobile-web-app-title content="wander"><script>"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("https://hydarealman.github.io/wander/sw.js")})</script><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//cdn.jsdelivr.net><link rel=dns-prefetch href=//giscus.app><meta property="og:url" content="https://hydarealman.github.io/wander/posts/1970/01/ros2/"><meta property="og:site_name" content="wander"><meta property="og:title" content="ROS2"><meta property="og:description" content="ROS2 第一章ROS2介绍 暂无 第二章准备环境与安装ROS2 暂无
+第三章动手学ROS2基础 工作空间 工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营
+src 代码空间 Install 安装空间 build 编译空间 Log 日志空间
+创建工作空间： mkdir -p ~/dev-ws/src
+节点：机器人的工作细胞 执行具体任务的进程 独立运行的可执行文件 可使用不同的编程语言 可分布式运行在不同主机 通过节点名称进行管理 节点操作 ros2 node list //当前正在运行的节点信息 ros2 node info //查看该节点信息 ros2 topic //话题 ros2 bag //录制"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="1970-01-21T23:10:23+08:00"><meta property="article:modified_time" content="2026-06-29T10:28:17+08:00"><meta property="article:tag" content="ROS"><meta name=twitter:card content="summary"><meta name=twitter:title content="ROS2"><meta name=twitter:description content="ROS2 第一章ROS2介绍 暂无 第二章准备环境与安装ROS2 暂无
+第三章动手学ROS2基础 工作空间 工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营
+src 代码空间 Install 安装空间 build 编译空间 Log 日志空间
+创建工作空间： mkdir -p ~/dev-ws/src
+节点：机器人的工作细胞 执行具体任务的进程 独立运行的可执行文件 可使用不同的编程语言 可分布式运行在不同主机 通过节点名称进行管理 节点操作 ros2 node list //当前正在运行的节点信息 ros2 node info //查看该节点信息 ros2 topic //话题 ros2 bag //录制"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://hydarealman.github.io/wander/posts/"},{"@type":"ListItem","position":2,"name":"ROS2","item":"https://hydarealman.github.io/wander/posts/1970/01/ros2/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ROS2","name":"ROS2","description":"ROS2 第一章ROS2介绍 暂无 第二章准备环境与安装ROS2 暂无\n第三章动手学ROS2基础 工作空间 工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营\nsrc 代码空间 Install 安装空间 build 编译空间 Log 日志空间\n创建工作空间： mkdir -p ~/dev-ws/src\n节点：机器人的工作细胞 执行具体任务的进程 独立运行的可执行文件 可使用不同的编程语言 可分布式运行在不同主机 通过节点名称进行管理 节点操作 ros2 node list //当前正在运行的节点信息 ros2 node info //查看该节点信息 ros2 topic //话题 ros2 bag //录制\n","keywords":["ROS"],"articleBody":"ROS2 第一章ROS2介绍 暂无 第二章准备环境与安装ROS2 暂无\n第三章动手学ROS2基础 工作空间 工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营\nsrc 代码空间 Install 安装空间 build 编译空间 Log 日志空间\n创建工作空间： mkdir -p ~/dev-ws/src\n节点：机器人的工作细胞 执行具体任务的进程 独立运行的可执行文件 可使用不同的编程语言 可分布式运行在不同主机 通过节点名称进行管理 节点操作 ros2 node list //当前正在运行的节点信息 ros2 node info //查看该节点信息 ros2 topic //话题 ros2 bag //录制\nros2基本使用 1.Terminal ctrl+alt+t 2.当前终端所在位置 pwd 3.当前路径下所在的文件或文件夹 Ls 4.隐藏文件 ls-A 5.创建文件 Mkdir + 文件名 6.进入路径 Cd 7.创建文件 Touch 8.删除文件 Rm 9.退回上一级目录 cd… 10.递归删除（删除文件夹） rm-R 11.安装功能包 Sudo apt install//提升使用当前用户权限为管理员权限//应用//安装\nros2功能包的相关使用 1.创建功能包\n2.列出可执行文件 ros2 pkg executables 列出某个功能包 ros2 pkg executables\n3.列出所有功能包 ros2 pkg list\nros2 pkg list | grep vill//过滤 列出vill开头的功能包\n4.列出某个包所在的路径前缀\n列出包的清单描述文件 每一个功能包都有一个标配的manifest.xml文件,用于记录这个包的名字,构建工具,编译信息,拥有者，干啥用的信息 通过这个信息，就可以自动为该功能包安装依赖，构建时确立编译顺序 ros2 pkg xml\n自动安装依赖：\n编译工作空间： Colon build //在工作空间的根目录下进行编译 设置环境变量：\n安装获取 Sudo apt install ros--package_name 功能包相关命令行ros2 pkg Create executables lists prefix xml\nros2构建工具colcon 作用：功能包构建工具 编译代码 1.安装colcon Sudo apt -get install python3-colcon-common-extensions 2.编译工程 Colcon build 3.运行一个自己编的节点 (1)打开一个终端使用cd colcon_test进入我们刚刚创建的工作空间,先source一下资源 source install/setup.bash (2)运行一个订杂志节点,你将看不到任何打印功能,因为没有发布者 ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function (3)打开一个新的终端,先source,再运行一个发行杂志节点 source install/setup.bash ros2 run examples_rclcpp_minimal_publisher publisher_member_function\ncolcon常用指令 1.只编译一个包 colcon test –packages-select YOUR_PKG_NAME 2.不编译测试单元 colcon test –packages-select YOUR_PKG_NAME –cmake-args -DBUILD_TESTING=8 3.运行编译的包的测试 colcon test 4.允许通过更改src下的部分文件来改变install(重要) colcon build –symlink-install\n第四章ROS2通信机制-话题与服务 ROS2话题介绍\n1.话题的发布订阅模型(Topic通信模型) 发布 订阅 Node1——–\u003e话题———-\u003eNode2\n2.话题通信有哪些需要注意的规则 规则： 话题名字是关键,发布订阅接口类型要相同,发布的是字符串,接受也要用字符串来接收 同一个节点可以订阅多个话题,同时也可以发布多个话题,就像是一本书的作者也可以是另外一本书的读者 同一个话题可以有多个发布者 可以1对n，n对1，n对n\n3.相关工具 3.1 RQT工具之rqt_graph ROS2作为一个强大的工具，在运行过程中，我们是通过命令来看到节点和节点之间的数据关系的 运行第二章你说我听小demo。依次打开三个终端,分别输入下面三个命令 ros2 run demo_nodes_py listener ros2 run demo_nodes_cpp talker rqt_graph\n3.2 ROS2话题相关命令行界面(CLI)工具 ros2 topic -h\n3.2.1 ros2 topic list返回系统中当前活动的所有主题的列表 ros2 topic list\n3.2.2 ros2 topic list -t 增加消息类型 3.2.3 ros2 topic echo 打印实时话题内容 ros2 topic echo /chatter\n3.2.4 ros2 topic info 查看主题信息 ros2 topic info /chatter\n3.2.5 ros2 interface show 查看消息类型 ros2 interface show std_msgs/msg/String 3.2.6 ros2 topic pub arg手动发布命令 ros2 topic pub /chatter std_msgs/msg/String ‘data: “123”’ 编写话题发布者:见实战案例 编写话题订阅者:见实战案例\n4.接口介绍与自定义接口 4.1ROS2通信接口介绍 接口:interface\n1.什么是接口 接口其实是一种规范 字符串:std_msgs/msg/String 32位二进制的整型数据:std_msgs/msg/String\n使用接口的好处 不同语言对字符串的定义是不同的，接口可以抹平这种语言差异 方便程序的适配\n2.ROS2接口介绍 使用ros2 interface package sensor_msgs 命令可以查看某一个接口包下所有的接口 比如传感器类的消息包:sensor_msgs\n3.ROS2自定义接口 ROS2的四种通信方式 话题-Topics 服务-Services 动作-Actions 参数-Parameters 除了参数之外,话题,服务和动作(Action)都支持自定义接口,每一种通信方式所适用的场景各不相同，所定义的接口也被分为话题接口,服务接口,动作接口三种\n话题接口格式：xxx.msg int64 num//发布的话题组合\n服务接口格式：xxx.srv int64 a int64 b//请求 int64 sum//发布\n动作接口格式：xxx.action int32 order//目标 int32[] sequence//反馈 int32[] partial_sequence//结果\n转换过程 msg,srv,action ———\u003e ROS2-IDL转换器 —————-\u003e python的py,C++的.h头文件\n4.ROS2接口常用CLI命令 4.1查看接口列表 ros2 interface list 4.2查看所有接口包 ros2 interface packages 4.3查看某一个包下的所有接口 ros2 interface package std_msgs 4.4查看某一个接口详细的内容 ros2 interface show std_msgs/msg/String 4.5输出某一个接口的所有属性 ros2 interface proto sensor_msgs/msg/Image\n4.2 ROS2自定义话题接口 话题是一种单向通信的接口,同一个话题只能由发布者将数据传递给订阅者，所以定义话题接口也只需要定义发布者所要发布的类型即可.在实际的工程中为了减少功能包之间的互相依赖,通常会将接口定义在一个独立的功能包中 有了功能包之后,我们就可以新建话题接口了,新建方法如下: 新建msg文件夹,并在文件夹下新建xxx.msg（大写字母开头） 在xxx.msg下编写消息内容并保存 在CmakeList.txt添加依赖和msg文件目录 在package.xml中添加xxx.msg所需要的依赖 编译功能包即可生成python与C++头文件\n2.1新建功能空间 ros2 pkg create village_interfaces –build-type ament_cmake\n2.2新建msg文件夹和Novel.msg(小说类型) cd village_interface mkdir msg touch Novel.msg\n2.3编写Novel.msg内容 我们的目的是给李四的小说的每一章增加一张图片,原来李四写小说是对外发布一个 std_msgs/msg/String字符串类型的数据.而发布图片的格式,我们需要采用ros自带的传感器消息接口中的图片 sensor_msgs/msg/Image 数据类型,所以我们新的消息文件的内容就是将两者合并,在ROS2中可以写做这样：\n方法一 在msg文件中可以使用#号添加注释\n#标准消息接口std_msgs下的String类型 std_msgs/String content #图像消息,调用sensor_msgs下的Image类型 sensor_msgs/Image image\n方法二 #直接使用ROS2原始的数据类型 String content #图像消息,调用sensor_msgs下的Image类型 sensor_msgs/Image image\n说明 通过下面的指令查看std_msgs/String是由基础数据类型string组成的 ros2 interface show std_msgs/msg/String\nROS2中的原始数据类型 bool byte字节类型 char字符类型 float32,float64 int8,uint16 int32,uint32 int64,uint64 string\n2.4修改CMakeList.txt 完成代码编写还不够,我们还需要在CmakeLists.txt中告诉编译器,你要给我把Novel.msg转换成python库和C++库\n#添加对sensor_msg的 find_package(sensor_msgs REQUIRED) find_package(rosidl_default_generators REQUIRED) #添加消息文件和依赖 rosidl_generate_interfaces(\u0026{PROJECT_NAME} “msg/Novel.msg” DEPENDENCIES sensor_msgs )\nfind_package用于查找rosidl_default_generators位置,下面rosidl_generate_interfaces就是声明msg文件所属的工程名字,文件位置以及依赖的DEPENDENCIES 踩坑报告:重点强调一下依赖部分DEPENDENCIES ,我们消息中用到的依赖这里必须写上,即使不写编译器也不会报错,知道运行的时候才会报错\n4.4ROS2服务介绍（序号乱了不知道为什么就这样没有改） 服务通信介绍与体验 1.启动服务端 这个命令用于运行一个服务节点，这个服务的功能是将两个数字相加,给定a,b两个数返回sum就是ab之和 ros2 run examples_rclpy_minimal_service service 2.使用命令查看列表 ros2 service list 3.3手动调用服务 再启动一个终端，输入下面的命令 ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts “{a: 5,b: 10}”\n服务相关CLI工具 1.查看服务列表 ros2 service list 2.手动调用服务 ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts “{a: 1,b: 5}” 3.查看服务接口类型 ros2 service type /add_two_inits 4.查找使用某一接口的服务 ros2 service find example_interfaces/srv/AddTwoInts\n4.5自定义服务接口 话题是发布订阅模型，主要是单向传输数据,只能由发布者发布，接收者接收（同一话题，发布者接收者都可以有多个） 服务是客户服务端（请求响应）模型 由客户端发送请求，服务端处理请求，然后返回处理结果（同一服务，客户端可以有多个，服务端只能有一个）\n如何创建自己的服务接口 新建srv文件夹，并在文件夹下新建xxx.srv 在xxx.srv下编写服务接口内容并保存 在CmakeLists.txt添加依赖和srv文件目录 在package.xml中添加xxx.srv所需依赖 编译功能包即可生成python与C++头文件\n4.5.2python服务通信实现(李三借钱) 服务端: 1.导入服务接口 2.创建服务端回调函数 3.声明并创建服务端 4.编写回调函数逻辑处理请求\n4.6.3创建客户端李三节点 1.导入服务接口 2.创建请求结果接收回调函数 3.声明并 创建客户端 4.编写结果接收逻辑 5.调用客户端发送请求\n4.6话题服务对比 1.话题 1.话题是单向的,而且不需要等待服务端上线，直接发就行,数据的实时性比较高 频率高,实时性强的传感器数据的传递一般使用话题实现\n2.服务 服务是双向的,客户端发送请求后,服务端有 响应,可以得知服务端的处理结果 频率较低,强调服务特性和反馈的场景一般使用服务实现\nGit 安装git Sudo apt install git //下载别人的代码 Git clone 地址\n第五章 2.参数是节点的一个配置,你可以任务参数是一个节点的设置 3.论参数组成成分 参数是由键值对组成,键值对指的就是名字和数值.\n1.ros2查看节点有哪些参数(设置) ros2 param list\n2.详细查看一个参数的信息 ros2 param describe 3.查看参数值 例子: ros2 param get /turtlesim background_b\n4.设置参数 例子: ros2 param set /turtlesim background_b 83\n5.保存参数值 ros2 param dump /turtlesim\n6.启动节点时加载参数快照 ros2 run –ros-args –param-file ros2相关代码 函数名称 描述 declare_parameter 声明和初始化一个参数 declare_parameters 声明和初始化一堆参数 get_parameter 通过参数名字获取一个参数 get_parameter 通过多个参数名字获取多个参数 set_parameters 设置一组参数的值\n编写CPP参数 声明参数 获取并设置参数 Action通信介绍 话题适用于节点间单向的频繁的数据传输, 服务则适用于节点间双向的数据传输, 而参数则适用于动态调整节点的设置\nAction的组成部分 目标:Action客户端告诉服务端要做什么,服务端针对该目标要有响应,解决了不能确认服务端接收并处理目标的问题 反馈:Action服务端告诉客户端此时做的进度如何(类似工作汇报).解决了执行过程中没有反馈问题 结果:Action服务端最终告诉客户端执行结果,结果最后返回,用于表示任务最终执行情况\n参数是由服务构建出来了,而Action是由话题和服务共同构建出来的(一个Action = 三个服务+两个话题)\n三个服务分别是: 1.目标传递服务 2.结果传递服务 3.取消执行服务\n两个话题: 1.反馈话题(服务发布,客户端订阅) 2.状态话题(服务端发布,客户端订阅)\nAction的CLI工具 action list 获取目前系统中的action列表\naction info 查看action信息\naction send_goal 发送请求到服务端\nros2通信机制的总结 1.话题 话题是单向的而且不需要等待服务器上线,直接发就行,数据的实时性比较高. 频率高,实时性强的传感器数据的传递一般使用话题实现\n2.服务 服务是双向的,客户端发送请求后,服务端有响应,可以得知服务端的处理结果,频率较低,强调服务特性和反馈的场景一般使用服务实现\n3.参数 参数是节点的设置,用于配置节点,原理基于服务\n4.动作 动作适用于实时反馈的场景，原理基于服务\n第六章-ROS2工具介绍 1.launch 1.ros2节点管理之launch文件 为什么需要launch文件 1.1需要启动的节点太多 1.2节点之间有依赖关系 launch文件类似于一个脚本文件来管理节点的启动 launch文件允许我们同时启动和配置多个包含ros2节点的可执行文件\n2.编写ros2的launch文件 ros2中可以使用python文件来编写launch文件 1.导入头文件 2.定义函数 3.创建节点函数 4.launch文件描述\n3.测试launch文件 ros2 launch 节点(启动launch文件)\npython略\ncmake编译类型功能包的launch文件安装 install(DIRECTORY launch DESTIMATION share/${PROJECT_NAME} )\n4.通过launch修改参数 例子: parameters=[{“writer_timer_period” : 1}]\n2.rosbag2 rosbag2介绍与安装 CLI工具:命令行接口工具 ros2中常用的一个CLI工具–rosbag2,这个工具用于记录话题的数据 (我们做一个真实机器人的时候非常有用,比如我们可以录制一段机器人发生问题的话题数据,录制完成后可以多次发布出来进行测试和实验,也可以将话题数据分享给别人用于验证算法)\n常用指令 1.记录一个话题 ros2 bag record /sexy_girl\n2.记录多个话题的数据 ros2 bag record topic-name1 topic-name2\n3.记录所有话题 ros2 bag record -a\n4.其他选项 -o name 自定义输出文件的名字 ros2 bag record -o fille-name topic-name -s存储格式 目前仅支持sqlite3，其他还带扩展\n查看录制出话题的信息 (比如话题记录的时间,大小,类型,数量) ros2 bag info bag-file\n播放话题数据 ros2 bag play xxx.db3\n3.RQT工具 RQT是一个GUI框架,通过插件的方式实现了各种各样的界面工具\n命令行: rqt\n4.数据可视化工具RVIZ2 数据:各种调试机器人时常用的数据,比如:图像数据,三维点云数据,地图数据,TF数据,机器人模型数据 可视化:可视化就是让你直观的看到数据,比如说一个三维的点(100,100,100)，通过RVIZ可以将其显示在空间中\n注意:RVIZ强调将数据可视化出来,是已有数据的情况下，把数据显示出来而已,而后面讲的gazebo仿真软件是通过真实环境产生数据,两者用途并不一样\nGazebo集成ROS2 Gazebo是一个独立的应用程序,可以独立于ros2或ros使用 Gazebo与ros版本的集成通过一组叫做gazebo_ros_pkgs的包完成的,gazebo_ros_pkgs将Gazebo和ROS2连接起来\ngazebo_dev:开发Gazebo插件可以用的API gazebo_msgs:定义的ROS2和Gazebo之间的接口（Topic/Service/Action） gazebo_ros:提供方便的C++类和函数,可供其他插件使用,例如转换和测试使用程序.他还提供一些通常有用的插件 gazebo_plugins:一系列Gazebo插件,将传感器和其他功能暴露给ROS2\ngazebo_ros_camera 发布ROS2图像 gazebo_ros_diff_drive 通过ROS2控制和获取两轮驱动机器人的接口\n5.ros2命令行工具总结 第七章 1.miniconda 退出conda conda deactivate\n2.jupyter安装 pip3 install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple\n激活ros_venv环境 source ros_venv/bin/activate\n然后在这里面: 启动jupyter jupyter-notebook\n3.Numpy Numpy是一个功能强大的python库,主要用于对多维数组执行计算。\n使用numpy定义矩阵 1.创建单位矩阵 np.identity(3)\n2.创建零矩阵 np.zeros([3,3])\n3.创建随机矩阵 np.random.rand(3,5)\n4.从已有的数组创建矩阵 np.asarray([1,2,3,4]).reshape(2,2)\n5.判断两个矩阵是否相等 numpy的allclose方法，比较两个array是不是每一个元素都相等,默认在1e-05的误差范围内\nnumpy进行矩阵运算 矩阵加法/减法 加法使用np.add 减法使用np.subtract\n矩阵乘法 np.dot\n矩阵求逆 np.linalg.inv\n矩阵转置 矩阵转置在矩阵后使用.T即可\n4.空间位置姿态 描述三维空间中的姿态——旋转矩阵 旋转矩阵与位置矢量概念——略\n1.平移矩阵—-略\n2.旋转矩阵—-坐标变换 image.png\n3.平移旋转复合矩阵 拆分 例如:可以将坐标变换拆分成先绕参考坐标系旋转,再绕参考坐标系平移,这样就得到了复合变换方程\n左右手坐标系的区别\n5.使用numpy表示位置和姿态 3*3单位矩阵表示没有姿态变换（注意不是零矩阵）\n常见问题即解决方案 死锁 1.检查进程状态 如果进程存在且正常运行,等待它完成(尤其是系统更新时) 如果进程无响应或已结束但仍占用锁继续下一步\n2.终止占用锁的进程(谨慎操作) 强制终止进程:\nsudo kill -9 4800 使用-9强制终止卡死进程 注意:确保没有关键系统进程被误杀\n3.检查并删除锁文件 查找并删除软件包管理锁文件: sudo rm/var/lib/dpkg/lock sudo rm/var/lib/apt/lists/lock sudo rm/var/cache/apt/archives//lock 删除前建议检查是否有进程占用锁\n4.修复软件包管理状态 //修复中断的dpkg操作 Sudo dpkg –configure -a //修复依赖关系 sudo apt-get install -f //清理并更新缓存 sudo apt-get clean sudo apt-get update\n5.重新运行原命令 附加说明 预防措施:避免同时运行多个包管理命令 系统日志:若问题反复出现,检查日志 //实时查看dpkg日志 Tail -f/var/log/dpkg.log\nlinux大小写敏感 全屏虚拟机 Ctrl + alt + enter\nvscode切分终端 Ctrl + shift + 5\n综合案例 1.手撸一个节点 python版 1.创建工作空间 mkdir -p town_ws/src cd town_ws/src code ./ 当前目录下打开vscode 2.创建功能包 创建一个名字叫village_li pythpn版本的功能包 ros2 pkg create village_li –build-type ament_python –dependencies rclpy pkg create 是创建包的意思 –build-type 用来指定该包的编译类型, 一共三个可选项 ament_python,ament_cmake,cmake –dependencies 指的是这个包的依赖,这里小鱼给一个ros2的python客户端接口rclpy build-type什么都不写,ros2会默认为ament_cmake 3.创建节点文件 在__init__.py同级别目录下创建一个叫做li4.py的文件(在vscode中右击新建就行) 编写ROS2节点的一般步骤 1.导入库文件 2.初始化客户端库 3.新建节点 4.spin循环节点 5.关闭客户端库 import rclpy from rclpy.node import Node\n源代码见vscode 配置 在setup.py console_scripts里面添加 “li4_node=village_li.li4:main”\n在工作空间下编译： colcon build 为了让系统找到功能包和节点：source install/setup.bash 最后在工作空间下运行节点： ros2 run village_li li4_node\nros2 node list ros2 node info /li4\nimport rclpy from rclpy .node import Node from std_msgs.msg import String\n\"\"\" 导入消息类型\n声明并创建发布者\n编写发布逻辑发布数据 \"\"\"\nclass WriterNode(Node): def __init(self,name): super().init(name) self.get_logger.info(“大家好,我是%s,我是一名作家!\"%name) self.pub_novel = self.create_publisher(String,“sexy_girl”,10)\nself.count = 0 self.timer_period = 5 self.timer = self.create_timer(self.timer_period,self.timer_callback) def timer_callback(self): msg = String() msg.data = \"第%d回连掩胡 %d 次偶遇呼延娘\" % (self.count,self.count) self.pub_novel.publish(msg) #让发布者发布消息 self.get_logger().info(\"发布了一个章节的小说内容是%s\" % msg.data) self.count += 1 def main(args=None): \"”\" 入口函数 1.ros2运行该节点的入口函数 2.编写ROS2的一般步骤 3,新建节点对象 4.spin循环节点 5.关闭客户端库 \"\"\" rclpy.init(args=args) #初始化rclpy li4_node = WriterNode(“li4”) #新建一个节点 rclpy.spin(li4_node) #保持节点运行,检测是否收到退出指令 rclpy.shutdown() #关闭客户端库\nC++版 1.创建王家村功能包 王二居住在王家村，王家村和李家村不一样，是使用ament_cmake作为编译类型 所以王家村建立指令像下面这样,依赖变成rclcpp 新建工作空间（新建功能包） ros2 pkg create village_wang –build-type ament_cmake –dependencies rclcpp 2.创建节点 在village_wang/src下创建一个wang2.cpp文件\n配置rclcpp/rcpcpp.hpp路径\n源代码见vscode\n修改CMakeList.txt文件 在CMakeList.txt最后一行加入下面两行代码 add_executable(wang2_node src/wang2.cpp) ament_target_dependencies(wang2_node rclcpp)\n添加两行代码的目的是让编译器编译wang2.cpp这个文件,不然不会主动编译.接着在上面两行代码下面添加下面代码 install(TARGETS wang2_node DESTINATION lib/${PROJECT_NAME} ) 这个是C++比python更麻烦的地方,需要手动将编译好的文件安装到install/village_wang/lib/village_wang\n编译运行节点 在工作空间下 colcon build –packages-select village_wang\nros2 pkg list | grep vill\nsource install/setup.bash\nros2 run village_wang wang2_node\n2.编写python话题发布者 1.导入消息类型 2.声明并创建发布者 3.编写发布逻辑发布数据 编写cpp话题发布者\n3.编写python话题订阅者 1.导入订阅的话题接口类型 2.创建订阅回调函数 3.声明并创建回调者 4.编写订阅回调处理逻辑\n4.编写cpp话题发布者 1.创建一个话题订阅者的能力,用于拿到艳娘传奇的数据 2.创建一个话题发布者的能力,用于给李四送稿费 3.获取日志打印器的能力\n5.编写cpp话题订阅者 ","wordCount":"7844","inLanguage":"zh","datePublished":"1970-01-21T23:10:23+08:00","dateModified":"2026-06-29T10:28:17+08:00","author":{"@type":"Person","name":"dong"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hydarealman.github.io/wander/posts/1970/01/ros2/"},"publisher":{"@type":"Organization","name":"wander","logo":{"@type":"ImageObject","url":"https://hydarealman.github.io/wander/favicon.ico"}}}</script></head><body id=top><div class=reading-progress id=reading-progress aria-hidden=true></div><script>(()=>{const e=document.getElementById("reading-progress");if(!e)return;const t=()=>{const n=document.documentElement.scrollTop||document.body.scrollTop,t=document.documentElement.scrollHeight-document.documentElement.clientHeight;t>0&&(e.style.width=Math.min(100,n/t*100)+"%")};window.addEventListener("scroll",t,{passive:!0}),t()})()</script><header class=header><nav class=header-nav><div class=logo><a href=https://hydarealman.github.io/wander/ accesskey=h title="wander (Alt + H)">wander</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://hydarealman.github.io/wander/posts/ title=文章><span>文章</span></a></li><li><a href=https://hydarealman.github.io/wander/library/ title=索引><span>索引</span></a></li><li><a href=https://hydarealman.github.io/wander/categories/ title=分类><span>分类</span></a></li><li><a href=https://hydarealman.github.io/wander/commits/ title=历史><span>历史</span></a></li><li><a href=https://hydarealman.github.io/wander/archives/ title=归档><span>归档</span></a></li><li><a href=https://hydarealman.github.io/wander/tags/ title=标签><span>标签</span></a></li><li><a href=https://hydarealman.github.io/wander/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://hydarealman.github.io/wander/about/ title=关于><span>关于</span></a></li><li><a href=https://hydarealman.github.io/wander/manual/ title=说明><span>说明</span></a></li></ul></nav></header><main class=main><div class=post-layout data-toc-state=open><button class=toc-float-btn id=toc-float-btn type=button aria-label=展开目录 title=展开目录>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button><aside class=toc-sidebar id=toc-sidebar><div class=toc-sidebar__header><button class=toc-sidebar__collapse id=toc-collapse-btn type=button aria-label=折叠目录 title=折叠目录>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+<span class=toc-sidebar__title><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+目录</span></div><nav class=toc-sidebar__nav><nav id=TableOfContents><ul><li><a href=#第一章ros2介绍>第一章ROS2介绍</a><ul><li><a href=#暂无>暂无</a></li></ul></li><li><a href=#第二章准备环境与安装ros2>第二章准备环境与安装ROS2</a></li><li><a href=#第三章动手学ros2基础>第三章动手学ROS2基础</a><ul><li><a href=#工作空间>工作空间</a></li><li><a href=#节点机器人的工作细胞>节点：机器人的工作细胞</a></li><li><a href=#ros2基本使用>ros2基本使用</a></li><li><a href=#ros2功能包的相关使用>ros2功能包的相关使用</a></li><li><a href=#ros2构建工具colcon>ros2构建工具colcon</a></li></ul></li><li><a href=#第四章ros2通信机制-话题与服务>第四章ROS2通信机制-话题与服务</a><ul><li><a href=#1话题的发布订阅模型topic通信模型>1.话题的发布订阅模型(Topic通信模型)</a></li><li><a href=#2话题通信有哪些需要注意的规则>2.话题通信有哪些需要注意的规则</a></li><li><a href=#3相关工具>3.相关工具</a></li><li><a href=#4接口介绍与自定义接口>4.接口介绍与自定义接口</a></li></ul></li><li><a href=#int64-b请求>服务接口格式：xxx.srv
+int64 a
+int64 b//请求</a></li><li><a href=#int32-order目标>动作接口格式：xxx.action
+int32 order//目标</a></li><li><a href=#int32-sequence反馈>int32[] sequence//反馈</a><ul><li></li></ul></li><li><a href=#第五章>第五章</a><ul><li></li><li><a href=#第六章-ros2工具介绍>第六章-ROS2工具介绍</a></li><li><a href=#1launch>1.launch</a></li><li><a href=#2rosbag2>2.rosbag2</a></li><li><a href=#3rqt工具>3.RQT工具</a></li><li><a href=#4数据可视化工具rviz2>4.数据可视化工具RVIZ2</a></li><li><a href=#5ros2命令行工具总结>5.ros2命令行工具总结</a></li></ul></li><li><a href=#第七章>第七章</a><ul><li><a href=#1miniconda>1.miniconda</a></li><li><a href=#2jupyter安装>2.jupyter安装</a></li><li><a href=#3numpy>3.Numpy</a></li><li><a href=#4空间位置姿态>4.空间位置姿态</a></li><li><a href=#5使用numpy表示位置和姿态>5.使用numpy表示位置和姿态</a></li></ul></li><li><a href=#常见问题即解决方案>常见问题即解决方案</a><ul><li><a href=#死锁>死锁</a></li><li><a href=#linux大小写敏感>linux大小写敏感</a></li><li><a href=#全屏虚拟机>全屏虚拟机</a></li><li><a href=#vscode切分终端>vscode切分终端</a></li></ul></li><li><a href=#综合案例>综合案例</a><ul><li><a href=#1手撸一个节点>1.手撸一个节点</a></li><li><a href=#2编写python话题发布者>2.编写python话题发布者</a></li><li><a href=#3编写python话题订阅者>3.编写python话题订阅者</a></li><li><a href=#4编写cpp话题发布者>4.编写cpp话题发布者</a></li><li><a href=#5编写cpp话题订阅者>5.编写cpp话题订阅者</a></li></ul></li></ul></nav></nav></aside><div class=post-content-area><article class=post-single><header class=post-header><nav class=breadcrumbs role=navigation aria-label=Breadcrumb><a href=/wander/>主页</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+<a href=/wander/posts/>Posts</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg></nav><h1 class="post-title entry-hint-parent">ROS2</h1><div class=post-meta><span title='1970-01-21 23:10:23 +0800 CST'>1970-01-21</span>&nbsp;·&nbsp;<span>16 分钟</span>&nbsp;·&nbsp;<span>7844 字</span>&nbsp;·&nbsp;<span class=local-views>本机 <span data-view-path=/wander/posts/1970/01/ros2/>0</span> 次</span>&nbsp;·&nbsp;<span class=meta-cats><a href=/wander/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E8%A7%89/>机器人视觉</a></span>&nbsp;·&nbsp;<span>dong</span>&nbsp;·&nbsp;
+<span class=meta-gitinfo title=修复大小标题显示失败的bug><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>更新于 2026年6月29日</span>
+<a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener class=meta-gitinfo-hash>@197fd12</a>
+</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/hydarealman/wander/edit/main/content/posts/ROS2.md rel="noopener noreferrer edit" target=_blank>编辑此页</a></span></div></header><div class="post-content md-content"><h1 id=ros2>ROS2<a hidden class=anchor aria-hidden=true href=#ros2>#</a></h1><h2 id=第一章ros2介绍>第一章ROS2介绍<a hidden class=anchor aria-hidden=true href=#第一章ros2介绍>#</a></h2><h3 id=暂无>暂无<a hidden class=anchor aria-hidden=true href=#暂无>#</a></h3><h2 id=第二章准备环境与安装ros2>第二章准备环境与安装ROS2<a hidden class=anchor aria-hidden=true href=#第二章准备环境与安装ros2>#</a></h2><p>暂无</p><h2 id=第三章动手学ros2基础>第三章动手学ROS2基础<a hidden class=anchor aria-hidden=true href=#第三章动手学ros2基础>#</a></h2><h3 id=工作空间>工作空间<a hidden class=anchor aria-hidden=true href=#工作空间>#</a></h3><p>工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营</p><p>src 代码空间
+Install 安装空间
+build 编译空间
+Log 日志空间</p><p>创建工作空间：
+mkdir -p ~/dev-ws/src</p><h3 id=节点机器人的工作细胞>节点：机器人的工作细胞<a hidden class=anchor aria-hidden=true href=#节点机器人的工作细胞>#</a></h3><p>执行具体任务的进程
+独立运行的可执行文件
+可使用不同的编程语言
+可分布式运行在不同主机
+通过节点名称进行管理
+节点操作
+ros2 node list //当前正在运行的节点信息
+ros2 node info //查看该节点信息
+ros2 topic //话题
+ros2 bag //录制</p><h3 id=ros2基本使用>ros2基本使用<a hidden class=anchor aria-hidden=true href=#ros2基本使用>#</a></h3><p>1.Terminal
+ctrl+alt+t
+2.当前终端所在位置
+pwd
+3.当前路径下所在的文件或文件夹
+Ls
+4.隐藏文件
+ls-A
+5.创建文件
+Mkdir + 文件名
+6.进入路径
+Cd
+7.创建文件
+Touch
+8.删除文件
+Rm
+9.退回上一级目录
+cd&mldr;
+10.递归删除（删除文件夹）
+rm-R
+11.安装功能包
+Sudo apt install//提升使用当前用户权限为管理员权限//应用//安装</p><h3 id=ros2功能包的相关使用>ros2功能包的相关使用<a hidden class=anchor aria-hidden=true href=#ros2功能包的相关使用>#</a></h3><p>1.创建功能包</p><p>2.列出可执行文件
+ros2 pkg executables
+列出某个功能包
+ros2 pkg executables</p><p>3.列出所有功能包
+ros2 pkg list</p><p>ros2 pkg list | grep vill//过滤
+列出vill开头的功能包</p><p>4.列出某个包所在的路径前缀</p><p>列出包的清单描述文件
+每一个功能包都有一个标配的manifest.xml文件,用于记录这个包的名字,构建工具,编译信息,拥有者，干啥用的信息
+通过这个信息，就可以自动为该功能包安装依赖，构建时确立编译顺序
+ros2 pkg xml</p><p>自动安装依赖：</p><p>编译工作空间：
+Colon build //在工作空间的根目录下进行编译
+设置环境变量：</p><p>安装获取
+Sudo apt install ros-<version>-package_name
+功能包相关命令行ros2 pkg
+Create executables lists prefix xml</p><h3 id=ros2构建工具colcon>ros2构建工具colcon<a hidden class=anchor aria-hidden=true href=#ros2构建工具colcon>#</a></h3><p>作用：功能包构建工具 编译代码
+1.安装colcon
+Sudo apt -get install python3-colcon-common-extensions
+2.编译工程
+Colcon build
+3.运行一个自己编的节点
+(1)打开一个终端使用cd colcon_test进入我们刚刚创建的工作空间,先source一下资源
+source install/setup.bash
+(2)运行一个订杂志节点,你将看不到任何打印功能,因为没有发布者
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+(3)打开一个新的终端,先source,再运行一个发行杂志节点
+source install/setup.bash
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function</p><p>colcon常用指令
+1.只编译一个包
+colcon test &ndash;packages-select YOUR_PKG_NAME
+2.不编译测试单元
+colcon test &ndash;packages-select YOUR_PKG_NAME &ndash;cmake-args -DBUILD_TESTING=8
+3.运行编译的包的测试
+colcon test
+4.允许通过更改src下的部分文件来改变install(重要)
+colcon build &ndash;symlink-install</p><h2 id=第四章ros2通信机制-话题与服务>第四章ROS2通信机制-话题与服务<a hidden class=anchor aria-hidden=true href=#第四章ros2通信机制-话题与服务>#</a></h2><p>ROS2话题介绍</p><h3 id=1话题的发布订阅模型topic通信模型>1.话题的发布订阅模型(Topic通信模型)<a hidden class=anchor aria-hidden=true href=#1话题的发布订阅模型topic通信模型>#</a></h3><pre><code>发布             订阅
+</code></pre><p>Node1&mdash;&mdash;&ndash;>话题&mdash;&mdash;&mdash;->Node2</p><h3 id=2话题通信有哪些需要注意的规则>2.话题通信有哪些需要注意的规则<a hidden class=anchor aria-hidden=true href=#2话题通信有哪些需要注意的规则>#</a></h3><p>规则：
+话题名字是关键,发布订阅接口类型要相同,发布的是字符串,接受也要用字符串来接收
+同一个节点可以订阅多个话题,同时也可以发布多个话题,就像是一本书的作者也可以是另外一本书的读者
+同一个话题可以有多个发布者
+可以1对n，n对1，n对n</p><h3 id=3相关工具>3.相关工具<a hidden class=anchor aria-hidden=true href=#3相关工具>#</a></h3><h4 id=31-rqt工具之rqt_graph>3.1 RQT工具之rqt_graph<a hidden class=anchor aria-hidden=true href=#31-rqt工具之rqt_graph>#</a></h4><p>ROS2作为一个强大的工具，在运行过程中，我们是通过命令来看到节点和节点之间的数据关系的
+运行第二章你说我听小demo。依次打开三个终端,分别输入下面三个命令
+ros2 run demo_nodes_py listener
+ros2 run demo_nodes_cpp talker
+rqt_graph</p><h4 id=32-ros2话题相关命令行界面cli工具>3.2 ROS2话题相关命令行界面(CLI)工具<a hidden class=anchor aria-hidden=true href=#32-ros2话题相关命令行界面cli工具>#</a></h4><p>ros2 topic -h</p><h5 id=321-ros2-topic-list返回系统中当前活动的所有主题的列表>3.2.1 ros2 topic list返回系统中当前活动的所有主题的列表<a hidden class=anchor aria-hidden=true href=#321-ros2-topic-list返回系统中当前活动的所有主题的列表>#</a></h5><p>ros2 topic list</p><h5 id=322-ros2-topic-list--t-增加消息类型>3.2.2 ros2 topic list -t 增加消息类型<a hidden class=anchor aria-hidden=true href=#322-ros2-topic-list--t-增加消息类型>#</a></h5><h5 id=323-ros2-topic-echo-打印实时话题内容>3.2.3 ros2 topic echo 打印实时话题内容<a hidden class=anchor aria-hidden=true href=#323-ros2-topic-echo-打印实时话题内容>#</a></h5><p>ros2 topic echo /chatter</p><h5 id=324-ros2-topic-info-查看主题信息>3.2.4 ros2 topic info 查看主题信息<a hidden class=anchor aria-hidden=true href=#324-ros2-topic-info-查看主题信息>#</a></h5><p>ros2 topic info /chatter</p><h5 id=325-ros2-interface-show-查看消息类型>3.2.5 ros2 interface show 查看消息类型<a hidden class=anchor aria-hidden=true href=#325-ros2-interface-show-查看消息类型>#</a></h5><p>ros2 interface show std_msgs/msg/String
+3.2.6 ros2 topic pub arg手动发布命令
+ros2 topic pub /chatter std_msgs/msg/String &lsquo;data: &ldquo;123&rdquo;&rsquo;
+编写话题发布者:见实战案例
+编写话题订阅者:见实战案例</p><h3 id=4接口介绍与自定义接口>4.接口介绍与自定义接口<a hidden class=anchor aria-hidden=true href=#4接口介绍与自定义接口>#</a></h3><h4 id=41ros2通信接口介绍>4.1ROS2通信接口介绍<a hidden class=anchor aria-hidden=true href=#41ros2通信接口介绍>#</a></h4><p>接口:interface</p><h5 id=1什么是接口>1.什么是接口<a hidden class=anchor aria-hidden=true href=#1什么是接口>#</a></h5><p>接口其实是一种规范
+字符串:std_msgs/msg/String
+32位二进制的整型数据:std_msgs/msg/String</p><p>使用接口的好处
+不同语言对字符串的定义是不同的，接口可以抹平这种语言差异
+方便程序的适配</p><h5 id=2ros2接口介绍>2.ROS2接口介绍<a hidden class=anchor aria-hidden=true href=#2ros2接口介绍>#</a></h5><p>使用ros2 interface package sensor_msgs 命令可以查看某一个接口包下所有的接口
+比如传感器类的消息包:sensor_msgs</p><h5 id=3ros2自定义接口>3.ROS2自定义接口<a hidden class=anchor aria-hidden=true href=#3ros2自定义接口>#</a></h5><p>ROS2的四种通信方式
+话题-Topics
+服务-Services
+动作-Actions
+参数-Parameters
+除了参数之外,话题,服务和动作(Action)都支持自定义接口,每一种通信方式所适用的场景各不相同，所定义的接口也被分为话题接口,服务接口,动作接口三种</p><p>话题接口格式：xxx.msg
+int64 num//发布的话题组合</p><h2 id=int64-b请求>服务接口格式：xxx.srv
+int64 a
+int64 b//请求</h2><p>int64 sum//发布</p><h2 id=int32-order目标>动作接口格式：xxx.action
+int32 order//目标</h2><h2 id=int32-sequence反馈>int32[] sequence//反馈<a hidden class=anchor aria-hidden=true href=#int32-sequence反馈>#</a></h2><p>int32[] partial_sequence//结果</p><p>转换过程
+msg,srv,action &mdash;&mdash;&mdash;> ROS2-IDL转换器 &mdash;&mdash;&mdash;&mdash;&mdash;-> python的py,C++的.h头文件</p><h5 id=4ros2接口常用cli命令>4.ROS2接口常用CLI命令<a hidden class=anchor aria-hidden=true href=#4ros2接口常用cli命令>#</a></h5><p>4.1查看接口列表
+ros2 interface list
+4.2查看所有接口包
+ros2 interface packages
+4.3查看某一个包下的所有接口
+ros2 interface package std_msgs
+4.4查看某一个接口详细的内容
+ros2 interface show std_msgs/msg/String
+4.5输出某一个接口的所有属性
+ros2 interface proto sensor_msgs/msg/Image</p><h4 id=42-ros2自定义话题接口>4.2 ROS2自定义话题接口<a hidden class=anchor aria-hidden=true href=#42-ros2自定义话题接口>#</a></h4><p>话题是一种单向通信的接口,同一个话题只能由发布者将数据传递给订阅者，所以定义话题接口也只需要定义发布者所要发布的类型即可.在实际的工程中为了减少功能包之间的互相依赖,通常会将接口定义在一个独立的功能包中
+有了功能包之后,我们就可以新建话题接口了,新建方法如下:
+新建msg文件夹,并在文件夹下新建xxx.msg（大写字母开头）
+在xxx.msg下编写消息内容并保存
+在CmakeList.txt添加依赖和msg文件目录
+在package.xml中添加xxx.msg所需要的依赖
+编译功能包即可生成python与C++头文件</p><h5 id=21新建功能空间>2.1新建功能空间<a hidden class=anchor aria-hidden=true href=#21新建功能空间>#</a></h5><p>ros2 pkg create village_interfaces &ndash;build-type ament_cmake</p><h5 id=22新建msg文件夹和novelmsg小说类型>2.2新建msg文件夹和Novel.msg(小说类型)<a hidden class=anchor aria-hidden=true href=#22新建msg文件夹和novelmsg小说类型>#</a></h5><p>cd village_interface
+mkdir msg
+touch Novel.msg</p><h5 id=23编写novelmsg内容>2.3编写Novel.msg内容<a hidden class=anchor aria-hidden=true href=#23编写novelmsg内容>#</a></h5><p>我们的目的是给李四的小说的每一章增加一张图片,原来李四写小说是对外发布一个 std_msgs/msg/String字符串类型的数据.而发布图片的格式,我们需要采用ros自带的传感器消息接口中的图片 sensor_msgs/msg/Image 数据类型,所以我们新的消息文件的内容就是将两者合并,在ROS2中可以写做这样：</p><p>方法一
+在msg文件中可以使用#号添加注释</p><p>#标准消息接口std_msgs下的String类型
+std_msgs/String content
+#图像消息,调用sensor_msgs下的Image类型
+sensor_msgs/Image image</p><p>方法二
+#直接使用ROS2原始的数据类型
+String content
+#图像消息,调用sensor_msgs下的Image类型
+sensor_msgs/Image image</p><p>说明
+通过下面的指令查看std_msgs/String是由基础数据类型string组成的
+ros2 interface show std_msgs/msg/String</p><p>ROS2中的原始数据类型
+bool
+byte字节类型
+char字符类型
+float32,float64
+int8,uint16
+int32,uint32
+int64,uint64
+string</p><h5 id=24修改cmakelisttxt>2.4修改CMakeList.txt<a hidden class=anchor aria-hidden=true href=#24修改cmakelisttxt>#</a></h5><p>完成代码编写还不够,我们还需要在CmakeLists.txt中告诉编译器,你要给我把Novel.msg转换成python库和C++库</p><p>#添加对sensor_msg的
+find_package(sensor_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+#添加消息文件和依赖
+rosidl_generate_interfaces(&{PROJECT_NAME}
+&ldquo;msg/Novel.msg&rdquo;
+DEPENDENCIES sensor_msgs
+)</p><p>find_package用于查找rosidl_default_generators位置,下面rosidl_generate_interfaces就是声明msg文件所属的工程名字,文件位置以及依赖的DEPENDENCIES
+踩坑报告:重点强调一下依赖部分DEPENDENCIES ,我们消息中用到的依赖这里必须写上,即使不写编译器也不会报错,知道运行的时候才会报错</p><h4 id=44ros2服务介绍序号乱了不知道为什么就这样没有改>4.4ROS2服务介绍（序号乱了不知道为什么就这样没有改）<a hidden class=anchor aria-hidden=true href=#44ros2服务介绍序号乱了不知道为什么就这样没有改>#</a></h4><p>服务通信介绍与体验
+1.启动服务端
+这个命令用于运行一个服务节点，这个服务的功能是将两个数字相加,给定a,b两个数返回sum就是ab之和
+ros2 run examples_rclpy_minimal_service service
+2.使用命令查看列表
+ros2 service list
+3.3手动调用服务
+再启动一个终端，输入下面的命令
+ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts &ldquo;{a: 5,b: 10}&rdquo;</p><p>服务相关CLI工具
+1.查看服务列表
+ros2 service list
+2.手动调用服务
+ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts &ldquo;{a: 1,b: 5}&rdquo;
+3.查看服务接口类型
+ros2 service type /add_two_inits
+4.查找使用某一接口的服务
+ros2 service find example_interfaces/srv/AddTwoInts</p><h4 id=45自定义服务接口>4.5自定义服务接口<a hidden class=anchor aria-hidden=true href=#45自定义服务接口>#</a></h4><p>话题是发布订阅模型，主要是单向传输数据,只能由发布者发布，接收者接收（同一话题，发布者接收者都可以有多个）
+服务是客户服务端（请求响应）模型 由客户端发送请求，服务端处理请求，然后返回处理结果（同一服务，客户端可以有多个，服务端只能有一个）</p><p>如何创建自己的服务接口
+新建srv文件夹，并在文件夹下新建xxx.srv
+在xxx.srv下编写服务接口内容并保存
+在CmakeLists.txt添加依赖和srv文件目录
+在package.xml中添加xxx.srv所需依赖
+编译功能包即可生成python与C++头文件</p><p>4.5.2python服务通信实现(李三借钱)
+服务端:
+1.导入服务接口
+2.创建服务端回调函数
+3.声明并创建服务端
+4.编写回调函数逻辑处理请求</p><p>4.6.3创建客户端李三节点
+1.导入服务接口
+2.创建请求结果接收回调函数
+3.声明并 创建客户端
+4.编写结果接收逻辑
+5.调用客户端发送请求</p><h4 id=46话题服务对比>4.6话题服务对比<a hidden class=anchor aria-hidden=true href=#46话题服务对比>#</a></h4><p>1.话题
+1.话题是单向的,而且不需要等待服务端上线，直接发就行,数据的实时性比较高
+频率高,实时性强的传感器数据的传递一般使用话题实现</p><p>2.服务
+服务是双向的,客户端发送请求后,服务端有 响应,可以得知服务端的处理结果
+频率较低,强调服务特性和反馈的场景一般使用服务实现</p><p>Git
+安装git
+Sudo apt install git
+//下载别人的代码
+Git clone 地址</p><h2 id=第五章>第五章<a hidden class=anchor aria-hidden=true href=#第五章>#</a></h2><p>2.参数是节点的一个配置,你可以任务参数是一个节点的设置
+3.论参数组成成分
+参数是由键值对组成,键值对指的就是名字和数值.</p><h4 id=1ros2查看节点有哪些参数设置>1.ros2查看节点有哪些参数(设置)<a hidden class=anchor aria-hidden=true href=#1ros2查看节点有哪些参数设置>#</a></h4><p>ros2 param list</p><h4 id=2详细查看一个参数的信息>2.详细查看一个参数的信息<a hidden class=anchor aria-hidden=true href=#2详细查看一个参数的信息>#</a></h4><p>ros2 param describe &lt;node_name> &lt;param_name></p><h4 id=3查看参数值>3.查看参数值<a hidden class=anchor aria-hidden=true href=#3查看参数值>#</a></h4><p>例子:
+ros2 param get /turtlesim background_b</p><h4 id=4设置参数>4.设置参数<a hidden class=anchor aria-hidden=true href=#4设置参数>#</a></h4><p>例子:
+ros2 param set /turtlesim background_b 83</p><h4 id=5保存参数值>5.保存参数值<a hidden class=anchor aria-hidden=true href=#5保存参数值>#</a></h4><p>ros2 param dump /turtlesim</p><h4 id=6启动节点时加载参数快照>6.启动节点时加载参数快照<a hidden class=anchor aria-hidden=true href=#6启动节点时加载参数快照>#</a></h4><p>ros2 run &lt;package_name> &lt;executable_name> &ndash;ros-args &ndash;param-file &lt;file_name></p><h4 id=ros2相关代码>ros2相关代码<a hidden class=anchor aria-hidden=true href=#ros2相关代码>#</a></h4><p>函数名称 描述
+declare_parameter 声明和初始化一个参数
+declare_parameters 声明和初始化一堆参数
+get_parameter 通过参数名字获取一个参数
+get_parameter 通过多个参数名字获取多个参数
+set_parameters 设置一组参数的值</p><h4 id=编写cpp参数>编写CPP参数<a hidden class=anchor aria-hidden=true href=#编写cpp参数>#</a></h4><h4 id=声明参数>声明参数<a hidden class=anchor aria-hidden=true href=#声明参数>#</a></h4><h4 id=获取并设置参数>获取并设置参数<a hidden class=anchor aria-hidden=true href=#获取并设置参数>#</a></h4><h4 id=action通信介绍>Action通信介绍<a hidden class=anchor aria-hidden=true href=#action通信介绍>#</a></h4><p>话题适用于节点间单向的频繁的数据传输,
+服务则适用于节点间双向的数据传输,
+而参数则适用于动态调整节点的设置</p><h4 id=action的组成部分>Action的组成部分<a hidden class=anchor aria-hidden=true href=#action的组成部分>#</a></h4><p>目标:Action客户端告诉服务端要做什么,服务端针对该目标要有响应,解决了不能确认服务端接收并处理目标的问题
+反馈:Action服务端告诉客户端此时做的进度如何(类似工作汇报).解决了执行过程中没有反馈问题
+结果:Action服务端最终告诉客户端执行结果,结果最后返回,用于表示任务最终执行情况</p><p>参数是由服务构建出来了,而Action是由话题和服务共同构建出来的(一个Action = 三个服务+两个话题)</p><p>三个服务分别是:
+1.目标传递服务
+2.结果传递服务
+3.取消执行服务</p><p>两个话题:
+1.反馈话题(服务发布,客户端订阅)
+2.状态话题(服务端发布,客户端订阅)</p><h4 id=action的cli工具>Action的CLI工具<a hidden class=anchor aria-hidden=true href=#action的cli工具>#</a></h4><p>action list
+获取目前系统中的action列表</p><p>action info
+查看action信息</p><p>action send_goal
+发送请求到服务端</p><h4 id=ros2通信机制的总结>ros2通信机制的总结<a hidden class=anchor aria-hidden=true href=#ros2通信机制的总结>#</a></h4><p>1.话题
+话题是单向的而且不需要等待服务器上线,直接发就行,数据的实时性比较高.
+频率高,实时性强的传感器数据的传递一般使用话题实现</p><p>2.服务
+服务是双向的,客户端发送请求后,服务端有响应,可以得知服务端的处理结果,频率较低,强调服务特性和反馈的场景一般使用服务实现</p><p>3.参数
+参数是节点的设置,用于配置节点,原理基于服务</p><p>4.动作
+动作适用于实时反馈的场景，原理基于服务</p><h3 id=第六章-ros2工具介绍>第六章-ROS2工具介绍<a hidden class=anchor aria-hidden=true href=#第六章-ros2工具介绍>#</a></h3><h3 id=1launch>1.launch<a hidden class=anchor aria-hidden=true href=#1launch>#</a></h3><h4 id=1ros2节点管理之launch文件>1.ros2节点管理之launch文件<a hidden class=anchor aria-hidden=true href=#1ros2节点管理之launch文件>#</a></h4><p>为什么需要launch文件
+1.1需要启动的节点太多
+1.2节点之间有依赖关系
+launch文件类似于一个脚本文件来管理节点的启动
+launch文件允许我们同时启动和配置多个包含ros2节点的可执行文件</p><h4 id=2编写ros2的launch文件>2.编写ros2的launch文件<a hidden class=anchor aria-hidden=true href=#2编写ros2的launch文件>#</a></h4><p>ros2中可以使用python文件来编写launch文件
+1.导入头文件
+2.定义函数
+3.创建节点函数
+4.launch文件描述</p><h4 id=3测试launch文件>3.测试launch文件<a hidden class=anchor aria-hidden=true href=#3测试launch文件>#</a></h4><p>ros2 launch 节点(启动launch文件)</p><p>python略</p><p>cmake编译类型功能包的launch文件安装
+install(DIRECTORY launch
+DESTIMATION share/${PROJECT_NAME}
+)</p><h4 id=4通过launch修改参数>4.通过launch修改参数<a hidden class=anchor aria-hidden=true href=#4通过launch修改参数>#</a></h4><p>例子:
+parameters=[{&ldquo;writer_timer_period&rdquo; : 1}]</p><h3 id=2rosbag2>2.rosbag2<a hidden class=anchor aria-hidden=true href=#2rosbag2>#</a></h3><h4 id=rosbag2介绍与安装>rosbag2介绍与安装<a hidden class=anchor aria-hidden=true href=#rosbag2介绍与安装>#</a></h4><p>CLI工具:命令行接口工具
+ros2中常用的一个CLI工具&ndash;rosbag2,这个工具用于记录话题的数据
+(我们做一个真实机器人的时候非常有用,比如我们可以录制一段机器人发生问题的话题数据,录制完成后可以多次发布出来进行测试和实验,也可以将话题数据分享给别人用于验证算法)</p><h4 id=常用指令>常用指令<a hidden class=anchor aria-hidden=true href=#常用指令>#</a></h4><p>1.记录一个话题
+ros2 bag record /sexy_girl</p><p>2.记录多个话题的数据
+ros2 bag record topic-name1 topic-name2</p><p>3.记录所有话题
+ros2 bag record -a</p><p>4.其他选项
+-o name 自定义输出文件的名字
+ros2 bag record -o fille-name topic-name
+-s存储格式
+目前仅支持sqlite3，其他还带扩展</p><p>查看录制出话题的信息
+(比如话题记录的时间,大小,类型,数量)
+ros2 bag info bag-file</p><p>播放话题数据
+ros2 bag play xxx.db3</p><h3 id=3rqt工具>3.RQT工具<a hidden class=anchor aria-hidden=true href=#3rqt工具>#</a></h3><p>RQT是一个GUI框架,通过插件的方式实现了各种各样的界面工具</p><p>命令行:
+rqt</p><h3 id=4数据可视化工具rviz2>4.数据可视化工具RVIZ2<a hidden class=anchor aria-hidden=true href=#4数据可视化工具rviz2>#</a></h3><p>数据:各种调试机器人时常用的数据,比如:图像数据,三维点云数据,地图数据,TF数据,机器人模型数据
+可视化:可视化就是让你直观的看到数据,比如说一个三维的点(100,100,100)，通过RVIZ可以将其显示在空间中</p><p>注意:RVIZ强调将数据可视化出来,是已有数据的情况下，把数据显示出来而已,而后面讲的gazebo仿真软件是通过真实环境产生数据,两者用途并不一样</p><p>Gazebo集成ROS2
+Gazebo是一个独立的应用程序,可以独立于ros2或ros使用
+Gazebo与ros版本的集成通过一组叫做gazebo_ros_pkgs的包完成的,gazebo_ros_pkgs将Gazebo和ROS2连接起来</p><p>gazebo_dev:开发Gazebo插件可以用的API
+gazebo_msgs:定义的ROS2和Gazebo之间的接口（Topic/Service/Action）
+gazebo_ros:提供方便的C++类和函数,可供其他插件使用,例如转换和测试使用程序.他还提供一些通常有用的插件
+gazebo_plugins:一系列Gazebo插件,将传感器和其他功能暴露给ROS2</p><p>gazebo_ros_camera 发布ROS2图像
+gazebo_ros_diff_drive 通过ROS2控制和获取两轮驱动机器人的接口</p><h3 id=5ros2命令行工具总结>5.ros2命令行工具总结<a hidden class=anchor aria-hidden=true href=#5ros2命令行工具总结>#</a></h3><h2 id=第七章>第七章<a hidden class=anchor aria-hidden=true href=#第七章>#</a></h2><h3 id=1miniconda>1.miniconda<a hidden class=anchor aria-hidden=true href=#1miniconda>#</a></h3><p>退出conda conda deactivate</p><h3 id=2jupyter安装>2.jupyter安装<a hidden class=anchor aria-hidden=true href=#2jupyter安装>#</a></h3><p>pip3 install jupyter -i <a href=https://pypi.tuna.tsinghua.edu.cn/simple>https://pypi.tuna.tsinghua.edu.cn/simple</a></p><p>激活ros_venv环境
+source ros_venv/bin/activate</p><p>然后在这里面:
+启动jupyter
+jupyter-notebook</p><h3 id=3numpy>3.Numpy<a hidden class=anchor aria-hidden=true href=#3numpy>#</a></h3><p>Numpy是一个功能强大的python库,主要用于对多维数组执行计算。</p><h4 id=使用numpy定义矩阵>使用numpy定义矩阵<a hidden class=anchor aria-hidden=true href=#使用numpy定义矩阵>#</a></h4><p>1.创建单位矩阵
+np.identity(3)</p><p>2.创建零矩阵
+np.zeros([3,3])</p><p>3.创建随机矩阵
+np.random.rand(3,5)</p><p>4.从已有的数组创建矩阵
+np.asarray([1,2,3,4]).reshape(2,2)</p><p>5.判断两个矩阵是否相等
+numpy的allclose方法，比较两个array是不是每一个元素都相等,默认在1e-05的误差范围内</p><h4 id=numpy进行矩阵运算>numpy进行矩阵运算<a hidden class=anchor aria-hidden=true href=#numpy进行矩阵运算>#</a></h4><p>矩阵加法/减法
+加法使用np.add
+减法使用np.subtract</p><p>矩阵乘法
+np.dot</p><p>矩阵求逆
+np.linalg.inv</p><p>矩阵转置
+矩阵转置在矩阵后使用.T即可</p><h3 id=4空间位置姿态>4.空间位置姿态<a hidden class=anchor aria-hidden=true href=#4空间位置姿态>#</a></h3><p>描述三维空间中的姿态&mdash;&mdash;旋转矩阵
+旋转矩阵与位置矢量概念&mdash;&mdash;略</p><p>1.平移矩阵&mdash;-略</p><p>2.旋转矩阵&mdash;-坐标变换
+image.png</p><p>3.平移旋转复合矩阵
+拆分
+例如:可以将坐标变换拆分成先绕参考坐标系旋转,再绕参考坐标系平移,这样就得到了复合变换方程</p><p>左右手坐标系的区别</p><h3 id=5使用numpy表示位置和姿态>5.使用numpy表示位置和姿态<a hidden class=anchor aria-hidden=true href=#5使用numpy表示位置和姿态>#</a></h3><p>3*3单位矩阵表示没有姿态变换（注意不是零矩阵）</p><h2 id=常见问题即解决方案>常见问题即解决方案<a hidden class=anchor aria-hidden=true href=#常见问题即解决方案>#</a></h2><h3 id=死锁>死锁<a hidden class=anchor aria-hidden=true href=#死锁>#</a></h3><p>1.检查进程状态
+如果进程存在且正常运行,等待它完成(尤其是系统更新时)
+如果进程无响应或已结束但仍占用锁继续下一步</p><p>2.终止占用锁的进程(谨慎操作)
+强制终止进程:</p><p>sudo kill -9 4800
+使用-9强制终止卡死进程
+注意:确保没有关键系统进程被误杀</p><p>3.检查并删除锁文件
+查找并删除软件包管理锁文件:
+sudo rm/var/lib/dpkg/lock
+sudo rm/var/lib/apt/lists/lock
+sudo rm/var/cache/apt/archives//lock
+删除前建议检查是否有进程占用锁</p><p>4.修复软件包管理状态
+//修复中断的dpkg操作
+Sudo dpkg &ndash;configure -a
+//修复依赖关系
+sudo apt-get install -f
+//清理并更新缓存
+sudo apt-get clean
+sudo apt-get update</p><p>5.重新运行原命令
+附加说明
+预防措施:避免同时运行多个包管理命令
+系统日志:若问题反复出现,检查日志
+//实时查看dpkg日志
+Tail -f/var/log/dpkg.log</p><h3 id=linux大小写敏感>linux大小写敏感<a hidden class=anchor aria-hidden=true href=#linux大小写敏感>#</a></h3><h3 id=全屏虚拟机>全屏虚拟机<a hidden class=anchor aria-hidden=true href=#全屏虚拟机>#</a></h3><p>Ctrl + alt + enter</p><h3 id=vscode切分终端>vscode切分终端<a hidden class=anchor aria-hidden=true href=#vscode切分终端>#</a></h3><p>Ctrl + shift + 5</p><h2 id=综合案例>综合案例<a hidden class=anchor aria-hidden=true href=#综合案例>#</a></h2><h3 id=1手撸一个节点>1.手撸一个节点<a hidden class=anchor aria-hidden=true href=#1手撸一个节点>#</a></h3><h4 id=python版>python版<a hidden class=anchor aria-hidden=true href=#python版>#</a></h4><p>1.创建工作空间
+mkdir -p town_ws/src
+cd town_ws/src
+code ./ 当前目录下打开vscode
+2.创建功能包
+创建一个名字叫village_li pythpn版本的功能包
+ros2 pkg create village_li &ndash;build-type ament_python &ndash;dependencies rclpy
+pkg create 是创建包的意思
+&ndash;build-type 用来指定该包的编译类型, 一共三个可选项 ament_python,ament_cmake,cmake
+&ndash;dependencies 指的是这个包的依赖,这里小鱼给一个ros2的python客户端接口rclpy
+build-type什么都不写,ros2会默认为ament_cmake
+3.创建节点文件
+在__init__.py同级别目录下创建一个叫做li4.py的文件(在vscode中右击新建就行)
+编写ROS2节点的一般步骤
+1.导入库文件
+2.初始化客户端库
+3.新建节点
+4.spin循环节点
+5.关闭客户端库
+import rclpy
+from rclpy.node import Node</p><p>源代码见vscode
+配置
+在setup.py console_scripts里面添加
+&ldquo;li4_node=village_li.li4:main&rdquo;</p><p>在工作空间下编译： colcon build
+为了让系统找到功能包和节点：source install/setup.bash
+最后在工作空间下运行节点： ros2 run village_li li4_node</p><p>ros2 node list
+ros2 node info /li4</p><p>import rclpy
+from rclpy .node import Node
+from std_msgs.msg import String</p><p>"""
+导入消息类型</p><p>声明并创建发布者</p><p>编写发布逻辑发布数据
+"""</p><p>class WriterNode(Node):
+def __init(self,name):
+super().<strong>init</strong>(name)
+self.get_logger.info(&ldquo;大家好,我是%s,我是一名作家!"%name)
+self.pub_novel = self.create_publisher(String,&ldquo;sexy_girl&rdquo;,10)</p><pre><code>    self.count = 0
+    self.timer_period = 5
+    self.timer = self.create_timer(self.timer_period,self.timer_callback)
+
+
+def timer_callback(self):
+    msg = String()
+    msg.data = &quot;第%d回连掩胡 %d 次偶遇呼延娘&quot; % (self.count,self.count)
+    self.pub_novel.publish(msg) #让发布者发布消息
+    self.get_logger().info(&quot;发布了一个章节的小说内容是%s&quot; % msg.data)
+    self.count += 1
+</code></pre><p>def main(args=None):
+"&rdquo;"
+入口函数
+1.ros2运行该节点的入口函数
+2.编写ROS2的一般步骤
+3,新建节点对象
+4.spin循环节点
+5.关闭客户端库
+"""
+rclpy.init(args=args) #初始化rclpy
+li4_node = WriterNode(&ldquo;li4&rdquo;) #新建一个节点
+rclpy.spin(li4_node) #保持节点运行,检测是否收到退出指令
+rclpy.shutdown() #关闭客户端库</p><h4 id=c版>C++版<a hidden class=anchor aria-hidden=true href=#c版>#</a></h4><p>1.创建王家村功能包
+王二居住在王家村，王家村和李家村不一样，是使用ament_cmake作为编译类型
+所以王家村建立指令像下面这样,依赖变成rclcpp
+新建工作空间（新建功能包）
+ros2 pkg create village_wang &ndash;build-type ament_cmake &ndash;dependencies rclcpp
+2.创建节点
+在village_wang/src下创建一个wang2.cpp文件</p><p>配置rclcpp/rcpcpp.hpp路径</p><p>源代码见vscode</p><p>修改CMakeList.txt文件
+在CMakeList.txt最后一行加入下面两行代码
+add_executable(wang2_node src/wang2.cpp)
+ament_target_dependencies(wang2_node rclcpp)</p><p>添加两行代码的目的是让编译器编译wang2.cpp这个文件,不然不会主动编译.接着在上面两行代码下面添加下面代码
+install(TARGETS
+wang2_node
+DESTINATION lib/${PROJECT_NAME}
+)
+这个是C++比python更麻烦的地方,需要手动将编译好的文件安装到install/village_wang/lib/village_wang</p><p>编译运行节点
+在工作空间下
+colcon build &ndash;packages-select village_wang</p><p>ros2 pkg list | grep vill</p><p>source install/setup.bash</p><p>ros2 run village_wang wang2_node</p><h3 id=2编写python话题发布者>2.编写python话题发布者<a hidden class=anchor aria-hidden=true href=#2编写python话题发布者>#</a></h3><p>1.导入消息类型
+2.声明并创建发布者
+3.编写发布逻辑发布数据
+编写cpp话题发布者</p><h3 id=3编写python话题订阅者>3.编写python话题订阅者<a hidden class=anchor aria-hidden=true href=#3编写python话题订阅者>#</a></h3><p>1.导入订阅的话题接口类型
+2.创建订阅回调函数
+3.声明并创建回调者
+4.编写订阅回调处理逻辑</p><h3 id=4编写cpp话题发布者>4.编写cpp话题发布者<a hidden class=anchor aria-hidden=true href=#4编写cpp话题发布者>#</a></h3><p>1.创建一个话题订阅者的能力,用于拿到艳娘传奇的数据
+2.创建一个话题发布者的能力,用于给李四送稿费
+3.获取日志打印器的能力</p><h3 id=5编写cpp话题订阅者>5.编写cpp话题订阅者<a hidden class=anchor aria-hidden=true href=#5编写cpp话题订阅者>#</a></h3><p><img src=https://hydarealman.github.io/wander/images/feishu/ros2/image_b18bd0.png alt="图片 1" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px"></p></div><section class=like-panel data-like-doc=/wander/posts/1970/01/ros2/ data-like-title=ROS2 aria-label=文章点赞><div class=like-copy><strong>这篇文章有帮助吗？</strong>
+<span>给它点个赞，后续整理文章时会优先照顾高赞内容。</span></div><button class=like-button type=button aria-pressed=false>
+<span class=like-button-mark>赞</span>
+<span class=like-count data-like-count>0</span></button><p class=like-status data-like-status>点赞数据加载中</p></section><section class=post-githistory><details><summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>文档修订记录</span>
+<span class=post-githistory-count>8 次修订</span></summary><div class=post-githistory-body><ol class=git-timeline><li class=git-timeline-item><time datetime=2026-06-29T10:28:17+08:00>06-29</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener title=查看此次提交>197fd12</a>
+<span class=git-timeline-msg>修复大小标题显示失败的bug</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T16:14:55+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/9a00af876ba05ab204735551d9e36fdb38216eff target=_blank rel=noopener title=查看此次提交>9a00af8</a>
+<span class=git-timeline-msg>Fix: apply heading heuristic to 44 existing posts (26+18) - TOC now shows real sections</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:19:16+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/edc8d798c832c2447d2317a4e3d81d8002ce81ba target=_blank rel=noopener title=查看此次提交>edc8d79</a>
+<span class=git-timeline-msg>博客界面更换 一些笑哦bug维修</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T13:17:23+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/bce812d720c0f54a403db7f482d6d5eb340718af target=_blank rel=noopener title=查看此次提交>bce812d</a>
+<span class=git-timeline-msg>6_28飞书文档同步更新</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T12:44:45+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/8c0c2ac0bab9de15941c1438df8468c29690f1b7 target=_blank rel=noopener title=查看此次提交>8c0c2ac</a>
+<span class=git-timeline-msg>飞书同步test</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-19T01:35:49+08:00>06-19</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/7d342989e6772c9942fd65e7007b44c16c5d4361 target=_blank rel=noopener title=查看此次提交>7d34298</a>
+<span class=git-timeline-msg>Add manual and sortable library</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-19T01:20:56+08:00>06-19</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/9402175f567c89db1e73a6379e3cb1a19a44e042 target=_blank rel=noopener title=查看此次提交>9402175</a>
+<span class=git-timeline-msg>Improve blog layout and pinned posts</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-13T11:05:24+08:00>06-13</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/98d0f153181c32b7e2f6ca6a4c38285f2739007e target=_blank rel=noopener title=查看此次提交>98d0f15</a>
+<span class=git-timeline-msg>Create Hugo blog</span>
+<span class=git-timeline-author>hydarealman</span></div></li></ol><a class=post-githistory-full href=https://github.com/hydarealman/wander/commits/main/content/posts/ROS2.md target=_blank rel=noopener>在 GitHub 上查看完整历史
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div></details></section><section class=related-posts aria-label=相关文章><h2 class=related-posts__heading>相关文章</h2><div class=related-posts__list><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/2026/06/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE_-wsl--ros2--rust/><span>rust仿真环境配置_ wsl + ros2 + rust</span>
+<span class=date>2026-06-06</span>
+</a><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/><span>rust仿真环境配置: wsl + ros2 + rust</span>
+<span class=date>1970-01-21</span>
+</a><a class=related-posts__item href=https://hydarealman.github.io/wander/posts/1970/01/ros1/><span>ROS1</span>
+<span class=date>1970-01-21</span></a></div></section><footer class=post-footer><ul class=post-tags><li><a href=https://hydarealman.github.io/wander/tags/ros/>ROS</a></li></ul><nav class=paginav><a class=prev href=https://hydarealman.github.io/wander/posts/1970/01/ros1/><span class=title>« 上一页</span>
+<span>ROS1</span>
+</a><a class=next href=https://hydarealman.github.io/wander/posts/1970/01/slam/><span class=title>下一页 »</span>
+<span>SLAM</span></a></nav></footer><div class=giscus-wrapper><script src=https://giscus.app/client.js data-repo=hydarealman/wander data-repo-id=R_kgDOS5PAig data-category=General data-category-id=DIC_kwDOS5PAis4DAWkL data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></div><div class=toc-mobile-backdrop id=toc-backdrop></div></div><script>(()=>{const t=document.querySelector(".post-layout"),n=document.getElementById("toc-sidebar"),l=document.getElementById("toc-collapse-btn"),d=document.getElementById("toc-float-btn"),o=document.getElementById("toc-backdrop");if(!t||!n)return;const i="wander:toc:open",a=()=>t.dataset.tocState==="open",e=e=>{t.dataset.tocState=e?"open":"closed";try{localStorage.setItem(i,e?"1":"0")}catch{}e&&(document.body.style.overflow="")},r=()=>{e(!a())};l.addEventListener("click",r),d.addEventListener("click",r),o&&o.addEventListener("click",()=>e(!1)),document.addEventListener("keydown",t=>{t.key==="Escape"&&a()&&e(!1)});const u=(()=>{try{return localStorage.getItem(i)}catch{return null}})();u==="0"&&e(!1);const c=n.querySelector(".toc-sidebar__nav");if(c){const e=t=>{if(!t||!t.children)return;Array.from(t.children).forEach(t=>{if(t.tagName!=="LI")return;const n=t.querySelector(":scope > ul"),s=t.querySelector(":scope > a");if(s){const i=document.createElement("div");i.className="toc-row";const o=document.createElement("button");o.className="toc-toggle",o.type="button",o.setAttribute("aria-label","展开/折叠子标题"),o.innerHTML='<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',n&&n.children.length>0?(t.classList.add("has-children"),o.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation(),t.classList.toggle("collapsed");try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.setItem(n,t.classList.contains("collapsed")?"1":"0")}}catch{}})):o.classList.add("toc-toggle--placeholder"),t.insertBefore(i,t.firstChild),i.appendChild(o),i.appendChild(s);try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.getItem(n)==="1"&&t.classList.add("collapsed")}}catch{}n&&e(n)}})},t=c.querySelector(":scope > ul");t&&e(t)}const s=n.querySelectorAll('.toc-sidebar__nav a[href^="#"]');if(s.length&&"IntersectionObserver"in window){const e=[];if(s.forEach(t=>{const s=t.getAttribute("href").slice(1),n=document.getElementById(s);n&&e.push({el:n,a:t})}),e.length){const t=new IntersectionObserver(e=>{let t=null;e.forEach(e=>{if(e.isIntersecting){const n=e.target.getAttribute("id");t||(t=n)}}),t&&s.forEach(e=>{const n=e.getAttribute("href");e.classList.toggle("active",n==="#"+t)})},{rootMargin:"-20% 0px -70% 0px"});e.forEach(e=>t.observe(e.el))}}})()</script></main><footer class=footer><span>&copy; 2026 <a href=https://hydarealman.github.io/wander/>wander</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script id=wander-like-config type=application/json>{"provider":"local","supabaseAnonKey":"","supabaseUrl":"","table":"doc_likes"}</script><script>(()=>{const e=e=>`wander:view:${e}`,t=e=>new URL(e,window.location.origin).pathname,n=document.querySelector("article.post-single");if(n&&window.location.pathname.includes("/posts/")){const t=e(window.location.pathname),n=Number(localStorage.getItem(t)||0)+1;localStorage.setItem(t,String(n))}document.querySelectorAll("[data-view-path]").forEach(n=>{const s=e(t(n.getAttribute("data-view-path")||window.location.pathname));n.textContent=localStorage.getItem(s)||"0"})})(),(()=>{const l=document.getElementById("wander-like-config"),t=l?JSON.parse(l.textContent||"{}"):{},f=(t.provider||"local").toLowerCase(),o=f==="supabase"&&t.supabaseUrl&&t.supabaseAnonKey,s=e=>`wander:liked:${e}`,d=e=>`wander:like-count:${e}`,m=e=>String(e||"").replace(/\/+$/,""),r=m(t.supabaseUrl),h=t.table||"doc_likes",c=()=>({apikey:t.supabaseAnonKey,Authorization:`Bearer ${t.supabaseAnonKey}`,"Content-Type":"application/json"}),a=(e,t)=>{e.dataset.liked=t?"true":"false",e.setAttribute("aria-pressed",t?"true":"false");const n=e.querySelector(".like-button-mark");n&&(n.textContent=t?"已赞":"赞")},e=(e,t)=>{const n=e.querySelector("[data-like-status]");n&&(n.textContent=t)},n=(e,t)=>{const n=e.querySelector("[data-like-count]");n&&(n.textContent=String(Math.max(0,Number(t)||0)))},i=e=>Number(localStorage.getItem(d(e))||0),u=(e,t)=>localStorage.setItem(d(e),String(t));async function p(e){const n=`${r}/rest/v1/${encodeURIComponent(h)}?doc_id=eq.${encodeURIComponent(e)}&select=count`,t=await fetch(n,{headers:c()});if(!t.ok)throw new Error(`HTTP ${t.status}`);const s=await t.json();return Number(s?.[0]?.count||0)}async function g(e,t){const n=await fetch(`${r}/rest/v1/rpc/increment_doc_like`,{method:"POST",headers:c(),body:JSON.stringify({p_doc_id:e,p_title:t})});if(!n.ok)throw new Error(`HTTP ${n.status}`);const s=await n.json();return Number(s||0)}async function v(t){const c=t.querySelector(".like-button"),r=t.dataset.likeDoc||window.location.pathname,d=t.dataset.likeTitle||document.title,l=localStorage.getItem(s(r))==="1";if(a(c,l),o)try{n(t,await p(r)),e(t,l?"你已经赞过这篇文章":"点赞会同步到全站统计")}catch{n(t,i(r)),e(t,"远程点赞暂不可用，当前使用本机点赞")}else n(t,i(r)),e(t,l?"你已经在本机赞过这篇文章":"当前是本机点赞；配置 Supabase 后可同步给所有访客");c.addEventListener("click",async()=>{if(localStorage.getItem(s(r))==="1"){e(t,o?"你已经赞过这篇文章":"你已经在本机赞过这篇文章");return}c.disabled=!0,e(t,"正在记录点赞");try{let l;o?l=await g(r,d):(l=i(r)+1,u(r,l)),localStorage.setItem(s(r),"1"),a(c,!0),n(t,l),e(t,o?"感谢点赞，已同步到全站":"感谢点赞，已记录在本机")}catch{const o=i(r)+1;u(r,o),localStorage.setItem(s(r),"1"),a(c,!0),n(t,o),e(t,"远程同步失败，已先记录在本机")}finally{c.disabled=!1}})}document.querySelectorAll(".like-panel").forEach(v)})()</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

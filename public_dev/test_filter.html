@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Filter Test</title>
+<style>
+  .post-list { max-width: 700px; margin: 20px auto; }
+  .post-entry { display: flex; flex-direction: column; padding: 16px 0; border-bottom: 1px solid #e2ded8; }
+  .entry-header h2 { font-size: 18px; margin: 0; }
+  .entry-content p { color: #6b6b6b; font-size: 14px; }
+  .wander-search { display: flex; align-items: center; gap: 8px; max-width: 700px; margin: 20px auto; }
+  .wander-search__input { flex: 1; padding: 10px 16px; border: 1px solid #e2ded8; border-radius: 8px; font-size: 15px; }
+  .wander-search__count { font-size: 13px; color: #6b6b6b; }
+  .wander-tags { display: flex; flex-wrap: wrap; gap: 6px; max-width: 700px; margin: 10px auto; }
+  .wander-tags__pill { padding: 4px 12px; border: 1px solid #e2ded8; border-radius: 6px; font-size: 13px; cursor: pointer; background: #fdfbf7; }
+  .wander-tags__pill.active { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+  mark.wander-hl { background: #fde68a; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center">Filter Test Page</h1>
+
+<!-- Search + Tags (same as home_info.html) -->
+<div class="wander-search">
+  <input class="wander-search__input" id="post-search" type="search" placeholder="搜索文章…" autocomplete="off">
+  <span class="wander-search__count" id="filter-count">3 篇</span>
+</div>
+<div class="wander-tags" id="tag-filters">
+  <button class="wander-tags__pill active" data-tag="">全部</button>
+  <button class="wander-tags__pill" data-tag="机器人">机器人</button>
+  <button class="wander-tags__pill" data-tag="C/C++">C/C++</button>
+  <button class="wander-tags__pill" data-tag="Python">Python</button>
+</div>
+
+<!-- Post list (same structure as list.html output) -->
+<div class="post-list">
+  <article class="post-entry is-pinned" data-tags="机器人" data-title="桂工自瞄文档" data-summary="桂工自瞄文档 开发记录">
+    <header class="entry-header"><h2><span>桂工自瞄文档</span></h2></header>
+    <div class="entry-content"><p>桂工自瞄文档 开发记录: 双装甲板通信逻辑</p></div>
+    <div class="entry-taxonomy"><span>机器人</span></div>
+  </article>
+  <article class="post-entry" data-tags="C/C++,Python" data-title="C++语法笔记" data-summary="C/C++代码中积累的语法">
+    <header class="entry-header"><h2><span>C++语法笔记</span></h2></header>
+    <div class="entry-content"><p>C/C++代码中积累的语法 数据类型转换</p></div>
+    <div class="entry-taxonomy"><span>C/C++</span><span>Python</span></div>
+  </article>
+  <article class="post-entry" data-tags="Python" data-title="Python学习笔记" data-summary="Python基础语法和高级特性">
+    <header class="entry-header"><h2><span>Python学习笔记</span></h2></header>
+    <div class="entry-content"><p>Python基础语法和高级特性 装饰器 生成器</p></div>
+    <div class="entry-taxonomy"><span>Python</span></div>
+  </article>
+</div>
+
+<!-- EXACT SAME script as in the generated HTML (the minified version) -->
+<script>
+(()=>{const n=document.getElementById("post-search"),s=document.getElementById("tag-filters"),o=document.getElementById("filter-count"),e=document.querySelector(".post-list"),i=document.getElementById("pinned-section");if(!e)return;let t="";const r=()=>{e.querySelectorAll("mark.wander-hl").forEach(e=>{const t=e.parentNode;t.replaceChild(document.createTextNode(e.textContent),e),t.normalize()})},c=t=>{if(r(),!t)return;const o=t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),n=new RegExp(`(${o})`,"gi"),s=e=>{if(e.nodeType===3&&e.parentNode){{const t=e.textContent;if(n.test(t)){n.lastIndex=0;const i=document.createDocumentFragment();let s=0,o;for(;(o=n.exec(t))!==null;){o.index>s&&i.appendChild(document.createTextNode(t.slice(s,o.index)));const e=document.createElement("mark");e.className="wander-hl",e.textContent=o[0],i.appendChild(e),s=n.lastIndex,o[0]||(n.lastIndex++,s=n.lastIndex)}s<t.length&&i.appendChild(document.createTextNode(t.slice(s))),e.parentNode.replaceChild(i,e)}}}else if(e.nodeType===1&&e.childNodes){if(e.tagName==="MARK"||e.tagName==="CODE"||e.tagName==="PRE")return;for(let t=0;t<e.childNodes.length;t++)s(e.childNodes[t])}};s(e)},a=()=>{const s=(n?.value||"").toLowerCase().trim(),r=e.querySelectorAll(".post-entry");let a=0;r.forEach(e=>{const n=(e.dataset.tags||"").toLowerCase(),i=(e.dataset.title||"").toLowerCase(),r=(e.dataset.summary||"").toLowerCase(),c=!t||n.split(",").some(e=>e.trim()===t),l=!s||i.includes(s)||r.includes(s)||n.includes(s),o=c&&l;e.style.display=o?"":"none",o&&a++}),o&&(o.textContent=a+" 篇"),i&&(i.style.display=s||t?"none":""),c(s)};n&&n.addEventListener("input",a),s&&s.addEventListener("click",e=>{const n=e.target.closest(".wander-tags__pill");if(!n)return;t=n.dataset.tag||"",s.querySelectorAll(".wander-tags__pill").forEach(e=>e.classList.toggle("active",e===n)),a()})})()
+</script>
+
+</body>
+</html>

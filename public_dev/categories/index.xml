@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on wander</title>
+    <link>https://hydarealman.github.io/wander/categories/</link>
+    <description>Recent content in Categories on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>机器人视觉</title>
+      <link>https://hydarealman.github.io/wander/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E8%A7%89/</link>
+      <pubDate>Sun, 28 Jun 2026 12:44:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E8%A7%89/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编程开发</title>
+      <link>https://hydarealman.github.io/wander/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:40 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>学习记录</title>
+      <link>https://hydarealman.github.io/wander/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:19 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>算法数学</title>
+      <link>https://hydarealman.github.io/wander/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Sat, 06 Jun 2026 16:10:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E5%AD%A6/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

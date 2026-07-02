@@ -1,0 +1,326 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>C/C++代码中积累的语法 | wander</title><meta name=keywords content="C/C++"><meta name=description content="C/C++代码中积累的语法
+C/C++中的数据类型转换
+数据类型自动转换
+当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。"><meta name=author content="dong"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/><link crossorigin=anonymous href=/wander/assets/css/stylesheet.0af188802f5b9d57040c63f6322b3edbb8d667e734f3720bac584f3280ed4145.css integrity="sha256-CvGIgC9bnVcEDGP2Mis+27jWZ+c083ILrFhPMoDtQUU=" rel="preload stylesheet" as=style><link rel=icon href=https://hydarealman.github.io/wander/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://hydarealman.github.io/wander/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://hydarealman.github.io/wander/favicon-32x32.png><link rel=apple-touch-icon href=https://hydarealman.github.io/wander/apple-touch-icon.png><link rel=mask-icon href=https://hydarealman.github.io/wander/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:image" content="https://hydarealman.github.io/wander/images/og-default.png"><meta property="twitter:image" content="https://hydarealman.github.io/wander/images/og-default.png"><link rel=canonical href=https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/><link rel=manifest href=https://hydarealman.github.io/wander/manifest.json><meta name=theme-color content="#ffffff" media="(prefers-color-scheme: light)"><meta name=theme-color content="#0d1117" media="(prefers-color-scheme: dark)"><meta name=mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="default"><meta name=apple-mobile-web-app-title content="wander"><script>"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("https://hydarealman.github.io/wander/sw.js")})</script><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//cdn.jsdelivr.net><link rel=dns-prefetch href=//giscus.app><meta property="og:url" content="https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/"><meta property="og:site_name" content="wander"><meta property="og:title" content="C/C++代码中积累的语法"><meta property="og:description" content="C/C++代码中积累的语法 C/C++中的数据类型转换 数据类型自动转换 当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="1970-01-21T23:10:23+08:00"><meta property="article:modified_time" content="2026-06-29T10:28:17+08:00"><meta property="article:tag" content="C/C++"><meta name=twitter:card content="summary"><meta name=twitter:title content="C/C++代码中积累的语法"><meta name=twitter:description content="C/C++代码中积累的语法 C/C++中的数据类型转换 数据类型自动转换 当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://hydarealman.github.io/wander/posts/"},{"@type":"ListItem","position":2,"name":"C/C++代码中积累的语法","item":"https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"C/C++代码中积累的语法","name":"C\/C\u002b\u002b代码中积累的语法","description":"C/C++代码中积累的语法 C/C++中的数据类型转换 数据类型自动转换 当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。\n","keywords":["C/C++"],"articleBody":"C/C++代码中积累的语法 C/C++中的数据类型转换 数据类型自动转换 当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。\nC语言中的强制类型转换 前面说了自动转换，从这里开始聊聊强制类型转换，需要强制类型转换往往程序不那么智能了，需要人工进行干预。比如把一个int 类型的变量赋值给 char 类型的变量，或者说把两个 int 相乘时可能会得到一个很大的数，所以需要先把 int 强制转换成 double 计算防止溢出。C++中的强制类型转换\nC++中的强制类型转换 在C++语言中新增了四个用于强制类型转换的关键字，分别是 static_cast、 dynamic_cast, const_cast、 和 reinterpret_cast，使用语法为 xxxx_cast(expression)。\nstatic_cast 这个关键字的作用主要表现在 static 上，是一种静态的转换，在编译期就能确定的转换，可以完成C语言中的强制类型转换中的大部分工作，但需要注意的是，它不能转换掉表达式的 const、volitale 或者 __unaligned 属性。\ndynamic_cast 从名字上看，这个关键字与 static_cast 的静态转换是对立的，这是一个“动态”转换函数，只能对指针和引用的进行转换，并且只用于类继承结构中基类和派生类之间指针或引用的转换，可以进行向上、向下，或者横向的转换。 相比于 static_cast 的编译时转换， dynamic_cast 的转换还会在运行时进行类型检查，转换的条件也比较苛刻，必须有继承关系的类之间才能转换，并且在基类中有虚函数才可以，有一种特殊的情况就是可以把类指针转换成 void* 类型。\nconst_cast 一种类型转换符,一种移除指针或引用的const或 volatile限定符\nreinterpret_cast 它被用于不同类型指针或引用之间的转换，或者指针和整数之间的转换，是对比特位的简单拷贝并重新解释，因此在使用过程中需要特别谨慎，比如前面提到的一个例子，static_cast 不能将 int* 直接强转成 char*，使用reinterpret_cast就可以办到。\nC/C++ 中 volatile 关键字详解 volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素更改，比如：操作系统、硬件或者其它线程等。遇到这个关键字声明的变量，编译器对访问该变量的代码就不再进行优化，从而可以提供对特殊地址的稳定访问。声明时语法：int volatile vInt; 当要求使用 volatile 声明的变量的值的时候，系统总是重新从它所在的内存读取数据，即使它前面的指令刚刚从该处读取过数据。而且读取的数据立刻被保存。\nC++中的inline关键字 C++中的inline关键字主要用于向编译器建议将函数或变量进行内联展开 核心目的: 减少函数调用开销(压栈,跳转,返回),提高小型,频繁调用函数的执行效率 -\u003e 适用于函数体小 工作原理: 编译期间尝试将函数体代码直接插入到每一个调用处,类似\"赋值\"\n优点: 提升性能,类型安全,易于调试(相比宏),可替代宏定义 缺点: 可能导致代码膨胀,从而降低缓存命中率 -\u003e 适用于复杂函数,递归函数或虚函数\n内联展开: 当编译器处理一个被建议内联的函数时,它会尝试将该函数体直接赋值粘贴到每一个调用它的地方\n缓存命中率: 衡量系统效率的一个关键指标 , 计算公式： 缓存命中次数 / 总访问次数 * 100\nC++ override关键字 是一个显示标识符,用于明确告诉编译器,派生类的这个成员函数意图重写(Override)基类的虚函数\n当你使用override 关键字时,编译器会进行严格检查,确保派生类中的函数缺失成功重写了基类的虚函数,如果没有找到匹配的基类虚函数,编译器会直接报错\nstd::optional 用于表达: 可能有值,也可能没有值,std::optional 是现代 C++ 中表达“可选值”的 标准、安全、清晰 的方式 主要成员函数和操作\nstd::atomic C++11 引入的模板类 std::atomic = 多线程环境下的\"安全锁变量\",让多个线程同时修改一个数时不会出错\nperror()函数 perror()是C语言标准库中的一个错误处理函数,用于将错误信息输出到标准错误流\n函数原型\n#include void perror(const char *str); 功能说明: 参数: str是一个自定义的提示字符串 输出格式: str:系统错误描述信息\\n 输出位置: 标准错误流\n工作原理: perror会根据全局变量errno的当前值,查找对应的系统错误描述信息,并与你提供的字符串组合输出\n异步线程 // 1. 线程创建和lambda表达式 thread th_process(\u0026rs{ while(ros::ok()){ ros::spinOnce(); } });\n// 2.线程分离 th_process.detach();\n// 3. 主线程循环 while(ros::ok()) { rs.Prorgess(); // 注意：可能是Progress的拼写错误 }\n数据类型 size_t: size_t 是一种在 C 和 C++ 编程语言中广泛使用的数据类型，通常用于表示对象的大小\n定义 size_t 是一种无符号整数类型，定义在多个标准库头文件中，例如 、、 等。它的大小取决于目标平台的架构： 在 32 位系统中，size_t 通常是 32 位无符号整数（unsigned int）。 在 64 位系统中，size_t 通常是 64 位无符号整数（unsigned long 或 unsigned long long）。 用途 size_t 的主要用途是表示内存大小或对象的大小，例如： 在函数中表示数组或缓冲区的大小，如 malloc、calloc、realloc、memcpy 等函数的参数。 用于存储对象的字节大小，例如 sizeof 运算符的结果。 为什么使用 size_t 跨平台兼容性：size_t 的大小会根据目标平台自动调整，确保代码在不同架构（如 32 位和 64 位系统）上都能正确运行。 安全性：由于 size_t 是无符号类型，它可以避免在处理大小时出现负值，从而减少潜在的错误。 语义清晰：使用 size_t 明确表示变量用于表示大小，使代码更具可读性。 智能指针 std::unique_ptr: 独占所有权 1.std::unique_ptr是一种独占所有权的智能指针,确保同一时间只有一个unique_ptr拥有对象的所有权.它不可复制,但可以通过std::move转移所有权 使用场景: 管理不需要共享的动态资源,如局部动态对象,工厂函数返回值 注意: unique_ptr几乎零开销,性能与裸指针相当,是多数情况下的首选\n2.std::shared_ptr：共享所有权 std::shared_ptr通过引用计数机制管理共享所有权.多个shared_ptr可以指向同一对象,当最后一个shared_ptr被销毁时,对象才会被释放 循环引用问题\n3.std::weak_ptr: 弱引用(不拥有) std::weak_ptr是一种不控制对象生命周期的智能指针,它指向由shared_ptr管理的对象,但不增加引用计数,主要用于解决而不影响其生命周期,或解决循环引用 使用场景: 观察shared_ptr管理的对象而不影响其生命周期,或解决循环引用\n构造函数: 默认构造函数: 有参构造函数: 略\n拷贝构造函数: 拷贝构造函数是一种特殊的构造函数,用于创建一个新对象作为现有对象的副本\n默认拷贝构造函数： 如果你不定义拷贝构造函数,编译器会自动生成一个\n编译器对待拷贝构造函数和普通构造函数的不同: 1.调用时机； 普通构造函数的调用: 编译器明确直到调用普通构造函数 拷贝构造函数的自动调用: 编译器自动判断调用拷贝构造函数的场景\n2.自动生成规则不同: 普通构造函数的生成规则: 如果没有声明任何构造函数,编译器会自动生成默认构造函数 拷贝构造函数的生成规则: 即使声明了其他构造函数，编译器仍会生成拷贝构造函数\n深拷贝vs浅拷贝 浅拷贝: 仅复制指针的值(内存地址) 深拷贝: 为新对象分配新内存,并复制指针所指的内容\nclass Example { int x; std::string name; int* data; public: Example(int val) : x(val), data(new int[10]) {}\n// 即使声明了其他构造函数，编译器仍会生成拷贝构造函数 // 除非显式声明或删除 };\nExample e1(10); Example e2 = e1; // 调用编译器生成的拷贝构造函数（浅拷贝！危险！）为什么危险？ 危险的原因: 编译器生成的默认拷贝构造函数进行的是浅拷贝 这会导致多个对象共享同一块动态内存,从而引发一系列严重的问题\n1.重复释放导致程序崩溃: 当e1和e2的生命周期结束时,它们的析构函数会被自动调用。由于你没有自定义析构函数,编译器也会被自动调用,由于e1的data和e2的data指向的是同一块内存,这块内存被释放.紧接着e2析构时,它会尝试再次释放同一块已经归还给系统的内存,这会导致未定义行为,通常直接造成程序崩溃\n2.数据意外修改: 修改一个会改另一个\n3.悬挂指针 e1被销毁了,e2还在，但是它的data成员已经指向无效内存地址的悬挂指针\n解决方法； 使用深拷贝\nclass Example { int x; std::string name; int* data; size_t size; // 记录数组大小，确保拷贝正确\npublic: Example(int val) : x(val), size(10), data(new int[10]) {}\n// 1. 深拷贝构造函数 Example(const Example\u0026 other) : x(other.x), name(other.name), size(other.size), data(new int[other.size]) { // 分配新内存 // 复制数据内容 std::copy(other.data, other.data + other.size, data); } // 2. 深拷贝赋值运算符 Example\u0026 operator=(const Example\u0026 other) { if (this != \u0026other) { // 关键：防止自赋值 (e.g., e1 = e1) delete[] data; // 释放自己的旧资源 x = other.x; name = other.name; size = other.size; data = new int[size]; // 分配新内存 std::copy(other.data, other.data + size, data); // 复制数据 } return *this; } // 3. 析构函数 ~Example() { delete[] data; // 安全释放自己独占的内存 } };\n左值右值： std::move的本质 作用：将左值转换为右值引用\n// std::move 的简化实现 template typename std::remove_reference::type\u0026\u0026 move(T\u0026\u0026 arg) noexcept { return static_cast","wordCount":"13781","inLanguage":"zh","datePublished":"1970-01-21T23:10:23+08:00","dateModified":"2026-06-29T10:28:17+08:00","author":{"@type":"Person","name":"dong"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/"},"publisher":{"@type":"Organization","name":"wander","logo":{"@type":"ImageObject","url":"https://hydarealman.github.io/wander/favicon.ico"}}}</script></head><body id=top><div class=reading-progress id=reading-progress aria-hidden=true></div><script>(()=>{const e=document.getElementById("reading-progress");if(!e)return;const t=()=>{const n=document.documentElement.scrollTop||document.body.scrollTop,t=document.documentElement.scrollHeight-document.documentElement.clientHeight;t>0&&(e.style.width=Math.min(100,n/t*100)+"%")};window.addEventListener("scroll",t,{passive:!0}),t()})()</script><header class=header><nav class=header-nav><div class=logo><a href=https://hydarealman.github.io/wander/ accesskey=h title="wander (Alt + H)">wander</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://hydarealman.github.io/wander/posts/ title=文章><span>文章</span></a></li><li><a href=https://hydarealman.github.io/wander/library/ title=索引><span>索引</span></a></li><li><a href=https://hydarealman.github.io/wander/categories/ title=分类><span>分类</span></a></li><li><a href=https://hydarealman.github.io/wander/commits/ title=历史><span>历史</span></a></li><li><a href=https://hydarealman.github.io/wander/archives/ title=归档><span>归档</span></a></li><li><a href=https://hydarealman.github.io/wander/tags/ title=标签><span>标签</span></a></li><li><a href=https://hydarealman.github.io/wander/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://hydarealman.github.io/wander/about/ title=关于><span>关于</span></a></li><li><a href=https://hydarealman.github.io/wander/manual/ title=说明><span>说明</span></a></li></ul></nav></header><main class=main><div class=post-layout data-toc-state=open><button class=toc-float-btn id=toc-float-btn type=button aria-label=展开目录 title=展开目录>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button><aside class=toc-sidebar id=toc-sidebar><div class=toc-sidebar__header><button class=toc-sidebar__collapse id=toc-collapse-btn type=button aria-label=折叠目录 title=折叠目录>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+<span class=toc-sidebar__title><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+目录</span></div><nav class=toc-sidebar__nav><nav id=TableOfContents><ul><li><a href=#cc中的数据类型转换>C/C++中的数据类型转换</a></li><li><a href=#c语言中的强制类型转换>C语言中的强制类型转换</a></li><li><a href=#c中的强制类型转换>C++中的强制类型转换</a><ul><li><a href=#static_cast>static_cast</a></li><li><a href=#dynamic_cast>dynamic_cast</a></li><li><a href=#const_cast>const_cast</a></li><li><a href=#reinterpret_cast>reinterpret_cast</a></li></ul></li><li><a href=#cc-中-volatile-关键字详解>C/C++ 中 volatile 关键字详解</a></li><li><a href=#c中的inline关键字>C++中的inline关键字</a></li><li><a href=#c-override关键字>C++ override关键字</a></li><li><a href=#stdoptional>std::optional</a></li><li><a href=#stdatomic>std::atomic</a></li><li><a href=#perror函数>perror()函数</a></li><li><a href=#异步线程>异步线程</a></li><li><a href=#数据类型>数据类型</a><ul><li><a href=#size_t>size_t:</a></li></ul></li><li><a href=#智能指针>智能指针</a></li><li><a href=#构造函数>构造函数:</a><ul><li><a href=#拷贝构造函数>拷贝构造函数:</a></li><li><a href=#默认拷贝构造函数>默认拷贝构造函数：</a></li></ul></li><li><a href=#编译器对待拷贝构造函数和普通构造函数的不同>编译器对待拷贝构造函数和普通构造函数的不同:</a></li><li><a href=#深拷贝vs浅拷贝>深拷贝vs浅拷贝</a></li><li><a href=#左值右值>左值右值：</a></li><li><a href=#rvo和nrvo编译器优化>RVO和NRVO(编译器优化)</a></li><li><a href=#tr1functionstdfunction>tr1::function/std::function</a></li><li><a href=#hypot函数>hypot()函数</a></li><li><a href=#c语言中关于内存的一些函数>C语言中关于内存的一些函数</a><ul><li><a href=#malloc---内存动态分配>malloc() - 内存动态分配</a></li><li><a href=#realloc---内存重新分配>realloc() - 内存重新分配</a></li><li><a href=#memset---内存填充>memset() - 内存填充</a></li><li><a href=#memcpy---内存复制---不检查重叠>memcpy() - 内存复制 - 不检查重叠</a></li><li><a href=#memmove---内存复制---检查重叠>memmove - 内存复制 - 检查重叠</a></li><li><a href=#calloc---分配内存>calloc - 分配内存</a></li></ul></li><li><a href=#stdfuture是一个模板类>std::future是一个模板类</a><ul><li><a href=#sprintf_s和sprintf函数的区别>sprintf_s和sprintf函数的区别</a></li></ul></li></ul><ul><li><a href=#ccprimer-plus>C/C++primer plus</a><ul><li><a href=#第十章对象和类>第十章对象和类</a></li><li><a href=#第十一章使用类>第十一章使用类</a></li></ul></li><li><a href=#effective-c>Effective C++</a><ul><li><a href=#1让自己习惯c>1.让自己习惯C++</a></li><li><a href=#2构造析构赋值运算>2.构造/析构/赋值运算</a></li><li><a href=#3资源管理>3.资源管理</a></li><li><a href=#4设计与声明>4.设计与声明</a></li><li><a href=#5实现>5.实现</a></li><li><a href=#6继承与面向对象设计>6.继承与面向对象设计</a></li><li><a href=#7模板与泛型编程>7.模板与泛型编程</a></li><li><a href=#8定制new-和-delete>8.定制new 和 delete</a></li><li><a href=#9杂项讨论>9.杂项讨论</a></li></ul></li><li><a href=#深度求索c对象模型>深度求索C++对象模型</a><ul><li><a href=#第一章关于对象>第一章关于对象</a></li><li><a href=#第二章构造函数语意学>第二章构造函数语意学</a></li><li><a href=#第三章data语意学>第三章Data语意学</a></li><li><a href=#第四章function语意学>第四章Function语意学</a></li></ul></li></ul></nav></nav></aside><div class=post-content-area><article class=post-single><header class=post-header><nav class=breadcrumbs role=navigation aria-label=Breadcrumb><a href=/wander/>主页</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+<a href=/wander/posts/>Posts</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg></nav><h1 class="post-title entry-hint-parent">C/C++代码中积累的语法</h1><div class=post-meta><span title='1970-01-21 23:10:23 +0800 CST'>1970-01-21</span>&nbsp;·&nbsp;<span>28 分钟</span>&nbsp;·&nbsp;<span>13781 字</span>&nbsp;·&nbsp;<span class=local-views>本机 <span data-view-path=/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/>0</span> 次</span>&nbsp;·&nbsp;<span class=meta-cats><a href=/wander/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/>编程开发</a></span>&nbsp;·&nbsp;<span>dong</span>&nbsp;·&nbsp;
+<span class=meta-gitinfo title=修复大小标题显示失败的bug><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>更新于 2026年6月29日</span>
+<a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener class=meta-gitinfo-hash>@197fd12</a>
+</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/hydarealman/wander/edit/main/content/posts/c-c++%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%a7%af%e7%b4%af%e7%9a%84%e8%af%ad%e6%b3%95.md rel="noopener noreferrer edit" target=_blank>编辑此页</a></span></div></header><div class="post-content md-content"><h1 id=cc代码中积累的语法>C/C++代码中积累的语法<a hidden class=anchor aria-hidden=true href=#cc代码中积累的语法>#</a></h1><h2 id=cc中的数据类型转换>C/C++中的数据类型转换<a hidden class=anchor aria-hidden=true href=#cc中的数据类型转换>#</a></h2><p>数据类型自动转换
+当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。</p><h2 id=c语言中的强制类型转换>C语言中的强制类型转换<a hidden class=anchor aria-hidden=true href=#c语言中的强制类型转换>#</a></h2><p>前面说了自动转换，从这里开始聊聊强制类型转换，需要强制类型转换往往程序不那么智能了，需要人工进行干预。比如把一个int 类型的变量赋值给 char 类型的变量，或者说把两个 int 相乘时可能会得到一个很大的数，所以需要先把 int 强制转换成 double 计算防止溢出。C++中的强制类型转换</p><h2 id=c中的强制类型转换>C++中的强制类型转换<a hidden class=anchor aria-hidden=true href=#c中的强制类型转换>#</a></h2><p>在C++语言中新增了四个用于强制类型转换的关键字，分别是 static_cast、 dynamic_cast, const_cast、 和 reinterpret_cast，使用语法为 xxxx_cast&lt;new_type_name>(expression)。</p><h3 id=static_cast>static_cast<a hidden class=anchor aria-hidden=true href=#static_cast>#</a></h3><p>这个关键字的作用主要表现在 static 上，是一种静态的转换，在编译期就能确定的转换，可以完成C语言中的强制类型转换中的大部分工作，但需要注意的是，它不能转换掉表达式的 const、volitale 或者 __unaligned 属性。</p><h3 id=dynamic_cast>dynamic_cast<a hidden class=anchor aria-hidden=true href=#dynamic_cast>#</a></h3><p>从名字上看，这个关键字与 static_cast 的静态转换是对立的，这是一个“动态”转换函数，只能对指针和引用的进行转换，并且只用于类继承结构中基类和派生类之间指针或引用的转换，可以进行向上、向下，或者横向的转换。
+相比于 static_cast 的编译时转换， dynamic_cast 的转换还会在运行时进行类型检查，转换的条件也比较苛刻，必须有继承关系的类之间才能转换，并且在基类中有虚函数才可以，有一种特殊的情况就是可以把类指针转换成 void* 类型。</p><h3 id=const_cast>const_cast<a hidden class=anchor aria-hidden=true href=#const_cast>#</a></h3><p>一种类型转换符,一种移除指针或引用的const或 volatile限定符</p><h3 id=reinterpret_cast>reinterpret_cast<a hidden class=anchor aria-hidden=true href=#reinterpret_cast>#</a></h3><p>它被用于不同类型指针或引用之间的转换，或者指针和整数之间的转换，是对比特位的简单拷贝并重新解释，因此在使用过程中需要特别谨慎，比如前面提到的一个例子，static_cast 不能将 int* 直接强转成 char*，使用reinterpret_cast就可以办到。</p><h2 id=cc-中-volatile-关键字详解>C/C++ 中 volatile 关键字详解<a hidden class=anchor aria-hidden=true href=#cc-中-volatile-关键字详解>#</a></h2><p>volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素更改，比如：操作系统、硬件或者其它线程等。遇到这个关键字声明的变量，编译器对访问该变量的代码就不再进行优化，从而可以提供对特殊地址的稳定访问。声明时语法：int volatile vInt; 当要求使用 volatile 声明的变量的值的时候，系统总是重新从它所在的内存读取数据，即使它前面的指令刚刚从该处读取过数据。而且读取的数据立刻被保存。</p><h2 id=c中的inline关键字>C++中的inline关键字<a hidden class=anchor aria-hidden=true href=#c中的inline关键字>#</a></h2><p>C++中的inline关键字主要用于向编译器建议将函数或变量进行内联展开
+核心目的: 减少函数调用开销(压栈,跳转,返回),提高小型,频繁调用函数的执行效率 -> 适用于函数体小
+工作原理: 编译期间尝试将函数体代码直接插入到每一个调用处,类似"赋值"</p><p>优点: 提升性能,类型安全,易于调试(相比宏),可替代宏定义
+缺点: 可能导致代码膨胀,从而降低缓存命中率 -> 适用于复杂函数,递归函数或虚函数</p><p>内联展开: 当编译器处理一个被建议内联的函数时,它会尝试将该函数体直接赋值粘贴到每一个调用它的地方</p><p>缓存命中率: 衡量系统效率的一个关键指标 , 计算公式： 缓存命中次数 / 总访问次数 * 100</p><h2 id=c-override关键字>C++ override关键字<a hidden class=anchor aria-hidden=true href=#c-override关键字>#</a></h2><p>是一个显示标识符,用于明确告诉编译器,派生类的这个成员函数意图重写(Override)基类的虚函数</p><p>当你使用override 关键字时,编译器会进行严格检查,确保派生类中的函数缺失成功重写了基类的虚函数,如果没有找到匹配的基类虚函数,编译器会直接报错</p><h2 id=stdoptional>std::optional<t><a hidden class=anchor aria-hidden=true href=#stdoptional>#</a></h2><p>用于表达: 可能有值,也可能没有值,std::optional 是现代 C++ 中表达“可选值”的 标准、安全、清晰 的方式
+主要成员函数和操作</p><h2 id=stdatomic>std::atomic<a hidden class=anchor aria-hidden=true href=#stdatomic>#</a></h2><p>C++11 引入的模板类
+std::atomic = 多线程环境下的"安全锁变量",让多个线程同时修改一个数时不会出错</p><h2 id=perror函数>perror()函数<a hidden class=anchor aria-hidden=true href=#perror函数>#</a></h2><p>perror()是C语言标准库中的一个错误处理函数,用于将错误信息输出到标准错误流</p><p>函数原型</p><p>#include &lt;stdio.h>
+void perror(const char *str);
+功能说明:
+参数: str是一个自定义的提示字符串
+输出格式: str:系统错误描述信息\n
+输出位置: 标准错误流</p><p>工作原理:
+perror会根据全局变量errno的当前值,查找对应的系统错误描述信息,并与你提供的字符串组合输出</p><h2 id=异步线程>异步线程<a hidden class=anchor aria-hidden=true href=#异步线程>#</a></h2><p>// 1. 线程创建和lambda表达式
+thread th_process(<a href>&amp;rs</a>{
+while(ros::ok()){
+ros::spinOnce();
+}
+});</p><p>// 2.线程分离
+th_process.detach();</p><p>// 3. 主线程循环
+while(ros::ok())
+{
+rs.Prorgess(); // 注意：可能是Progress的拼写错误
+}</p><h2 id=数据类型>数据类型<a hidden class=anchor aria-hidden=true href=#数据类型>#</a></h2><h3 id=size_t>size_t:<a hidden class=anchor aria-hidden=true href=#size_t>#</a></h3><p>size_t 是一种在 C 和 C++ 编程语言中广泛使用的数据类型，通常用于表示对象的大小</p><ol><li>定义
+size_t 是一种无符号整数类型，定义在多个标准库头文件中，例如 &lt;stddef.h>、&lt;stdio.h>、&lt;stdlib.h> 等。它的大小取决于目标平台的架构：
+在 32 位系统中，size_t 通常是 32 位无符号整数（unsigned int）。
+在 64 位系统中，size_t 通常是 64 位无符号整数（unsigned long 或 unsigned long long）。</li><li>用途
+size_t 的主要用途是表示内存大小或对象的大小，例如：
+在函数中表示数组或缓冲区的大小，如 malloc、calloc、realloc、memcpy 等函数的参数。
+用于存储对象的字节大小，例如 sizeof 运算符的结果。</li><li>为什么使用 size_t
+跨平台兼容性：size_t 的大小会根据目标平台自动调整，确保代码在不同架构（如 32 位和 64 位系统）上都能正确运行。
+安全性：由于 size_t 是无符号类型，它可以避免在处理大小时出现负值，从而减少潜在的错误。
+语义清晰：使用 size_t 明确表示变量用于表示大小，使代码更具可读性。</li></ol><h2 id=智能指针>智能指针<a hidden class=anchor aria-hidden=true href=#智能指针>#</a></h2><p>std::unique_ptr: 独占所有权
+1.std::unique_ptr是一种独占所有权的智能指针,确保同一时间只有一个unique_ptr拥有对象的所有权.它不可复制,但可以通过std::move转移所有权
+使用场景: 管理不需要共享的动态资源,如局部动态对象,工厂函数返回值
+注意: unique_ptr几乎零开销,性能与裸指针相当,是多数情况下的首选</p><p>2.std::shared_ptr：共享所有权
+std::shared_ptr通过引用计数机制管理共享所有权.多个shared_ptr可以指向同一对象,当最后一个shared_ptr被销毁时,对象才会被释放
+循环引用问题</p><p>3.std::weak_ptr: 弱引用(不拥有)
+std::weak_ptr是一种不控制对象生命周期的智能指针,它指向由shared_ptr管理的对象,但不增加引用计数,主要用于解决而不影响其生命周期,或解决循环引用
+使用场景: 观察shared_ptr管理的对象而不影响其生命周期,或解决循环引用</p><h2 id=构造函数>构造函数:<a hidden class=anchor aria-hidden=true href=#构造函数>#</a></h2><p>默认构造函数:
+有参构造函数:
+略</p><h3 id=拷贝构造函数>拷贝构造函数:<a hidden class=anchor aria-hidden=true href=#拷贝构造函数>#</a></h3><p>拷贝构造函数是一种特殊的构造函数,用于创建一个新对象作为现有对象的副本</p><h3 id=默认拷贝构造函数>默认拷贝构造函数：<a hidden class=anchor aria-hidden=true href=#默认拷贝构造函数>#</a></h3><p>如果你不定义拷贝构造函数,编译器会自动生成一个</p><h2 id=编译器对待拷贝构造函数和普通构造函数的不同>编译器对待拷贝构造函数和普通构造函数的不同:<a hidden class=anchor aria-hidden=true href=#编译器对待拷贝构造函数和普通构造函数的不同>#</a></h2><p>1.调用时机；
+普通构造函数的调用: 编译器明确直到调用普通构造函数
+拷贝构造函数的自动调用: 编译器自动判断调用拷贝构造函数的场景</p><p>2.自动生成规则不同:
+普通构造函数的生成规则:
+如果没有声明任何构造函数,编译器会自动生成默认构造函数
+拷贝构造函数的生成规则:
+即使声明了其他构造函数，编译器仍会生成拷贝构造函数</p><h2 id=深拷贝vs浅拷贝>深拷贝vs浅拷贝<a hidden class=anchor aria-hidden=true href=#深拷贝vs浅拷贝>#</a></h2><p>浅拷贝:
+仅复制指针的值(内存地址)
+深拷贝:
+为新对象分配新内存,并复制指针所指的内容</p><p>class Example {
+int x;
+std::string name;
+int* data;
+public:
+Example(int val) : x(val), data(new int[10]) {}</p><pre><code>// 即使声明了其他构造函数，编译器仍会生成拷贝构造函数
+// 除非显式声明或删除
+</code></pre><p>};</p><p>Example e1(10);
+Example e2 = e1; // 调用编译器生成的拷贝构造函数（浅拷贝！危险！）为什么危险？
+危险的原因: 编译器生成的默认拷贝构造函数进行的是浅拷贝
+这会导致多个对象共享同一块动态内存,从而引发一系列严重的问题</p><p>1.重复释放导致程序崩溃:
+当e1和e2的生命周期结束时,它们的析构函数会被自动调用。由于你没有自定义析构函数,编译器也会被自动调用,由于e1的data和e2的data指向的是同一块内存,这块内存被释放.紧接着e2析构时,它会尝试再次释放同一块已经归还给系统的内存,这会导致未定义行为,通常直接造成程序崩溃</p><p>2.数据意外修改:
+修改一个会改另一个</p><p>3.悬挂指针
+e1被销毁了,e2还在，但是它的data成员已经指向无效内存地址的悬挂指针</p><p>解决方法； 使用深拷贝</p><p>class Example {
+int x;
+std::string name;
+int* data;
+size_t size; // 记录数组大小，确保拷贝正确</p><p>public:
+Example(int val) : x(val), size(10), data(new int[10]) {}</p><pre><code>// 1. 深拷贝构造函数
+Example(const Example&amp; other)
+    : x(other.x), name(other.name), size(other.size), data(new int[other.size]) { // 分配新内存
+    // 复制数据内容
+    std::copy(other.data, other.data + other.size, data);
+}
+
+// 2. 深拷贝赋值运算符
+Example&amp; operator=(const Example&amp; other) {
+    if (this != &amp;other) { // 关键：防止自赋值 (e.g., e1 = e1)
+        delete[] data; // 释放自己的旧资源
+
+        x = other.x;
+        name = other.name;
+        size = other.size;
+        data = new int[size]; // 分配新内存
+        std::copy(other.data, other.data + size, data); // 复制数据
+    }
+    return *this;
+}
+
+// 3. 析构函数
+~Example() {
+    delete[] data; // 安全释放自己独占的内存
+}
+</code></pre><p>};</p><h2 id=左值右值>左值右值：<a hidden class=anchor aria-hidden=true href=#左值右值>#</a></h2><p>std::move的本质
+作用：将左值转换为右值引用</p><p>// std::move 的简化实现
+template<typename t>
+typename std::remove_reference<t>::type&& move(T&& arg) noexcept {
+return static_cast&lt;typename std::remove_reference<t>::type&&>(arg);
+}
+特别注意: 当一个对象使用std::move后,就表示你承诺不再使用它(除非重新赋值),因为它的资源可能已经被移走,状态是未定义的: 引发难以调试的bug</p><p>左值引用(T&) (是别名,旨在共享和操作持久对象)
+绑定对象: 左值(有标识,有持久性的对象)</p><p>int& ref = variable;
+右值引用(T&&) (旨在高效转移临时对象的资源)
+绑定对象: 右值(临时,即将消亡的对象)</p><p>int&& ref = 10;
+int&& ref = std::move(variable); // 或者</p><h2 id=rvo和nrvo编译器优化>RVO和NRVO(编译器优化)<a hidden class=anchor aria-hidden=true href=#rvo和nrvo编译器优化>#</a></h2><p>这两种优化的核心思想都是"偷梁换柱": 编译器通过在调用出为接收返回值的对象分配内存,然后将这块内存的地址作为一个隐藏参数传递给被调函数.被调函数会直接在这块预先分配好的内存上构造本应返回的对象,从而完全避免了中间临时对象的创建和拷贝</p><p>RVO(返回值优化)
+优化对象: 返回匿名临时对象</p><p>NRVO(具名返回值优化)
+优化对象: 返回具名的局部对象</p><h2 id=tr1functionstdfunction>tr1::function/std::function<a hidden class=anchor aria-hidden=true href=#tr1functionstdfunction>#</a></h2><p>function是一个通用的,多态的函数封装器,它是一个类模板,可以容纳(保存,拷贝,调用)几乎所有类型的可调用对象</p><p>简单来说: 有点像一个函数指针的超级升级版</p><p>一个普通的函数指针只能指向一个特定签名的函数.而function对象可以容纳任何具有兼容签名的可调用实体
+例如:
+1.普通函数
+2.函数对象(重载了operator()的类,即Functor)
+3.Lambda表达式(C++11引入,但TR1时期还没有)
+4.类的成员函数(需要配合st d::bind或tr1::bind)
+5.类的数据成员指针(需要配合std::bind或tr1::bind)</p><h2 id=hypot函数>hypot()函数<a hidden class=anchor aria-hidden=true href=#hypot函数>#</a></h2><p>作用: 计算直角三角形的斜边长 -> 勾股定理</p><p>计算二维或三维空间中的距离（例如，点 (x, y) 到原点 (0, 0) 的距离）。
+在图形学、物理模拟、机器学习、信号处理等任何需要用到向量长度的领域。
+避免在手动计算 sqrt(x<em>x + y</em>y) 时可能出现的数值计算问题。</p><p>#include &lt;math.h> // C
+#include <cmath>// C++</p><p>double hypot(double x, double y);
+float hypotf(float x, float y); // 单精度版本
+long double hypotl(long double x, long double y); // 长双精度版本</p><h2 id=c语言中关于内存的一些函数>C语言中关于内存的一些函数<a hidden class=anchor aria-hidden=true href=#c语言中关于内存的一些函数>#</a></h2><h3 id=malloc---内存动态分配>malloc() - 内存动态分配<a hidden class=anchor aria-hidden=true href=#malloc---内存动态分配>#</a></h3><p>典型用途: 动态数据结构</p><p>int* arr = (int*)malloc(10 * sizeof(int));</p><h3 id=realloc---内存重新分配>realloc() - 内存重新分配<a hidden class=anchor aria-hidden=true href=#realloc---内存重新分配>#</a></h3><p>典型用途: 动态数组扩容
+调整已分配内存块的大小(可扩大或缩小)</p><p>int* arr = (int*)malloc(5 * sizeof(int));
+// 使用arr&mldr;</p><p>// 扩容到10个元素
+int* new_arr = (int*)realloc(arr, 10 * sizeof(int));
+if (new_arr == NULL) {
+// 注意：如果realloc失败，原指针ptr依然有效！
+free(arr); // 清理原内存
+perror(&ldquo;realloc failed&rdquo;);
+exit(1);
+}
+arr = new_arr; // 使用新指针</p><p>// 缩小到3个元素
+arr = (int*)realloc(arr, 3 * sizeof(int));
+// 注意：缩小通常成功，但可能返回不同的地址</p><h3 id=memset---内存填充>memset() - 内存填充<a hidden class=anchor aria-hidden=true href=#memset---内存填充>#</a></h3><p>典型用途: 清零,初始化
+将内存块的每个字节设置为指定值</p><p>struct Student {int id;char name[20];float grade;};</p><p>struct Student s;memset(&amp;s, 0, sizeof(struct Student));</p><p>char buffer[1024];memset(buffer, &lsquo;A&rsquo;, 100); // 前100字节设为&rsquo;A&rsquo;memset(buffer + 100, 0, 924); // 其余部分清零</p><h3 id=memcpy---内存复制---不检查重叠>memcpy() - 内存复制 - 不检查重叠<a hidden class=anchor aria-hidden=true href=#memcpy---内存复制---不检查重叠>#</a></h3><p>典型用途: 高效数据复制</p><p>从源内存地址复制指定字节数到目标内存地址</p><p>int src[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};int dest[10];memcpy(dest, src, sizeof(src));</p><p>与strcpy()的区别
+strcpy(dest1, src); // 遇到&rsquo;\0&rsquo;停止，dest1 = &ldquo;Hello&rdquo;
+memcpy(dest2, src, 11); // 复制11个字节，包括中间的&rsquo;\0&rsquo;</p><h3 id=memmove---内存复制---检查重叠>memmove - 内存复制 - 检查重叠<a hidden class=anchor aria-hidden=true href=#memmove---内存复制---检查重叠>#</a></h3><p>典型用途: 重叠内存复制</p><p>// 将前13个字符复制到从第10个字符开始的位置
+memmove(buffer1 + 9, buffer1, 13);</p><h3 id=calloc---分配内存>calloc - 分配内存<a hidden class=anchor aria-hidden=true href=#calloc---分配内存>#</a></h3><p>典型用途: 需要零初始化的分配</p><p>void* calloc(size_t num, size_t size);
+分配num个size字节的连续内存块，并初始化为全0。</p><pre><code>int* numbers = (int*)calloc(10, sizeof(int));
+</code></pre><p>封装普通函数</p><p>#include <functional>#include <iostream></p><p>int add(int a, int b) {return a + b;}</p><p>int main() {
+std::function&lt;int(int, int)> func;// 将普通函数
+func = add;
+std::cout &#171; &ldquo;Result: " &#171; result &#171; std::endl;</p><pre><code>return 0;
+</code></pre><p>}</p><p>封装函数对象</p><p>#include <iostream>#include <functional></p><p>struct Multiplier {int factor;Multiplier(int f) : factor(f) {}int operator()(int value)
+{return value * factor;}};</p><p>int main() {
+std::function&lt;int(int)> func;
+Multiplier times5(5);
+func = times5;</p><pre><code>std::cout &lt;&lt; func(10) &lt;&lt; std::endl;
+</code></pre><p>}</p><h2 id=stdfuture是一个模板类>std::future是一个模板类<a hidden class=anchor aria-hidden=true href=#stdfuture是一个模板类>#</a></h2><p>std::future<int> 是一个模板类，尖括号里的 int 表示这个异步任务最终会返回一个整数。
+它是连接"主线程"和"后台工作线程"的桥梁。后台线程负责计算,算完把结果填进去;主线程拿着future,等需要的时候取出来</p><p>eg.
+你去餐厅点餐后,服务员给你的那张取餐小票
+当你点餐(调用enqueue)时: 厨师(线程池里的线程)开始在后台做饭。饭还没做好,但服务员
+立即给了你一张小票</p><p>这张小票就是std::future: 它代表了一个未来会产生的结果。现在它是空的,但只要你拿着它,将来饭做好了,你就能取到饭</p><p>.get()方法: 这就是你去柜台凭票取餐的动作
+如果饭做好了,你立马拿走
+如果饭还没做好,你就要在柜台死等(阻塞),知道饭做好为止</p><h3 id=sprintf_s和sprintf函数的区别>sprintf_s和sprintf函数的区别<a hidden class=anchor aria-hidden=true href=#sprintf_s和sprintf函数的区别>#</a></h3><pre><code>            strcpy_s - 安全字符串拷贝
+            将源字符串src(包括结尾的'\0')完整复制到目标缓冲区dest中.
+            如果目标缓冲区太小而无法包容源字符串,不会发生缓冲区溢出
+            将 dest[0] 设置为 '\0'（空字符串）
+            调用错误处理函数（默认会触发断言并终止程序，或可通过 _set_invalid_parameter_handler 自定义）
+            返回非零错误码（EINVAL 或 ERANGE）
+
+
+            sprintf_s – 安全格式化输出到字符串
+            将格式化数据（类似 printf）写入到字符串缓冲区 buffer 中，
+            并在末尾自动添加 '\0'。会检查缓冲区是否足够大，
+            如果格式化后的字符串（包括结尾空字符）超过 buffer_size，则：
+</code></pre><p>image.png</p><h1 id=cpp读书笔记>CPP读书笔记<a hidden class=anchor aria-hidden=true href=#cpp读书笔记>#</a></h1><h2 id=ccprimer-plus>C/C++primer plus<a hidden class=anchor aria-hidden=true href=#ccprimer-plus>#</a></h2><h3 id=第十章对象和类>第十章对象和类<a hidden class=anchor aria-hidden=true href=#第十章对象和类>#</a></h3><h4 id=面向对象编程>面向对象编程<a hidden class=anchor aria-hidden=true href=#面向对象编程>#</a></h4><p>首先从用户的角度考虑对象——描述对象所需的数据以及描述用户与数据交互所需的操作</p><p>默认构造函数
+通过函数重载,可以创建多个同名的析构函数,条件是每个函数的特征标都不同。
+如果没有提供任何构造函数，则C++将自动提供默认构造函数
+如果提供了非默认构造函数，但没有提供默认构造函数，则直接声明会出错。</p><p>析构函数
+不应该在代码中显示地调用析构函数
+1.如果创建的是静态存储类对象，则析构将在程序结束时自动被调用
+2.如果创建的是自动存储类对象，则其析构函数将在代码块时自动被调用
+3.如果对象是new创建的，则它将驻留在栈内存或自由存储区中。</p><p>成员名和参数名
+在数据成员名使用m_前缀或加_后缀</p><p>C++11列表初始化
+只要提供与某个构造函数的参数列表匹配的内容，并用构造函数将它们括起。</p><p>const成员函数
+例如 void show() const保证函数不会修改调用对象</p><p>this指针
+?没看懂</p><p>对象数组
+初始化对象数组的方案
+首先使用默认构造函数创建数组对象，然后花括号中的构造函数将创建临时对象，然后将临时对象的内容复制到相应的元素中。</p><p>类作用域
+在类中定义的名称的作用域都为整个类，作用域为整个类的名称只在类该类中是已知的，在类外是不可知的。因此可以在不同类中使用相同的类成员名而不会引起冲突</p><p>作用域为类的常量
+行不通，因为声明类只是描述了对象的形式，并没有创建对象。因此，在创建对象前，讲没有用于存储值的空间。</p><p>作用域内枚举
+enum class
+C++还提高了作用域馁枚举的类型安全。但在有些情况下，常规枚举将自动转换为整型，如将其赋值给int变量或用于比较表达式，但作用域内枚举不能隐式地转换为整型。</p><p>抽象数据类型
+略</p><h3 id=第十一章使用类>第十一章使用类<a hidden class=anchor aria-hidden=true href=#第十一章使用类>#</a></h3><p>不要害怕犯错误，因为在解决问题的过程中学到的知识,比生搬硬套而不犯错误要多得多.
+学习C++的
+运算符重载
+不要返回指向局部变量或临时变量的引用
+局部变量:在函数结束时被销毁,内存被回收
+临时变量:在创建它们的表达式结束时销毁
+返回的引用指向无效内存:这些变量在函数返回后不再存在导致引用指向"&ldquo;垃圾数据</p><p>添加加法运算符 operator+()</p><p>重载限制
+1.重载后的运算符必须有一个操作数是用户定义的类型
+2.使用运算符时不能违反运算符原来的句法规则
+3.不能 创建新运算符
+4.不能重载下面的运算符 略
+5.= () [] = ->这四个运算符只能通过成员函数进行重载</p><p>友元
+友元有三种:
+友元函数,友元类,友元成员函数</p><p>友元函数:一类特殊的非成员函数可以访问类的私有成员，他们被称为友元函数。
+创建友元
+第一步在原型前加上friend关键字
+第二步编写函数定义。因为他不是成员函数，因此不能用成员函数来调用。
+虽然是在类声明种声明的，但它不是成员函数，因此不能使用成员运算符来调用。
+虽然不是成员函数，但它与成员函数的访问权限相同。</p><p>只有类声明可以决定哪一个函数是友元，因此类声明任然控制了哪些函数可以访问私有数据。</p><h2 id=effective-c>Effective C++<a hidden class=anchor aria-hidden=true href=#effective-c>#</a></h2><h3 id=1让自己习惯c>1.让自己习惯C++<a hidden class=anchor aria-hidden=true href=#1让自己习惯c>#</a></h3><h4 id=条款01-视c为一个语言联邦>条款01: 视C++为一个语言联邦<a hidden class=anchor aria-hidden=true href=#条款01-视c为一个语言联邦>#</a></h4><h4 id=条款02-尽量以constenuminline替换define>条款02: 尽量以const,enum,inline替换#define<a hidden class=anchor aria-hidden=true href=#条款02-尽量以constenuminline替换define>#</a></h4><h4 id=条款03-尽可能使用const>条款03: 尽可能使用const<a hidden class=anchor aria-hidden=true href=#条款03-尽可能使用const>#</a></h4><h4 id=条款04-确认对象被使用前已被初始化>条款04: 确认对象被使用前已被初始化<a hidden class=anchor aria-hidden=true href=#条款04-确认对象被使用前已被初始化>#</a></h4><h3 id=2构造析构赋值运算>2.构造/析构/赋值运算<a hidden class=anchor aria-hidden=true href=#2构造析构赋值运算>#</a></h3><h4 id=条款05-了解c默默编写并调用哪些函数>条款05: 了解C++默默编写并调用哪些函数<a hidden class=anchor aria-hidden=true href=#条款05-了解c默默编写并调用哪些函数>#</a></h4><h4 id=条款06-若不幸使用编译器自动生成的函数就该明确拒绝>条款06: 若不幸使用编译器自动生成的函数,就该明确拒绝<a hidden class=anchor aria-hidden=true href=#条款06-若不幸使用编译器自动生成的函数就该明确拒绝>#</a></h4><h4 id=条款07为多态基类声明virtual析构函数>条款07：为多态基类声明virtual析构函数<a hidden class=anchor aria-hidden=true href=#条款07为多态基类声明virtual析构函数>#</a></h4><p>C++中通过基类指针或引用删除派生类对象时,编译器需要根据析构函数是否为virtual来决定调用哪个析构函数:
+静态绑定: 当基类析构函数非虚时,编译器根据指针的静态类型(即基类类型)在编译期就确定调用基类的析构函数.它无法感知指针的实际指向的派生类对象,因此不会调用派生类的析构函数
+动态绑定: 当基类析构函数为virtual时,C++通过虚函数表(vtable)机制实现运行时多态.每个包含虚函数的类都有一个vtable,其中存放着虚函数的地址.派生类会覆盖基类的虚析构函数项.当删除对象时,系统会根据对象的实际类型查找vtable，找到并调用派生类的析构函数.派生类的析构函数执行完毕后,会自动调用基类的析构函数,从而形成完整的析构链
+-> 即使派生类的析构函数没有显式地写上virtual,派生类的析构函数便会自动成为析构函数</p><p>vptr -> 虚指针
+vtable -> 虚函数表</p><p>vptr指针指向一个由函数指针构成的数组,称为vtbl (主要用来在运行期决定哪一个virtual函数该被调用)</p><p>析构函数运作方式,最深层派生的那个class其析构函数最先被调用,然后是其每一个base class的析构函数被调用</p><h4 id=条款08-别让异常逃离析构函数>条款08: 别让异常逃离析构函数<a hidden class=anchor aria-hidden=true href=#条款08-别让异常逃离析构函数>#</a></h4><h4 id=条款09-绝不在构造和析构过程中调用virtual函数>条款09: 绝不在构造和析构过程中调用virtual函数<a hidden class=anchor aria-hidden=true href=#条款09-绝不在构造和析构过程中调用virtual函数>#</a></h4><h4 id=条款10-令operator-返回一个reference-to-this>条款10: 令operator= 返回一个reference to *this<a hidden class=anchor aria-hidden=true href=#条款10-令operator-返回一个reference-to-this>#</a></h4><h4 id=条款11-在operator-中处理自我赋值>条款11: 在operator= 中处理"自我赋值&rdquo;<a hidden class=anchor aria-hidden=true href=#条款11-在operator-中处理自我赋值>#</a></h4><h3 id=3资源管理>3.资源管理<a hidden class=anchor aria-hidden=true href=#3资源管理>#</a></h3><h4 id=条款13--以对象管理资源>条款13 : 以对象管理资源<a hidden class=anchor aria-hidden=true href=#条款13--以对象管理资源>#</a></h4><p>资源: 内存,文件描述器,互斥锁,图形界面中的字型和笔刷,网络sockets
+无论哪一种资源,重要的是,当你不再使用它的时候,必须将它还给系统</p><p>无端地将所有classes的将所有classes的析构函数声明为virtual，就像从未声明它们为virtual，都是错误的. &mdash;&mdash;> 添加vptr会大量添加对象的大小</p><p>函数内多重回传路径: 如果一个函数声明了非void的返回类型,那么它就必须在所有可能的执行路径上都提供一个返回值.否则,编译器会报错</p><p>copying函数: -> 通常指的是对象拷贝相关的特殊成员函数,主要用于管理对象的复制过程,它们对于确保资源正常管理,避免内存泄漏和数据混乱至关重要</p><p>1.拷贝构造函数:
+拷贝构造函数用于用一个已存在的对象来初始化一个新对象</p><p>2.拷贝赋值运算符:
+用于在对象已存在的情况下,将同一个类对象的值赋值给它.他通过operator=来实现,定义了当使用赋值操作=时对象的行为</p><p>class MyClass {
+public:
+// &mldr;
+// 拷贝赋值运算符
+MyClass& operator=(const MyClass& other) {
+// 赋值操作逻辑
+if (this != &amp;other) { // 1. 自我赋值检查
+// 2. 释放当前对象的资源（如果需要）
+// 3. 复制 other 对象的值
+value = other.value;
+}
+return *this; // 4. 返回当前对象的引用(为了支持链式赋值)
+}
+private:
+int value;
+// &mldr; 其他成员
+};</p><p>因为return和异常可能导致delete没有被执行,资源没有被释放(我们泄漏的不只是内含投资对象的那块内存,还包括投资对象所保存的任何资源)
+把资源放进对象内,我们便可依赖C++的"析构函数自动调用机制"确保资源被释放</p><p>以对象管理资源的两个关键想法：
+1.获得资源后立即放进管理对象 -> (资源取得时机便是初始化实际) RAII
+2.管理对象运用析构函数确保资源被释放</p><p>注意
+auto_ptr被销毁时会自动删除它所指之物,别让auto_ptr同时指向同一对象,否则对象会被删除一次以上,程序会引发未定义行为</p><p>RCSP (引用计数型智能指针):
+RCSP持续追踪共有多少对象指向某笔资源,并在无人指向它的时自动删除该资源.RCSP提供的行为类似垃圾回收,不同的是RCSP无法大伯环状引用,例如两个起始已经没有被使用的对象彼此互指,因而好像还处在被使用的状态</p><h3 id=4设计与声明>4.设计与声明<a hidden class=anchor aria-hidden=true href=#4设计与声明>#</a></h3><h4 id=条款19-设计class犹如设计type>条款19: 设计class犹如设计type<a hidden class=anchor aria-hidden=true href=#条款19-设计class犹如设计type>#</a></h4><p>C++就像在其他OOP（面向对象编程）语言一样，当你定义一个新class,也就定义了一个新的type</p><p>1.新type的对象应该如何被创建和销毁?
+会影响到你的构造函数和析构函数以及内存分配函数和释放函数</p><p>2.对象的初始化和对象的赋值该有什么样的差别?
+因为它们对应不同的函数调用</p><p>3.新type的对象如果passed by value(以值传递),意味着什么?</p><p>4.什么是新type的"合法值&rdquo;?</p><p>5.你的新type需要配合某个继承图系(Inheritance graph)吗?
+如果你允许其他classes继承你的class，那会影响你所声明的函数&mdash;&mdash;尤其时析构函数&mdash;&mdash;-是否为virtual</p><p>6.你的新type需要什么样的转换?</p><p>7.什么样的操作符和函数对此type而言是合理的?</p><p>8.什么样的标准函数应该被驳回?
+那些正是你必须声明为private者</p><p>9.谁该取用新type的成员?</p><p>10.什么是新type的"未声明接口"(undeclared interface)?
+它对效率,异常安全性以及资源运用(例如多任务锁定和动态内存)提供何种保证? 你在这些方面提供的保证将为你的class实现代码加上响应的约束条件</p><p>11.你的新type有多么一般化?
+或许你其实并非定义一个新type，而是定义一个新type,而是定义一整个type家族.果真如此你就不该定义一个新class，而是定义一个新的class template</p><p>12.你真的需要一个新type吗?
+如果只是定义新的deriver class 以便为既有的class添加机能,那么说不定一或多个non-member函数或templates,更能够到达目标</p><h4 id=条款20-宁以pass-by-reference-to-const-替换-pass-by-value>条款20: 宁以pass-by-reference-to-const 替换 pass-by-value<a hidden class=anchor aria-hidden=true href=#条款20-宁以pass-by-reference-to-const-替换-pass-by-value>#</a></h4><p>尽量以pass-by-value-to-const 替换 pass-by-value. 前者通常比较高效,并可避免切割问题
+切割问题: 发生在将派生类对象按值传递给期望基类参数的函数时,派生类特有的部分被切割掉,只保留基类部分</p><h4 id=条款21-必须返回对象时别妄想返回其reference>条款21: 必须返回对象时,别妄想返回其reference<a hidden class=anchor aria-hidden=true href=#条款21-必须返回对象时别妄想返回其reference>#</a></h4><h3 id=5实现>5.实现<a hidden class=anchor aria-hidden=true href=#5实现>#</a></h3><h3 id=6继承与面向对象设计>6.继承与面向对象设计<a hidden class=anchor aria-hidden=true href=#6继承与面向对象设计>#</a></h3><h4 id=条款32-确定你的public继承塑膜出is-a关系>条款32: 确定你的public继承塑膜出is-a关系<a hidden class=anchor aria-hidden=true href=#条款32-确定你的public继承塑膜出is-a关系>#</a></h4><p>Public 继承 意味着is - a,适用于base classes身上的每一件事情一定也适用于derived classes身上,因为每一个derived class对象也都是一个base class对象</p><h4 id=条款33-避免遮掩继承而来的名称>条款33: 避免遮掩继承而来的名称<a hidden class=anchor aria-hidden=true href=#条款33-避免遮掩继承而来的名称>#</a></h4><p>内层作用域的名称会遮掩外围作用域的名称</p><p>编译器遭遇名称x，现在local作用域内查找是否有什么东西带着这个名称.如果找到就不再找其他作用域,否则就逐层的向外查找,，直到查找到global scope</p><h4 id=条款34-区分接口继承和实现继承>条款34: 区分接口继承和实现继承<a hidden class=anchor aria-hidden=true href=#条款34-区分接口继承和实现继承>#</a></h4><p>函数接口继承</p><p>函数实现继承</p><p>接口继承和实现继承不同,在public继承之下,derived classes总是继承base class的接口
+Pure virtual函数只具体指定接口继承
+简朴的impure virtual函数具体指定接口继承及缺省实现继承
+non-virtual函数具体指定接口继承以及强制性实现继承</p><h4 id=条款35-考虑virtual函数以外的其他选择>条款35: 考虑virtual函数以外的其他选择<a hidden class=anchor aria-hidden=true href=#条款35-考虑virtual函数以外的其他选择>#</a></h4><p>tr1::function</p><h4 id=条款36-绝不重新定义继承而来的non-virtual函数>条款36: 绝不重新定义继承而来的non-virtual函数<a hidden class=anchor aria-hidden=true href=#条款36-绝不重新定义继承而来的non-virtual函数>#</a></h4><p>non-virtual函数: 调用版本取决于指针/引用的静态类型(编译时决定) - 静态绑定
+virtual函数: 调用的版本取决于对象的实际类型(运行时决定) - 动态绑定</p><p>1.破坏了is-a关系
+共有继承应该意味着"派生类对象是一个基类对象"
+但对于non-virtual函数,同样的对象表现出不同的行为,这违背了"is-a"原则
+2.导致不一致的行为
+3.违反里氏替换原则(LSP)
+派生类应该能够替换基类而不影响程序的正确性
+重新定义non-virtual函数破坏了这个原则</p><p>non-virual函数的定义:
+当你在基类中将一个函数声明为non-virtual,你实际上是在向所有派生类传达: 这个函数的行为是不可变的,不可定制的。它对所有派生类对象都有相同的意义和实现</p><p>virtual函数的定义:
+当你在基类中将一个函数声明为virtual，你实际上是在说:
+这个函数的行为是可以被定制的.各个派生类可以根据自己的需要来重写它</p><h4 id=条款37-绝不重新定义继承而来的缺省参数值>条款37: 绝不重新定义继承而来的缺省参数值<a hidden class=anchor aria-hidden=true href=#条款37-绝不重新定义继承而来的缺省参数值>#</a></h4><p>绝对不要重新定义一个继承而来的缺省参数值,因为缺省参数值都是静态绑定,而virtual函数&mdash;你唯一应该覆写的东西&mdash;却是动态绑定</p><h3 id=7模板与泛型编程>7.模板与泛型编程<a hidden class=anchor aria-hidden=true href=#7模板与泛型编程>#</a></h3><h3 id=8定制new-和-delete>8.定制new 和 delete<a hidden class=anchor aria-hidden=true href=#8定制new-和-delete>#</a></h3><h3 id=9杂项讨论>9.杂项讨论<a hidden class=anchor aria-hidden=true href=#9杂项讨论>#</a></h3><h2 id=深度求索c对象模型>深度求索C++对象模型<a hidden class=anchor aria-hidden=true href=#深度求索c对象模型>#</a></h2><h3 id=第一章关于对象>第一章关于对象<a hidden class=anchor aria-hidden=true href=#第一章关于对象>#</a></h3><p>关于对象是整本书的基石.这一章主要为了确立大局观: 当你从C语言的struct走向C++的class时,为了获得面向对象的特性,你到底付出了什么代价? 底层模型又是长什么样的?</p><h4 id=1封装的额外成本-其实是零>1.封装的额外成本: 其实是零<a hidden class=anchor aria-hidden=true href=#1封装的额外成本-其实是零>#</a></h4><p>C++ 在布局和存取时间上的主要额外开销，仅仅是由虚拟（Virtual）机制带来的（包括虚函数和虚拟继承）。普通的非静态数据成员（Non-static data members）在内存中的布局和 C 语言的 struct 完全一样。普通的成员函数无论是声明多少个，都不会占用对象实例哪怕 1 个字节的内存空间！</p><h4 id=2c对象模型>2.C++对象模型<a hidden class=anchor aria-hidden=true href=#2c对象模型>#</a></h4><p>对象内部:
+只有非静态数据成员（Non-static data members），以及为了支持多态而可能被编译器偷偷安插的虚函数表指针（vptr）。</p><p>对象外部（全程序共享）:
+所有的静态数据成员（Static data members）、普通的成员函数（Non-static function members）和静态成员函数（Static function members）都被放在对象之外。</p><p>虚函数表:
+每个包含虚函数的类都会产生一个独立的虚函数表，里面存放着该类所有虚函数的地址，以及支持运行时类型信息（RTTI）的 type_info 对象。</p><h4 id=3多态的威力与限制>3.多态的威力与限制<a hidden class=anchor aria-hidden=true href=#3多态的威力与限制>#</a></h4><p>指针与引用是前提： C++ 仅仅通过指针（Pointers）和引用（References）来支持多态。当你用一个基类指针指向派生类对象时，编译器不会在编译期写死调用的函数，而是在运行期通过 vptr 找到真正的函数去执行。</p><p>对象切割（Slicing）： 如果你直接把一个派生类对象（而不是指针或引用）赋值给一个基类对象，多态就会瞬间失效。编译器会把派生类对象中多出来的部分直接“切掉”，只保留基类部分的数据进行按位拷贝。这就是为什么面向对象的多态绝不能通过传值（Pass by Value）来实现。</p><h4 id=4面向对象oo与基于对象ob>4.面向对象(OO)与基于对象(OB)<a hidden class=anchor aria-hidden=true href=#4面向对象oo与基于对象ob>#</a></h4><p>Object-Oriented (OO)： 包含继承和多态。由于具体对象的类型在编译期无法确定，所以必须在**运行期（Runtime）**通过指针或引用来进行动态绑定。设计非常灵活，但存在 vptr 内存占用和虚函数间接访问的性能开销。</p><p>Object-Based (OB)： 只使用了类的封装特性，可能包含非多态的数据类型（比如原生的 string 类）。没有任何虚函数。所有的解析和函数调用在**编译期（Compile-time）**就完全确定了（静态绑定）。运行速度极快，内存紧凑，但缺乏面向对象的动态扩展性。</p><h3 id=第二章构造函数语意学>第二章构造函数语意学<a hidden class=anchor aria-hidden=true href=#第二章构造函数语意学>#</a></h3><p>编译器到底在我们的构造函数背后偷偷做了哪些手脚?</p><h4 id=1默认构造函数的真相>1.默认构造函数的真相<a hidden class=anchor aria-hidden=true href=#1默认构造函数的真相>#</a></h4><p>编译器只有在真正需要的时候,才会合成出一个nontrivial(非平凡的/有用的)
+默认构造函数.如果不符合条件,编译器根本懒得管,它什么都不会生成</p><p>以下四种情况:
+1.带有默认构造函数的成员对象:
+2.继承自带有默认构造函数的基类
+3.带有虚函数的类
+4.带有虚基类的类</p><h4 id=2拷贝构造函数与bitwise-copy-the-copy-constructor>2.拷贝构造函数与Bitwise Copy (The Copy Constructor)<a hidden class=anchor aria-hidden=true href=#2拷贝构造函数与bitwise-copy-the-copy-constructor>#</a></h4><p>当我们用一个对象去初始化另一个同类型对象时，默认情况下，C++ 编译器会展现出 Bitwise Copy Semantics（位逐次拷贝语意），也就是简单粗暴地把内存里的数据按位原封不动地复制过去。这种做法效率极高。</p><p>什么时候 Bitwise Copy 会失效？ 当简单的按位拷贝会破坏程序逻辑时，编译器就必须合成出一个 nontrivial 的拷贝构造函数 来执行逐成员初始化（Memberwise Initialization）。同样也是四种情况：</p><p>1.成员对象带有拷贝构造函数。
+2.基类带有拷贝构造函数。
+3.类声明了虚函数： 这是最关键的考点！假设你有一个派生类对象，并把它拷贝给一个基类对象（发生切片）。如果执行按位拷贝，基类对象的 vptr 就会被错误地指向派生类的虚函数表，这会引发灾难。因此编译器必须介入，确保新对象的 vptr 指向正确的虚表。
+4.类派生自虚拟继承体系。</p><h4 id=3程序与nrv优化>3.程序与NRV优化<a hidden class=anchor aria-hidden=true href=#3程序与nrv优化>#</a></h4><p>这一部分探讨了对象在按值传递和按值返回时,编译器在底层优化,最著名的就是NRV优化
+编译器会在底层修改函数签名，直接把你外层用来接收返回值的那个对象的内存地址作为隐藏参数传进函数里。函数内部的代码直接在这块外部内存上构造对象。这样就完美消除了一次拷贝构造和析构的开销。</p><h4 id=4成员初始化列表的陷阱>4.成员初始化列表的陷阱<a hidden class=anchor aria-hidden=true href=#4成员初始化列表的陷阱>#</a></h4><p>必须使用初始化列表的情况
+1.初始化一个Reference(引用)成员时
+2.初始化一个const成员时
+3.调用一个成员对象的构造函数，并且它拥有一组参数时
+4.调用一个成员对象的构造函数,并且它拥有一组参数时</p><p>最大陷阱:
+成员变量的初始化的顺序,完全是由它们在类中声明的顺序决定的</p><h3 id=第三章data语意学>第三章Data语意学<a hidden class=anchor aria-hidden=true href=#第三章data语意学>#</a></h3><p>当我们定义个C++类并实例化对象时,这个对象的数据在内存中到底是怎么排列的
+-> 编译器在背后为了实现面向对象所做的脏活累活</p><h4 id=1一个c对象到底多大>1.一个C++对象到底多大?<a hidden class=anchor aria-hidden=true href=#1一个c对象到底多大>#</a></h4><p>空类(Empty Class):
+如果你定义一个没有任何数据成员的空类,它实例化后的大小通常是1byte.
+这是编译器为了保证该类的每一个对象在内存中都有一个独一无二的地址</p><p>内存对齐(Memory Alignment):
+为了让CPU更高效地读取数据,编译器会在数据成员之间插入填充字节.比如一个char(1字节) 跟着一个int(4字节),它们可能总共占据8个字节</p><p>语言支持的额外开销(Overhead):
+如果你的类声明了虚函数,或者使用了虚拟继承,编译器会在对象内部偷偷插入指针(比如指向虚函数表地vptr,或指向虚基类表地vptr)</p><h4 id=2数据成员的布局data-member-layout>2.数据成员的布局（Data Member Layout）<a hidden class=anchor aria-hidden=true href=#2数据成员的布局data-member-layout>#</a></h4><p>C++中的数据成员分为静态(static)和非静态(non-static)</p><p>Static 数据成员： 它们不存放在类的对象中，而是存放在程序的全局数据段。不管你创建了 100 个对象还是 0 个对象，静态数据成员永远只有一份实体。</p><p>Non-static 数据成员： 它们存放在每一个类的对象内部。
+在同一个访问控制区（比如都在同一个 private: 下）内，成员在内存中的排列顺序与它们在类中被声明的顺序完全一致。
+如果有多个访问控制区（比如先写了一段 public，又写了一段 private，再写一段 public），C++ 标准并不强制规定不同区域的先后顺序，但目前主流编译器通常还是按照声明的顺序连续存放在内存中。</p><h4 id=3继承对数据布局的影响>3.继承对数据布局的影响<a hidden class=anchor aria-hidden=true href=#3继承对数据布局的影响>#</a></h4><p>单一继承(不含虚函数):
+派生类（Derived class）的对象包含了基类（Base class）的子对象。通常，基类的数据会被放在派生类对象的最前面（低地址处），然后接着放派生类自己的数据成员。</p><p>加上多态(添加了虚函数):
+只要类继承体系中出现了虚函数，编译器就会在对象中安插一个虚函数表指针（vptr）。至于这个 vptr 放在对象的开头还是结尾，取决于具体的编译器（GCC 和 MSVC 的处理方式不同）。</p><p>多重继承:
+如果类 C 同时继承了类 A 和类 B。在类 C 的对象中，会先存放 A 的子对象，紧接着存放 B 的子对象，最后存放 C 自己的成员。 这里有一个关键点： 如果你把一个 C 对象的地址赋值给一个 B 类型的指针，编译器必须在底层对指针的地址进行 偏移量调整（Offset adjustment），以确保指针指向的是 B 子对象的正确起始位置。</p><p>补充:
+cpp通过虚继承来解决菱形继承问题,菱形继承指的是两个派生类（如 B 和 C）共同继承同一个基类（A），然后又一个类（D）同时继承这两个派生类，导致 D 中包含两份 A 的子对象，访问 A 的成员时会产生二义性，且浪费内存。</p><p>虚拟继承:
+菱形继承（A 派生出 B 和 C，D 同时继承 B 和 C）会导致 A 的数据在 D 中出现两份。虚拟继承就是为了解决这个问题。 在虚拟继承的底层实现中，编译器通常会使用指针（或者虚基类表偏移量）来追踪共享的那个基类（A）。这使得访问虚基类的数据变得相对间接，带来了一定的性能开销，但保证了数据的唯一性。</p><p>class A { public: int value; };</p><p>class B : virtual public A { }; // 虚继承
+class C : virtual public A { }; // 虚继承</p><p>class D : public B, public C { }; // D 中只有一份 A</p><p>D d;
+d.value = 10; // 无二义性，直接访问共享的那一份 A</p><p>实现原理:
+编译器会为虚继承的类生成一个虚基类指针(vbtr),指向虚基类表(vbtable)
+表中记录了虚基类对象相对于当前对象地址的偏移量.通过这个偏移量,所有派生类共享同一个虚基类实例
+因此D中的B和C不再各自保存独立的A,而是通过偏移量找到共同的A子对象</p><h4 id=4数据成员的存取>4.数据成员的存取<a hidden class=anchor aria-hidden=true href=#4数据成员的存取>#</a></h4><p>访问 Static 数据： 就跟访问普通的全局变量一样，在编译时地址就已经确定了，没有任何运行时的额外开销。</p><p>访问 Non-static 数据： 编译器会通过对象的首地址加上该成员在类中的 偏移量（Offset） 来计算出实际的内存地址。
+如果是通过具体的对象（obj.x）访问，偏移量在编译期就完全确定了。
+如果是通过指针或引用（ptr->x）访问，并且这个类涉及了虚拟继承，那么具体的偏移量可能要到运行期才能确定，这就产生了一定的延迟。</p><h3 id=第四章function语意学>第四章Function语意学<a hidden class=anchor aria-hidden=true href=#第四章function语意学>#</a></h3><p><img src=https://hydarealman.github.io/wander/images/feishu/c-c++%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/image_90830b.png alt="图片 1" loading=lazy decoding=async sizes="(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px"></p></div><section class=like-panel data-like-doc=/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/ data-like-title=C/C++代码中积累的语法 aria-label=文章点赞><div class=like-copy><strong>这篇文章有帮助吗？</strong>
+<span>给它点个赞，后续整理文章时会优先照顾高赞内容。</span></div><button class=like-button type=button aria-pressed=false>
+<span class=like-button-mark>赞</span>
+<span class=like-count data-like-count>0</span></button><p class=like-status data-like-status>点赞数据加载中</p></section><section class=post-githistory><details><summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>文档修订记录</span>
+<span class=post-githistory-count>6 次修订</span></summary><div class=post-githistory-body><ol class=git-timeline><li class=git-timeline-item><time datetime=2026-06-29T10:28:17+08:00>06-29</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/197fd129d5ea0f36c0434c64d41f2d999264242a target=_blank rel=noopener title=查看此次提交>197fd12</a>
+<span class=git-timeline-msg>修复大小标题显示失败的bug</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T16:14:55+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/9a00af876ba05ab204735551d9e36fdb38216eff target=_blank rel=noopener title=查看此次提交>9a00af8</a>
+<span class=git-timeline-msg>Fix: apply heading heuristic to 44 existing posts (26+18) - TOC now shows real sections</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:57:52+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/38272c2998bf755548a368978b06d0ea98af3c92 target=_blank rel=noopener title=查看此次提交>38272c2</a>
+<span class=git-timeline-msg>Feat: TOC sidebar + git commit history timeline + fix 20 post titles to match filenames</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T15:19:16+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/edc8d798c832c2447d2317a4e3d81d8002ce81ba target=_blank rel=noopener title=查看此次提交>edc8d79</a>
+<span class=git-timeline-msg>博客界面更换 一些笑哦bug维修</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T13:17:23+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/bce812d720c0f54a403db7f482d6d5eb340718af target=_blank rel=noopener title=查看此次提交>bce812d</a>
+<span class=git-timeline-msg>6_28飞书文档同步更新</span>
+<span class=git-timeline-author>hydarealman</span></div></li><li class=git-timeline-item><time datetime=2026-06-28T12:44:45+08:00>06-28</time><div class=git-timeline-dot></div><div class=git-timeline-card><a href=https://github.com/hydarealman/wander/commit/8c0c2ac0bab9de15941c1438df8468c29690f1b7 target=_blank rel=noopener title=查看此次提交>8c0c2ac</a>
+<span class=git-timeline-msg>飞书同步test</span>
+<span class=git-timeline-author>hydarealman</span></div></li></ol><a class=post-githistory-full href=https://github.com/hydarealman/wander/commits/main/content/posts/c-c++%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%a7%af%e7%b4%af%e7%9a%84%e8%af%ad%e6%b3%95.md target=_blank rel=noopener>在 GitHub 上查看完整历史
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div></details></section><footer class=post-footer><ul class=post-tags><li><a href=https://hydarealman.github.io/wander/tags/c/c++/>C/C++</a></li></ul><nav class=paginav><a class=prev href=https://hydarealman.github.io/wander/posts/1970/01/ai%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/><span class=title>« 上一页</span>
+<span>ai使用指南</span>
+</a><a class=next href=https://hydarealman.github.io/wander/posts/1970/01/debug/><span class=title>下一页 »</span>
+<span>Debug</span></a></nav></footer><div class=giscus-wrapper><script src=https://giscus.app/client.js data-repo=hydarealman/wander data-repo-id=R_kgDOS5PAig data-category=General data-category-id=DIC_kwDOS5PAis4DAWkL data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></div><div class=toc-mobile-backdrop id=toc-backdrop></div></div><script>(()=>{const t=document.querySelector(".post-layout"),n=document.getElementById("toc-sidebar"),l=document.getElementById("toc-collapse-btn"),d=document.getElementById("toc-float-btn"),o=document.getElementById("toc-backdrop");if(!t||!n)return;const i="wander:toc:open",a=()=>t.dataset.tocState==="open",e=e=>{t.dataset.tocState=e?"open":"closed";try{localStorage.setItem(i,e?"1":"0")}catch{}e&&(document.body.style.overflow="")},r=()=>{e(!a())};l.addEventListener("click",r),d.addEventListener("click",r),o&&o.addEventListener("click",()=>e(!1)),document.addEventListener("keydown",t=>{t.key==="Escape"&&a()&&e(!1)});const u=(()=>{try{return localStorage.getItem(i)}catch{return null}})();u==="0"&&e(!1);const c=n.querySelector(".toc-sidebar__nav");if(c){const e=t=>{if(!t||!t.children)return;Array.from(t.children).forEach(t=>{if(t.tagName!=="LI")return;const n=t.querySelector(":scope > ul"),s=t.querySelector(":scope > a");if(s){const i=document.createElement("div");i.className="toc-row";const o=document.createElement("button");o.className="toc-toggle",o.type="button",o.setAttribute("aria-label","展开/折叠子标题"),o.innerHTML='<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',n&&n.children.length>0?(t.classList.add("has-children"),o.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation(),t.classList.toggle("collapsed");try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.setItem(n,t.classList.contains("collapsed")?"1":"0")}}catch{}})):o.classList.add("toc-toggle--placeholder"),t.insertBefore(i,t.firstChild),i.appendChild(o),i.appendChild(s);try{const e=s.getAttribute("href");if(e){const n="wander:toc:collapse:"+e;localStorage.getItem(n)==="1"&&t.classList.add("collapsed")}}catch{}n&&e(n)}})},t=c.querySelector(":scope > ul");t&&e(t)}const s=n.querySelectorAll('.toc-sidebar__nav a[href^="#"]');if(s.length&&"IntersectionObserver"in window){const e=[];if(s.forEach(t=>{const s=t.getAttribute("href").slice(1),n=document.getElementById(s);n&&e.push({el:n,a:t})}),e.length){const t=new IntersectionObserver(e=>{let t=null;e.forEach(e=>{if(e.isIntersecting){const n=e.target.getAttribute("id");t||(t=n)}}),t&&s.forEach(e=>{const n=e.getAttribute("href");e.classList.toggle("active",n==="#"+t)})},{rootMargin:"-20% 0px -70% 0px"});e.forEach(e=>t.observe(e.el))}}})()</script></main><footer class=footer><span>&copy; 2026 <a href=https://hydarealman.github.io/wander/>wander</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script id=wander-like-config type=application/json>{"provider":"local","supabaseAnonKey":"","supabaseUrl":"","table":"doc_likes"}</script><script>(()=>{const e=e=>`wander:view:${e}`,t=e=>new URL(e,window.location.origin).pathname,n=document.querySelector("article.post-single");if(n&&window.location.pathname.includes("/posts/")){const t=e(window.location.pathname),n=Number(localStorage.getItem(t)||0)+1;localStorage.setItem(t,String(n))}document.querySelectorAll("[data-view-path]").forEach(n=>{const s=e(t(n.getAttribute("data-view-path")||window.location.pathname));n.textContent=localStorage.getItem(s)||"0"})})(),(()=>{const l=document.getElementById("wander-like-config"),t=l?JSON.parse(l.textContent||"{}"):{},f=(t.provider||"local").toLowerCase(),o=f==="supabase"&&t.supabaseUrl&&t.supabaseAnonKey,s=e=>`wander:liked:${e}`,d=e=>`wander:like-count:${e}`,m=e=>String(e||"").replace(/\/+$/,""),r=m(t.supabaseUrl),h=t.table||"doc_likes",c=()=>({apikey:t.supabaseAnonKey,Authorization:`Bearer ${t.supabaseAnonKey}`,"Content-Type":"application/json"}),a=(e,t)=>{e.dataset.liked=t?"true":"false",e.setAttribute("aria-pressed",t?"true":"false");const n=e.querySelector(".like-button-mark");n&&(n.textContent=t?"已赞":"赞")},e=(e,t)=>{const n=e.querySelector("[data-like-status]");n&&(n.textContent=t)},n=(e,t)=>{const n=e.querySelector("[data-like-count]");n&&(n.textContent=String(Math.max(0,Number(t)||0)))},i=e=>Number(localStorage.getItem(d(e))||0),u=(e,t)=>localStorage.setItem(d(e),String(t));async function p(e){const n=`${r}/rest/v1/${encodeURIComponent(h)}?doc_id=eq.${encodeURIComponent(e)}&select=count`,t=await fetch(n,{headers:c()});if(!t.ok)throw new Error(`HTTP ${t.status}`);const s=await t.json();return Number(s?.[0]?.count||0)}async function g(e,t){const n=await fetch(`${r}/rest/v1/rpc/increment_doc_like`,{method:"POST",headers:c(),body:JSON.stringify({p_doc_id:e,p_title:t})});if(!n.ok)throw new Error(`HTTP ${n.status}`);const s=await n.json();return Number(s||0)}async function v(t){const c=t.querySelector(".like-button"),r=t.dataset.likeDoc||window.location.pathname,d=t.dataset.likeTitle||document.title,l=localStorage.getItem(s(r))==="1";if(a(c,l),o)try{n(t,await p(r)),e(t,l?"你已经赞过这篇文章":"点赞会同步到全站统计")}catch{n(t,i(r)),e(t,"远程点赞暂不可用，当前使用本机点赞")}else n(t,i(r)),e(t,l?"你已经在本机赞过这篇文章":"当前是本机点赞；配置 Supabase 后可同步给所有访客");c.addEventListener("click",async()=>{if(localStorage.getItem(s(r))==="1"){e(t,o?"你已经赞过这篇文章":"你已经在本机赞过这篇文章");return}c.disabled=!0,e(t,"正在记录点赞");try{let l;o?l=await g(r,d):(l=i(r)+1,u(r,l)),localStorage.setItem(s(r),"1"),a(c,!0),n(t,l),e(t,o?"感谢点赞，已同步到全站":"感谢点赞，已记录在本机")}catch{const o=i(r)+1;u(r,o),localStorage.setItem(s(r),"1"),a(c,!0),n(t,o),e(t,"远程同步失败，已先记录在本机")}finally{c.disabled=!1}})}document.querySelectorAll(".like-panel").forEach(v)})()</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

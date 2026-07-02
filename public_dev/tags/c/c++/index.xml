@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C/C&#43;&#43; on wander</title>
+    <link>https://hydarealman.github.io/wander/tags/c/c&#43;&#43;/</link>
+    <description>Recent content in C/C&#43;&#43; on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/tags/c/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C/C&#43;&#43;代码中积累的语法</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/</guid>
+      <description>&lt;h1 id=&#34;cc代码中积累的语法&#34;&gt;C/C++代码中积累的语法&lt;/h1&gt;
+&lt;h2 id=&#34;cc中的数据类型转换&#34;&gt;C/C++中的数据类型转换&lt;/h2&gt;
+&lt;p&gt;数据类型自动转换
+当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

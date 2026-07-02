@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on wander</title>
+    <link>https://hydarealman.github.io/wander/posts/</link>
+    <description>Recent content in Posts on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 02 Jul 2026 20:42:27 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>程序设计实习报告</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%B9%A0%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Sun, 28 Jun 2026 12:44:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%B9%A0%E6%8A%A5%E5%91%8A/</guid>
+      <description>&lt;p&gt;程序设计实习报告
+桂林理工大学
+GUILIN UNIVERSITY OF TECHNOLOGY&lt;/p&gt;
+&lt;p&gt;程序设计实践课程  &lt;br&gt;
+实习报告&lt;/p&gt;
+&lt;p&gt;学      院： 计算机科学与工程学院   #
+班      级：                        ##
+组      长：                     &lt;br&gt;
+组      员：                      &lt;br&gt;
+组      员：                     &lt;br&gt;
+组      员：                     &lt;br&gt;
+指导教师：                     &lt;br&gt;
+评   分/价：&lt;/p&gt;
+&lt;p&gt;1.基础实践部分&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>视觉完整形态文档二</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/%E8%A7%86%E8%A7%89%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3%E4%BA%8C/</link>
+      <pubDate>Sun, 28 Jun 2026 12:44:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/%E8%A7%86%E8%A7%89%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3%E4%BA%8C/</guid>
+      <description>&lt;p&gt;视觉完整形态文档二&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>视觉组招新</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/%E8%A7%86%E8%A7%89%E7%BB%84%E6%8B%9B%E6%96%B0/</link>
+      <pubDate>Sun, 28 Jun 2026 12:44:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/%E8%A7%86%E8%A7%89%E7%BB%84%E6%8B%9B%E6%96%B0/</guid>
+      <description>&lt;p&gt;视觉组招新
+自瞄: 1 (懂自瞄原理)&lt;/p&gt;
+&lt;h3 id=&#34;能量机关-1要求会调自瞄&#34;&gt;能量机关: 1(要求会调自瞄)&lt;/h3&gt;
+&lt;h3 id=&#34;导航-2新导航--仿真-两个人都要求会调导航&#34;&gt;导航: 2(新导航 + 仿真) 两个人都要求会调导航&lt;/h3&gt;
+&lt;p&gt;雷达+神经网络: 1(要求会调自瞄)&lt;/p&gt;
+&lt;p&gt;覃焕懿:×
+翟清宇:×
+代龙涵:
+雷桐富:
+何嘉琦:×
+张瑄晴:×
+覃富滔:×
+范宴榕:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>tmux简明速查手册(WSL_Linux通用)</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl_linux%E9%80%9A%E7%94%A8/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:40 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl_linux%E9%80%9A%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;tmux简明速查手册wsllinux通用&#34;&gt;tmux简明速查手册(WSL/Linux通用)&lt;/h1&gt;
+&lt;p&gt;1.安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;update&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;2.启动与退出&lt;/p&gt;
+&lt;p&gt;启动tmux&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;退出当前窗格&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;或&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ctrl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;3.会话管理&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;分离会话（后台运行）&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;Ctrl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;然后按&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;重新连接（回到上次现场）&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attach&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;列出所有会话&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ls&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;连接到指定会话&lt;/span&gt;          &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attach&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;会话名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;新建命名会话&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;会话名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;4.窗格管理 按键(先按Ctrl+b,再按下下一个键)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rust仿真环境配置_ wsl &#43; ros2 &#43; rust</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE_-wsl--ros2--rust/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:30 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE_-wsl--ros2--rust/</guid>
+      <description>&lt;h1 id=&#34;rust仿真环境配置-wsl--ros2--rust&#34;&gt;rust仿真环境配置: wsl + ros2 + rust&lt;/h1&gt;
+&lt;p&gt;1.以管理员身份打开PowerShell或CMD&lt;/p&gt;
+&lt;p&gt;2.执行安装命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;24.04&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;3.设置用户名和密码&lt;/p&gt;
+&lt;p&gt;列出所有的ubantu版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;进入想要的版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;24.04&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;复制文件到根目录&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自瞄赛季汇报</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/%E8%87%AA%E7%9E%84%E8%B5%9B%E5%AD%A3%E6%B1%87%E6%8A%A5/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:19 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/%E8%87%AA%E7%9E%84%E8%B5%9B%E5%AD%A3%E6%B1%87%E6%8A%A5/</guid>
+      <description>&lt;h1 id=&#34;自瞄赛季汇报&#34;&gt;自瞄赛季汇报&lt;/h1&gt;
+&lt;p&gt;自瞄技术历经人员流失与两年断续迭代，今年虽终得稳定落地，但7v7实战效果未达预期。当前流水火控仅适配爆发模式与高弹频哨兵，面对前哨站及冷却模式步兵命中效果大幅下滑，底层PID控制滞后严重，视觉组已开发的MPC先进火控受限于目前pid控制算法的落后难以落地，亟需为前哨站设计专用火控逻辑。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>三维点云测试方法</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:09 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h1 id=&#34;三维点云测试方法&#34;&gt;三维点云测试方法&lt;/h1&gt;
+&lt;h3 id=&#34;概述&#34;&gt;概述&lt;/h3&gt;
+&lt;p&gt;安装PCL&lt;/p&gt;
+&lt;p&gt;安装Open3D&lt;/p&gt;
+&lt;p&gt;安装CloudCompare&lt;/p&gt;
+&lt;h3 id=&#34;激光三角测距&#34;&gt;激光三角测距:&lt;/h3&gt;
+&lt;p&gt;线激光器向物体表面投射一条激光线,当物体表面有高低起伏时,激光线会发生弯曲和位移,相机(与激光器成固定角度)捕捉到这条变形激光线的二维图像,通过三角测量法计算出每个点亮度的中心点,最终拼接成完整的三维点云&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>完整形态文档_ 自瞄开源引用</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3_-%E8%87%AA%E7%9E%84%E5%BC%80%E6%BA%90%E5%BC%95%E7%94%A8/</link>
+      <pubDate>Sat, 06 Jun 2026 16:12:01 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3_-%E8%87%AA%E7%9E%84%E5%BC%80%E6%BA%90%E5%BC%95%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;完整形态文档-自瞄开源引用&#34;&gt;完整形态文档: 自瞄开源引用&lt;/h1&gt;
+&lt;p&gt;西工大自瞄:&lt;/p&gt;
+&lt;p&gt;https://github.com/SnocrashWang/WMJAimer/wiki/WMJAimer-Project-Report
+结合卡尔曼滤波器和熵权法匹配多运动模型的整车建模&lt;/p&gt;
+&lt;p&gt;上交自瞄:&lt;/p&gt;
+&lt;p&gt;https://github.com/julyfun/rm.cv.fans?tab=readme-ov-file
+三分法降自由度的yaw角优化 弹道重现的可视化调参 坐标变换器&lt;/p&gt;
+&lt;p&gt;同济自瞄:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kalman filter</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/kalman-filter/</link>
+      <pubDate>Sat, 06 Jun 2026 16:10:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/kalman-filter/</guid>
+      <description>&lt;h1 id=&#34;kalman-filter&#34;&gt;Kalman filter&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>opencv知识库---整理</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/opencv%E7%9F%A5%E8%AF%86%E5%BA%93-%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sat, 06 Jun 2026 16:05:04 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/opencv%E7%9F%A5%E8%AF%86%E5%BA%93-%E6%95%B4%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;opencv知识库---整理&#34;&gt;opencv知识库---整理&lt;/h1&gt;
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念&lt;/h2&gt;
+&lt;p&gt;预处理&lt;/p&gt;
+&lt;p&gt;按我的话来说，所谓预处理，就是在图像还未真正进行识别处理前，对图像进行简易、全局的处理。这一块通常在产生图片时进行操作，不属于我们&lt;a href=&#34;https://so.csdn.net/so/search?q=%E8%A7%86%E8%A7%89%E8%AF%86%E5%88%AB&amp;amp;spm=1001.2101.3001.7020&#34;&gt;视觉识别&lt;/a&gt;的重点（但是预处理真的很重要）。这里仅简单介绍我们使用的两个预处理过程。&lt;/p&gt;
+&lt;p&gt;降低曝光度&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>leetcode_</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/leetcode_/</link>
+      <pubDate>Sat, 06 Jun 2026 16:02:11 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/leetcode_/</guid>
+      <description>&lt;h1 id=&#34;leetcode&#34;&gt;leetcode&lt;/h1&gt;
+&lt;p&gt;//to_string()//数字转字符串&lt;/p&gt;
+&lt;p&gt;//stoi()字符串转数字&lt;/p&gt;
+&lt;p&gt;//string(1,char)字符转数字//string构造函数&lt;/p&gt;
+&lt;p&gt;1LL会在运算时把后面的临时数据扩容成long &lt;a href=&#34;https://so.csdn.net/so/search?q=long%E7%B1%BB%E5%9E%8B&amp;amp;spm=1001.2101.3001.7020&#34;&gt;long类型&lt;/a&gt;，再在赋值给左边时转回int类型。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>测试笔记</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 21 Jan 1970 23:14:49 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h1 id=&#34;测试笔记&#34;&gt;测试笔记&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>Claude Code</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/claude-code/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/claude-code/</guid>
+      <description>&lt;h1 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h1&gt;
+&lt;h2 id=&#34;cli&#34;&gt;CLI:&lt;/h2&gt;
+&lt;p&gt;cli是一种通过输入文本指令来与电脑操作系统或软件进行交互的方式及&lt;/p&gt;
+&lt;h2 id=&#34;斜杠命令&#34;&gt;斜杠命令:&lt;/h2&gt;
+&lt;h3 id=&#34;核心命令&#34;&gt;核心命令&lt;/h3&gt;
+&lt;h4 id=&#34;help&#34;&gt;/help&lt;/h4&gt;
+&lt;p&gt;显示所有可用命令、快捷键和帮助信息，是入门和遗忘时的好帮手。&lt;/p&gt;
+&lt;h4 id=&#34;init&#34;&gt;/init&lt;/h4&gt;
+&lt;p&gt;在项目根目录生成 CLAUDE.md 文件。Claude 会在每次会话中读取此文件，用于存储项目规范、技术栈等持久化信息&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>jakac5机械臂日志</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/jakac5%E6%9C%BA%E6%A2%B0%E8%87%82%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/jakac5%E6%9C%BA%E6%A2%B0%E8%87%82%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h1 id=&#34;jakac5机械臂日志&#34;&gt;jakac5机械臂日志&lt;/h1&gt;
+&lt;h2 id=&#34;开发日志&#34;&gt;开发日志:&lt;/h2&gt;
+&lt;h3 id=&#34;6月9日&#34;&gt;6月9日&lt;/h3&gt;
+&lt;p&gt;配置moveit_resources-ros2的官方例程
+跑通单臂的rviz&lt;/p&gt;
+&lt;h3 id=&#34;6月10日&#34;&gt;6月10日&lt;/h3&gt;
+&lt;p&gt;跑通双臂的rviz&lt;/p&gt;
+&lt;h3 id=&#34;6月11日--6月12日&#34;&gt;6月11日 &amp;amp; 6月12日&lt;/h3&gt;
+&lt;p&gt;准备考试 暂时搁置&lt;/p&gt;
+&lt;h3 id=&#34;6月13日&#34;&gt;6月13日&lt;/h3&gt;
+&lt;p&gt;熟悉整个代码框架&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>labplant</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/lab_plant/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/lab_plant/</guid>
+      <description>&lt;h1 id=&#34;lab_plant&#34;&gt;lab_plant&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>lab技术栈</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/lab%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/lab%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <description>&lt;h1 id=&#34;lab技术栈&#34;&gt;lab技术栈&lt;/h1&gt;
+&lt;h2 id=&#34;三维重建&#34;&gt;三维重建:&lt;/h2&gt;
+&lt;p&gt;MVS（多视图立体）
+SfM（运动恢复结构）
+LIDAR SLAM&lt;/p&gt;
+&lt;h4 id=&#34;机器学习&#34;&gt;机器学习:&lt;/h4&gt;
+&lt;p&gt;传统机器学习：随机森林、支持向量机(SVM)、岭回归(BLUP)
+深度学习：基于多层神经网络的端到端学习方法&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>QT</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/qt/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/qt/</guid>
+      <description>&lt;h1 id=&#34;qt&#34;&gt;QT&lt;/h1&gt;
+&lt;h2 id=&#34;qt控件&#34;&gt;QT控件:&lt;/h2&gt;
+&lt;h3 id=&#34;qpushbotton&#34;&gt;QPushBotton&lt;/h3&gt;
+&lt;p&gt;作用: 可点击的按钮&lt;/p&gt;
+&lt;h3 id=&#34;qlabel&#34;&gt;QLabel&lt;/h3&gt;
+&lt;p&gt;作用: 显示文字或图片&lt;/p&gt;
+&lt;h3 id=&#34;qslider&#34;&gt;QSlider&lt;/h3&gt;
+&lt;p&gt;作用: 滑块&lt;/p&gt;
+&lt;h3 id=&#34;qtextedit&#34;&gt;QTextEdit&lt;/h3&gt;
+&lt;p&gt;作用: 带边框的分组框&lt;/p&gt;
+&lt;h3 id=&#34;qprogress&#34;&gt;QProgress&lt;/h3&gt;
+&lt;p&gt;作用: 进度条&lt;/p&gt;
+&lt;h2 id=&#34;qweight&#34;&gt;QWeight&lt;/h2&gt;
+&lt;p&gt;QWeight是Qt中所有用户界面对象的基类:
+它提供最基本的窗口/控件功能: 尺寸,位置,鼠标键盘事件,
+绘图,样式表，父子关系&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rust仿真环境配置: wsl &#43; ros2 &#43; rust</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/</guid>
+      <description>&lt;h1 id=&#34;rust仿真环境配置-wsl--ros2--rust&#34;&gt;rust仿真环境配置: wsl + ros2 + rust&lt;/h1&gt;
+&lt;p&gt;1.以管理员身份打开PowerShell或CMD&lt;/p&gt;
+&lt;p&gt;2.执行安装命令&lt;/p&gt;
+&lt;p&gt;wsl &amp;ndash;install -d Ubuntu-24.04
+3.设置用户名和密码&lt;/p&gt;
+&lt;p&gt;列出所有的ubantu版本&lt;/p&gt;
+&lt;p&gt;wsl -l -v&lt;/p&gt;
+&lt;p&gt;进入想要的版本&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/ssh/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/ssh/</guid>
+      <description>&lt;h1 id=&#34;ssh&#34;&gt;SSH&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>tmux简明速查手册(WSL/Linux通用)</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl-linux%E9%80%9A%E7%94%A8/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl-linux%E9%80%9A%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;tmux简明速查手册wsllinux通用&#34;&gt;tmux简明速查手册(WSL/Linux通用)&lt;/h1&gt;
+&lt;p&gt;1.安装&lt;/p&gt;
+&lt;p&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install tmux&lt;/p&gt;
+&lt;p&gt;2.启动与退出
+启动tmux&lt;/p&gt;
+&lt;p&gt;tmux
+退出当前窗格&lt;/p&gt;
+&lt;p&gt;exit 或 Ctrl+d&lt;/p&gt;
+&lt;p&gt;3.会话管理&lt;/p&gt;
+&lt;p&gt;分离会话（后台运行）     Ctrl+b 然后按 d
+重新连接（回到上次现场） tmux attach
+列出所有会话            tmux ls
+连接到指定会话          tmux attach -t 会话名
+新建命名会话            tmux new -s 会话名&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>vision-lab开发日志</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/vision-lab%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/vision-lab%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h1 id=&#34;vision-lab开发日志&#34;&gt;vision-lab开发日志&lt;/h1&gt;
+&lt;h2 id=&#34;开发日志&#34;&gt;开发日志:&lt;/h2&gt;
+&lt;h3 id=&#34;lab_huofu&#34;&gt;lab_huofu:&lt;/h3&gt;
+&lt;p&gt;5月28日 &amp;amp; 5月29日 % 5月30日
+完成霍夫圆识别水质圆圈的程序
+使用pca 分析试剂的色值
+并做线性回归&lt;/p&gt;
+&lt;h3 id=&#34;lab_water&#34;&gt;lab_water:&lt;/h3&gt;
+&lt;h4 id=&#34;6月7日&#34;&gt;6月7日:&lt;/h4&gt;
+&lt;h3 id=&#34;拷贝程序&#34;&gt;拷贝程序&lt;/h3&gt;
+&lt;h4 id=&#34;6月8日&#34;&gt;6月8日:&lt;/h4&gt;
+&lt;p&gt;测试水质分析仪的摄像头&lt;/p&gt;
+&lt;h4 id=&#34;6月13日&#34;&gt;6月13日:&lt;/h4&gt;
+&lt;p&gt;浏览项目框架
+阅读项目qt程序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>吊车防碰撞开发日志</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%90%8A%E8%BD%A6%E9%98%B2%E7%A2%B0%E6%92%9E%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%90%8A%E8%BD%A6%E9%98%B2%E7%A2%B0%E6%92%9E%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h1 id=&#34;吊车防碰撞开发日志&#34;&gt;吊车防碰撞开发日志&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>吊车物料单</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%90%8A%E8%BD%A6%E7%89%A9%E6%96%99%E5%8D%95/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%90%8A%E8%BD%A6%E7%89%A9%E6%96%99%E5%8D%95/</guid>
+      <description>&lt;h1 id=&#34;吊车物料单&#34;&gt;吊车物料单&lt;/h1&gt;
+&lt;h2 id=&#34;激光雷达-livox---mid360&#34;&gt;激光雷达 livox - mid360&lt;/h2&gt;
+&lt;p&gt;价格：4400&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://e.tb.cn/h.RrpiTHWhtCLfNLI?tk=yAT9ghmzX5k&#34;&gt;https://e.tb.cn/h.RrpiTHWhtCLfNLI?tk=yAT9ghmzX5k&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;深度相机-oak-d---lite&#34;&gt;深度相机 oak D - Lite&lt;/h2&gt;
+&lt;p&gt;价格：1490&lt;/p&gt;
+&lt;p&gt;【京东】https://3.cn/2T3-w43E 「SmartFLY【OAK中国】[OAK-D-Lite] 人工智能双目深度相机 OpenCV AI Kit FF版本【定焦款】」&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>滤波器</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%BB%A4%E6%B3%A2%E5%99%A8/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%BB%A4%E6%B3%A2%E5%99%A8/</guid>
+      <description>&lt;h1 id=&#34;滤波器&#34;&gt;滤波器&lt;/h1&gt;
+&lt;h2 id=&#34;卡尔曼滤波&#34;&gt;卡尔曼滤波&lt;/h2&gt;
+&lt;h2 id=&#34;互补滤波&#34;&gt;互补滤波&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>三维重建</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/</guid>
+      <description>&lt;h1 id=&#34;三维重建&#34;&gt;三维重建&lt;/h1&gt;
+&lt;h2 id=&#34;第一章-摄像机几何&#34;&gt;第一章: 摄像机几何&lt;/h2&gt;
+&lt;p&gt;三维世界是怎么通过摄像机几何映射成二维的?&lt;/p&gt;
+&lt;h3 id=&#34;针孔模型--透镜&#34;&gt;针孔模型 &amp;amp; 透镜&lt;/h3&gt;
+&lt;p&gt;针孔摄像机
+image.png&lt;/p&gt;
+&lt;p&gt;针孔摄像机
+image.png&lt;/p&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;随着光圈减小,成像效果如何变化?
+越来越清晰,越来越暗
+如何应对到达胶片的光线变少?
+增加透镜:
+透镜将多余光线聚焦到胶片上,增加了照片的亮度
+image.png&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数据库作业</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%9C%E4%B8%9A/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%9C%E4%B8%9A/</guid>
+      <description>&lt;h1 id=&#34;数据库作业&#34;&gt;数据库作业&lt;/h1&gt;
+&lt;h1 id=&#34;第一章&#34;&gt;第一章&lt;/h1&gt;
+&lt;h2 id=&#34;16-什么是数据模型数据模型的基本要素有哪些为什么需要数据模型&#34;&gt;1.6 什么是数据模型？数据模型的基本要素有哪些？为什么需要数据模型？&lt;/h2&gt;
+&lt;p&gt;（1）. 数据模型定义
+数据模型是对现实世界数据特征的抽象，用来描述数据、组织数据和对数据进行操作，是数据库中用来对现实世界进行抽象的工具，是数据库系统的核心和基础。
+（2）. 三大基本要素
+数据结构：描述数据库的组成对象以及对象之间的联系，是对系统静态特性的描述。
+数据操作：指对数据库中各种对象允许执行的操作集合，包含查询、增删改，是系统动态特性描述。
+完整性约束条件：一组完整性规则，限定数据及数据间联系，保证数据正确、有效、相容。
+（3）. 需要数据模型的原因
+现实世界信息复杂，计算机无法直接识别，数据模型完成现实世界→信息世界→机器世界的逐级抽象转换；
+统一规范数据的组织、存储与操作方式，方便用户、开发人员、计算机理解数据；
+作为数据库设计依据，支撑数据库存储、查询、维护等全部管理功能；
+屏蔽底层硬件存储细节，实现数据独立，降低数据管理复杂度。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自瞄赛季总结</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E8%B5%9B%E5%AD%A3%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E8%B5%9B%E5%AD%A3%E6%80%BB%E7%BB%93/</guid>
+      <description>&lt;h1 id=&#34;自瞄赛季总结&#34;&gt;自瞄赛季总结&lt;/h1&gt;
+&lt;h2 id=&#34;给老师的汇报&#34;&gt;给老师的汇报&lt;/h2&gt;
+&lt;p&gt;自瞄技术历经人员流失与两年断续迭代，今年虽终得稳定落地，但7v7实战效果未达预期。当前流水火控仅适配爆发模式与高弹频哨兵，面对前哨站及冷却模式步兵命中效果大幅下滑，底层PID控制滞后严重，视觉组已开发的MPC先进火控受限于目前pid控制算法的落后难以落地，亟需为前哨站设计专用火控逻辑。
+硬件层面，pitch轴6020电机小角度控制超调，轴承磨损与电机老化引入回差；微机平台老化严重，内存接口脱落导致帧率骤降，串口与相机掉线重连长达4和14秒，关键对局直接断供，013相机清晰度与主流016系列存在代差。传统底盘地形适应性差，复杂地形下车身剧烈晃动，自瞄难以持续锁定，算法能力无从发挥。
+必须同步推进轮腿机器人研发以提升瞄准平台稳定性，并将p轴更换为4310电机、更新微机与相机，为MPC火控及专用击打逻辑扫清部署障碍，方能将已有识别跟踪能力转化为赛场实打实的命中效果。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自瞄网页调试器开发日志</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E7%BD%91%E9%A1%B5%E8%B0%83%E8%AF%95%E5%99%A8%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E7%BD%91%E9%A1%B5%E8%B0%83%E8%AF%95%E5%99%A8%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h1 id=&#34;自瞄网页调试器开发日志&#34;&gt;自瞄网页调试器开发日志&lt;/h1&gt;
+&lt;h2 id=&#34;开发日志&#34;&gt;开发日志&lt;/h2&gt;
+&lt;h3 id=&#34;6月3日&#34;&gt;6月3日&lt;/h3&gt;
+&lt;p&gt;Init commit
+自瞄网页调试器demo版本
+网页初步跑通 但是还是不能显示摄像头数据&lt;/p&gt;
+&lt;h3 id=&#34;6月4日&#34;&gt;6月4日&lt;/h3&gt;
+&lt;p&gt;修复图像无法显示的问题&lt;/p&gt;
+&lt;p&gt;原因
+bug fix: rosbridge 对 uint8[] 类型字段会自动 Base64 编码
+数据路径: Python list(jpg_bytes) → rosbridge Base64 编码 → 浏览器收到 Base64 字符串
+如果用 new Uint8Array(string) 直接处理 Base64 字符串会得到无效数据
+正确做法: atob() 解码 → 逐字符 charCodeAt() → Uint8Array&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>3v3复盘文档</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/3v3%E5%A4%8D%E7%9B%98%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/3v3%E5%A4%8D%E7%9B%98%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h1 id=&#34;3v3复盘文档&#34;&gt;3v3复盘文档&lt;/h1&gt;
+&lt;p&gt;1.哨兵记得装单发限位 -&amp;gt; 第一发弹丸的发弹延时比较大,低头的时候会漏弹
+2.自瞄普遍很近处看不到,即使是6mm相机装甲板在近处已经很大了,pitch轴的俯角不够 -&amp;gt; 目前没有比较好的解决方案
+3.全向的弹频等不如麦轮 -&amp;gt; 后续跟进
+4.怀疑英雄炸超电后微机出现欠压,可能出现降压没有供电 -&amp;gt; 后续询问硬件组,考虑使用坏掉的超电测试
+5.英雄发弹延时严重不稳定 -&amp;gt; 小陀螺转得很慢都打不中
+6.所有车的自瞄的发弹延时普遍比较大将近200ms，严重不合理,严查电控拨弹盘代码 -&amp;gt; 尤其是英雄,导致英雄慢速小陀螺的火控都打不中,步兵泼水勉强打得中
+7.视觉为什么电控延时普遍给了将近200ms,不合理,严查电控代码,哪里给了延时,跟随稳态误差有点不太对
+电控时延给0后,火控期望线和当前云台角差距过大很不合理,严查电控代码
+8.重点研究电控云台pid前馈技术,两点原因:
+(1) 小陀螺高速旋转后,由于中心不在云台yaw轴上,小陀螺后,出现离心力矩,且随着速度的增加,力矩越来越大
+偏差方向和云台旋转方向相同
+(2)mpc需要视觉计算的速度和加速度作为前馈 -&amp;gt; 计算力矩pid控制算法
+9.考虑和贵州师范的人交流自瞄(重点交流英雄自瞄火控和mpc技术)
+10.曝光调参困难,且严苛,(适应性训练调不出来可能就祭了i),考虑使用pid算法控制曝光 -&amp;gt; 明年新技术
+11.考虑视觉仿真验证模拟器
+12.摩擦轮可能存在稳定性问题,高强度比赛后,全向(疑似)和哨兵皆出现问题 -&amp;gt; 影响视觉落点和自瞄散布
+13.全向自瞄比赛开始后给微机断电 -&amp;gt; 已解决电控降压接到射击模块
+14.全向比赛过程中偶尔出现掉自瞄 -&amp;gt; 更换最新串口线 -&amp;gt; 目前效果还行,后续测试
+15.记得备份比赛过程中的代码
+16.导航时如果甩头甩得过分可能会出现走偏的问题
+17.全向哨兵自瞄存在优先级的问题,经常是先看到谁就瞄谁 ,尤其是全向自瞄经常出现瞄准的不是操作手想要的目标
+18.哨兵存在被别人偷屁股的情况 -&amp;gt; 跟进全向感知技术
+19.3v3比赛后将重心放在推前哨战的技术上&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>3v3交流赛复盘文档</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/3v3%E4%BA%A4%E6%B5%81%E8%B5%9B%E5%A4%8D%E7%9B%98%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/3v3%E4%BA%A4%E6%B5%81%E8%B5%9B%E5%A4%8D%E7%9B%98%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h1 id=&#34;3v3交流赛复盘文档&#34;&gt;3v3交流赛复盘文档&lt;/h1&gt;
+&lt;p&gt;红色为优先级高的问题&lt;/p&gt;
+&lt;p&gt;1.全向相机焦距比赛后发现已经模糊,怀疑比赛过程中焦距发生了变化 -&amp;gt; 安装时不要动到相机的那两颗螺丝,安装后需要检查 ✔（已督促）
+2.经实测发现比赛场地二值化阈值给160 曝光给2300 识别较为合适 （还未有严谨的论证）
+3.哨兵使用的是12mm的镜头视野太窄,且进入导航后pitch轴晃动幅度太小,导致近距离都很难锁到敌人 -&amp;gt;
+更换8mm镜头,提高pitch轴晃动幅度,yaw轴的转动幅度可以更改回去 ✔
+4.比赛时备场区没法调弹道的硬补偿,只能比赛场地外打弹调好,需要经常调试,每隔几小时变化一次,备场区只能使用激光笔调试,
+调试前记得关闭重力补偿,调试完后记得打开重力补偿 ✔(确实需要调落点,但是还未查明原因)
+5.微机散热存在问题,微机过热存在cpu降频问题,导致自瞄帧率严重下降 -&amp;gt; 已证明微机温度会显著影响自瞄帧率
+√
+6.全向后面的C口和USB口坏了,哨兵的C口坏了,哨兵的usb口接触不良,为什么哨兵的C口还没有修好上学期就在催了,usb口接触不良,导致哨兵频繁出现掉自瞄掉导航的情况 还未解决
+7.串口线和C口过于脆弱,经常出现掉串口的情况(包括视觉收不到电控数据,电控收不到视觉数据,usb没有反应) ✔（硬件加焊串口线）
+8.目前实测打表硬补偿效果还好 调参不是很好调需要花较多时间,但是效果较好 ✔
+9.C口不够赛场上很难调试 -&amp;gt; 购买了HDMI便携屏(催促硬件修好c口和usb口) ✔ （全向后面的usb口修不好）
+10.存在自瞄瞄歪的情况 -&amp;gt; 怀疑pid和坐标系的问题(过颠簸后测试自瞄如若出现该现象，打开rviz查看坐标系,如果坐标系错误,电控查找bug) -&amp;gt; 已找到是掉串口的问题 ✔
+偏移的大致距离:
+Image_856571903378208.jpg&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>7v7备赛计划</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/7v7%E5%A4%87%E8%B5%9B%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/7v7%E5%A4%87%E8%B5%9B%E8%AE%A1%E5%88%92/</guid>
+      <description>&lt;h1 id=&#34;7v7备赛计划&#34;&gt;7v7备赛计划&lt;/h1&gt;
+&lt;p&gt;调前哨战的卡尔曼滤波器
+降低发弹延时 , 稳定发弹延时 -&amp;gt; 调英雄自瞄
+微机检修 -&amp;gt; 坏掉的口该修就修
+靶车&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI辅助解决弹道复现BUG</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/ai%E8%BE%85%E5%8A%A9%E8%A7%A3%E5%86%B3%E5%BC%B9%E9%81%93%E5%A4%8D%E7%8E%B0bug/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/ai%E8%BE%85%E5%8A%A9%E8%A7%A3%E5%86%B3%E5%BC%B9%E9%81%93%E5%A4%8D%E7%8E%B0bug/</guid>
+      <description>&lt;h1 id=&#34;ai辅助解决弹道复现bug&#34;&gt;AI辅助解决弹道复现BUG&lt;/h1&gt;
+&lt;p&gt;#pragma once
+#include &lt;vector&gt;
+// ROS相关头文件
+#include &amp;ldquo;ros/ros.h&amp;rdquo;
+#include &amp;ldquo;rm_msgs/Armor.h&amp;rdquo;
+#include &amp;ldquo;rm_msgs/ArmorArray.h&amp;rdquo;
+#include &amp;ldquo;rm_msgs/RmSerial.h&amp;rdquo;
+#include &amp;lt;std_msgs/Float64.h&amp;gt;
+#include &amp;lt;angles/angles.h&amp;gt;
+#include &amp;lt;tf2/LinearMath/Transform.h&amp;gt;
+#include &amp;lt;tf2/LinearMath/Vector3.h&amp;gt;
+#include &amp;lt;tf2/LinearMath/Quaternion.h&amp;gt;
+// OpenCV相关头文件
+#include &amp;lt;opencv2/opencv.hpp&amp;gt;
+#include &amp;lt;cv_bridge/cv_bridge.h&amp;gt;
+// 标准库头文件
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+// 时间相关头文件
+#include &lt;chrono&gt;
+#include &lt;thread&gt;
+#include &lt;fstream&gt;
+#include &amp;lt;yaml-cpp/yaml.h&amp;gt;
+// 自定义头文件
+#include &amp;ldquo;Calculater.hpp&amp;rdquo;
+#include &amp;ldquo;GimbalPos.hpp&amp;rdquo;
+#include &amp;ldquo;TargetModel.hpp&amp;rdquo;
+#include &amp;ldquo;visual.hpp&amp;rdquo;
+#include &amp;ldquo;CoorConverter.hpp&amp;rdquo;
+#include &amp;ldquo;math.hpp&amp;rdquo;
+#include &amp;ldquo;MPC.hpp&amp;rdquo;
+#include &amp;ldquo;trajectory_visualizer.hpp&amp;rdquo;
+using namespace std;
+using namespace cv;
+/*
+自瞄文档
+标准模型状态向量
+X(0) -&amp;gt; 机器人中心的x坐标
+X(1) -&amp;gt; 机器人中心x方向速度
+X(2) -&amp;gt; 机器人中心的y坐标
+X(3) -&amp;gt; 机器人中心y方向速度
+X(4) -&amp;gt; 左侧装甲板的固定高度
+X(5) -&amp;gt; 右侧装甲板的固定高度
+X(6) -&amp;gt; 小装甲板旋转半径（左侧）
+X(7) -&amp;gt; 大装甲板旋转半径（右侧）
+X(8) -&amp;gt; 机器人整体偏航角yaw
+X(9) -&amp;gt; 偏航角速度palstance
+前哨站状态向量
+X(0): 机器人中心的x坐标
+X(1): 机器人中心的y坐标
+X(2): 第一块装甲板高度h1
+X(3): 第二块装甲板高度h2
+X(4): 第三块装甲板高度h3
+X(5): 偏航角yaw
+X(6): 偏航角速度palstance
+&lt;em&gt;/
+/&lt;/em&gt;*
+@brief 将弧度约束在[-pi, pi]范围内，大于n，减去2n；小于-n，加上2n
+@param angle 角度
+&lt;em&gt;/
+#ifndef _std_radian
+#define &lt;em&gt;std_radian(angle) ((angle) + round((0 - (angle)) / (2 * PI)) * (2 * PI))
+#endif
+//追踪类
+template&lt;TimeSpan _trackTime&gt;
+class Tracker{
+private:
+double COMMAND_TIMESPAN;            //电控延迟
+double local_gravity&lt;/em&gt;;              //重力加速度
+double eTime;                       //曝光时间
+/&lt;/em&gt; ======================== 系统参数 ======================== &lt;em&gt;/
+//ROS相关
+ros::NodeHandle nh;                 //ROS节点句柄
+ros::Publisher debugpub;            //debug发布者
+ros::Publisher debugpub1;           //debug1发布者
+std_msgs::Float64 debugdate;        //debug数据
+std_msgs::Float64 debugdate1;       //debug1数据
+rm_msgs::RmSerial RmSerialData;     //接收串口数据
+tf2_ros::Buffer tfBuffer_;            // TF 缓冲区
+tf2_ros::TransformListener tfListener; // 声明一个tf2_ros::TransformListener对象，并传入tfBuffer
+rm_msgs::ArmorArrayConstPtr m_armors;  // 接收装甲板数据
+//图像处理相关
+cv::Mat frame;          //接收的原始图像
+cv::Mat frame_;         //被处理的图像副本(保护原图像)
+cv::Mat camera_matrix_; //相机内参(构造函数中)
+cv::Mat dist_coeffs_;   //畸变系数(构造函数中)
+Image img;              //图像工具
+//坐标变换工具
+CAL::Calculater&lt;/em&gt; cal;   //计算工具
+CoordinateTransformer* coorConverter;
+//装甲板评分参数
+std::vector&lt;int&gt; col;                       // 数列中的每个数代表矩阵的每一列
+std::vector&lt;int&gt; row;                       // 数列中的每个数代表矩阵的每一行
+std::vector&lt;int&gt; tmp_v;                     // 存储C(n,k)的中间结果
+std::vector&amp;lt;std::vector&lt;int&gt;&amp;gt; result;       // 存储C(n,k)的结果
+std::vector&amp;lt;std::vector&lt;int&gt;&amp;gt; nAfour;       // 存储A(n,4)的结果
+std::vector&amp;lt;std::vector&lt;int&gt;&amp;gt; fourAfour;    // 存储A(4,4)的结果
+std::map&amp;lt;int, int&amp;gt; row_col;                 // 存储最终结果，row_col[i]=j表示矩阵的第i行第j列是要选取的数
+//数据关联参数
+double min = 0, tmp = 0;
+/* ======================== 跟踪控制参数 ======================== &lt;em&gt;/
+//基本跟踪参数
+char TrackingID;            //跟踪中的装甲板ID
+bool Switch_Armor;          //装甲板切换标识符
+double trackTime;           //目标丢失判定时间(秒)
+//角度补偿参数
+double pitch_compensation;  //pitch补偿
+double yaw_compensation;    //yaw补偿
+//火力控制参数
+bool all_fire = false;      //完全火力模式(不停止射击)
+/&lt;/em&gt; ======================== 装甲板预测参数 ======================== &lt;em&gt;/
+//空间参考点参数
+Eigen::Vector3d pegPos;         //空间标准点(用于装甲板跳变判断)
+double peg_point_pixel_now;     //当前装甲板在像素坐标系的位置
+double peg_point_pixel_last;    //位于像素标准坐标系的上一个装甲板位置
+//子弹参数
+double BulletVector = 22;           //子弹速度(初值给24m/s)
+/&lt;/em&gt; ======================== 时间戳管理 ======================== &lt;em&gt;/
+//装甲板跟踪时间
+long long Now_Time_armor = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();//当前时间戳(用于计算丢失时间)
+long long Track_Time_armor = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();//丢失时间戳(用于计算丢失时间)
+//帧率计算
+long long begin_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();//首时间
+long long end_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();//尾时间
+// C++工具时间戳
+long long tool_begin_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();//首时间
+long long tool_end_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();//尾时间
+// ros工具时间戳
+ros::Time tool_begin_Time_ros = ros::Time::now();
+ros::Time tool_end_Time_ros = ros::Time::now();
+// 获取装甲板tf时间(判断是否是相同帧)
+ros::Time last_tf_time = ros::Time::now();
+/&lt;/em&gt; ======================== 标志位 ======================== &lt;em&gt;/
+bool functional = true;                 // 射击模式
+int m_center_tracked;                   // 锁中心状态标志位
+bool m_track_center;                    // 是否跟随中心
+bool m_fix_on;                          // 重力补偿开关
+std::string config_path_;               // 存储配置路径
+unique_ptr&lt;TargetModel&gt; targetModel;    // 目标模型
+ros::Publisher AngPub;                  // 角度话题发布者
+std::shared_ptr&lt;MPC&gt; m_MPC;             // 模型预测控制器
+// =========================== 阈值 ====================================
+double m_score_tolerance;               //装甲板匹配得分最大值
+double m_switch_threshold;              // 更新装甲板切换的角度阈值，角度制
+double m_force_aim_palstance_threshold; // 强制允许发射的目标旋转速度最大值，弧度制
+double m_aim_angle_tolerance;           // 自动击发时目标装甲板相对偏角最大值，角度制
+double m_aim_pose_tolerance;            // 自动击发位姿偏差最大值，弧度制
+double m_aim_center_angle_tolerance;    // 跟随圆心自动击发目标偏角判断，角度制
+double m_switch_trackmode_threshold;    // 更换锁中心模式角速度阈值，弧度制
+double m_aim_center_palstance_threshold;// 跟随圆心转跟随装甲板的目标旋转速度最大值，弧度制
+// =========================== 可视化 ===================================
+std::vector&amp;lt;std::vector&lt;a href=&#34;Eigen::Vector3d&#34;&gt;Eigen::Vector3d&lt;/a&gt;&amp;gt; visual_armor_position_pose_temp;  // 用于可视化存储观测装甲板的全局变量
+GimbalPose m_cur_pose;                  // 当前位姿
+GimbalPose m_target_pose;               // 目标位姿
+GimbalPose m_target_pose_debug;         // 用于debug,比较mpc和传统模式
+// =========================== 串口补偿 =======================================
+double m_rollOffset = 0;
+double m_pitchOffset = 0;
+double m_yawOffset = 0;
+public:
+Tracker(ros::NodeHandle&amp;amp; nh,const std::string&amp;amp; config_path) : config_path_(config_path), tfListener(tfBuffer_)
+{
+this-&amp;gt;nh = nh;
+AngPub = nh.advertise&amp;lt;geometry_msgs::Vector3&amp;gt;(&amp;quot;/auto_angle&amp;quot;, 1000);
+debugpub = nh.advertise&amp;lt;std_msgs::Float64&amp;gt;(&amp;quot;/debugpub&amp;quot;, 1000);
+debugpub1 = nh.advertise&amp;lt;std_msgs::Float64&amp;gt;(&amp;quot;/debugpub1&amp;quot;, 1000);
+cal = new CAL::Calculater(this-&amp;gt;nh,this-&amp;gt;img);
+tfBuffer_.setUsingDedicatedThread(true);
+m_armors.reset(); // 显式初始化为空
+// 初始化时创建 TargetModel
+targetModel = std::make_unique&lt;TargetModel&gt;(config_path_);
+coorConverter = new CoordinateTransformer(config_path_);
+m_MPC = std::make_shared&lt;MPC&gt;(config_path_); // 控制器初始化
+// 检查配置文件路径是否有效
+if (!config_path_.empty()) {
+try {
+setParam(config_path_);
+ROS_INFO(&amp;ldquo;Successfully loaded parameters from: %s&amp;rdquo;, config_path_.c_str());
+} catch (const std::exception&amp;amp; e) {
+ROS_ERROR(&amp;ldquo;Failed to load parameters: %s&amp;rdquo;, e.what());
+}
+} else {
+ROS_WARN(&amp;ldquo;No configuration file path provided. Using default parameters.&amp;rdquo;);
+}
+}
+~Tracker() {
+delete cal;
+delete coorConverter;
+}
+/&lt;/em&gt;***************
+* @brief 回调函数: 接受串口信息，并更新内部变量、TF、坐标系
+* @param &lt;em&gt;serial ROS 消息的智能指针，包含子弹速度、射击标志、补偿角度等
+&lt;em&gt;/
+void SetSerial(const rm_msgs::RmSerialConstPtr _serial){
+if (_serial) {
+RmSerialData = &lt;em&gt;_serial;
+// 目前注释掉了(到时候测试一下)
+// if(_serial-&amp;gt;BulletVec &amp;gt; 10){
+//     BulletVector = _serial-&amp;gt;BulletVec;
+// }
+if(_serial-&amp;gt;ShootFlag == &amp;lsquo;f&amp;rsquo;){
+functional = true;
+}else if(_serial-&amp;gt;ShootFlag == &amp;lsquo;a&amp;rsquo;){
+functional = true;
+}else{
+functional = true;
+}
+// 从串口获取当前装甲板的姿态
+m_cur_pose.roll = RmSerialData.Roll;
+m_cur_pose.pitch = RmSerialData.Pitch;
+m_cur_pose.yaw = RmSerialData.Yaw; &lt;br&gt;
+// debug
+// ROS_INFO(&amp;ldquo;cur: pitch:  %lf&amp;rdquo; , RmSerialData.Pitch);
+// ROS_INFO(&amp;ldquo;BulletVector:  %lf&amp;rdquo; , BulletVector);
+// std::vector&lt;a href=&#34;Eigen::Vector3d&#34;&gt;Eigen::Vector3d&lt;/a&gt; imuabsPos = cal-&amp;gt;GetPos(&amp;ldquo;map&amp;rdquo;,&amp;ldquo;imu&amp;rdquo;,1);
+// cal-&amp;gt;TFUpdata(&amp;ldquo;map&amp;rdquo;,&amp;ldquo;imuabs&amp;rdquo;,{0.0, 0.0, 0.0},{0.0, 0.0, imuabsPos[1].z()},0);
+// ROS_WARN(&amp;ldquo;have serial 3333333333333333333333333333&amp;rdquo;);
+}
+}
+/&lt;/em&gt;&lt;/em&gt;***************
+* @brief 回调函数: 接收相机节点发送的图像,用于debug
+* @param img&lt;/em&gt; 图像信息
+* @param frame  供算法线程直接使用的原始图
+* @param frame_ 额外再 clone 一份，用于可视化
+&lt;em&gt;/
+void doimage(const sensor_msgs::ImageConstPtr img_)
+{
+cv_bridge::CvImagePtr cv_ptr;
+try
+{
+cv_ptr =  cv_bridge::toCvCopy(img_, sensor_msgs::image_encodings::BGR8);
+}
+catch(cv_bridge::Exception&amp;amp; e)
+{
+ROS_ERROR(&amp;ldquo;cv_bridge exception: %s&amp;rdquo;, e.what());
+return;
+}
+frame = cv_ptr-&amp;gt;image.clone();
+frame_ = frame.clone();
+// ROS_WARN(&amp;ldquo;have image 111111111111111111&amp;rdquo;);
+}
+// 回调函数: 接收识别发送的装甲板序列
+void doArmors(rm_msgs::ArmorArrayConstPtr armors)
+{
+m_armors = armors;
+// ROS_WARN(&amp;ldquo;have armor 222222222222222222&amp;rdquo;);
+}
+/&lt;/em&gt;*
+* @brief  主跟踪循环：每帧调用一次，完成“决策 → 预测 → 补偿 → 发布”全链路
+&lt;em&gt;/
+void Track()
+{
+if (!m_armors) {
+cout &amp;laquo; &amp;ldquo;消息队列为空&amp;rdquo; &amp;laquo; endl;
+return;
+}
+try
+{
+//begin_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();
+if(!functional){
+return;
+}
+TargetModel&lt;/em&gt; targetModel_temp = nullptr;
+targetModel_temp = armorUpdate(m_armors);
+if(targetModel_temp != nullptr){
+cv::Point2d finAngle = {0.0, 0.0};
+GimbalPose target_pose_temp = reconstruction_choose_compensation();
+// 调试输出(打印云台需要转动到的角度)
+// cout &amp;laquo; &amp;ldquo;pitch: &amp;quot; &amp;laquo; target_pose_temp.pitch &amp;laquo; &amp;quot; &amp;quot; &amp;laquo; &amp;ldquo;yaw: &amp;quot; &amp;laquo; target_pose_temp.yaw &amp;laquo; endl;
+// 打印需要移动的相对角
+// finAngle.x = target_pose_temp.pitch - m_cur_pose.pitch; // 计算需要移动的pitch角度
+// finAngle.y = target_pose_temp.yaw - m_cur_pose.yaw;     // 计算需要移动的yaw角度
+// // // 陀螺仪的绝对角
+finAngle.x = target_pose_temp.pitch; // 计算需要移动到的pitch角度
+finAngle.y = target_pose_temp.yaw;     // 计算需要移动到的yaw角度
+// debug: 云台跟随效果rqt_plot打印
+// yaw角
+// debugdate.data = m_cur_pose.yaw;            // 当前云台yaw角度
+// debugdate1.data = target_pose_temp.yaw;     // 计算出云台需要转动的yaw角度
+// // pitch角
+// debugdate.data = m_cur_pose.pitch;          // 当前云台pitch角度
+// debugdate1.data = target_pose_temp.pitch;   // 计算出云台需要转动的pitch角度
+// debug: 自动打弹打印
+// cout &amp;laquo; &amp;ldquo;finAngle.x: &amp;quot; &amp;laquo; finAngle.x &amp;laquo; &amp;quot; &amp;quot; &amp;laquo; &amp;ldquo;finAngle.y: &amp;quot; &amp;laquo; finAngle.y &amp;laquo; endl;
+// cout &amp;laquo; &amp;ldquo;是否允许打弹: &amp;quot; &amp;laquo; targetModel_temp-&amp;gt;auto_fire &amp;laquo; endl;
+// if (targetModel_temp-&amp;gt;auto_fire) {
+//     debugdate.data = 1;
+// }
+// else {
+//     debugdate.data = 0;
+// }
+Pub_Aangle(true, targetModel_temp-&amp;gt;auto_fire, finAngle);
+}else{
+Pub_Aangle(false);
+}
+// 帧率控制
+// double time_line = 30.0;
+// end_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();
+// double frame_time = (end_Time - begin_Time)/1000.0;
+// if ((end_Time - begin_Time) - time_line &amp;lt; 0.0)// 帧率控制
+// {
+//     int sleep_time_ms = static_cast&lt;int&gt;(time_line - (end_Time - begin_Time));
+//     std::this_thread::sleep_for(std::chrono::milliseconds(sleep_time_ms));
+//     //frame_time = 0.03;
+//     end_Time = chrono::time_point_cast&lt;a href=&#34;chrono::milliseconds&#34;&gt;chrono::milliseconds&lt;/a&gt;(chrono::system_clock::now()).time_since_epoch().count();
+//     frame_time = (end_Time - begin_Time)/1000.0;
+//     // cout &amp;laquo; &amp;ldquo;sleep_time_ms:&amp;rdquo; &amp;laquo; sleep_time_ms &amp;laquo; &amp;ldquo;ms&amp;rdquo; &amp;laquo; endl;
+//     // cout &amp;laquo; &amp;ldquo;frame_time:&amp;rdquo; &amp;laquo; frame_time
+1000 &amp;laquo; &amp;ldquo;ms&amp;rdquo; &amp;laquo; endl;
+// }
+// begin_Time = end_Time;
+// debugdate1.data = frame_time
+1000;
+debugpub.publish(debugdate);
+debugpub1.publish(debugdate1);
+}
+catch (const std::exception&amp;amp; e)
+{
+ROS_ERROR(&amp;quot;[Exception] In Track function: %s&amp;rdquo;, e.what());
+}
+}
+// 重构选板
+GimbalPose reconstruction_choose_compensation() {
+// 目标装甲板
+Armor abs_facing_armor;
+Armor abs_target_armor;
+double hit_time = 0;
+double center_hit_time = 0;
+double m_time_off = COMMAND_TIMESPAN + eTime + 0.025;
+/**
+* 严格意义上来说，如果要准确预测击中时刻的装甲板位置的话，需要解一个非线性方程。此处采用一种近似的解法
+* 根据当前最近装甲板距离计算击中时间，用于预测目标装甲板出现的位置
+* 事实上相当于一步牛顿迭代法，或者说一阶的线性化&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ai使用指南</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/ai%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/ai%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h1 id=&#34;ai使用指南&#34;&gt;ai使用指南&lt;/h1&gt;
+&lt;p&gt;Deepseek&lt;/p&gt;
+&lt;h2 id=&#34;一推理模型与指令模型&#34;&gt;一，推理模型与指令模型&lt;/h2&gt;
+&lt;p&gt;指令模型v1,豆包&amp;hellip;
+你需要使用结构化的指令
+推理模型o1,r1&amp;hellip;.
+你只需要清晰明确的表达你的需求&lt;/p&gt;
+&lt;h2 id=&#34;二理解大语言模型的本质&#34;&gt;二，理解大语言模型的本质&lt;/h2&gt;
+&lt;p&gt;特点1：大模型在训练时是将内容token化的，大模型看到和理解的世界与你不一样
+特点2：大模型知识是存在截止时间的
+r1的截止时间大概在2023年的10月到12月
+问题：
+行业认知断代问题
+解决方法：打开联网搜索，或者上传文档
+特点3：大模型缺乏自我认知/自我意识
+多数模型都不知道自己是什么模型，除非在部署的时候在系统提示词做了对应设定
+特点4：
+大模型有记忆限制（64k/128k）
+中文字大概最多3到4万字
+对话轮数过多，可能会遗忘最初的聊天问题
+特点5：
+输出长度有限2000-4000&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>C/C&#43;&#43;代码中积累的语法</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/</guid>
+      <description>&lt;h1 id=&#34;cc代码中积累的语法&#34;&gt;C/C++代码中积累的语法&lt;/h1&gt;
+&lt;h2 id=&#34;cc中的数据类型转换&#34;&gt;C/C++中的数据类型转换&lt;/h2&gt;
+&lt;p&gt;数据类型自动转换
+当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Debug</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/debug/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/debug/</guid>
+      <description>&lt;h1 id=&#34;debug&#34;&gt;Debug&lt;/h1&gt;
+&lt;p&gt;segmentation fault 段错误&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/docker/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/docker/</guid>
+      <description>&lt;h1 id=&#34;docker&#34;&gt;docker&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>Git分布式版本控制工具</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;h1 id=&#34;git分布式版本控制工具&#34;&gt;Git分布式版本控制工具&lt;/h1&gt;
+&lt;h2 id=&#34;1基本命令行&#34;&gt;1.基本命令行&lt;/h2&gt;
+&lt;p&gt;ls/ll   查看当前目录&lt;/p&gt;
+&lt;p&gt;cat    查看文件内容&lt;/p&gt;
+&lt;p&gt;touch  创建文件&lt;/p&gt;
+&lt;p&gt;vi       vi编辑器&lt;/p&gt;
+&lt;h2 id=&#34;2创建bashrc文件&#34;&gt;2.创建.bashrc文件&lt;/h2&gt;
+&lt;p&gt;打开用户目录,创建.bashrc文件
+在.bashrc文件中输入&lt;/p&gt;
+&lt;h1 id=&#34;用于输出git提交日志&#34;&gt;用于输出git提交日志&lt;/h1&gt;
+&lt;p&gt;alias git-log=&amp;lsquo;git log &amp;ndash;pretty=oneline &amp;ndash;all &amp;ndash;graph &amp;ndash;abbrev-commit&amp;rsquo;&lt;/p&gt;
+&lt;h1 id=&#34;用于输出当前目录所有文件及其基本信息&#34;&gt;用于输出当前目录所有文件及其基本信息&lt;/h1&gt;
+&lt;p&gt;alias ll=&amp;lsquo;ls -al&amp;rsquo;&lt;/p&gt;
+&lt;h2 id=&#34;3解决gitbash乱码问题&#34;&gt;3.解决GitBash乱码问题&lt;/h2&gt;
+&lt;p&gt;1.打开GitBash执行下面指令
+Git config &amp;ndash;global core.quotepath false&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>labelme</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/labelme/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/labelme/</guid>
+      <description>&lt;h1 id=&#34;labelme&#34;&gt;labelme&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/Natsuago/article/details/143815956&#34;&gt;https://blog.csdn.net/Natsuago/article/details/143815956&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>lab相关文献阅读</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/lab%E7%9B%B8%E5%85%B3%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/lab%E7%9B%B8%E5%85%B3%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</guid>
+      <description>&lt;h1 id=&#34;lab相关文献阅读&#34;&gt;lab相关文献阅读&lt;/h1&gt;
+&lt;p&gt;阅读方法:
+image.png&lt;/p&gt;
+&lt;p&gt;笔记归档
+image.png&lt;/p&gt;
+&lt;h2 id=&#34;文献一-人工智能驱动的作物表型解析-进展与挑战&#34;&gt;文献一: 人工智能驱动的作物表型解析: 进展与挑战&lt;/h2&gt;
+&lt;p&gt;这是一篇综述文章，本身不提出新算法，而是系统梳理了AI在六个表型维度上的已有技术方案和应用进展：
+image.png&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>leetcode</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/leetcode/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/leetcode/</guid>
+      <description>&lt;h1 id=&#34;leetcode&#34;&gt;leetcode&lt;/h1&gt;
+&lt;p&gt;//to_string()//数字转字符串
+//stoi()字符串转数字
+//string(1,char)字符转数字//string构造函数&lt;/p&gt;
+&lt;p&gt;1LL会在运算时把后面的临时数据扩容成long long类型，再在赋值给左边时转回int类型。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leetcode和蓝桥算法思路整理</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/leetcode%E5%92%8C%E8%93%9D%E6%A1%A5%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/leetcode%E5%92%8C%E8%93%9D%E6%A1%A5%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;leetcode和蓝桥算法思路整理&#34;&gt;Leetcode和蓝桥算法思路整理&lt;/h1&gt;
+&lt;h1 id=&#34;数据结构&#34;&gt;数据结构&lt;/h1&gt;
+&lt;h1 id=&#34;链表&#34;&gt;链表&lt;/h1&gt;
+&lt;p&gt;双向链表&lt;/p&gt;
+&lt;p&gt;循环链表&lt;/p&gt;
+&lt;p&gt;链表栈&lt;/p&gt;
+&lt;p&gt;堆链表&lt;/p&gt;
+&lt;p&gt;栈&lt;/p&gt;
+&lt;p&gt;堆&lt;/p&gt;
+&lt;p&gt;队列&lt;/p&gt;
+&lt;h1 id=&#34;二叉树&#34;&gt;二叉树&lt;/h1&gt;
+&lt;p&gt;平衡二叉树&lt;/p&gt;
+&lt;p&gt;二叉搜索树&lt;/p&gt;
+&lt;p&gt;平衡二叉搜索树&lt;/p&gt;
+&lt;p&gt;哈夫曼树&lt;/p&gt;
+&lt;p&gt;堆&amp;mdash;优先队列&lt;/p&gt;
+&lt;p&gt;最小堆&lt;/p&gt;
+&lt;p&gt;最大堆&lt;/p&gt;
+&lt;p&gt;B树&lt;/p&gt;
+&lt;p&gt;B+树&lt;/p&gt;
+&lt;h2 id=&#34;并查集&#34;&gt;并查集&lt;/h2&gt;
+&lt;p&gt;红黑树&lt;/p&gt;
+&lt;p&gt;线段树&lt;/p&gt;
+&lt;p&gt;邻接表&lt;/p&gt;
+&lt;p&gt;邻接矩阵&lt;/p&gt;
+&lt;p&gt;集合&lt;/p&gt;
+&lt;h1 id=&#34;哈希表&#34;&gt;哈希表&lt;/h1&gt;
+&lt;p&gt;有序集合&lt;/p&gt;
+&lt;p&gt;字典树&lt;/p&gt;
+&lt;h1 id=&#34;数组&#34;&gt;数组&lt;/h1&gt;
+&lt;h2 id=&#34;二分查找&#34;&gt;二分查找&lt;/h2&gt;
+&lt;h2 id=&#34;移除元素&#34;&gt;移除元素&lt;/h2&gt;
+&lt;h2 id=&#34;双指针&#34;&gt;双指针&lt;/h2&gt;
+&lt;h3 id=&#34;快慢指针&#34;&gt;快慢指针&lt;/h3&gt;
+&lt;h3 id=&#34;双向指针&#34;&gt;双向指针&lt;/h3&gt;
+&lt;h2 id=&#34;前后指针&#34;&gt;前后指针&lt;/h2&gt;
+&lt;h2 id=&#34;区间和&#34;&gt;区间和&lt;/h2&gt;
+&lt;h2 id=&#34;滑动窗口&#34;&gt;滑动窗口&lt;/h2&gt;
+&lt;p&gt;链表&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux操作系统</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;h1 id=&#34;linux操作系统&#34;&gt;Linux操作系统&lt;/h1&gt;
+&lt;h2 id=&#34;linux常用命令行&#34;&gt;linux常用命令行&lt;/h2&gt;
+&lt;h3 id=&#34;一文件与目录操作&#34;&gt;一.文件与目录操作&lt;/h3&gt;
+&lt;h3 id=&#34;二文本处理&#34;&gt;二.文本处理&lt;/h3&gt;
+&lt;h3 id=&#34;三权限管理&#34;&gt;三.权限管理&lt;/h3&gt;
+&lt;h3 id=&#34;四进程管理&#34;&gt;四.进程管理&lt;/h3&gt;
+&lt;h3 id=&#34;五系统信息与资源&#34;&gt;五.系统信息与资源&lt;/h3&gt;
+&lt;h3 id=&#34;六网络相关&#34;&gt;六.网络相关&lt;/h3&gt;
+&lt;h3 id=&#34;七压缩与解压&#34;&gt;七.压缩与解压&lt;/h3&gt;
+&lt;h3 id=&#34;八快捷键与作业控制&#34;&gt;八.快捷键与作业控制&lt;/h3&gt;
+&lt;h3 id=&#34;九包管理不同发行版本&#34;&gt;九.包管理(不同发行版本)&lt;/h3&gt;
+&lt;h3 id=&#34;十实用技巧&#34;&gt;十.实用技巧&lt;/h3&gt;
+&lt;p&gt;管道 |: 将一个命令的输出作为另一个命令的输入
+重定向:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;覆盖写入文件, &amp;raquo; 追加写入
+2&amp;gt; 重定向错误输出, &amp;amp;&amp;gt; 重定向所有输出
+通配符: * 匹配任一字符,? 匹配单个字符, [abc]匹配集合内字符
+命令替换: &amp;amp;(command) 或反引号 &amp;lsquo;command&amp;rsquo; ，例如 echo &amp;ldquo;今天十&amp;amp;(date)&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MPC</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/mpc/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/mpc/</guid>
+      <description>&lt;h1 id=&#34;mpc&#34;&gt;MPC&lt;/h1&gt;
+&lt;p&gt;MPC的核心思想是：
+预测：使用系统模型预测未来一段时间内的状态
+优化：求解一个有限时域的最优控制问题
+反馈：只实施第一个控制量，然后重新计算&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>opencv知识库---整理</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/opencv%E7%9F%A5%E8%AF%86%E5%BA%93-%E6%95%B4%E7%90%86/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/opencv%E7%9F%A5%E8%AF%86%E5%BA%93-%E6%95%B4%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;opencv知识库整理&#34;&gt;opencv知识库&amp;mdash;整理&lt;/h1&gt;
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念&lt;/h2&gt;
+&lt;p&gt;预处理
+按我的话来说，所谓预处理，就是在图像还未真正进行识别处理前，对图像进行简易、全局的处理。这一块通常在产生图片时进行操作，不属于我们视觉识别的重点（但是预处理真的很重要）。这里仅简单介绍我们使用的两个预处理过程。
+降低曝光度
+通过相机，我们能够源源不断地获取到当前的画面，也就是一帧帧的图像。自瞄算法处理的对象，就是这每一张图像。
+在实战中，由于环境光的干扰，如果直接对图片进行算法处理，会错误的提取多余的特征，导致算法的准确度和速度大大降低。由于灯条自己会发光，可以有效和将灯条与环境光很好的区分开来。为了便于分离灯条与其他光线，一般将曝光设置得很低，如下图为相机获取到的画面：（RoboMaster视觉教程（1）摄像头）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenVINO</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/openvino/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/openvino/</guid>
+      <description>&lt;h1 id=&#34;openvino&#34;&gt;OpenVINO&lt;/h1&gt;
+&lt;p&gt;OpenVINO 是做什么的？
+OpenVINO 是英特尔（Intel）开源的一套工具包，专门用于加速 AI 模型的推理（Inference）。
+它的核心职责： 它不负责训练模型（那是 PyTorch 或 TensorFlow 的工作），它只负责使用模型。它能把你训练好的模型进行底层指令集的优化，让它在 Intel 的硬件（比如 CPU、集成显卡 iGPU、或者最新的 NPU）上跑得飞快。
+为什么用 C++： 虽然 Python 开发快，但在工业落地（如自动驾驶、安防监控、医疗设备）中，通常要求极低的延迟和极高的性能，这时候 C++ + OpenVINO 就是黄金搭档。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prompt Engineering 提示工程</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/prompt-engineering-%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/prompt-engineering-%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/</guid>
+      <description>&lt;h1 id=&#34;prompt-engineering-提示工程&#34;&gt;Prompt Engineering 提示工程&lt;/h1&gt;
+&lt;h1 id=&#34;1什么是提示词工程&#34;&gt;1.什么是提示词工程&lt;/h1&gt;
+&lt;p&gt;当前是AGI时代
+AGI Artificial General Intelligence 通用人工智能&lt;/p&gt;
+&lt;h2 id=&#34;我们在提示工程上的优势&#34;&gt;我们在提示工程上的优势&lt;/h2&gt;
+&lt;p&gt;我们懂原理,所以知道
+为什么有的指令有效,有的指令无效
+为什么同样的指令有时有效,有时无效
+怎么提升指令的有效的概率&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rm第四阶段学习---自瞄</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/rm%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9E%84/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/rm%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9E%84/</guid>
+      <description>&lt;h1 id=&#34;rm第四阶段学习自瞄&#34;&gt;rm第四阶段学习&amp;mdash;自瞄&lt;/h1&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;h1 id=&#34;opencv书&#34;&gt;opencv书&lt;/h1&gt;
+&lt;h2 id=&#34;第八章检测兴趣点&#34;&gt;第八章检测兴趣点&lt;/h2&gt;
+&lt;p&gt;这个概念的原理是，从图像中选取某些特征点并对 图像进行局部分析（即提取局部特征），而非观察整幅图像（即提取全局特征）。
+视觉不变性 目前略&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ROS1</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/ros1/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/ros1/</guid>
+      <description>&lt;h1 id=&#34;ros1&#34;&gt;ROS1&lt;/h1&gt;
+&lt;p&gt;学习网址
+&lt;a href=&#34;https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html&#34;&gt;https://bluesnie.github.io/Learning-notes/ROS2/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%AF%87/%E7%AC%AC7%E7%AB%A0-ROS2%E8%BF%90%E5%8A%A8%E5%AD%A6/001-TF2%E4%BB%8B%E7%BB%8D%E5%8F%8ARVIZ-TF%E7%BB%84%E4%BB%B6.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;创建工作空间功能包流程&#34;&gt;创建工作空间功能包流程&lt;/h2&gt;
+&lt;p&gt;遇到的bug:
+最开始改CMakeLists.txt文件时改错文件了,而且居然改的时候有使用超级用户权限,应该改的文件是功能包的CMakeLists.txt文件，而不是工作空间的CMakeLists.txt文件,这个文件是自动生成的,后来意识到这个问题,但是改的时候一直没有意识到权限不够,我以为我改了实际上我没有更改成功,最后知道新开了一个工作空间重新编译才发现这个报了一摸一样的错误,才发现,之前一直以为是路径错误.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ROS2</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/ros2/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/ros2/</guid>
+      <description>&lt;h1 id=&#34;ros2&#34;&gt;ROS2&lt;/h1&gt;
+&lt;h2 id=&#34;第一章ros2介绍&#34;&gt;第一章ROS2介绍&lt;/h2&gt;
+&lt;h3 id=&#34;暂无&#34;&gt;暂无&lt;/h3&gt;
+&lt;h2 id=&#34;第二章准备环境与安装ros2&#34;&gt;第二章准备环境与安装ROS2&lt;/h2&gt;
+&lt;p&gt;暂无&lt;/p&gt;
+&lt;h2 id=&#34;第三章动手学ros2基础&#34;&gt;第三章动手学ROS2基础&lt;/h2&gt;
+&lt;h3 id=&#34;工作空间&#34;&gt;工作空间&lt;/h3&gt;
+&lt;p&gt;工作空间是一个存放项目开发类相关文件的文件夹，是开发过程的大本营&lt;/p&gt;
+&lt;p&gt;src         代码空间
+Install     安装空间
+build       编译空间
+Log         日志空间&lt;/p&gt;
+&lt;p&gt;创建工作空间：
+mkdir -p ~/dev-ws/src&lt;/p&gt;
+&lt;h3 id=&#34;节点机器人的工作细胞&#34;&gt;节点：机器人的工作细胞&lt;/h3&gt;
+&lt;p&gt;执行具体任务的进程
+独立运行的可执行文件
+可使用不同的编程语言
+可分布式运行在不同主机
+通过节点名称进行管理
+节点操作
+ros2 node list   //当前正在运行的节点信息
+ros2 node info  //查看该节点信息
+ros2 topic       //话题
+ros2 bag         //录制&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SLAM</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/slam/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/slam/</guid>
+      <description>&lt;h1 id=&#34;slam&#34;&gt;SLAM&lt;/h1&gt;
+&lt;h1 id=&#34;第一讲预备知识&#34;&gt;第一讲:预备知识&lt;/h1&gt;
+&lt;p&gt;Simultaneous Localization and Mapping(同时定位与地图构建)
+解决: 定位和建图&lt;/p&gt;
+&lt;p&gt;常见的库: Eigen:线性代数,Opencv:视觉处理,PCL:点云处理,g2o:slam框架,Ceres:非线性关系求解&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/sql/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/sql/</guid>
+      <description>&lt;h1 id=&#34;sql&#34;&gt;SQL&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>stm32</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/stm32/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/stm32/</guid>
+      <description>&lt;h1 id=&#34;stm32&#34;&gt;stm32&lt;/h1&gt;
+&lt;h2 id=&#34;stm32基础知识&#34;&gt;stm32基础知识&lt;/h2&gt;
+&lt;p&gt;stm32开发方式
+基于寄存器的方式
+基于标准库
+和基于HAL库的方式&lt;/p&gt;
+&lt;h2 id=&#34;新建工程&#34;&gt;新建工程&lt;/h2&gt;
+&lt;p&gt;.建立工程文件夹,Keil中新建工程,选择型号
+.工程文件夹中建立Start，Library,User等文件夹，复制固件库里面的文件到工程文件夹
+.工程里对应建立Start,Library,User等同名称的分组,然后文件夹内的文件添加到工程分组里
+.工程选项,C/C++,Include Paths内声明所有包含头文件的文件夹
+.工程选项,C/C++,Define内定义USE_STDPERIPH_DRIVER
+.工程选项,Debug,下拉列表选择对应调试器,Settings,Flash,Download里勾选Reset and Run&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vscode命令行</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/vscode%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/vscode%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>&lt;h1 id=&#34;vscode命令行&#34;&gt;Vscode命令行&lt;/h1&gt;
+&lt;h3 id=&#34;单文件编译&#34;&gt;单文件编译&lt;/h3&gt;
+&lt;p&gt;g++ -o 输出文件名 源文件.cpp
+指定输出可执行文件名为&amp;hellip;: 要编译的源文件名
+或者 g++ 源文件.cpp -o 输出文件名
+将要编译的源文件: 指定输出可执行文件名&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>xv6 for RISC-V</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/xv6-for-risc-v/</guid>
+      <description>&lt;h1 id=&#34;xv6-for-risc-v&#34;&gt;xv6 for RISC-V&lt;/h1&gt;
+&lt;h2 id=&#34;jyy-xv6导读&#34;&gt;jyy xv6导读&lt;/h2&gt;
+&lt;h3 id=&#34;基础知识&#34;&gt;基础知识&lt;/h3&gt;
+&lt;p&gt;应用视角的操作系统: 对象 + API
+把操作系统当提供服务的黑盒子&lt;/p&gt;
+&lt;p&gt;xv6:Unix v6的现代&amp;quot;克隆&amp;quot;&lt;/p&gt;
+&lt;p&gt;文件关系
+源文件 (.c/.cpp)  →  编译  →  目标文件 (.o)  →  链接  →  可执行文件
+↓
+依赖文件 (.d)  →  告诉构建系统何时需要重新编译&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>安装ch343的驱动</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%89%E8%A3%85ch343%E7%9A%84%E9%A9%B1%E5%8A%A8/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%89%E8%A3%85ch343%E7%9A%84%E9%A9%B1%E5%8A%A8/</guid>
+      <description>&lt;h1 id=&#34;安装ch343的驱动&#34;&gt;安装ch343的驱动&lt;/h1&gt;
+&lt;p&gt;解压并进入驱动目录&lt;/p&gt;
+&lt;p&gt;unzip ch343ser_linux-main.zip
+cd ch343ser_linux-main/driver&lt;/p&gt;
+&lt;p&gt;安装编译依赖(如果未安装)
+驱动需要内核头文件和编译工具
+image.png&lt;/p&gt;
+&lt;p&gt;编译驱动模块
+在driver目录下执行&lt;/p&gt;
+&lt;p&gt;sudo make install&lt;/p&gt;
+&lt;p&gt;加载驱动并测试
+先卸载可能已经自动加载的老驱动&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>安装库遇到的问题</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%89%E8%A3%85%E5%BA%93%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%89%E8%A3%85%E5%BA%93%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h1 id=&#34;安装库遇到的问题&#34;&gt;安装库遇到的问题&lt;/h1&gt;
+&lt;p&gt;1.requests模块已经安装,vscode下无法导入requests模块
+原因:python安装了多个版本,一个版本安装了库,另一个没有，而vscode调用的是另一个，
+解决方法:1.ctrl + shift + p 快捷键
+2.输入python select intepreter切换版本&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>操作系统</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;h1 id=&#34;操作系统&#34;&gt;操作系统&lt;/h1&gt;
+&lt;h1 id=&#34;中山os&#34;&gt;中山OS&lt;/h1&gt;
+&lt;p&gt;复杂系统
+多种内核架构
+宏内核
+微内核
+外核
+多内核
+重要设计原则
+策略与机制的分离&lt;/p&gt;
+&lt;h2 id=&#34;读写锁&#34;&gt;读写锁:&lt;/h2&gt;
+&lt;p&gt;读-读共享: 只要没有人再写,多少个读者可以同时读取数据(不互斥)
+读-写共享: 有人在写的时候,别人不能读; 有人在读的时候别人不能写
+写-写互斥: 一个人在写的时候,别人也不能写&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>常用快捷键</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>&lt;h1 id=&#34;常用快捷键&#34;&gt;常用快捷键&lt;/h1&gt;
+&lt;p&gt;vs2022打开视图ctrl + shift + L
+某些电脑Fn + win会禁用win功能&lt;/p&gt;
+&lt;p&gt;Vscode
+Ctrl + F搜索&lt;/p&gt;
+&lt;p&gt;Alt 拖动鼠标可以使用 方框框选&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>程序的并发</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B9%B6%E5%8F%91/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B9%B6%E5%8F%91/</guid>
+      <description>&lt;h1 id=&#34;程序的并发&#34;&gt;程序的并发&lt;/h1&gt;
+&lt;h2 id=&#34;进程和线程和协程的区别&#34;&gt;进程和线程和协程的区别&lt;/h2&gt;
+&lt;h3 id=&#34;进程&#34;&gt;进程&lt;/h3&gt;
+&lt;h3 id=&#34;线程&#34;&gt;线程&lt;/h3&gt;
+&lt;h3 id=&#34;协程&#34;&gt;协程&lt;/h3&gt;
+&lt;h2 id=&#34;线程池&#34;&gt;线程池&lt;/h2&gt;
+&lt;h2 id=&#34;线程安全队列&#34;&gt;线程安全队列&lt;/h2&gt;
+&lt;h2 id=&#34;重排序队列&#34;&gt;重排序队列&lt;/h2&gt;
+&lt;p&gt;1.期望序列号: 下一个该输出的序号
+2.暂存缓冲区(Buffer): 通常是一个Priority Queue(最小堆) 或Map/Hash
+3.水位线/超时(Watermark/Timeout): 如果某个包一直不来,队列不能永远卡死,需要有跳过或触发重传的机制&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>单目视觉</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%8D%95%E7%9B%AE%E8%A7%86%E8%A7%89/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%8D%95%E7%9B%AE%E8%A7%86%E8%A7%89/</guid>
+      <description>&lt;h1 id=&#34;单目视觉&#34;&gt;单目视觉&lt;/h1&gt;
+&lt;h2 id=&#34;单目视觉系统一般由一个相机或者一个相机与一个陀螺仪组成&#34;&gt;单目视觉系统一般由一个相机或者一个相机与一个陀螺仪组成。&lt;/h2&gt;
+&lt;p&gt;相机
+完成图像识别任务
+完成定位任务（一般基于PNP）
+将目标定位在相机坐标系内
+陀螺仪
+将相机坐标系内的坐标转换到世界坐标系&lt;/p&gt;
+&lt;h2 id=&#34;深度信息&#34;&gt;深度信息&lt;/h2&gt;
+&lt;p&gt;装甲板深度信息是指装甲板相对于机器人摄像头的距离信息，通常以深度图像或点云的形式表示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>导航</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%AF%BC%E8%88%AA/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%AF%BC%E8%88%AA/</guid>
+      <description>&lt;h1 id=&#34;导航&#34;&gt;导航&lt;/h1&gt;
+&lt;h2 id=&#34;感知&#34;&gt;感知:&lt;/h2&gt;
+&lt;h3 id=&#34;pcl&#34;&gt;PCL&lt;/h3&gt;
+&lt;p&gt;pcl(Point Cloud Library,点云库) 是一个 大型,跨平台,开源,免费的 C++库，专门用来处理2D/3D图像和点云数据&lt;/p&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;h3 id=&#34;bin&#34;&gt;Bin&lt;/h3&gt;
+&lt;p&gt;Bin是点云地面分割算法中的网络容器,负责存储极坐标网格内的所有点,并实时维护该区域内Z值(高度)最小的点,因为该点最可能是地面点&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>工程知识</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%B7%A5%E7%A8%8B%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%B7%A5%E7%A8%8B%E7%9F%A5%E8%AF%86/</guid>
+      <description>&lt;h1 id=&#34;工程知识&#34;&gt;工程知识&lt;/h1&gt;
+&lt;h2 id=&#34;编译&#34;&gt;编译:&lt;/h2&gt;
+&lt;h2 id=&#34;预编译&#34;&gt;预编译:&lt;/h2&gt;
+&lt;p&gt;预编译头文件是一种编译器优化技术,用于大幅加速C/C++项目的编译速度
+把常用的,不常变化的头文件预先编译成二进制形式,这样每个源文件编译时就不需要重新解析这些头文件&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>桂工自瞄文档</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%A1%82%E5%B7%A5%E8%87%AA%E7%9E%84%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%A1%82%E5%B7%A5%E8%87%AA%E7%9E%84%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h1 id=&#34;桂工自瞄文档&#34;&gt;桂工自瞄文档&lt;/h1&gt;
+&lt;h2 id=&#34;开发记录&#34;&gt;开发记录:&lt;/h2&gt;
+&lt;p&gt;1.双装甲板通信逻辑
+2.帧率控制器,插值法 补偿ros时间(陈君提出) -&amp;gt; (前提解决相机装配误差)
+3.卡尔曼滤波器,熵权法,整车建模(最难),多运动模型观测
+4.选板逻辑
+5.重力补偿弹道解算(西工大(采纳)，同济(未采纳),上交四阶龙格库塔(中科大)) 上交线性空气阻力模型(采纳)(存在问题目前猜测由于pnp测距不准,在较远距离空气阻力击打倾斜效果很差)
+无空气阻力的模型，它的角度和距离是线性，但是在远距离的时候，它的速度是随距离指数衰减的，在距离较远的时候，一点点测距误差就会导致比较大的角度偏差
+6.三层前哨战卡尔曼修改(卡尔曼参数还需调试)
+7.手写脱ros坐标变换器(重点: 角点变换) -&amp;gt; 待整理(目前矩阵命名是相反的) -&amp;gt; 已整理
+8.上交三分法降自由度优化yaw角（最后采用这个方案）
+9.同济暴力搜索降自由度优化yaw角 （近距离存在问题）
+10.识别角点优化(fitLine最小二乘法获得灯条角点 -&amp;gt; 优化后降自由度产生良好优化效果,0度范围角度不再跳变)
+11.西工大mpc轨迹规划器(半成品)
+12.约束平面求相机装配误差和完整误差补偿 -&amp;gt; 考虑使用RANSAC算法重构
+13.弹道重现 -&amp;gt; 考虑后续实现弹道闭环
+14.手眼标定(半成品) -&amp;gt; (传统手眼标定, 先进手眼标定(版本不够))
+15.火控流水打弹(500血 30转 3m 9s 70%命中率)
+16.空气阻力弹道模型(存在bug未查明)
+17.视觉弹频控制(旋转移动命中率到38%~50%) -&amp;gt; 效果不太好会影响dps -&amp;gt; 被废弃
+18.同济mpc(未落地) -&amp;gt; 规划存在提前减速的效果 -&amp;gt; 电控和机械跟不上
+但是由于:
+开火时延是同济的十倍(200ms),20个时间片后的规划和预测云台做火控效果很差,双环pid跟随存在稳态误差需要添加电控时延但是20个时间片的预测效果就很差了,目前旋转移动目标,小弹丸命中率只有传统方法的一半(25%)
+未来:
+电控机械尽量减少开火延时
+mpc规划的速度和加速度作为前馈发送给双环pid作为前馈或者考虑计算力矩控制算法(提升云台的跟随能力)
+19.参考BA优化的思想优化pnp算法的测距(失败)
+20.PCA主成分分析法(Principal Component Analysis, PCA)方法优化角点(哨兵没部署)
+21.识别和相机采集多线程(初步编写)
+22.全向感知(多相机采集调度)(仅初步学习线程池) 放弃多线程方案 -&amp;gt; 多进程方案已初步启动两个相机 -&amp;gt; 初步实现等待部署
+23.ssh+自瞄网页调试 初步实现
+24.修降自由度bug，修流水火控bug(调的参数好的情况下,火控有大的提升，英雄低速目标颗秒，高速静止目标100w麦轮50%命中率) -&amp;gt; 但是参数敏感每隔几个小时参数就会变,而且实战环境复杂,命中困难
+25.迭代法求子弹飞行时间(无空气阻力) -&amp;gt; 有空气阻力曾经实现过未通过测试
+26.多段测距的弹道硬补偿(弹道标定) 已测试 效果不错 但调参成本大
+27.自瞄网页调试器 初步实现
+28.自瞄Python单测(计划实现)
+29.自瞄ros2重构(计划实现)
+30.全向感知技术(半成品) -&amp;gt; (计划实现)
+31.针对前哨和远距离目标的新火控(计划实现) -&amp;gt; 远距离(单点) 前哨(跟随上再击打)
+32.给自瞄接入gazebo仿真  初步实现&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>牛客面经</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E7%89%9B%E5%AE%A2%E9%9D%A2%E7%BB%8F/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E7%89%9B%E5%AE%A2%E9%9D%A2%E7%BB%8F/</guid>
+      <description>&lt;h1 id=&#34;牛客面经&#34;&gt;牛客面经&lt;/h1&gt;
+&lt;p&gt;1.环境变量的作用?&lt;/p&gt;
+&lt;p&gt;2.编译器和解释器的区别?&lt;/p&gt;
+&lt;p&gt;3.b树和b+树的区别?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>前后端</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%89%8D%E5%90%8E%E7%AB%AF/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%89%8D%E5%90%8E%E7%AB%AF/</guid>
+      <description>&lt;h1 id=&#34;前后端&#34;&gt;前后端&lt;/h1&gt;
+&lt;h2 id=&#34;react&#34;&gt;React&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://react.dev/learn&#34;&gt;https://react.dev/learn&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;javaweb&#34;&gt;JavaWeb&lt;/h2&gt;
+&lt;p&gt;HTML 基础教程
+&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML&#34;&gt;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML&lt;/a&gt;
+CSS 基础教程
+&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps&#34;&gt;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;标签&#34;&gt;标签&lt;/h3&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;h3 id=&#34;div&#34;&gt;DIV&lt;/h3&gt;
+&lt;div&gt;是一个块级容器,就像一个无形的盒子,用来把页面内容分成不同的部分,方便用CSS控制样式和布局
+&lt;p&gt;你可以把页头,导航栏,内容区,页脚分别放进不同的&lt;div&gt;里,然后用CSS去控制每个盒子的位置,大小,背景等&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>嵌入式自学指南</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%87%AA%E5%AD%A6%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%87%AA%E5%AD%A6%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h1 id=&#34;嵌入式自学指南&#34;&gt;嵌入式自学指南&lt;/h1&gt;
+&lt;p&gt;书籍推荐
+C primer plus
+大话数据结构
+电子元器件&lt;/p&gt;
+&lt;p&gt;51单片机
+stm32 &amp;mdash;- 野火 &amp;mdash; 基于stm32开发板实战指南
+标准库   寄存器&lt;br&gt;
+cc2530
+RT-THread
+freeRTOS
+学到这里就可以找实习&lt;/p&gt;
+&lt;p&gt;方向1   硬件
+画板子   qt&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深入理解计算机系统</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;h1 id=&#34;深入理解计算机系统&#34;&gt;深入理解计算机系统&lt;/h1&gt;
+&lt;h1 id=&#34;第一章计算机系统漫游&#34;&gt;第一章:计算机系统漫游&lt;/h1&gt;
+&lt;h2 id=&#34;11信息就是位上下文&#34;&gt;1.1信息就是位+上下文&lt;/h2&gt;
+&lt;p&gt;基本思想：系统中所有的信息————包括磁盘文件，内存中的程序，内存中存放的用户数据以及网络上传送的数据，都是由一串比特表示的。区分不同数据对象的唯一方法是我们读到这些数据对象的上下文。
+C语言的起源：
+C语言最开始作为一种用于Unix系统的程序语言开发出来的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>视觉完整形态文档</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%A7%86%E8%A7%89%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%A7%86%E8%A7%89%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h1 id=&#34;视觉完整形态文档&#34;&gt;视觉完整形态文档&lt;/h1&gt;
+&lt;h2 id=&#34;战术定位核心研发功能点规划调整&#34;&gt;战术定位,核心研发功能点,规划调整&lt;/h2&gt;
+&lt;p&gt;核心研发功能点中的“自瞄预测与控制”的规划有所修改，针对追踪与开火逻辑进行了修改，从原来的EKF预测加双环PID控制，改为运动学模型结合MPC优化，并剥离开火逻辑的方案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>视觉中期文档</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%A7%86%E8%A7%89%E4%B8%AD%E6%9C%9F%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%A7%86%E8%A7%89%E4%B8%AD%E6%9C%9F%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h1 id=&#34;视觉中期文档&#34;&gt;视觉中期文档&lt;/h1&gt;
+&lt;p&gt;634bebc64df5b4279a6577b9cf918ff.jpg&lt;/p&gt;
+&lt;p&gt;今年，我们视觉方案的核心是构建一个能在复杂比赛环境下稳定命中的高帧率自瞄系统。针对去年小陀螺跟踪不稳、远距离命中率低的问题，我们从预测模型、弹道解算到系统延时进行了全链路升级。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>视觉组培训计划</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%A7%86%E8%A7%89%E7%BB%84%E5%9F%B9%E8%AE%AD%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%A7%86%E8%A7%89%E7%BB%84%E5%9F%B9%E8%AE%AD%E8%AE%A1%E5%88%92/</guid>
+      <description>&lt;h1 id=&#34;视觉组培训计划&#34;&gt;视觉组培训计划&lt;/h1&gt;
+&lt;h2 id=&#34;第一阶段-电控视觉硬件c语言联培&#34;&gt;第一阶段: 电控视觉硬件C语言联培&lt;/h2&gt;
+&lt;p&gt;推荐时间: 10.1~11.15
+学习内容: 与电控，硬件联合进行C语言培训，每周布置一次作业并进行评分&lt;/p&gt;
+&lt;h5 id=&#34;推荐学习资料&#34;&gt;推荐学习资料:&lt;/h5&gt;
+&lt;p&gt;C primer plus
+翁恺C语言&lt;/p&gt;
+&lt;p&gt;考核方式: 月底 进行C语言线下考核&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数学建模</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</guid>
+      <description>&lt;h1 id=&#34;数学建模&#34;&gt;数学建模&lt;/h1&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://hydarealman.github.io/wander/images/feishu/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/image_842be0.png&#34;
+  alt=&#34;图片 1&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  sizes=&#34;(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px&#34;
+&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数学建模 - matlab</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-matlab/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-matlab/</guid>
+      <description>&lt;h1 id=&#34;数学建模---matlab&#34;&gt;数学建模 - matlab&lt;/h1&gt;
+&lt;h1 id=&#34;matlab&#34;&gt;matlab&lt;/h1&gt;
+&lt;h2 id=&#34;1matlab界面及基本操作&#34;&gt;1.matlab界面及基本操作&lt;/h2&gt;
+&lt;p&gt;clc &amp;mdash; 清空命令行
+clear &amp;mdash; 清空工作区
+按上方向键 &amp;mdash; 调用历史命令
+% 后面写的都是注释
+命令行敲回车执行
+脚本文件 函数文件结尾尾缀.m
+实时脚本文件尾缀.mlx
+分节符&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>完整形态文档: 自瞄开源引用</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3-%E8%87%AA%E7%9E%84%E5%BC%80%E6%BA%90%E5%BC%95%E7%94%A8/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%AE%8C%E6%95%B4%E5%BD%A2%E6%80%81%E6%96%87%E6%A1%A3-%E8%87%AA%E7%9E%84%E5%BC%80%E6%BA%90%E5%BC%95%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;完整形态文档-自瞄开源引用&#34;&gt;完整形态文档: 自瞄开源引用&lt;/h1&gt;
+&lt;p&gt;西工大自瞄:
+&lt;a href=&#34;https://github.com/SnocrashWang/WMJAimer/wiki/WMJAimer-Project-Report&#34;&gt;https://github.com/SnocrashWang/WMJAimer/wiki/WMJAimer-Project-Report&lt;/a&gt;
+结合卡尔曼滤波器和熵权法匹配多运动模型的整车建模&lt;/p&gt;
+&lt;p&gt;上交自瞄:
+&lt;a href=&#34;https://github.com/julyfun/rm.cv.fans?tab=readme-ov-file&#34;&gt;https://github.com/julyfun/rm.cv.fans?tab=readme-ov-file&lt;/a&gt;
+三分法降自由度的yaw角优化 弹道重现的可视化调参 坐标变换器&lt;/p&gt;
+&lt;p&gt;同济自瞄:
+&lt;a href=&#34;https://github.com/TongjiSuperPower/sp_vision_25/&#34;&gt;https://github.com/TongjiSuperPower/sp_vision_25/&lt;/a&gt;
+暴力搜索法降自由度的yaw角优化 MPC轨迹规划器&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>相机标定</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A/</guid>
+      <description>&lt;h1 id=&#34;相机标定&#34;&gt;相机标定&lt;/h1&gt;
+&lt;h1 id=&#34;相机标定基本概念&#34;&gt;相机标定基本概念&lt;/h1&gt;
+&lt;p&gt;OpenCV中的相机标定是计算机视觉中的一个重要任务，它用于确定相机的内部参数（如焦距、主点位置等）和外部参数（如相机相对于世界坐标系的旋转和平移）。
+确定内部参数和外部参数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自瞄赛前代码检查&#43;备忘录</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E8%B5%9B%E5%89%8D%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5-%E5%A4%87%E5%BF%98%E5%BD%95/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E8%B5%9B%E5%89%8D%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5-%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
+      <description>&lt;h1 id=&#34;自瞄赛前代码检查备忘录&#34;&gt;自瞄赛前代码检查+备忘录&lt;/h1&gt;
+&lt;p&gt;赛前检查代码+调参:
+1.硬补偿(瞄准yaml) 调落点&lt;/p&gt;
+&lt;p&gt;2.识别阈值(曝光: 识别yaml + 二值化阈值new_detector.hpp文件中):
+基地识别参数: 160 2300
+3v3比赛参数: 220 2300(当时英雄给了220 1000 不知道220 2300怎么样没试)
+7v7比赛参数: 待定&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自瞄使用说明书</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E8%87%AA%E7%9E%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/</guid>
+      <description>&lt;h1 id=&#34;自瞄使用说明书&#34;&gt;自瞄使用说明书&lt;/h1&gt;
+&lt;p&gt;长按鼠标右键进入自瞄,松开鼠标右键退出自瞄
+右键后按住q键自动开火,松开右键取消自瞄和自动开火,(考虑到英雄弹频过低,且大弹丸触发严格,英雄火控阈值较为严格,如果q键没有打弹说明自瞄认为当前开火时机不够好不适合打弹(也有可能是卡弹了))
+建议如果使用自瞄击打目标请使用q键开火
+左键手动开火
+请在装甲板数字和灯条未遮挡时使用自瞄，否则视觉无法识别敌方装甲板 如若不确定自瞄是否识别敌方装甲板到请使用q键开火
+目前自瞄合适的射击距离在4.5m以内,超过4.5m后命中率会显著下降,但还是可以尝试击打
+温馨提示: 如若自瞄瞄歪或者掉自瞄,请果断在该场比赛放弃自瞄,并在赛后马上寻找视觉组紧急处理问题&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

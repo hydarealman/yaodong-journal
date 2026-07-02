@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>编程开发 on wander</title>
+    <link>https://hydarealman.github.io/wander/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in 编程开发 on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tmux简明速查手册(WSL_Linux通用)</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl_linux%E9%80%9A%E7%94%A8/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:40 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl_linux%E9%80%9A%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;tmux简明速查手册wsllinux通用&#34;&gt;tmux简明速查手册(WSL/Linux通用)&lt;/h1&gt;
+&lt;p&gt;1.安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;update&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;2.启动与退出&lt;/p&gt;
+&lt;p&gt;启动tmux&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;退出当前窗格&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;或&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ctrl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;3.会话管理&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;分离会话（后台运行）&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;Ctrl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;然后按&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;重新连接（回到上次现场）&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attach&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;列出所有会话&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ls&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;连接到指定会话&lt;/span&gt;          &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attach&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;会话名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;新建命名会话&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;tmux&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;会话名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;4.窗格管理 按键(先按Ctrl+b,再按下下一个键)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rust仿真环境配置_ wsl &#43; ros2 &#43; rust</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE_-wsl--ros2--rust/</link>
+      <pubDate>Sat, 06 Jun 2026 16:15:30 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE_-wsl--ros2--rust/</guid>
+      <description>&lt;h1 id=&#34;rust仿真环境配置-wsl--ros2--rust&#34;&gt;rust仿真环境配置: wsl + ros2 + rust&lt;/h1&gt;
+&lt;p&gt;1.以管理员身份打开PowerShell或CMD&lt;/p&gt;
+&lt;p&gt;2.执行安装命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;24.04&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;3.设置用户名和密码&lt;/p&gt;
+&lt;p&gt;列出所有的ubantu版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;进入想要的版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;24.04&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;复制文件到根目录&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rust仿真环境配置: wsl &#43; ros2 &#43; rust</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/</guid>
+      <description>&lt;h1 id=&#34;rust仿真环境配置-wsl--ros2--rust&#34;&gt;rust仿真环境配置: wsl + ros2 + rust&lt;/h1&gt;
+&lt;p&gt;1.以管理员身份打开PowerShell或CMD&lt;/p&gt;
+&lt;p&gt;2.执行安装命令&lt;/p&gt;
+&lt;p&gt;wsl &amp;ndash;install -d Ubuntu-24.04
+3.设置用户名和密码&lt;/p&gt;
+&lt;p&gt;列出所有的ubantu版本&lt;/p&gt;
+&lt;p&gt;wsl -l -v&lt;/p&gt;
+&lt;p&gt;进入想要的版本&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>tmux简明速查手册(WSL/Linux通用)</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl-linux%E9%80%9A%E7%94%A8/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/tmux%E7%AE%80%E6%98%8E%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C-wsl-linux%E9%80%9A%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;tmux简明速查手册wsllinux通用&#34;&gt;tmux简明速查手册(WSL/Linux通用)&lt;/h1&gt;
+&lt;p&gt;1.安装&lt;/p&gt;
+&lt;p&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install tmux&lt;/p&gt;
+&lt;p&gt;2.启动与退出
+启动tmux&lt;/p&gt;
+&lt;p&gt;tmux
+退出当前窗格&lt;/p&gt;
+&lt;p&gt;exit 或 Ctrl+d&lt;/p&gt;
+&lt;p&gt;3.会话管理&lt;/p&gt;
+&lt;p&gt;分离会话（后台运行）     Ctrl+b 然后按 d
+重新连接（回到上次现场） tmux attach
+列出所有会话            tmux ls
+连接到指定会话          tmux attach -t 会话名
+新建命名会话            tmux new -s 会话名&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>C/C&#43;&#43;代码中积累的语法</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/c-c-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%A7%AF%E7%B4%AF%E7%9A%84%E8%AF%AD%E6%B3%95/</guid>
+      <description>&lt;h1 id=&#34;cc代码中积累的语法&#34;&gt;C/C++代码中积累的语法&lt;/h1&gt;
+&lt;h2 id=&#34;cc中的数据类型转换&#34;&gt;C/C++中的数据类型转换&lt;/h2&gt;
+&lt;p&gt;数据类型自动转换
+当不同类型的变量同时运算时就会发生数据类型的自动转换，以常见的 char、short、int、long、float、double 这些类型为例，如果 char 和 int 两个类型的变量相加时，就会把 char 先转换成 int 再进行加法运算，如果是 int 和 double 类型的变量相乘就会把 int 转换成 double 再进行运算。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/docker/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/docker/</guid>
+      <description>&lt;h1 id=&#34;docker&#34;&gt;docker&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>Git分布式版本控制工具</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;h1 id=&#34;git分布式版本控制工具&#34;&gt;Git分布式版本控制工具&lt;/h1&gt;
+&lt;h2 id=&#34;1基本命令行&#34;&gt;1.基本命令行&lt;/h2&gt;
+&lt;p&gt;ls/ll   查看当前目录&lt;/p&gt;
+&lt;p&gt;cat    查看文件内容&lt;/p&gt;
+&lt;p&gt;touch  创建文件&lt;/p&gt;
+&lt;p&gt;vi       vi编辑器&lt;/p&gt;
+&lt;h2 id=&#34;2创建bashrc文件&#34;&gt;2.创建.bashrc文件&lt;/h2&gt;
+&lt;p&gt;打开用户目录,创建.bashrc文件
+在.bashrc文件中输入&lt;/p&gt;
+&lt;h1 id=&#34;用于输出git提交日志&#34;&gt;用于输出git提交日志&lt;/h1&gt;
+&lt;p&gt;alias git-log=&amp;lsquo;git log &amp;ndash;pretty=oneline &amp;ndash;all &amp;ndash;graph &amp;ndash;abbrev-commit&amp;rsquo;&lt;/p&gt;
+&lt;h1 id=&#34;用于输出当前目录所有文件及其基本信息&#34;&gt;用于输出当前目录所有文件及其基本信息&lt;/h1&gt;
+&lt;p&gt;alias ll=&amp;lsquo;ls -al&amp;rsquo;&lt;/p&gt;
+&lt;h2 id=&#34;3解决gitbash乱码问题&#34;&gt;3.解决GitBash乱码问题&lt;/h2&gt;
+&lt;p&gt;1.打开GitBash执行下面指令
+Git config &amp;ndash;global core.quotepath false&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux操作系统</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;h1 id=&#34;linux操作系统&#34;&gt;Linux操作系统&lt;/h1&gt;
+&lt;h2 id=&#34;linux常用命令行&#34;&gt;linux常用命令行&lt;/h2&gt;
+&lt;h3 id=&#34;一文件与目录操作&#34;&gt;一.文件与目录操作&lt;/h3&gt;
+&lt;h3 id=&#34;二文本处理&#34;&gt;二.文本处理&lt;/h3&gt;
+&lt;h3 id=&#34;三权限管理&#34;&gt;三.权限管理&lt;/h3&gt;
+&lt;h3 id=&#34;四进程管理&#34;&gt;四.进程管理&lt;/h3&gt;
+&lt;h3 id=&#34;五系统信息与资源&#34;&gt;五.系统信息与资源&lt;/h3&gt;
+&lt;h3 id=&#34;六网络相关&#34;&gt;六.网络相关&lt;/h3&gt;
+&lt;h3 id=&#34;七压缩与解压&#34;&gt;七.压缩与解压&lt;/h3&gt;
+&lt;h3 id=&#34;八快捷键与作业控制&#34;&gt;八.快捷键与作业控制&lt;/h3&gt;
+&lt;h3 id=&#34;九包管理不同发行版本&#34;&gt;九.包管理(不同发行版本)&lt;/h3&gt;
+&lt;h3 id=&#34;十实用技巧&#34;&gt;十.实用技巧&lt;/h3&gt;
+&lt;p&gt;管道 |: 将一个命令的输出作为另一个命令的输入
+重定向:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;覆盖写入文件, &amp;raquo; 追加写入
+2&amp;gt; 重定向错误输出, &amp;amp;&amp;gt; 重定向所有输出
+通配符: * 匹配任一字符,? 匹配单个字符, [abc]匹配集合内字符
+命令替换: &amp;amp;(command) 或反引号 &amp;lsquo;command&amp;rsquo; ，例如 echo &amp;ldquo;今天十&amp;amp;(date)&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/sql/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/sql/</guid>
+      <description>&lt;h1 id=&#34;sql&#34;&gt;SQL&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>Vscode命令行</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/vscode%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/vscode%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>&lt;h1 id=&#34;vscode命令行&#34;&gt;Vscode命令行&lt;/h1&gt;
+&lt;h3 id=&#34;单文件编译&#34;&gt;单文件编译&lt;/h3&gt;
+&lt;p&gt;g++ -o 输出文件名 源文件.cpp
+指定输出可执行文件名为&amp;hellip;: 要编译的源文件名
+或者 g++ 源文件.cpp -o 输出文件名
+将要编译的源文件: 指定输出可执行文件名&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>前后端</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E5%89%8D%E5%90%8E%E7%AB%AF/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E5%89%8D%E5%90%8E%E7%AB%AF/</guid>
+      <description>&lt;h1 id=&#34;前后端&#34;&gt;前后端&lt;/h1&gt;
+&lt;h2 id=&#34;react&#34;&gt;React&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://react.dev/learn&#34;&gt;https://react.dev/learn&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;javaweb&#34;&gt;JavaWeb&lt;/h2&gt;
+&lt;p&gt;HTML 基础教程
+&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML&#34;&gt;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML&lt;/a&gt;
+CSS 基础教程
+&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps&#34;&gt;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;标签&#34;&gt;标签&lt;/h3&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;h3 id=&#34;div&#34;&gt;DIV&lt;/h3&gt;
+&lt;div&gt;是一个块级容器,就像一个无形的盒子,用来把页面内容分成不同的部分,方便用CSS控制样式和布局
+&lt;p&gt;你可以把页头,导航栏,内容区,页脚分别放进不同的&lt;div&gt;里,然后用CSS去控制每个盒子的位置,大小,背景等&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>算法数学 on wander</title>
+    <link>https://hydarealman.github.io/wander/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E5%AD%A6/</link>
+    <description>Recent content in 算法数学 on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kalman filter</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/kalman-filter/</link>
+      <pubDate>Sat, 06 Jun 2026 16:10:45 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/kalman-filter/</guid>
+      <description>&lt;h1 id=&#34;kalman-filter&#34;&gt;Kalman filter&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>leetcode_</title>
+      <link>https://hydarealman.github.io/wander/posts/2026/06/leetcode_/</link>
+      <pubDate>Sat, 06 Jun 2026 16:02:11 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/2026/06/leetcode_/</guid>
+      <description>&lt;h1 id=&#34;leetcode&#34;&gt;leetcode&lt;/h1&gt;
+&lt;p&gt;//to_string()//数字转字符串&lt;/p&gt;
+&lt;p&gt;//stoi()字符串转数字&lt;/p&gt;
+&lt;p&gt;//string(1,char)字符转数字//string构造函数&lt;/p&gt;
+&lt;p&gt;1LL会在运算时把后面的临时数据扩容成long &lt;a href=&#34;https://so.csdn.net/so/search?q=long%E7%B1%BB%E5%9E%8B&amp;amp;spm=1001.2101.3001.7020&#34;&gt;long类型&lt;/a&gt;，再在赋值给左边时转回int类型。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>leetcode</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/leetcode/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/leetcode/</guid>
+      <description>&lt;h1 id=&#34;leetcode&#34;&gt;leetcode&lt;/h1&gt;
+&lt;p&gt;//to_string()//数字转字符串
+//stoi()字符串转数字
+//string(1,char)字符转数字//string构造函数&lt;/p&gt;
+&lt;p&gt;1LL会在运算时把后面的临时数据扩容成long long类型，再在赋值给左边时转回int类型。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leetcode和蓝桥算法思路整理</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/leetcode%E5%92%8C%E8%93%9D%E6%A1%A5%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/leetcode%E5%92%8C%E8%93%9D%E6%A1%A5%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;leetcode和蓝桥算法思路整理&#34;&gt;Leetcode和蓝桥算法思路整理&lt;/h1&gt;
+&lt;h1 id=&#34;数据结构&#34;&gt;数据结构&lt;/h1&gt;
+&lt;h1 id=&#34;链表&#34;&gt;链表&lt;/h1&gt;
+&lt;p&gt;双向链表&lt;/p&gt;
+&lt;p&gt;循环链表&lt;/p&gt;
+&lt;p&gt;链表栈&lt;/p&gt;
+&lt;p&gt;堆链表&lt;/p&gt;
+&lt;p&gt;栈&lt;/p&gt;
+&lt;p&gt;堆&lt;/p&gt;
+&lt;p&gt;队列&lt;/p&gt;
+&lt;h1 id=&#34;二叉树&#34;&gt;二叉树&lt;/h1&gt;
+&lt;p&gt;平衡二叉树&lt;/p&gt;
+&lt;p&gt;二叉搜索树&lt;/p&gt;
+&lt;p&gt;平衡二叉搜索树&lt;/p&gt;
+&lt;p&gt;哈夫曼树&lt;/p&gt;
+&lt;p&gt;堆&amp;mdash;优先队列&lt;/p&gt;
+&lt;p&gt;最小堆&lt;/p&gt;
+&lt;p&gt;最大堆&lt;/p&gt;
+&lt;p&gt;B树&lt;/p&gt;
+&lt;p&gt;B+树&lt;/p&gt;
+&lt;h2 id=&#34;并查集&#34;&gt;并查集&lt;/h2&gt;
+&lt;p&gt;红黑树&lt;/p&gt;
+&lt;p&gt;线段树&lt;/p&gt;
+&lt;p&gt;邻接表&lt;/p&gt;
+&lt;p&gt;邻接矩阵&lt;/p&gt;
+&lt;p&gt;集合&lt;/p&gt;
+&lt;h1 id=&#34;哈希表&#34;&gt;哈希表&lt;/h1&gt;
+&lt;p&gt;有序集合&lt;/p&gt;
+&lt;p&gt;字典树&lt;/p&gt;
+&lt;h1 id=&#34;数组&#34;&gt;数组&lt;/h1&gt;
+&lt;h2 id=&#34;二分查找&#34;&gt;二分查找&lt;/h2&gt;
+&lt;h2 id=&#34;移除元素&#34;&gt;移除元素&lt;/h2&gt;
+&lt;h2 id=&#34;双指针&#34;&gt;双指针&lt;/h2&gt;
+&lt;h3 id=&#34;快慢指针&#34;&gt;快慢指针&lt;/h3&gt;
+&lt;h3 id=&#34;双向指针&#34;&gt;双向指针&lt;/h3&gt;
+&lt;h2 id=&#34;前后指针&#34;&gt;前后指针&lt;/h2&gt;
+&lt;h2 id=&#34;区间和&#34;&gt;区间和&lt;/h2&gt;
+&lt;h2 id=&#34;滑动窗口&#34;&gt;滑动窗口&lt;/h2&gt;
+&lt;p&gt;链表&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MPC</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/mpc/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/mpc/</guid>
+      <description>&lt;h1 id=&#34;mpc&#34;&gt;MPC&lt;/h1&gt;
+&lt;p&gt;MPC的核心思想是：
+预测：使用系统模型预测未来一段时间内的状态
+优化：求解一个有限时域的最优控制问题
+反馈：只实施第一个控制量，然后重新计算&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数学建模</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</guid>
+      <description>&lt;h1 id=&#34;数学建模&#34;&gt;数学建模&lt;/h1&gt;
+&lt;p&gt;image.png&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://hydarealman.github.io/wander/images/feishu/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/image_842be0.png&#34;
+  alt=&#34;图片 1&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  sizes=&#34;(max-width: 480px) 100vw, (max-width: 768px) 720px, 680px&#34;
+&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数学建模 - matlab</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-matlab/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-matlab/</guid>
+      <description>&lt;h1 id=&#34;数学建模---matlab&#34;&gt;数学建模 - matlab&lt;/h1&gt;
+&lt;h1 id=&#34;matlab&#34;&gt;matlab&lt;/h1&gt;
+&lt;h2 id=&#34;1matlab界面及基本操作&#34;&gt;1.matlab界面及基本操作&lt;/h2&gt;
+&lt;p&gt;clc &amp;mdash; 清空命令行
+clear &amp;mdash; 清空工作区
+按上方向键 &amp;mdash; 调用历史命令
+% 后面写的都是注释
+命令行敲回车执行
+脚本文件 函数文件结尾尾缀.m
+实时脚本文件尾缀.mlx
+分节符&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

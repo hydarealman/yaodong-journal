@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on wander</title>
+    <link>https://hydarealman.github.io/wander/tags/python/</link>
+    <description>Recent content in Python on wander</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jun 2026 10:28:17 +0800</lastBuildDate>
+    <atom:link href="https://hydarealman.github.io/wander/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rust仿真环境配置: wsl &#43; ros2 &#43; rust</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:24 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/rust%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-wsl--ros2--rust/</guid>
+      <description>&lt;h1 id=&#34;rust仿真环境配置-wsl--ros2--rust&#34;&gt;rust仿真环境配置: wsl + ros2 + rust&lt;/h1&gt;
+&lt;p&gt;1.以管理员身份打开PowerShell或CMD&lt;/p&gt;
+&lt;p&gt;2.执行安装命令&lt;/p&gt;
+&lt;p&gt;wsl &amp;ndash;install -d Ubuntu-24.04
+3.设置用户名和密码&lt;/p&gt;
+&lt;p&gt;列出所有的ubantu版本&lt;/p&gt;
+&lt;p&gt;wsl -l -v&lt;/p&gt;
+&lt;p&gt;进入想要的版本&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>opencv知识库---整理</title>
+      <link>https://hydarealman.github.io/wander/posts/1970/01/opencv%E7%9F%A5%E8%AF%86%E5%BA%93-%E6%95%B4%E7%90%86/</link>
+      <pubDate>Wed, 21 Jan 1970 23:10:23 +0800</pubDate>
+      <guid>https://hydarealman.github.io/wander/posts/1970/01/opencv%E7%9F%A5%E8%AF%86%E5%BA%93-%E6%95%B4%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;opencv知识库整理&#34;&gt;opencv知识库&amp;mdash;整理&lt;/h1&gt;
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念&lt;/h2&gt;
+&lt;p&gt;预处理
+按我的话来说，所谓预处理，就是在图像还未真正进行识别处理前，对图像进行简易、全局的处理。这一块通常在产生图片时进行操作，不属于我们视觉识别的重点（但是预处理真的很重要）。这里仅简单介绍我们使用的两个预处理过程。
+降低曝光度
+通过相机，我们能够源源不断地获取到当前的画面，也就是一帧帧的图像。自瞄算法处理的对象，就是这每一张图像。
+在实战中，由于环境光的干扰，如果直接对图片进行算法处理，会错误的提取多余的特征，导致算法的准确度和速度大大降低。由于灯条自己会发光，可以有效和将灯条与环境光很好的区分开来。为了便于分离灯条与其他光线，一般将曝光设置得很低，如下图为相机获取到的画面：（RoboMaster视觉教程（1）摄像头）&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

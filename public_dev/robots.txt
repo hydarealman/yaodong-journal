@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://hydarealman.github.io/wander/sitemap.xml
