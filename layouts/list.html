@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $pages := .RegularPages }}
-{{ if .IsHome }}{{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}{{ end }}
+{{ if .IsHome }}{{ $pages = where (where site.RegularPages "Type" "in" site.Params.mainSections) "WordCount" "gt" 100 }}{{ end }}
 {{ $pages = $pages.ByDate.Reverse }}
 {{ $paginator := .Paginate $pages }}
 {{ if and .IsHome (eq $paginator.PageNumber 1) }}{{ partial "home_info.html" . }}{{ else }}
@@ -8,19 +8,10 @@
 {{ end }}
 <div class="notebook-grid">
 <section aria-label="文章列表">
-<div class="section-label"><h2>{{ if .IsHome }}最近的笔记{{ else }}文章{{ end }}</h2><span>{{ len $pages }} 篇</span></div>
-{{ range $paginator.Pages }}
-<article class="note-row">
- <div class="note-meta">{{ if ge .Date.Year 2000 }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ else }}<span>学习笔记</span>{{ end }}{{ range first 1 (.GetTerms "categories") }}<span>{{ .LinkTitle }}</span>{{ end }}</div>
- <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
- {{ with .Description }}<p>{{ . | plainify | truncate 100 }}</p>{{ end }}
- <div class="note-bottom"><span>{{ .ReadingTime }} 分钟阅读</span><a href="{{ .RelPermalink }}" aria-label="阅读：{{ .Title }}">阅读笔记 <span aria-hidden="true">↗</span></a></div>
-</article>
-{{ end }}
+<div class="section-label"><h2>{{ if .IsHome }}文章与记录{{ else }}文章{{ end }}</h2><span>{{ len $pages }} 篇</span></div>
+{{ range $paginator.Pages }}{{ partial "journal_row.html" . }}{{ end }}
 {{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="文章分页">{{ if $paginator.HasPrev }}<a class="prev" href="{{ $paginator.Prev.URL }}">← 上一页</a>{{ end }}<span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>{{ if $paginator.HasNext }}<a class="next" href="{{ $paginator.Next.URL }}">下一页 →</a>{{ end }}</nav>{{ end }}
 </section>
-<aside class="notebook-aside"><section><p class="eyebrow">EXPLORE</p><h2>按主题探索</h2><div class="topic-list">{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}"><span>{{ .Page.Title }}</span><small>{{ .Count }}</small></a>{{ end }}</div></section>
-<section class="aside-about"><h2>关于这本笔记</h2><p>从代码与项目，到阅读与日常。这里收集值得记下的经历，也为尚未成形的想法留一页。</p><a href="{{ "about/" | relURL }}">更多关于我 ↗</a></section>
-<section class="aside-links"><a href="{{ "archives/" | relURL }}">时间归档</a><a href="{{ "library/" | relURL }}">文章索引</a><a href="{{ "index.xml" | relURL }}">RSS 订阅 ↗</a></section></aside>
+{{ partial "journal_sidebar.html" . }}
 </div>
 {{ end }}

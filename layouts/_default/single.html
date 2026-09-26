@@ -4,7 +4,7 @@
 <header class="post-header"><a class="back-link" href="{{ "posts/" | relURL }}">← 所有笔记</a><h1 class="post-title" data-pagefind-meta="title">{{ .Title }}</h1>{{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}<div class="post-meta">{{ partial "post_meta.html" . }}</div></header>
 {{ if .Param "showtoc" }}<details class="toc" open><summary>本文目录</summary>{{ .TableOfContents }}</details>{{ end }}
 <div class="post-content md-content">{{ partial "anchored_headings.html" .Content }}</div>
-<footer class="post-footer"><ul class="post-tags">{{ range .GetTerms "tags" }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>{{ if .Param "ShowPostNavLinks" }}{{ partial "post_nav_links.html" . }}{{ end }}</footer>
+<footer class="post-footer">{{ if .Param "ShowPostNavLinks" }}{{ partial "post_nav_links.html" . }}{{ end }}</footer>
 {{ if .Param "comments" }}{{ partial "comments.html" . }}{{ end }}
 </article>
 </div>

@@ -1,0 +1,1 @@
+{{ define "main" }}{{ if eq .Data.Plural "categories" }}{{ partial "journal_chapters.html" . }}{{ else }}<header class="page-header"><h1>{{ .Title }}</h1></header><ul class="terms-tags">{{ range .Data.Terms.Alphabetical }}<li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a></li>{{ end }}</ul>{{ end }}{{ end }}

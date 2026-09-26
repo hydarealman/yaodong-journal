@@ -1,1 +1,1 @@
-{{ if ge .Date.Year 2000 }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ end }}{{ .ReadingTime }} 分钟阅读{{ range first 1 (.GetTerms "categories") }} · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+{{ if ge .Date.Year 2000 }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · {{ end }}{{ .ReadingTime }} 分钟阅读{{ if eq .Type "posts" }}{{ $topic := partial "journal_topic.html" . }} · <a href="{{ printf "topics/%s/" $topic.id | relURL }}">{{ $topic.title }}</a>{{ end }}

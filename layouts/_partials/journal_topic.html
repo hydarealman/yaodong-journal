@@ -1,0 +1,1 @@
+{{ $id := "learning" }}{{ with .File }}{{ $id = index hugo.Data.journal_index .BaseFileName | default "learning" }}{{ end }}{{ $topic := index (where hugo.Data.journal_topics "id" $id) 0 }}{{ return $topic }}

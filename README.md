@@ -138,3 +138,13 @@ NPGS 项目遵循 **GNU General Public License v3 (GPL v3)**：
 > along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 完整的 GPL v3 许可证文本见 <https://www.gnu.org/licenses/gpl-3.0.html>。
+
+## 新版内容组织
+
+站点采用「项目手记、技术探索、工具与方法、学习与阅读、生活随笔」五个篇章。
+
+- `data/journal_topics.json`：篇章名称及说明。
+- `data/journal_index.json`：以文章文件名（不含扩展名）映射篇章。未配置的文章归入学习与阅读。
+- 首页展示字数超过 100 的记录；完整索引保留所有文章。
+- 本地目录为 `D:\yaodong-journal`，原始笔记目录 `D:\notes` 不变。
+- 新网址：https://hydarealman.github.io/yaodong-journal/
