@@ -10,7 +10,7 @@ searchHidden: true
 在 PowerShell 中执行：
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 powershell -ExecutionPolicy Bypass -File .\scripts\serve.ps1
 ```
 
@@ -25,14 +25,14 @@ http://127.0.0.1:1313/
 当 `D:\notes` 里的 Markdown 有新增或修改时，执行：
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 python .\scripts\import_notes.py
 ```
 
 脚本会做这些事：
 
 - 扫描 `D:\notes` 下所有 `.md` 文件。
-- 导入到 `D:\wander\content\posts`。
+- 导入到 `D:\yaodong-journal\content\posts`。
 - 自动生成 front matter。
 - 保留目录结构。
 - 自动生成标题、日期、标签、分类。
@@ -44,13 +44,13 @@ python .\scripts\import_notes.py
 置顶配置文件：
 
 ```text
-D:\wander\data\pinned_posts.toml
+D:\yaodong-journal\data\pinned_posts.toml
 ```
 
 也可以用脚本操作：
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 python .\scripts\pin_post.py list
 python .\scripts\pin_post.py add "桂工自瞄文档.md" 1
 python .\scripts\pin_post.py add "Git分布式版本控制工具.md" 2
@@ -144,7 +144,7 @@ grant execute on function public.increment_doc_like(text, text) to anon;
 ```
 
 3. 在 Supabase 的 Project Settings -> API 中复制 Project URL 和 anon public key。
-4. 修改 `D:\wander\hugo.toml`：
+4. 修改 `D:\yaodong-journal\hugo.toml`：
 
 ```toml
   [params.likeSystem]
@@ -163,7 +163,7 @@ grant execute on function public.increment_doc_like(text, text) to anon;
 修改、导入、检查完成后执行：
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 hugo --gc --minify --ignoreCache
 git add .
 git commit -m "Update blog"
@@ -175,7 +175,7 @@ git push
 线上地址：
 
 ```text
-https://hydarealman.github.io/wander/
+https://hydarealman.github.io/yaodong-journal/
 ```
 
 ## 7. 常见问题
@@ -192,4 +192,4 @@ powershell -ExecutionPolicy Bypass -File .\scripts\serve.ps1
 
 - GitHub Actions 是否成功。
 - Settings -> Pages -> Source 是否为 GitHub Actions。
-- 访问地址是否为 `https://hydarealman.github.io/wander/`。
+- 访问地址是否为 `https://hydarealman.github.io/yaodong-journal/`。

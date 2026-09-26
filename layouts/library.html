@@ -189,7 +189,7 @@
           ${item.pinned ? "<em>置顶</em>" : ""}
         </a>
         <div class="library-meta">
-          <span>${item.date}</span>
+          <span>${item.timestamp >= 946684800 ? item.date : "学习笔记"}</span>
           <span>${item.wordCount} 字</span>
           <span>${item.readingTime} 分钟</span>
           <span>${formatSize(item.sourceSize)}</span>

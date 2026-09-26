@@ -1,4 +1,4 @@
-# wander
+# Yaodong’s Journal
 
 这是一个 Hugo + PaperMod 搭建的个人博客项目，会把 `D:\notes` 下的 Markdown 笔记导入到 `content/posts`。
 
@@ -27,18 +27,18 @@ winget install --id Hugo.Hugo.Extended --exact --source winget --accept-package-
 ## 导入笔记
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 python .\scripts\import_notes.py
 ```
 
-脚本会递归扫描 `D:\notes` 下的 `.md` 文件，保留目录结构，生成 YAML front matter，并写入 `D:\wander\content\posts`。
+脚本会递归扫描 `D:\notes` 下的 `.md` 文件，保留目录结构，生成 YAML front matter，并写入 `D:\yaodong-journal\content\posts`。
 
 ## 置顶文章
 
 置顶规则放在 `data/pinned_posts.toml`，也可以用脚本管理：
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 python .\scripts\pin_post.py list
 python .\scripts\pin_post.py add "ROS2.md" 1
 python .\scripts\pin_post.py remove "ai使用指南.md"
@@ -69,7 +69,7 @@ python .\scripts\import_notes.py
 ## 本地预览
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 powershell -ExecutionPolicy Bypass -File .\scripts\serve.ps1
 ```
 
@@ -82,26 +82,26 @@ http://127.0.0.1:1313/
 ## 构建静态文件
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 hugo --gc --minify
 ```
 
-生成结果在 `D:\wander\public`，该目录已加入 `.gitignore`，不用提交。
+生成结果在 `D:\yaodong-journal\public`，该目录已加入 `.gitignore`，不用提交。
 
 ## 部署到 GitHub Pages
 
-1. GitHub 仓库：`https://github.com/hydarealman/wander`。
-2. GitHub Pages 地址：`https://hydarealman.github.io/wander/`。
+1. GitHub 仓库：`https://github.com/hydarealman/yaodong-journal`。
+2. GitHub Pages 地址：`https://hydarealman.github.io/yaodong-journal/`。
 3. 在仓库 Settings -> Pages 中把 Source 设置为 GitHub Actions。
 4. 推送源码：
 
 ```powershell
-cd D:\wander
+cd D:\yaodong-journal
 git config core.autocrlf false
 git add .
 git commit -m "Create Hugo blog"
 git branch -M main
-git remote add origin https://github.com/hydarealman/wander.git
+git remote add origin https://github.com/hydarealman/yaodong-journal.git
 git push -u origin main
 ```
 

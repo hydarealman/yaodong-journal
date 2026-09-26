@@ -4,8 +4,8 @@ import re
 
 
 SOURCE_DIR = Path(r"D:\notes")
-DEST_DIR = Path(r"D:\wander\content\posts")
-STATIC_MEDIA_DIR = Path(r"D:\wander\static\images\feishu")
+DEST_DIR = Path(__file__).resolve().parents[1] / "content" / "posts"
+STATIC_MEDIA_DIR = Path(__file__).resolve().parents[1] / "static" / "images" / "feishu"
 
 FRONT_MATTER_RE = re.compile(r"\A(?:---|\+\+\+)\s*\n.*?\n(?:---|\+\+\+)\s*\n?", re.S)
 HEADING_RE = re.compile(r"^\s*#\s+(.+?)\s*#*\s*$", re.M)

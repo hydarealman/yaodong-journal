@@ -3,7 +3,7 @@ import sys
 import tomllib
 
 
-PINNED_POSTS_FILE = Path(r"D:\wander\data\pinned_posts.toml")
+PINNED_POSTS_FILE = Path(__file__).resolve().parents[1] / "data" / "pinned_posts.toml"
 
 
 def load_posts() -> list[dict[str, object]]:

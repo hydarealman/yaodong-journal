@@ -1,5 +1,5 @@
-baseURL = "https://hydarealman.github.io/wander/"
-title = "wander"
+baseURL = "https://hydarealman.github.io/yaodong-journal/"
+title = "Yaodong’s Journal"
 description = "把日常笔记整理成可检索、可归档的个人博客。"
 theme = "PaperMod"
 locale = "zh-cn"
@@ -37,12 +37,12 @@ buildExpired = false
 
 [params]
   env = "production"
-  title = "wander"
-  description = "技术笔记、项目复盘、阅读记录和长期积累。"
+  title = "Yaodong’s Journal"
+  description = "学习、实践、阅读与生活中的记录。"
   keywords = ["Hugo", "Blog", "Notes", "个人博客", "技术笔记"]
-  author = "dong"
+  author = "Yaodong Hong"
   DateFormat = "2006-01-02"
-  defaultTheme = "auto"
+  defaultTheme = "light"
   disableThemeToggle = false
   ShowReadingTime = true
   ShowShareButtons = false
@@ -59,7 +59,7 @@ buildExpired = false
   comments = true
 
   [params.giscus]
-    repo = "hydarealman/wander"
+    repo = "hydarealman/yaodong-journal"
     repoId = "R_kgDOS5PAig"
     category = "General"
     categoryId = "DIC_kwDOS5PAis4DAWkL"
@@ -72,8 +72,8 @@ buildExpired = false
     disableHLJS = true
 
   [params.homeInfoParams]
-    Title = "wander"
-    Content = "技术笔记 · 项目复盘 · 阅读记录 · 长期积累"
+    Title = "Yaodong’s Journal"
+    Content = "学习 · 实践 · 阅读 · 生活"
 
   [params.fuseOpts]
     isCaseSensitive = false
@@ -85,7 +85,7 @@ buildExpired = false
     keys = ["title", "permalink", "summary", "content", "tags", "categories"]
 
   [params.editPost]
-    URL = "https://github.com/hydarealman/wander/edit/main/content"
+    URL = "https://github.com/hydarealman/yaodong-journal/edit/main/content"
     Text = "编辑此页"
     appendFilePath = true
 
@@ -112,55 +112,18 @@ buildExpired = false
       unsafe = true
 
 [[menu.main]]
-  identifier = "posts"
   name = "文章"
   url = "/posts/"
   weight = 10
-
 [[menu.main]]
-  identifier = "library"
-  name = "索引"
-  url = "/library/"
-  weight = 15
-
-[[menu.main]]
-  identifier = "categories"
-  name = "分类"
+  name = "主题"
   url = "/categories/"
   weight = 20
-
 [[menu.main]]
-  identifier = "commits"
-  name = "历史"
-  url = "/commits/"
-  weight = 28
-
-[[menu.main]]
-  identifier = "archives"
-  name = "归档"
-  url = "/archives/"
-  weight = 30
-
-[[menu.main]]
-  identifier = "tags"
-  name = "标签"
-  url = "/tags/"
-  weight = 40
-
-[[menu.main]]
-  identifier = "search"
   name = "搜索"
   url = "/search/"
-  weight = 50
-
+  weight = 30
 [[menu.main]]
-  identifier = "about"
   name = "关于"
   url = "/about/"
-  weight = 60
-
-[[menu.main]]
-  identifier = "manual"
-  name = "说明"
-  url = "/manual/"
-  weight = 70
+  weight = 40

@@ -1,124 +1,26 @@
-{{- define "main" }}
-
-{{- if (and site.Params.profileMode.enabled .IsHome) }}
-{{- partial "index_profile.html" . }}
-{{- else }}
-
-{{- if not .IsHome | and .Title }}
-<header class="page-header">
-  {{- partial "breadcrumbs.html" . }}
-  <h1>
-    {{ .Title }}
-    {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
-    {{- with .OutputFormats.Get "rss" }}
-    <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" height="23">
-        <path d="M4 11a9 9 0 0 1 9 9" />
-        <path d="M4 4a16 16 0 0 1 16 16" />
-        <circle cx="5" cy="19" r="1" />
-      </svg>
-    </a>
-    {{- end }}
-    {{- end }}
-  </h1>
-  {{- if .Description }}
-  <div class="post-description">{{ .Description | markdownify }}</div>
-  {{- end }}
-</header>
-{{- end }}
-
-{{- if .Content }}
-<div class="post-content md-content">
-  {{- if not (.Param "disableAnchoredHeadings") }}
-  {{- partial "anchored_headings.html" .Content -}}
-  {{- else }}{{ .Content }}{{ end }}
-</div>
-{{- end }}
-
-{{- $pages := union .RegularPages .Sections }}
-
-{{- if .IsHome }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
-{{- $pinnedPages := slice }}
-{{- $normalPages := slice }}
-{{- range $pages }}
-  {{- $w := partial "pinned_weight.html" . | int }}
-  {{- if gt $w 0 }}
-    {{- $pinnedPages = $pinnedPages | append (dict "page" . "pin_weight" $w) }}
-  {{- else }}
-    {{- $normalPages = $normalPages | append . }}
-  {{- end }}
-{{- end }}
-{{- $pinnedPages = sort $pinnedPages "pin_weight" "asc" }}
-{{- $normalPages = sort $normalPages "Date" "desc" }}
-{{- $sortedPinned := slice }}
-{{- range $pinnedPages }}{{ $sortedPinned = $sortedPinned | append .page }}{{ end }}
-{{- $pages = union $sortedPinned $normalPages }}
-{{- end }}
-
-{{- $paginator := .Paginate $pages }}
-
-{{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
-
-{{- $term := .Data.Term }}
-<div class="post-list">
-{{- range $index, $page := $pages }}
-
-{{- $class := "post-entry" }}
-{{- if $term }}{{ $class = "post-entry tag-entry" }}{{ end }}
-{{- $isPinned := gt (partial "pinned_weight.html" . | int) 0 }}
-{{- if $isPinned }}{{ $class = printf "%s is-pinned" $class }}{{ end }}
-
-{{- $tagList := slice -}}
-{{- range .Params.tags }}{{ $tagList = $tagList | append (. | plainify) }}{{ end -}}
-
-<article class="{{ $class }}"
-  data-tags="{{ delimit $tagList "," }}"
-  data-title="{{ .Title | plainify }}"
-  data-summary="{{ .Summary | plainify | htmlUnescape | truncate 120 }}">
-  {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-      <span>{{- .Title }}</span>
-      {{- if $isPinned }}<span class="entry-badge">置顶</span>{{ end }}
-      {{- if .Draft }}
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-      {{- end }}
-    </h2>
-  </header>
-  {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
-  {{- end }}
-  <div class="entry-taxonomy">
-    {{- range first 4 (.GetTerms "tags") }}
-    <span>{{ .LinkTitle }}</span>
-    {{- end }}
-  </div>
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-  </footer>
-  {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+{{ define "main" }}
+{{ $pages := .RegularPages }}
+{{ if .IsHome }}{{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}{{ end }}
+{{ $pages = $pages.ByDate.Reverse }}
+{{ $paginator := .Paginate $pages }}
+{{ if and .IsHome (eq $paginator.PageNumber 1) }}{{ partial "home_info.html" . }}{{ else }}
+<header class="page-header"><p class="eyebrow">THE NOTEBOOK</p><h1>{{ if .IsHome }}更多笔记{{ else }}{{ .Title }}{{ end }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</header>
+{{ end }}
+<div class="notebook-grid">
+<section aria-label="文章列表">
+<div class="section-label"><h2>{{ if .IsHome }}最近的笔记{{ else }}文章{{ end }}</h2><span>{{ len $pages }} 篇</span></div>
+{{ range $paginator.Pages }}
+<article class="note-row">
+ <div class="note-meta">{{ if ge .Date.Year 2000 }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ else }}<span>学习笔记</span>{{ end }}{{ range first 1 (.GetTerms "categories") }}<span>{{ .LinkTitle }}</span>{{ end }}</div>
+ <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+ {{ with .Description }}<p>{{ . | plainify | truncate 100 }}</p>{{ end }}
+ <div class="note-bottom"><span>{{ .ReadingTime }} 分钟阅读</span><a href="{{ .RelPermalink }}" aria-label="阅读：{{ .Title }}">阅读笔记 <span aria-hidden="true">↗</span></a></div>
 </article>
-{{- end }}
+{{ end }}
+{{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="文章分页">{{ if $paginator.HasPrev }}<a class="prev" href="{{ $paginator.Prev.URL }}">← 上一页</a>{{ end }}<span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>{{ if $paginator.HasNext }}<a class="next" href="{{ $paginator.Next.URL }}">下一页 →</a>{{ end }}</nav>{{ end }}
+</section>
+<aside class="notebook-aside"><section><p class="eyebrow">EXPLORE</p><h2>按主题探索</h2><div class="topic-list">{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}"><span>{{ .Page.Title }}</span><small>{{ .Count }}</small></a>{{ end }}</div></section>
+<section class="aside-about"><h2>关于这本笔记</h2><p>从代码与项目，到阅读与日常。这里收集值得记下的经历，也为尚未成形的想法留一页。</p><a href="{{ "about/" | relURL }}">更多关于我 ↗</a></section>
+<section class="aside-links"><a href="{{ "archives/" | relURL }}">时间归档</a><a href="{{ "library/" | relURL }}">文章索引</a><a href="{{ "index.xml" | relURL }}">RSS 订阅 ↗</a></section></aside>
 </div>
-
-{{- if .IsHome }}
-<script src="{{ "js/filter.js" | relURL }}" defer></script>
-{{- end }}
-
-{{- end }}{{/* end profileMode else */}}
-
-{{- end }}{{/* end main */}}
+{{ end }}
