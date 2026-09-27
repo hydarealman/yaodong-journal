@@ -1,5 +1,8 @@
 ["桂工自瞄文档"]
 weight = 1
 
-["arm-user-manual"]
+["视觉完整形态文档"]
 weight = 2
+
+["arm-user-manual"]
+weight = 3
