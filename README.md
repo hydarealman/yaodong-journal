@@ -1,150 +1,25 @@
 # Yaodong’s Journal
 
-这是一个 Hugo + PaperMod 搭建的个人博客项目，会把 `D:\notes` 下的 Markdown 笔记导入到 `content/posts`。
+个人博客：[访问网站](https://hydarealman.github.io/yaodong-journal/)。使用 Hugo + PaperMod 构建。
 
-## 环境
+## 内容维护
 
-```powershell
-git --version
-go version
-hugo version
-```
-
-当前已验证：
-
-- Git for Windows: 已安装
-- Go: 已安装
-- Hugo Extended: 已安装
-
-如果换到新机器，可以用：
-
-```powershell
-winget install --id Git.Git --exact --source winget --accept-package-agreements --accept-source-agreements
-winget install --id GoLang.Go --exact --source winget --accept-package-agreements --accept-source-agreements
-winget install --id Hugo.Hugo.Extended --exact --source winget --accept-package-agreements --accept-source-agreements
-```
-
-## 导入笔记
+当前唯一内容来源：`D:\技术文档`。保留原始 Markdown 标题层级与文件夹，不修改源文件。
 
 ```powershell
 cd D:\yaodong-journal
-python .\scripts\import_notes.py
+python scripts/import_curated.py
+hugo server
 ```
 
-脚本会递归扫描 `D:\notes` 下的 `.md` 文件，保留目录结构，生成 YAML front matter，并写入 `D:\yaodong-journal\content\posts`。
+导入会在项目同级目录创建备份，再同步替换 `content/posts`，复制图片与附件、修复链接，并生成 `import-report.json`。已从源目录移除的文章不会保留在新站中。飞书临时授权图片若未导出为本地文件，会显示待补充提示。
 
-## 置顶文章
+分类映射在 `data/journal_index.json`，五个篇章的定义在 `data/journal_topics.json`。
 
-置顶规则放在 `data/pinned_posts.toml`，也可以用脚本管理：
+文章目录覆盖 Markdown 1–6 级标题，支持点击定位、分支折叠、全部展开/折叠、滚动高亮。桌面为固定侧栏，手机为可展开目录。
 
-```powershell
-cd D:\yaodong-journal
-python .\scripts\pin_post.py list
-python .\scripts\pin_post.py add "ROS2.md" 1
-python .\scripts\pin_post.py remove "ai使用指南.md"
-python .\scripts\import_notes.py
-```
+## 发布
 
-`weight` 越小越靠前。重新导入后，脚本会自动把 `pinned: true` 和 `weight` 写入文章 front matter。
+提交并推送到 main 后，GitHub Actions 构建 Hugo、生成 Pagefind 搜索索引并部署 GitHub Pages。
 
-## 文章索引与排序
-
-站点提供 `/library/` 页面，可以按多个属性浏览文章：
-
-- 置顶优先
-- 时间
-- 标题
-- 内容字数
-- 阅读时间
-- 文件大小
-- 本机访问次数
-- 分类和标签筛选
-
-访问次数使用浏览器 localStorage 统计，是“本机阅读次数”，不是全站真实访问量。GitHub Pages 是静态站点，如果需要全站访问统计，需要额外接入第三方统计服务。
-
-## 使用说明书
-
-站点提供 `/manual/` 页面，记录本地预览、导入、置顶、排序和部署流程。
-
-## 本地预览
-
-```powershell
-cd D:\yaodong-journal
-powershell -ExecutionPolicy Bypass -File .\scripts\serve.ps1
-```
-
-打开：
-
-```text
-http://127.0.0.1:1313/
-```
-
-## 构建静态文件
-
-```powershell
-cd D:\yaodong-journal
-hugo --gc --minify
-```
-
-生成结果在 `D:\yaodong-journal\public`，该目录已加入 `.gitignore`，不用提交。
-
-## 部署到 GitHub Pages
-
-1. GitHub 仓库：`https://github.com/hydarealman/yaodong-journal`。
-2. GitHub Pages 地址：`https://hydarealman.github.io/yaodong-journal/`。
-3. 在仓库 Settings -> Pages 中把 Source 设置为 GitHub Actions。
-4. 推送源码：
-
-```powershell
-cd D:\yaodong-journal
-git config core.autocrlf false
-git add .
-git commit -m "Create Hugo blog"
-git branch -M main
-git remote add origin https://github.com/hydarealman/yaodong-journal.git
-git push -u origin main
-```
-
-之后每次 push 到 `main`，`.github/workflows/deploy.yml` 会自动构建并部署。
-
-
-## 点赞系统
-
-文章页底部有点赞按钮。默认是本机点赞；如需全网共享点赞数，在 Supabase 建表后把 `hugo.toml` 中 `[params.likeSystem]` 的 `provider` 改为 `supabase`，并填入 Project URL 与 anon public key。详细 SQL 和步骤见 `/manual/`。
-
-## 页面背景特效
-
-页面背景中的黑洞视觉效果（吸积盘辉光 + 光子环 + 引力透镜晕）的灵感来源于 [NPGS](https://github.com/baopinshui/NPGS) 项目中的 `BlackHole_common.glsl` 着色器。该着色器基于 Kerr 度规进行光线追踪，渲染了带有相对论多普勒效应、光子环和吸积盘物理的黑洞图像。
-
-本项目的 CSS 实现仅取其视觉意象，使用径向渐变和 CSS 动画模拟黑洞的吸积盘辉光与光子环效果，未直接使用原始 GLSL 代码。
-
-### 许可声明
-
-NPGS 项目遵循 **GNU General Public License v3 (GPL v3)**：
-
-> NPGS — Copyright (C) baopinshui
-> 
-> This program is free software: you can redistribute it and/or modify
-> it under the terms of the GNU General Public License as published by
-> the Free Software Foundation, either version 3 of the License, or
-> (at your option) any later version.
-> 
-> This program is distributed in the hope that it will be useful,
-> but WITHOUT ANY WARRANTY; without even the implied warranty of
-> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> GNU General Public License for more details.
-> 
-> You should have received a copy of the GNU General Public License
-> along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-完整的 GPL v3 许可证文本见 <https://www.gnu.org/licenses/gpl-3.0.html>。
-
-## 新版内容组织
-
-站点采用「项目手记、技术探索、工具与方法、学习与阅读、生活随笔」五个篇章。
-
-- `data/journal_topics.json`：篇章名称及说明。
-- `data/journal_index.json`：以文章文件名（不含扩展名）映射篇章。未配置的文章归入学习与阅读。
-- 首页展示字数超过 100 的记录；完整索引保留所有文章。
-- 本地目录为 `D:\yaodong-journal`，原始笔记目录 `D:\notes` 不变。
-- 新网址：https://hydarealman.github.io/yaodong-journal/
+本次内容替换前的完整备份位于 `D:\blog-content-backup-20260927`，包含原先未提交的文章修改与旧媒体。

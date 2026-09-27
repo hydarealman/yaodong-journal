@@ -100,6 +100,10 @@ buildExpired = false
     url = "https://github.com/hydarealman"
 
 [markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 6
+    ordered = false
   [markup.highlight]
     noClasses = false
     codeFences = true

@@ -1,145 +1,239 @@
 ---
 title: xv6 for RISC-V
-slug: xv6-for-risc-v
-date: 1970-01-21 23:10:23+08:00
+url: /posts/xv6-for-risc-v/
 draft: false
-source_file: feishu://xv6-for-risc-v
-source_size: 29029
-source_lines: 1125
-tags:
-- 操作系统
-- 读书
-- RISC-V
-categories:
-- 编程
+source_group: 自瞄
+source_file: 自瞄/xv6 for RISC-V/xv6 for RISC-V.md
+showtoc: true
+aliases:
+- /posts/1970/01/xv6-for-risc-v/
 ---
 
-# xv6 for RISC-V
 ## jyy xv6导读
 
+
+
 ### 基础知识
-应用视角的操作系统: 对象 + API
+
+应用视角的操作系统: 对象 \+ API
+
 把操作系统当提供服务的黑盒子
+
+
 
 xv6:Unix v6的现代"克隆"
 
+
+
 文件关系
-源文件 (.c/.cpp)  →  编译  →  目标文件 (.o)  →  链接  →  可执行文件
-       ↓
-   依赖文件 (.d)  →  告诉构建系统何时需要重新编译
+
+源文件 \(\.c/\.cpp\)  →  编译  →  目标文件 \(\.o\)  →  链接  →  可执行文件
+
+↓
+
+依赖文件 \(\.d\)  →  告诉构建系统何时需要重新编译
 
 
-1.源文件 (Source Files)
-.c - C语言源文件
-.cpp/.cc - C++源文件
-.h/.hpp - 头文件
 
 
-2.目标文件 (Object Files) - .o 文件
+
+1\.源文件 \(Source Files\)
+
+`.c` \- C语言源文件
+
+`.cpp`/`.cc` \- C\+\+源文件
+
+`.h`/`.hpp` \- 头文件
+
+
+
+
+
+2\.目标文件 \(Object Files\) \- `.o` 文件
+
 编译后的中间二进制文件
 
 
-3. 依赖文件 (Dependency Files) - .d 文件
+
+
+
+3\. 依赖文件 \(Dependency Files\) \- `.d` 文件
+
 记录编译依赖关系的Makefile片段
 
+```C++
 # 编译时同时生成依赖文件
 gcc -c main.c -o main.o -MMD -MF main.d
+```
 
 
-程序的执行(状态变化序列)有时比代码(状态机)更容易理解
+
+
+
+程序的执行\(状态变化序列\)有时比代码\(状态机\)更容易理解
+
 使用工具进行“ tracing ”（追踪）
+
 理解并发Bug
+
 建立确定性心智模型
+
+
+
 
 
 阅读makefile文件可以比较好的帮助理解代码
 
 
+
+
+
 ### xv6文件结构
 
-kernel/目录 - 操作系统内核
+
+
+kernel/目录 \- 操作系统内核
+
 包含了xv6操作系统的所有内核代码,这是操作系统的核心部分
 
-mkfs/目录 - 文件系统创建工具
+
+
+mkfs/目录 \- 文件系统创建工具
+
 包含创建xv6系统镜像的工具
 
-user/目录 - 用户空间程序
+
+
+user/目录 \- 用户空间程序
+
 包含所有在用户空间运行的程序
 
 
 
 
+
+
+
+
+
 ### xv6 22个系统调用
-image.png
+
+![image\.png](/journal-media/d7890e6e4c57bf115e15.png)
+
+
+
 
 
 
 
 ### xv6进程的地址空间
-image.png
+
+![image\.png](/journal-media/0106ebaf96be47a87e04.png)
+
+
 
 
 
 ### xv6系统调用
-image.png
+
+![image\.png](/journal-media/0ac22428861098f217cb.png)
 
 
 
-### Trampoline(跳板)
-image.png
+
+
+### Trampoline\(跳板\)
+
+![image\.png](/journal-media/f5a68353060801a4d431.png)
+
+
 
 
 
 ### 程序的状态
-image.png
+
+![image\.png](/journal-media/67ece1b9e8869ce74c62.png)
+
+
 
 
 
 ### 虚拟化: 状态的管理
 
-image.png
+
+
+![image\.png](/journal-media/0807db0a56cbd955629e.png)
+
+
 
 
 
 ### 状态的封存：Trivial的操作系统实现
-image.png
+
+![image\.png](/journal-media/1afd1bad105e270c6d11.png)
+
+
 
 
 
 ### 状态的封存: 体系结构相关的处理
-image.png
+
+![image\.png](/journal-media/67a336be852fccb38903.png)
+
+
+
 
 
 
 
 ### 再次调试系统调用
-image.png
+
+![image\.png](/journal-media/19a745228dbd5fa41f90.png)
 
 
 
-### 调用usertrap()后的系统状态
-image.png
+
+
+### 调用usertrap\(\)后的系统状态
+
+![image\.png](/journal-media/382a603e2cf3606be51e.png)
+
+
+
+
 
 
 
 
 
 ### 小结: 状态机的封存
-image.png
+
+![image\.png](/journal-media/b167a054b6603b15a485.png)
+
+
+
+
 
 
 
 
 
 ### invariant状态
-invariant(不变式)在计算机科学中指在程序的某些关键点上必须始终为真的条件或约束
+
+invariant\(不变式\)在计算机科学中指在程序的某些关键点上必须始终为真的条件或约束
+
 状态机被封存
 
+
+
 ### 总结
-image.png
+
+![image\.png](/journal-media/48f4b439af05ee5075bf.png)
+
 
 
 操作系统是中断处理程序
+
 操作系统是状态机的管理者
 
 
@@ -152,40 +246,79 @@ image.png
 
 
 
-## 缓存系统bio.c/bio.h
+
+
+
+
+
+
+
+
+
+
+
+
+## 缓存系统bio\.c/bio\.h
+
+
+
 
 
 ### LRU
 
-         最近使用的（最新）                         最久未用的（最旧）
+```C++
+最近使用的（最新）                         最久未用的（最旧）
                ↓                                          ↓
     [head] ←→ [bufA] ←→ [bufB] ←→ [bufC] ←→ ... ←→ [bufZ] ←→ [head]
       ↑        最新使用                                  最旧使用      ↑
       └─────────────────────────────────────────────────────────────┘
                     循环连接
+```
 
-xv6的LRU维护特点: 惰性更新 + 只在释放时移动
+
+
+xv6的LRU维护特点: 惰性更新 \+ 只在释放时移动
+
 核心原则：
+
 缓存命中时：不移动缓冲区在LRU中的位置
+
 缓存未命中时：从链表尾部查找空闲缓冲区
-缓冲区释放时：只有当引用计数归零 (refcnt == 0) 时才移动到链表头部
+
+缓冲区释放时：只有当引用计数归零 \(`refcnt == 0`\) 时才移动到链表头部
+
+
 
 传统LRU
+
 假设: 
+
 最近被访问的数据，在不久的将来很可能再次被访问
+
 很久没有被访问的数据，未来也不太可能被访问
 
+
+
 每次访问缓存项时,都会将其移动到链表的头部
-当缓存满的时候删除尾部节点(最久未使用)
+
+当缓存满的时候删除尾部节点\(最久未使用\)
 
 
-传统LRU -> 来自leetcode
+
+
+
+```C++
+
+```
+
+
 
 
 
 ### 缓存系统
 
-              bcache（缓存系统）
+```C++
+bcache（缓存系统）
         ╔═══════════════════════════════════╗
         ║ struct spinlock lock;            ║ ← 保护整个系统
         ║                                   ║
@@ -205,11 +338,17 @@ xv6的LRU维护特点: 惰性更新 + 只在释放时移动
                  ↑        ↑        ↑
        通过prev/next指针连接所有缓冲区
        形成LRU双向循环链表
+```
 
 
-## 睡眠锁sleeplock.h/sleeplock.c
+
+
+
+## 睡眠锁sleeplock\.h/sleeplock\.c
+
 补充: 也叫条件锁或长时间持有的锁
 
+```C++
 // Long-term locks for processes
 struct sleeplock {
   uint locked;       // Is the lock held?
@@ -275,11 +414,17 @@ holdingsleep(struct sleeplock *lk)
   return r;
 }
 
+```
 
 
 
-## 自旋锁spinlock.c/spinlock.h
 
+
+
+
+## 自旋锁spinlock\.c/spinlock\.h
+
+```C++
 // Mutual exclusion lock.
 struct spinlock {
   uint locked;       // Is the lock held?
@@ -405,36 +550,60 @@ pop_off(void)
     intr_on();
 }
 
+```
+
+
 
 ## 自旋锁和睡眠锁对比
 
 
 
-## ELF/elf.h
 
-## xv6引导加载器(Boot Loader)/bootmain.c
+
+## ELF/elf\.h
+
+
+
+## xv6引导加载器\(Boot Loader\)/bootmain\.c
+
 加载内核: 从硬盘读取 xv6 内核（ELF 格式的可执行文件）
+
 内存布局: 将内核的各部分放到正确内存位置
+
 转交控制权: 跳转到内核的入口点，启动操作系统
 
 
-## 控制台/console.c
-### 环形缓冲区 -> 循环队列
-环形缓冲区是一种循环队列数据结构,特别适合处理生产者-消费者场景的数据流
+
+
+
+## 控制台/console\.c
+
+### 环形缓冲区 \-\> 循环队列
+
+环形缓冲区是一种循环队列数据结构,特别适合处理生产者\-消费者场景的数据流
+
 直线缓冲区: 满了就得停，或者移动所有数据
+
 环形缓冲区: 跑到终点后回到起点,可以无限循环使用
-image.png
+
+![image\.png](/journal-media/d59909e3f7e982d15ee6.png)
 
 
 
 
 
-image.png
 
 
-image.png
+
+
+![image\.png](/journal-media/b1993ae26f71aab0ffa0.png)
+
+
+
+![image\.png](/journal-media/cfe28eceb61c3c6c8e70.png)
 
 两个指针之间应该空一个空格
+
 不然WriteIndex和readIndex重合的话就会分不清楚缓冲区是满了还是空了
 
 
@@ -442,36 +611,69 @@ image.png
 
 
 
-xv6的控制台缓冲区是一个支持行编辑的生产者-消费者环形缓冲区: 
-生产者(consoleintr): 接收键盘中断,写入字符
-消费者(consoleread): 响应read系统调用,读取字符
-三个指针: 实现复杂的行编辑功能(退格,删除行等) 
 
 
 
-## 串口UART/uart.c
+
+
+
+
+xv6的控制台缓冲区是一个支持行编辑的生产者\-消费者环形缓冲区: 
+
+生产者\(consoleintr\): 接收键盘中断,写入字符
+
+消费者\(consoleread\): 响应read系统调用,读取字符
+
+三个指针: 实现复杂的行编辑功能\(退格,删除行等\) 
+
+
+
+
+
+
+
+## 串口UART/uart\.c
+
+
+
 
 
 ### UART和USART的区别
 
+
 UART: 通用异步收发器
+
 功能: 仅支持异步串行通信
+
 特点: 没有时钟线,依赖双方约定的波特率
 
 
 
 
+
+
+
+
+
 USART: 通用同步/异步收发器
+
 功能: 支持同步和异步两种通信模式
-特点: 可以配置为同步模式(有时钟线)或异步模式
+
+特点: 可以配置为同步模式\(有时钟线\)或异步模式
 
 
 
 
-## 管道/pipe.c
+
+
+
+## 管道/pipe\.c
+
+
 
 环形缓冲区: 
-image.png
+
+![image\.png](/journal-media/b1993ae26f71aab0ffa0.png)
 
 
 
@@ -479,44 +681,67 @@ image.png
 
 
 
-## 进程proc.c/proc.h
 
 
-## 文件日志系统/log.c
-解决: 崩溃恢复(Crash Recovery)
-不要直接修改真正的磁盘数据块。先把你打算做的修改.全部写到一个叫做"日志区"的专用地方。只有当日志区完整记录了所有修改后,才把它们搬运到真正的目的地.
+
+
+
+
+## 进程proc\.c/proc\.h
+
+
+
+
+
+## 文件日志系统/log\.c
+
+解决: 崩溃恢复\(Crash Recovery\)
+
+不要直接修改真正的磁盘数据块。先把你打算做的修改\.全部写到一个叫做"日志区"的专用地方。只有当日志区完整记录了所有修改后,才把它们搬运到真正的目的地\.
+
+
 
 这样，如果断电：
-断在日志写完之前：重启后，系统发现日志不完整，直接丢弃。就像操作从未发生过。文件系统完好。
-断在日志写完之后：重启后，系统发现日志里有完整的操作记录，于是重新执行这些操作（Replay）。文件系统完好。
+
+**断在日志写完之前**：重启后，系统发现日志不完整，直接丢弃。就像操作从未发生过。文件系统完好。
+
+**断在日志写完之后**：重启后，系统发现日志里有完整的操作记录，于是重新执行这些操作（Replay）。文件系统完好。
 
 
 
 
 
-## 内核主函数/main.c
 
 
 
 
-## RISC-V 平台级中断控制器（PLIC）的驱动程序/plic.c
-PLIC     ->  Platform Level Interrupt Controller
+
+
+## 内核主函数/main\.c
+
+
+
+
+
+
+
+
+
+## RISC\-V 平台级中断控制器（PLIC）的驱动程序/plic\.c
+
+PLIC     \-\>  Platform Level Interrupt Controller
+
+
 
 中断是一种硬件通知机制，允许外部设备或内部异常打断处理器的正常执行流程，让处理器立即处理紧急事件。
 
+
+
 中断的类型: 
-    外部中断（硬件中断）
-    内部中断（异常/陷阱）
 
+外部中断（硬件中断）
 
-
-## 系统调用/syscall.c/syscall.h
-
-
-
-
-
-## 进程相关系统调用/sysproc.c
+内部中断（异常/陷阱）
 
 
 
@@ -524,34 +749,79 @@ PLIC     ->  Platform Level Interrupt Controller
 
 
 
+## 系统调用/syscall\.c/syscall\.h
 
-## 中断和异常处理/trap.c
+
+
+
+
+
+
+
+
+
+
+## 进程相关系统调用/sysproc\.c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 中断和异常处理/trap\.c
+
+
 
 用户程序执行ecall指令
-    ↓
+
+↓
+
 CPU设置stvec寄存器指向uservec（在trampoline中）
-    ↓
+
+↓
+
 CPU跳转到uservec（汇编代码）
-    ↓
+
+↓
+
 uservec保存用户寄存器到trapframe
-    ↓
+
+↓
+
 uservec设置内核栈，跳转到usertrap（C代码）
-    ↓
-usertrap调用syscall()处理系统调用
-    ↓
-prepare_return准备返回用户空间
-    ↓
+
+↓
+
+usertrap调用syscall\(\)处理系统调用
+
+↓
+
+prepare\_return准备返回用户空间
+
+↓
+
 userret（在trampoline中）恢复用户寄存器
-    ↓
+
+↓
+
 返回用户程序继续执行
 
 
-## 文件系统/sysfile.c
 
 
 
-
-## 虚拟内存管理/vm.c/vm.h
+## 文件系统/sysfile\.c
 
 
 
@@ -561,17 +831,7 @@ userret（在trampoline中）恢复用户寄存器
 
 
 
-
-
-## xv6: a simple Unix-like teaching operating system
-  
-
-
-
-
-
-
-## xv6在RISC-V架构与x86架构的区别
+## 虚拟内存管理/vm\.c/vm\.h
 
 
 
@@ -579,43 +839,120 @@ userret（在trampoline中）恢复用户寄存器
 
 
 
-## trampoline.s/蹦床代码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## xv6: a simple Unix\-like teaching operating system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## xv6在RISC\-V架构与x86架构的区别
+
+
+
+
+
+
+
+
+
+
+
+
+
+## trampoline\.s/蹦床代码
+
 trampoline是一段特殊的汇编代码,位于用户地址空间和内核地址空间的相同虚拟地址处
 
+
+
 主要功能: 
-1.在用户态和内核态之间安全地切换
-2.保存和恢复用户上下文
-3.切换页表
-4.跳转到内核陷阱处理程序
+
+1\.在用户态和内核态之间安全地切换
+
+2\.保存和恢复用户上下文
+
+3\.切换页表
+
+4\.跳转到内核陷阱处理程序
+
+
+
 
 
 共享映射:
- trampoline页面在内核页表和所有用户页表中都映射到相同的虚拟地址\
-（TRAMPOLINE = 0x3ffffff000）
+
+trampoline页面在内核页表和所有用户页表中都映射到相同的虚拟地址\\
+
+（`TRAMPOLINE = 0x3ffffff000`）
+
+
 
 权限设置：
 在用户页表中,trampoline页面被标记为可执行但不可写;在内核页表中,可读可写
+
+
 
 位置固定:
 总是位于地址空间的最高页 
 
 
+
+
+
 xv6的系统调用实现: 
-image.png
+
+![image\.png](/journal-media/a833a923c94c931940d1.png)
 
 
-trampoline（蹦床）和trapframe（陷阱帧）是处理用户态和内核态之间切换的关键机制。它们共同协作以实现安全的上下文切换和系统调用处理。
+
+`trampoline`（蹦床）和`trapframe`（陷阱帧）是处理用户态和内核态之间切换的关键机制。它们共同协作以实现安全的上下文切换和系统调用处理。
+
+
 
 协作流程: 
-1.用户程序通过ecall进入内核
-2.trampoline保存用户上下文到trapframe
-3.内核处理系统调用/陷阱
-4.trampoline从trapframe恢复用户上下文
-5.返回用户程序继续执行
+
+1\.用户程序通过ecall进入内核
+
+2\.trampoline保存用户上下文到trapframe
+
+3\.内核处理系统调用/陷阱
+
+4\.trampoline从trapframe恢复用户上下文
+
+5\.返回用户程序继续执行
 
 
-trampoline.s
-        #
+
+
+
+```YAML
+#
         # low-level code to handle traps from user space into
         # the kernel, and returns from kernel to user.
         #
@@ -765,16 +1102,33 @@ userret:
         # usertrapret() set up sstatus and sepc.
         sret
 
+```
+
+
+
+
 
 
 
 处理器的虚拟化
+
 为什么死循环不能使计算机被彻底卡死? 
 
+
+
 原理上:
-1.硬件会发生中断(类似于强行插入的ecall)
-2.切换到操作系统代码执行
-3.操作系统代码可以切换到另一个进程执行
+
+1\.硬件会发生中断\(类似于强行插入的ecall\)
+
+2\.切换到操作系统代码执行
+
+3\.操作系统代码可以切换到另一个进程执行
+
+
+
+
+
+
 
 
 
@@ -783,7 +1137,14 @@ userret:
 ## xv6面经
 
 
+
+
+
 ### 惰性分配内存
+
+
+
+
 
 
 
@@ -793,7 +1154,17 @@ userret:
 
 
 
+
+
+
+
+
+
 ### 内存的超售机制
+
+
+
+
 
 
 
@@ -801,7 +1172,17 @@ userret:
 
 
 
+
+
+
+
 ### 定时器回调如何实现
+
+
+
+
+
+
 
 
 
@@ -812,15 +1193,33 @@ userret:
 
 
 
+
+
+
+
+
 ### xv6内存的惰性分配
 
+
+
 惰性分配的问题: 
+
 频繁触发缺页异常陷入内核态开销很大
 
 
 
+
+
+
+
 惰性分配的优化方法: 
+
 预取,根据进程访问局部性预取相邻的多个页,文件映射时,linux默认readhead为128KB
+
+
+
+
+
 
 
 
@@ -829,7 +1228,17 @@ userret:
 
 
 
+
+
+
+
 ### xv6是什么类型的操作系统介绍一下,是否是实时操作系统
+
+
+
+
+
+
 
 
 
@@ -842,7 +1251,20 @@ userret:
 
 
 
+
+
+
+
+
+
+
 ### 虚拟地址翻译过程
+
+
+
+
+
+
 
 
 
@@ -853,12 +1275,23 @@ userret:
 
 
 
+
+
+
+
+
 ### 进程同步的策略,进程,线程如何同步
 
 
 
 
+
+
+
+
+
 ### 有看过linux内核设计吗
+
 考虑后面看一下
 
 
@@ -870,22 +1303,49 @@ userret:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ## 中山OS
+
 短期调度
-image.png
+
+![image\.png](/journal-media/b5ee57151c99973acbc5.png)
+
+
+
+
 
 
 
 
 
 中期调度
-767f41d251ad2e9cf2b4af58522ec6c.png
+
+![767f41d251ad2e9cf2b4af58522ec6c\.png](/journal-media/96b6ac60db0d24ad3880.png)
+
+
+
 
 
 
 
 进程调度总览
-image.png
+
+![image\.png](/journal-media/79cbe341fd9f095af7bf.png)
+
+
+
+
+
 
 
 
@@ -894,247 +1354,356 @@ image.png
 
 ## vscode gdb调试
 
-1.继续:(Continue)/F5
+
+1\.继续:\(Continue\)/F5
 含义: 解除暂停,全速奔跑吧
 发生什么:
+
 xv6会从当前暂停的地方恢复运行,CPU全速工作
+
 直到遇到下一个断点,它才会再次停下来
 
-2.逐过程(Step Over)/F10
+
+
+2\.逐过程\(Step Over\)/F10
+
 含义: 往下走一行,但我不想进这个函数里面看
+
 发生什么: 
+
 执行当前高亮的一行代码
+
 如果这行代码调用一个函数,调试器会瞬间把那个函数跑完,然后停在下一行
 
-3.单步调试(Step Into)/F11
+
+
+3\.单步调试\(Step Into\)/F11
+
 含义: 往下走一行,如果有函数,我要钻进去看细节
+
 发生什么: 
+
 执行当前行
+
 如果这行函数调用了函数,调试器会跳进那个函数的内部,停在那个函数的第一行
 
-4.跳出(Step Out)/shift + F11
+
+
+4\.跳出\(Step Out\)/shift \+ F11
+
 含义: "我不小心钻进来了,或者我看腻了,快带我出去"
 发生什么:
+
 让我当前所在的函数瞬间执行完剩下的所有代码
+
 然后停在调用它的那行代码的下一行
 
 
 
 光标停在的哪一行,执行了吗? 
+
 没有执行
-当黄色的高亮条(光标)停在某一行代码上时,代表CPU"正准备"执行这一行代码,但还没下手
+
+当黄色的高亮条\(光标\)停在某一行代码上时,代表CPU"正准备"执行这一行代码,但还没下手
 
 
 
-## xv6-lab
 
-### lab1-util
 
-#### Boot xv6/启动xv6
+
+
+## xv6\-lab
+
+
+
+### lab1\-util
+
+
+
+#### Boot xv6/启动xv6 
+
+
 
 #### Sleep/睡眠
-为xv6实现UNIX的sleep程序;你的sleep程序应暂停用户指定的时钟滴答数.一个滴答是xv6内核 定义的时间单位,即定时器芯片两次中断之间的间隔.你的解决方法应放在文件user/sleep.c中
+
+为xv6实现UNIX的sleep程序;你的sleep程序应暂停用户指定的时钟滴答数\.一个滴答是xv6内核 定义的时间单位,即定时器芯片两次中断之间的间隔\.你的解决方法应放在文件user/sleep\.c中
+
+
+
+
 
 
 
 #### pingpong/乒乓
 
-编写一个程序,利用UNIX系统调用,通过一对管道(每个方向一个),在两个进程之间"乒乓"传递一个字节
+
+编写一个程序,利用UNIX系统调用,通过一对管道\(每个方向一个\),在两个进程之间"乒乓"传递一个字节
 具体流程如下: 
-1.父进程应该向子进程发送一个字节
-2.子进程应该: 
+
+1\.父进程应该向子进程发送一个字节
+
+2\.子进程应该: 
+
 接收这个字节
-打印<pid>: received ping (其中<pid>是它的进程ID)
+
+打印\<pid\>: received ping \(其中\<pid\>是它的进程ID\)
+
 把这个字节写回管道,发给父进程
+
 退出
-3.父进程应该:
+
+3\.父进程应该:
+
 从子进程读取这个字节
-打印<pid>: received pong
+
+打印\<pid\>: received pong
+
 退出
+
 一些提示: 
+
 使用pipe来创建管道
+
 使用fork来创建子进程
+
 使用read从管道读取,使用write向管道写入
+
 使用getpid获取当前进程的ID
+
 别忘了把程序名加入到Makefile的UPROGS列表中
-xv6的用户程序能用的库函数很少,你可以查看user/user.h里的列表
+
+xv6的用户程序能用的库函数很少,你可以查看user/user\.h里的列表
+
+
 
 预期输出: 
 
+```C++
 $ pingpong
 4: received ping
 3: received pong
 $
+```
+
+
+
+
+
 
 
 
 
 #### primes/质数 素数筛 Sieve of Eratosthenes（埃拉托斯特尼筛法）
-编写一个并发版本的"素数筛"程序,通过管道(pipes)来筛选素数.这个创意归功于Unix管道的发明者Doug Mcllroy
+
+编写一个并发版本的"素数筛"程序,通过管道\(pipes\)来筛选素数\.这个创意归功于Unix管道的发明者Doug Mcllroy
+
+
 
 使用pipe和fork来建立一个流水线
-1.每一个进程将数字2到35输入到管道中
-2.对于每一个新发现的素数,你需要创建一个新的进程
-这个新进程从它的左邻居(通过一个管道)读取数据
-将筛选后的数据写给它的右邻居(通过另一个管道)
-3.因为xv6的资源(文件描述符和进程数)有限,第一个进程只要算到35就可以停止了
+
+1\.每一个进程将数字2到35输入到管道中
+
+2\.对于每一个新发现的素数,你需要创建一个新的进程
+
+这个新进程从它的左邻居\(通过一个管道\)读取数据
+
+将筛选后的数据写给它的右邻居\(通过另一个管道\)
+
+3\.因为xv6的资源\(文件描述符和进程数\)有限,第一个进程只要算到35就可以停止了
+
+
 
 一些提示: 
-严谨关闭文件描述符: 非常重要! 每个进程必须关闭它不需要的文件描述符.否则,你的程序会在还没算到35之前就耗尽xv6的资源(xv6默认每个进程只能打开16个文件).
 
-等待子进程: 当第一个进程处理完35后,它应该等待这个流水线结束(包括所有的子进程,孙子进程等).主进程应该在所有输出打印完毕,且所有其他进程都退出之后才退出
+严谨关闭文件描述符: 非常重要\! 每个进程必须关闭它不需要的文件描述符\.否则,你的程序会在还没算到35之前就耗尽xv6的资源\(xv6默认每个进程只能打开16个文件\)\.
 
-读取结束信号: 当管道的写入端（Write-side）被关闭时，read 函数会返回 0。利用这个特性来判断什么时候结束。
 
-直接传整数: 最简单的方法是直接向管道写入 32 位（4字节）的 int，而不是像字符串那样用 ASCII 格式读写。
 
-按需创建: 你应该只在需要的时候(发现新素数时)才创建新的进程,不要一开始就全创建好
+等待子进程: 当第一个进程处理完35后,它应该等待这个流水线结束\(包括所有的子进程,孙子进程等\)\.主进程应该在所有输出打印完毕,且所有其他进程都退出之后才退出
+
+
+
+读取结束信号: 当管道的写入端（Write\-side）被关闭时，`read` 函数会返回 0。利用这个特性来判断什么时候结束。
+
+
+
+直接传整数: 最简单的方法是直接向管道写入 32 位（4字节）的 `int`，而不是像字符串那样用 ASCII 格式读写。
+
+
+
+按需创建: 你应该只在需要的时候\(发现新素数时\)才创建新的进程,不要一开始就全创建好
+
+
 
 别忘了把程序加入Makefile UPROGS中
 
-6de8c40ce3633da02e99069d27316c4.jpg
+
+
+![6de8c40ce3633da02e99069d27316c4\.jpg](/journal-media/dba6f624c5a25d5b800f.jpg)
+
+
 
 
 
 #### find/查找
-编写一个简单版本的UNIX find 程序: 在一个目录树(directory tree) 中查找所有具有特定名称的文件. 你的代码应该写在 user/find.c 文件中
 
-[提示 (Hints) 解析]
-看看user/ls.c 是如何读取目录的: 这是最重要的一条提示! 在Unix中，目录其实也是一种"文件", 里面存的是"目录项"(文件或子目录的名字和它们对应的索引节点号).ls.c里有完整读取目录的代码模板
-使用递归(recursion): 因为目录里面可能还有目录,所以当程序遇到目录时,需要调用自己进入子目录继续找
-不需要递归遍历.和..: .代表当前目录, ..代表上一级目录.如果不跳过他们,程序就会在原地无限打转
-文件系统的更改在qemu运行期间是持久的: 如果你建了文件,下次启动还在. 如果想得到干净的文件系统,可以运行make clean然后再make qemu
-你需要使用C语言的字符串: 复习一下C语言里字符串是如何\0结尾的
-注意,不能像Python里那样 == 比较字符串: 必须使用strcmp() 函数
-把程序添加到Makefile的UPROGS中: 这样编译系统才会把你的find.c编译成可在xv6里运行的命令
+编写一个简单版本的UNIX find 程序: 在一个目录树\(directory tree\) 中查找所有具有特定名称的文件\. 你的代码应该写在 user/find\.c 文件中
+
+
+
+\[提示 \(Hints\) 解析\]
+
+1. 看看user/ls\.c 是如何读取目录的: 这是最重要的一条提示\! 在Unix中，目录其实也是一种"文件", 里面存的是"目录项"\(文件或子目录的名字和它们对应的索引节点号\)\.ls\.c里有完整读取目录的代码模板
+
+2. 使用递归\(recursion\): 因为目录里面可能还有目录,所以当程序遇到目录时,需要调用自己进入子目录继续找
+
+3. 不需要递归遍历\.和\.\.: \.代表当前目录, \.\.代表上一级目录\.如果不跳过他们,程序就会在原地无限打转
+
+4. 文件系统的更改在qemu运行期间是持久的: 如果你建了文件,下次启动还在\. 如果想得到干净的文件系统,可以运行make clean然后再make qemu
+
+5. 你需要使用C语言的字符串: 复习一下C语言里字符串是如何\\0结尾的
+
+6. 注意,不能像Python里那样 == 比较字符串: 必须使用strcmp\(\) 函数
+
+7. 把程序添加到Makefile的UPROGS中: 这样编译系统才会把你的find\.c编译成可在xv6里运行的命令
+
+
+
+
+
+
 
 
 
 
 
 #### XARGS
-写一个简化版的xargs程序.它需要从标准输入(stdin)一行一行地读取数据,然后对每一行执行指定的命令,把读取到的这一行内容作为参数喂给这个命令
 
-例子 1：echo hello too | xargs echo bye
-左边输出：hello too（通过管道传给右边）。
-右边接收：xargs 读取到了 hello too。
-xargs 的动作：xargs 后面跟着的命令是 echo bye。它把 hello too 追加到后面，变成了 echo bye hello too。
-最终执行：打印出 bye hello too。
-例子 2：echo "1\n2" | xargs -n 1 echo line (在咱们的 lab 中不需要实现 -n 这个优化，只要按行读取就行)。
-第一行是 1，执行 echo line 1。
-第二行是 2，执行 echo line 2。
+写一个简化版的xargs程序\.它需要从标准输入\(stdin\)一行一行地读取数据,然后对每一行执行指定的命令,把读取到的这一行内容作为参数喂给这个命令
 
-官方提示(Hints): 
-用fork和exec对每一行输入调用命令.父进程要用wait等待子进程执行完毕.
-逐个字符读取输入,直到遇到换行符\n
-kernel/param.h里有一个MAXARG，定义了最大参数个数,声明数组时可以用.
+
+
+**例子 1**：`echo hello too | xargs echo bye`
+
+左边输出：`hello too`（通过管道传给右边）。
+
+右边接收：`xargs` 读取到了 `hello too`。
+
+xargs 的动作：xargs 后面跟着的命令是 `echo bye`。它把 `hello too` 追加到后面，变成了 `echo bye hello too`。
+
+最终执行：打印出 `bye hello too`。
+
+**例子 2**：`echo "1\n2" | xargs -n 1 echo line` \(在咱们的 lab 中不需要实现 `-n` 这个优化，只要**按行读取**就行\)。
+
+第一行是 `1`，执行 `echo line 1`。
+
+第二行是 `2`，执行 `echo line 2`。
+
+
+
+官方提示\(Hints\): 
+
+用fork和exec对每一行输入调用命令\.父进程要用wait等待子进程执行完毕\.
+
+逐个字符读取输入,直到遇到换行符\\n
+
+kernel/param\.h里有一个MAXARG，定义了最大参数个数,声明数组时可以用\.
+
 写完时记得把程序加到Makefile的UPROGS
 
 
 
-### lab2-system calls
+
+
+
+
+### lab2\-system calls
+
+
 
 #### 系统调用跟踪（System call tracing）（中等难度）
-在本作业中，你将添加一个系统调用跟踪（tracing）功能，这可能会在你调试后续的实验时有所帮助。你将创建一个新的 trace 系统调用来控制跟踪。它应接受一个参数：一个整数“掩码（mask）”，其二进制位指定了要跟踪哪些系统调用。
-例如，要跟踪 fork 系统调用，程序需要调用 trace(1 << SYS_fork)，其中 SYS_fork 是 kernel/syscall.h 中定义的系统调用号。你需要修改 xv6 内核，以便在每次系统调用即将返回时，如果掩码中设置了该系统调用对应的位，则打印出一行信息。这行信息应该包含：进程 ID、系统调用的名称和返回值；你不需要打印系统调用的参数。
-trace 系统调用应该为调用它的进程及其随后 fork（派生）出的所有子进程启用跟踪，但不应影响其他无关的进程。
-我们提供了一个用户级程序 trace，用于在启用跟踪的情况下运行另一个程序（参见 user/trace.c）。当你完成实验后，你应该能看到如下类似的输出：
+
+在本作业中，你将添加一个系统调用跟踪（tracing）功能，这可能会在你调试后续的实验时有所帮助。你将创建一个新的 `trace` 系统调用来控制跟踪。它应接受一个参数：一个整数“掩码（mask）”，其二进制位指定了要跟踪哪些系统调用。
+
+例如，要跟踪 `fork` 系统调用，程序需要调用 `trace(1 << SYS_fork)`，其中 `SYS_fork` 是 `kernel/syscall.h` 中定义的系统调用号。你需要修改 xv6 内核，以便在每次系统调用即将返回时，如果掩码中设置了该系统调用对应的位，则打印出一行信息。这行信息应该包含：**进程 ID**、**系统调用的名称**和**返回值**；你不需要打印系统调用的参数。
+
+`trace` 系统调用应该为调用它的进程及其随后 `fork`（派生）出的所有子进程启用跟踪，但不应影响其他无关的进程。
+
+我们提供了一个用户级程序 `trace`，用于在启用跟踪的情况下运行另一个程序（参见 `user/trace.c`）。当你完成实验后，你应该能看到如下类似的输出：
+
 Bash
+
 $ trace 32 grep hello README
-3: syscall read -> 1023
-3: syscall read -> 966
-3: syscall read -> 70
-3: syscall read -> 0
+3: syscall read \-\> 1023
+3: syscall read \-\> 966
+3: syscall read \-\> 70
+3: syscall read \-\> 0
 $
 $ trace 2147483647 grep hello README
-4: syscall trace -> 0
-4: syscall exec -> 3
-4: syscall open -> 3
-4: syscall read -> 1023
-4: syscall read -> 966
-4: syscall read -> 70
-4: syscall read -> 0
-4: syscall close -> 0
+4: syscall trace \-\> 0
+4: syscall exec \-\> 3
+4: syscall open \-\> 3
+4: syscall read \-\> 1023
+4: syscall read \-\> 966
+4: syscall read \-\> 70
+4: syscall read \-\> 0
+4: syscall close \-\> 0
 $
 $ grep hello README
 $
 $ trace 2 usertests forkforkfork
 usertests starting
-test forkforkfork: 407: syscall fork -> 408
-408: syscall fork -> 409
-409: syscall fork -> 410
-410: syscall fork -> 411
-409: syscall fork -> 412
-410: syscall fork -> 413
-409: syscall fork -> 414
-411: syscall fork -> 415
-...
+test forkforkfork: 407: syscall fork \-\> 408
+408: syscall fork \-\> 409
+409: syscall fork \-\> 410
+410: syscall fork \-\> 411
+409: syscall fork \-\> 412
+410: syscall fork \-\> 413
+409: syscall fork \-\> 414
+411: syscall fork \-\> 415
+\.\.\.
 $   
-输出示例解析：()()()()
 
-在上面的第一个示例中，trace 调用 grep 且仅跟踪 read 系统调用。参数 32 即为 1 << SYS_read。()()()()
+输出示例解析：\(\)\(\)\(\)\(\)
 
-在第二个示例中，trace 运行 grep 并跟踪所有系统调用；2147483647 这个数字的低 31 位全部为 1。()()()
 
-在第三个示例中，程序没()有被 trace 运行，因此没有打印任何跟踪输出。()()
 
-在第四个示例中，usertests 中的 forkforkfork 测试的所()有后代进程的 fork 系统调用都被跟踪了。()
+在上面的**第一个示例**中，`trace` 调用 `grep` 且仅跟踪 `read` 系统调用。参数 `32` 即为 `1 << SYS_read`。\(\)\(\)\(\)\(\)
 
-如果你的程序行为如上所示（进程 ID 具体数字可能不同），那么你的解()决方案就是正确的。
 
+
+在**第二个示例**中，`trace` 运行 `grep` 并跟踪所有系统调用；`2147483647` 这个数字的低 31 位全部为 1。\(\)\(\)\(\)
+
+
+
+在**第三个示例**中，程序没\(\)有被 `trace` 运行，因此没有打印任何跟踪输出。\(\)\(\)
+
+
+
+在**第四个示例**中，`usertests` 中的 `forkforkfork` 测试的所\(\)有后代进程的 `fork` 系统调用都被跟踪了。\(\)
+
+
+
+如果你的程序行为如上所示（进程 ID 具体数字可能不同），那么你的解\(\)决方案就是正确的。
+
+
+
+---
 
 一些提示（Hints）：
-在 Makefile 的 UPROGS 中添加 $U/_trace。
-运行 make qemu，你会发现编译器无法编译 user/trace.c，因为该系统调用的用户空间存根（stubs）还不存在：
-请在 user/user.h 中为该系统调用添加函数原型。
-在 user/usys.pl 中添加存根（stub）。
-在 kernel/syscall.h 中添加系统调用编号。 Makefile 会调用 Perl 脚本 user/usys.pl 来生成 user/usys.S（这就是实际的系统调用存根），这些存根使用 RISC-V 的 ecall 指令陷入（transition）到内核。 解决编译问题后，再次运行 make qemu 并在 xv6 shell 中执行 trace 32 grep hello README；它会失败，因为你还没有在内核中实现该系统调用。
-在 kernel/sysproc.c 中添加一个 sys_trace() 函数来实现这个新的系统调用。你需要在 proc 结构体（参见 kernel/proc.h）中添加一个新的变量，用来记录传入的参数（掩码）。从用户空间获取系统调用参数的函数位于 kernel/syscall.c 中，你可以在 kernel/sysproc.c 中看到它们的使用示例。
-修改 fork() 函数（参见 kernel/proc.c），将跟踪掩码从父进程复制到子进程。
-修改 kernel/syscall.c 中的 syscall() 函数以打印跟踪输出。为了打印出系统调用的名称，你需要添加一个包含系统调用名称的字符串数组，以便用系统调用号来进行索引。
 
+在 `Makefile` 的 `UPROGS` 中添加 `$U/_trace`。
 
+运行 `make qemu`，你会发现编译器无法编译 `user/trace.c`，因为该系统调用的用户空间存根（stubs）还不存在：
 
+请在 `user/user.h` 中为该系统调用添加函数原型。
 
+在 `user/usys.pl` 中添加存根（stub）。
 
+在 `kernel/syscall.h` 中添加系统调用编号。 *Makefile 会调用 Perl 脚本 **`user/usys.pl`** 来生成 **`user/usys.S`**（这就是实际的系统调用存根），这些存根使用 RISC\-V 的 **`ecall`** 指令陷入（transition）到内核。* 解决编译问题后，再次运行 `make qemu` 并在 xv6 shell 中执行 `trace 32 grep hello README`；它会失败，因为你还没有在内核中实现该系统调用。
 
+在 `kernel/sysproc.c` 中添加一个 `sys_trace()` 函数来实现这个新的系统调用。你需要在 `proc` 结构体（参见 `kernel/proc.h`）中添加一个新的变量，用来记录传入的参数（掩码）。从用户空间获取系统调用参数的函数位于 `kernel/syscall.c` 中，你可以在 `kernel/sysproc.c` 中看到它们的使用示例。
 
+修改 `fork()` 函数（参见 `kernel/proc.c`），将跟踪掩码从父进程复制到子进程。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![图片 1](/images/feishu/xv6-for-risc-v/image_0a3ea6.png)
-![图片 2](/images/feishu/xv6-for-risc-v/image_523fbd.png)
-![图片 3](/images/feishu/xv6-for-risc-v/image_f00d18.png)
-![图片 4](/images/feishu/xv6-for-risc-v/image_55a461.png)
-![图片 5](/images/feishu/xv6-for-risc-v/image_57dd27.png)
-![图片 6](/images/feishu/xv6-for-risc-v/image_4f6460.png)
-![图片 7](/images/feishu/xv6-for-risc-v/image_3cbcae.png)
-![图片 8](/images/feishu/xv6-for-risc-v/image_89aa53.png)
-![图片 9](/images/feishu/xv6-for-risc-v/image_f40951.png)
-![图片 10](/images/feishu/xv6-for-risc-v/image_627ba7.png)
-![图片 11](/images/feishu/xv6-for-risc-v/image_7b01d4.png)
-![图片 12](/images/feishu/xv6-for-risc-v/image_3d89d2.png)
-![图片 13](/images/feishu/xv6-for-risc-v/image_86cfea.png)
-![图片 14](/images/feishu/xv6-for-risc-v/image_5376a2.png)
-![图片 15](/images/feishu/xv6-for-risc-v/image_74f0b7.png)
-![图片 16](/images/feishu/xv6-for-risc-v/image_789efe.png)
-![图片 17](/images/feishu/xv6-for-risc-v/image_7e03ba.png)
-![图片 18](/images/feishu/xv6-for-risc-v/image_2e6c2e.png)
-![图片 19](/images/feishu/xv6-for-risc-v/767f41d251ad2e9cf2b4af58522ec6c_3b9296.png)
-![图片 20](/images/feishu/xv6-for-risc-v/image_ccf172.png)
-![图片 21](/images/feishu/xv6-for-risc-v/6de8c40ce3633da02e99069d27316c4_8a0bb1.jpg)
+修改 `kernel/syscall.c` 中的 `syscall()` 函数以打印跟踪输出。为了打印出系统调用的名称，你需要添加一个包含系统调用名称的字符串数组，以便用系统调用号来进行索引。
