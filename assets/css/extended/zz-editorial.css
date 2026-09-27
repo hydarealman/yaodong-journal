@@ -1,0 +1,102 @@
+/* Homepage editorial composition; article reading styles remain independent. */
+:root{--journal-rust:#a3482e;--journal-sage:#e6ebe3;--journal-ink:#334a40}
+:root[data-theme=dark]{--journal-rust:#e6a188;--journal-sage:#25332e;--journal-ink:#aec8ba}
+.header-nav{min-height:78px}.logo a{font-size:25px}.logo-switches{height:32px;line-height:1}.theme-toggle{height:32px;width:32px;display:inline-flex;align-items:center;justify-content:center}.journal-masthead{display:grid;grid-template-columns:1.5fr 1fr;align-items:center;padding:48px 0 42px;gap:64px}.edition-label{font:10px/1.6 ui-monospace,Consolas,monospace;letter-spacing:2px;color:var(--secondary)}.edition-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--journal-rust);margin-right:8px}.journal-masthead h1{font-family:SimSun,"Noto Serif CJK SC",serif;font-size:70px;line-height:1.4;font-weight:600;letter-spacing:-3px;margin:15px 0 0}.title-comma{color:var(--secondary);font-weight:400}.title-dot{color:var(--journal-rust)}.masthead-en{font:italic 22px/1.4 Georgia,serif;color:var(--secondary);margin-top:4px}.masthead-note{border-left:1px solid var(--border);padding:4px 0 4px 35px}.margin-number{font:10px ui-monospace,monospace;letter-spacing:1.4px;color:var(--journal-rust)}.masthead-note p{font-size:14px;line-height:2;margin:15px 0 18px}.masthead-note a{font-size:12px;margin-right:23px;color:var(--accent)}.editor-section-title{border-top:2px solid var(--primary);padding:18px 0;display:flex;justify-content:space-between;align-items:center}.editor-section-title h2{font-size:15px;font-weight:600}.editor-section-title h2 span{font:10px ui-monospace,monospace;letter-spacing:1.4px;color:var(--secondary);margin-left:16px}.small-caption{font-size:11px;color:var(--secondary)}.featured-spread{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;column-gap:44px}.lead-story{grid-row:1 / 3;padding:0 40px 24px 0;border-right:1px solid var(--border)}.lead-art{height:165px;background:var(--journal-sage);position:relative;overflow:hidden;color:var(--journal-ink);margin-bottom:22px}.lead-art svg{width:100%;height:145px;margin-top:12px}.art-label{position:absolute;top:13px;left:16px;font:8px ui-monospace,monospace;letter-spacing:1.4px}.art-caption{position:absolute;bottom:10px;right:16px;font-size:10px;letter-spacing:2px}.feature-meta{display:flex;justify-content:space-between;gap:10px;font:10px/1.6 ui-monospace,monospace;letter-spacing:.8px;color:var(--journal-rust)}.lead-story h3{font-size:28px;line-height:1.4;margin:10px 0 12px;font-weight:600;letter-spacing:-.5px}.lead-story p,.side-story p{font-size:13px;color:var(--secondary);line-height:1.9;max-width:460px}.story-link{display:inline-flex;gap:35px;margin-top:17px;font-size:12px;color:var(--accent)}.side-story{padding:7px 0 22px}.side-story+.side-story{border-top:1px solid var(--border);padding-top:24px}.side-story h3{font-family:SimSun,"Noto Serif CJK SC",serif;font-size:25px;font-weight:600;line-height:1.5;margin:12px 0}.chapter-ribbon{display:flex;align-items:center;gap:26px;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:19px 0;margin-top:12px;font-size:12px}.chapter-ribbon>span{color:var(--secondary);font-size:10px;padding-right:18px;border-right:1px solid var(--border)}.ribbon-all{margin-left:auto;color:var(--journal-rust)}.journal-directory{display:grid;grid-template-columns:230px minmax(0,1fr);gap:64px;margin:52px 0 0}.directory-heading h2{font-family:SimSun,serif;font-size:36px;line-height:1.4;margin:16px 0}.directory-heading>p:not(.edition-label){font-size:13px;line-height:1.9;color:var(--secondary)}.directory-heading>a{display:block;font-size:12px;margin-top:18px;color:var(--accent)}.directory-row{display:grid;grid-template-columns:27px minmax(0,1fr) 50px 16px;align-items:center;gap:17px;padding:20px 0;border-bottom:1px solid var(--border)}.directory-row:first-child{border-top:1px solid var(--primary)}.directory-no{font:11px ui-monospace,monospace;color:var(--secondary)}.directory-topic{font-size:10px;color:var(--secondary)}.directory-row h3{font-size:17px;line-height:1.5;margin-top:5px;font-weight:500;overflow-wrap:anywhere}.directory-time{font-size:11px;color:var(--secondary);text-align:right}.directory-arrow{color:var(--journal-rust)}.directory-row:hover h3{color:var(--accent)}
+@media(max-width:800px){.journal-masthead{gap:25px}.journal-masthead h1{font-size:52px}.masthead-note{padding-left:22px}.featured-spread{column-gap:26px}.lead-story{padding-right:24px}.journal-directory{grid-template-columns:170px minmax(0,1fr);gap:28px}.chapter-ribbon{gap:19px}}
+@media(max-width:600px){.header-nav{min-height:unset}.journal-masthead{grid-template-columns:1fr;gap:24px;padding:30px 0}.journal-masthead h1{font-size:54px;margin-top:10px}.masthead-en{font-size:20px}.masthead-note{border-left:0;border-top:1px solid var(--border);padding:18px 0 0}.masthead-note p{font-size:13px;margin:10px 0}.masthead-note p br{display:none}.margin-number{font-size:9px}.editor-section-title h2 span{display:block;margin:7px 0 0;font-size:9px}.featured-spread{display:block}.lead-story{border:0;padding:0 0 25px}.lead-art{height:150px}.lead-story h3{font-size:26px}.side-story{border-top:1px solid var(--border);padding-top:22px}.side-story h3{font-size:23px}.chapter-ribbon{gap:16px 23px;padding:20px 0}.chapter-ribbon>span{width:100%;border:0}.journal-directory{grid-template-columns:1fr;gap:23px;margin-top:35px}.directory-heading h2{font-size:28px;margin:10px 0}.directory-heading h2 br{display:none}.directory-heading>p:not(.edition-label){display:none}.directory-heading>a{display:inline-block;margin:8px 18px 0 0}.directory-row{grid-template-columns:22px minmax(0,1fr) 44px;gap:12px}.directory-arrow{display:none}.directory-row h3{font-size:16px}.edition-label{font-size:9px}}
+/* A personal notebook: warm paper, botanical ink, and a hand-drawn desk. */
+:root {
+  --theme: #faf8f2;
+  --entry: #faf8f2;
+  --primary: #273e36;
+  --content: #3f4942;
+  --secondary: #70776f;
+  --border: #dedfd4;
+  --accent: #9c482f;
+  --paper: #fffdf6;
+  --paper-shadow: #dedbcb;
+  --tape: #dfbd87;
+  --journal-sage: #e8ecdf;
+  --journal-ink: #385548;
+}
+:root[data-theme=dark] {
+  --theme: #19231f;
+  --entry: #19231f;
+  --primary: #e7e9dc;
+  --content: #d0d7ce;
+  --secondary: #a9b6aa;
+  --border: #39483e;
+  --accent: #e5ac89;
+  --paper: #2b3c32;
+  --paper-shadow: #142018;
+  --tape: #87734c;
+  --journal-sage: #26372c;
+  --journal-ink: #bdd0b4;
+}
+.header { border-top: 4px solid var(--journal-ink); }
+.logo a { font-size: 24px; }
+#menu a { padding: 8px 0; }
+#menu a:hover { color: var(--accent); }
+.theme-toggle { border-radius: 50%; background: var(--journal-sage); }
+.journal-masthead { grid-template-columns: 1.1fr 1fr; gap: 24px; padding: 52px 0 32px; }
+.journal-masthead h1 { font-size: clamp(46px,5vw,66px); line-height: 1.42; letter-spacing: 1px; margin: 20px 0; }
+.hand-underline { position: relative; white-space: nowrap; }
+.hand-underline svg { position: absolute; width: 100%; height: 14px; left: 0; bottom: -9px; fill: none; stroke: var(--journal-rust); stroke-width: 2; }
+.masthead-description { font-size: 14px; line-height: 2; color: var(--secondary); margin-top: 26px; }
+.masthead-links { display:flex; align-items:center; gap:28px; margin-top:24px; font-size:13px; }
+.journal-button { display: inline-flex; align-items:center; gap:28px; background:var(--journal-ink); color:var(--theme); padding:12px 20px; border-radius:3px; transition:transform .2s,background .2s; }
+.journal-button:hover { background:var(--journal-rust); color:var(--theme); transform:translateY(-2px); }
+.desk-scene { position:relative; min-width:0; padding-top:8px; }
+.desk-illustration { width:100%; height:auto; display:block; }
+.desk-caption { display:block; text-align:center; font:9px/1.6 ui-monospace,monospace; letter-spacing:1.6px; color:var(--secondary); }
+.journal-colophon { display:flex; justify-content:space-between; align-items:center; gap:20px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:15px 0; font-size:11px; color:var(--secondary); }
+.journal-colophon>span:nth-child(2) { font:italic 15px Georgia,serif; }
+.journal-colophon>a { color:var(--accent); }
+.editor-picks { margin-top:40px; }
+.editor-section-title { border:0; padding:0 0 22px; }
+.editor-section-title h2 { font-size:18px; }
+.featured-spread { gap:0 38px; }
+.lead-art { height:155px; border-radius:3px; background:var(--journal-sage); }
+.lead-story h3 { font-size:27px; }
+.feature-meta { font-size:10px; }
+.side-story h3 { font-family:inherit; font-size:23px; }
+.story-link span { transition: transform .2s; }
+.story-link:hover span { transform:translate(3px,-3px); }
+.chapter-ribbon { background:var(--journal-sage); padding:19px 22px; border:0; border-radius:3px; margin-top:20px; gap:24px; }
+.chapter-ribbon a:hover { text-decoration:underline; text-underline-offset:5px; }
+.directory-row { transition:background .2s; }
+.directory-row:hover { background:var(--journal-sage); }
+#notebook { scroll-margin-top:28px; }
+.footer { max-width:1080px; margin:0 auto; border-top:1px solid var(--border); padding-top:24px; }
+@media(max-width:800px) {
+ .journal-masthead { gap:16px; }
+ .journal-masthead h1 { font-size:48px; }
+ .chapter-ribbon { gap:18px; }
+}
+@media(max-width:600px) {
+ .journal-masthead { grid-template-columns:1fr; padding:30px 0 22px; gap:8px; }
+ .journal-masthead h1 { font-size:48px; margin:16px 0; }
+ .masthead-description { font-size:13px; }
+ .desk-scene { width:85%; max-width:330px; justify-self:center; margin-top:8px; }
+ .desk-caption { font-size:8px; }
+ .journal-colophon { font-size:10px; gap:10px; }
+ .journal-colophon>span:nth-child(2) { display:none; }
+ .editor-picks { margin-top:28px; }
+ .chapter-ribbon { gap:16px 20px; padding:18px; }
+ .chapter-ribbon>span { width:auto; padding-right:0; }
+ .logo a { font-size:22px; }
+ .footer { margin:0 24px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .journal-button,.story-link span,.directory-row { transition:none; }
+}
+/* PaperMod uses an ID on the actual theme button. */
+#theme-toggle { width:32px; height:32px; min-height:32px; padding:7px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:var(--journal-sage); color:var(--journal-ink); line-height:1; flex-shrink:0; }
+#theme-toggle svg { width:18px; height:18px; }
+.masthead-description { font-size:15px; }
+@media(max-width:600px) {
+ .header-nav { padding:16px 20px; gap:16px; }
+ .logo { line-height:36px; }
+ #menu { line-height:24px; }
+ .journal-masthead { padding-top:26px; }
+}

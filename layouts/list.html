@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ if .IsHome }}{{ partial "journal_home.html" . }}{{ else }}
 {{ $pages := .RegularPages }}
 {{ if .IsHome }}{{ $pages = slice }}{{ range where site.RegularPages "Type" "in" site.Params.mainSections }}{{ if or (gt .WordCount 100) (gt (partial "pinned_weight.html" . | int) 0) }}{{ $pages = $pages | append . }}{{ end }}{{ end }}{{ end }}
 {{ $pages = partial "journal_sorted.html" $pages }}
@@ -14,4 +15,5 @@
 </section>
 {{ partial "journal_sidebar.html" . }}
 </div>
+{{ end }}
 {{ end }}

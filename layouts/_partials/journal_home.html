@@ -1,0 +1,23 @@
+{{ $all := where site.RegularPages "Type" "posts" }}
+{{ $ordered := partial "journal_sorted.html" $all }}
+{{ $pinned := slice }}{{ $regular := slice }}
+{{ range $ordered }}{{ if gt (partial "pinned_weight.html" . | int) 0 }}{{ $pinned = $pinned | append . }}{{ else }}{{ $regular = $regular | append . }}{{ end }}{{ end }}
+{{ $pager := .Paginate $regular 10 }}
+{{ if eq $pager.PageNumber 1 }}
+<section class="journal-masthead">
+ <div class="masthead-copy"><p class="edition-label"><span class="edition-dot"></span> YAODONG HONG / PERSONAL JOURNAL</p><h1>保持好奇，<br>留下<span class="hand-underline">记录<svg viewBox="0 0 220 16" aria-hidden="true"><path d="M3 10Q95 0 215 7M15 15Q110 5 200 12"/></svg></span>。</h1><p class="masthead-description">你好，我是洪耀东。<br>记录学习与实践，也收藏阅读和生活中的发现。</p><div class="masthead-links"><a class="journal-button" href="#notebook">翻开手记 <span aria-hidden="true">↗</span></a><a href="{{ "about/" | relURL }}">关于我 <span aria-hidden="true">↗</span></a></div></div>
+ <div class="desk-scene" aria-hidden="true">{{ partial "journal_desk.svg" . }}<span class="desk-caption">A LITTLE SPACE FOR BIG & SMALL IDEAS.</span></div>
+</section>
+<div class="journal-colophon"><span>学习 · 实践 · 阅读 · 生活</span><span>Notes along the way.</span><a href="https://hydarealman.github.io/">我的项目作品集 ↗</a></div>
+<section class="editor-picks" aria-label="置顶文档">
+ <div class="editor-section-title"><h2>重点阅读<span>SELECTED NOTES</span></h2><span class="small-caption">从这几篇开始</span></div>
+ <div class="featured-spread">
+ {{ range $i,$page := $pinned }}
+ {{ if eq $i 0 }}<article class="lead-story"><div class="lead-art" aria-hidden="true"><span class="art-label">PERCEPTION / ESTIMATION / CONTROL</span><svg viewBox="0 0 600 190" fill="none"><g stroke="currentColor" stroke-width="1"><circle cx="300" cy="95" r="68"/><ellipse cx="300" cy="95" rx="160" ry="50" transform="rotate(-18 300 95)"/><path d="M70 95h460M300 8v174" stroke-dasharray="3 7"/><path d="M253 52h-15v15m109-15h15v15M238 124v15h15m109-15v15h-15" stroke-width="2"/><rect x="276" y="78" width="48" height="34" rx="2"/><circle cx="300" cy="95" r="4" fill="currentColor"/><circle cx="452" cy="46" r="5" fill="currentColor"/><path d="m440 35 12 11-3-16"/></g></svg><span class="art-caption">观察 · 建模 · 实践</span></div><div class="feature-meta"><span>01 / 置顶文档</span><span>{{ .ReadingTime }} MIN READ</span></div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>从系统实现到开发记录，整理自瞄项目中的方法、问题与迭代过程。</p><a class="story-link" href="{{ .RelPermalink }}">阅读文档 <span aria-hidden="true">↗</span></a></article>
+ {{ else }}<article class="side-story side-story-{{ $i }}"><div class="feature-meta"><span>0{{ add $i 1 }} / 置顶文档</span><span>{{ if eq .File.BaseFileName "arm-user-manual" }}PDF{{ else }}{{ .ReadingTime }} MIN READ{{ end }}</span></div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ if eq .File.BaseFileName "arm-user-manual" }}机械臂项目的使用说明。打开原始手册，查阅操作步骤与相关配置。{{ else }}关于视觉系统的设计与实现：从战术定位、功能规划，到具体技术细节。{{ end }}</p><a class="story-link" href="{{ .RelPermalink }}">{{ if eq .File.BaseFileName "arm-user-manual" }}查看手册{{ else }}阅读文档{{ end }} <span aria-hidden="true">↗</span></a></article>{{ end }}
+ {{ end }}
+ </div>
+</section>
+<nav class="chapter-ribbon" aria-label="按主题浏览"><span>按主题</span>{{ range hugo.Data.journal_topics }}<a href="{{ printf "topics/%s/" .id | relURL }}">{{ .title }}</a>{{ end }}<a class="ribbon-all" href="{{ "categories/" | relURL }}" aria-label="浏览所有主题">↗</a></nav>
+{{ end }}
+<section class="journal-directory" id="notebook"><div class="directory-heading"><p class="edition-label">THE NOTEBOOK</p><h2>文章<br>与记录<span class="title-dot">.</span></h2><p>一点点整理，<br>慢慢积累。</p><a href="{{ "library/" | relURL }}">完整索引 / {{ len $all }} 篇 ↗</a><a href="{{ "index.xml" | relURL }}">RSS 订阅 ↗</a></div><div class="directory-rows">{{ range $i,$page := $pager.Pages }}{{ $topic := partial "journal_topic.html" . }}<article class="directory-row"><span class="directory-no">{{ printf "%02d" (add (mul (sub $pager.PageNumber 1) 10) (add $i 1)) }}</span><div><a class="directory-topic" href="{{ printf "topics/%s/" $topic.id | relURL }}">{{ $topic.title }}</a><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3></div><span class="directory-time">{{ .ReadingTime }} 分钟</span><a class="directory-arrow" href="{{ .RelPermalink }}" aria-label="阅读：{{ .Title }}">↗</a></article>{{ end }}{{ if gt $pager.TotalPages 1 }}<nav class="pagination" aria-label="文章分页">{{ if $pager.HasPrev }}<a href="{{ $pager.Prev.URL }}">← 上一页</a>{{ end }}<span>{{ $pager.PageNumber }} / {{ $pager.TotalPages }}</span>{{ if $pager.HasNext }}<a href="{{ $pager.Next.URL }}">下一页 →</a>{{ end }}</nav>{{ end }}</div></section>

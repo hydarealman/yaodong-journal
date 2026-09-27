@@ -1,0 +1,12 @@
+<svg class="desk-illustration" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern id="journalGrid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" stroke="currentColor" opacity=".055"/></pattern></defs>
+<circle cx="266" cy="168" r="150" fill="var(--journal-sage)"/><rect x="52" y="15" width="400" height="300" fill="url(#journalGrid)"/>
+<g stroke="var(--journal-ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
+<path d="M50 306H451" opacity=".35"/>
+<g transform="rotate(-9 214 225)"><path d="M83 171L214 181 350 161V276L216 301 83 284Z" fill="var(--paper-shadow)"/><path d="M87 158Q150 151 215 174Q277 143 349 149V264Q274 258 216 290Q151 268 87 273Z" fill="var(--paper)"/><path d="M215 174L216 290"/><path d="M105 185Q147 181 193 194M105 201Q151 198 194 211M106 218Q150 215 184 226M107 236Q149 232 177 241" opacity=".32"/><path d="M238 185L322 173V233L238 249Z" stroke-dasharray="4 5" opacity=".6"/><circle cx="278" cy="210" r="14"/><path d="M260 233L278 210 303 225M278 210L293 187"/><circle cx="293" cy="187" r="3" fill="var(--journal-rust)" stroke="none"/><path d="M216 184V284L228 298 235 280V177" fill="var(--journal-rust)" stroke="none"/></g>
+<g transform="rotate(13 346 87)"><rect x="286" y="33" width="113" height="91" rx="3" fill="var(--paper)"/><path d="M297 101L321 75 337 89 359 60 388 89"/><circle cx="314" cy="55" r="7" fill="var(--journal-rust)" stroke="none"/><path d="M295 111H389" opacity=".3"/><path d="M324 30L365 30 362 41 326 41Z" fill="var(--tape)" stroke="none"/></g>
+<path d="M379 240H426L422 274Q402 291 383 275Z" fill="var(--journal-rust)" stroke="none"/><path d="M426 247C449 242 444 272 423 267"/><ellipse cx="403" cy="240" rx="24" ry="7" fill="var(--paper)"/><path d="M394 220C380 205 409 201 397 187M408 219C398 207 422 204 413 193" opacity=".45"/>
+<g transform="rotate(24 114 100)"><path d="M114 133V51" stroke="none"/><path d="M114 138V55M113 110Q86 104 88 83Q114 83 113 110M114 89Q138 86 140 65Q115 63 114 89M114 66Q97 56 102 40Q121 43 114 66" fill="var(--journal-sage)"/></g>
+<path d="M62 137L73 137M67 132V142M433 147H447M440 140V154" stroke="var(--journal-rust)"/>
+<g transform="rotate(30 340 280)"><rect x="336" y="238" width="8" height="74" rx="2" fill="var(--journal-ink)"/><path d="M336 312L340 323 344 312" fill="var(--paper)"/></g>
+</g></svg>
