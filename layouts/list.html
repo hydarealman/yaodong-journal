@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $pages := .RegularPages }}
-{{ if .IsHome }}{{ $pages = where (where site.RegularPages "Type" "in" site.Params.mainSections) "WordCount" "gt" 100 }}{{ end }}
-{{ $pages = $pages.ByDate.Reverse }}
+{{ if .IsHome }}{{ $pages = slice }}{{ range where site.RegularPages "Type" "in" site.Params.mainSections }}{{ if or (gt .WordCount 100) (gt (partial "pinned_weight.html" . | int) 0) }}{{ $pages = $pages | append . }}{{ end }}{{ end }}{{ end }}
+{{ $pages = partial "journal_sorted.html" $pages }}
 {{ $paginator := .Paginate $pages }}
 {{ if and .IsHome (eq $paginator.PageNumber 1) }}{{ partial "home_info.html" . }}{{ else }}
 <header class="page-header"><p class="eyebrow">THE NOTEBOOK</p><h1>{{ if .IsHome }}更多笔记{{ else }}{{ .Title }}{{ end }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</header>
