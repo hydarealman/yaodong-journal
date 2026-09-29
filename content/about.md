@@ -9,6 +9,8 @@ comments: false
 
 我在做机器人感知与运动规划，也关心技术之外的生活。这里是我的个人笔记本，记录学习与实践、读过的东西，以及日常生活中的想法。
 
+项目中，我独立开发过 RoboMaster 一代 ROS1 自瞄，指导学弟开发二代 ROS2 自瞄并主要负责后续维护；也参与六轴机械臂与吊车感知系统的开发和联调。详细经历见[最新简历（PDF）](https://hydarealman.github.io/resume.pdf)。
+
 ## 这里写什么
 
 - **机器人**：ROS、视觉定位、状态估计与运动规划。
@@ -20,7 +22,7 @@ comments: false
 
 ## 找到我
 
-[项目作品集](https://hydarealman.github.io/) · [GitHub](https://github.com/hydarealman) · [邮件](mailto:2281306133@qq.com)
+[项目作品集](https://hydarealman.github.io/) · [简历 PDF](https://hydarealman.github.io/resume.pdf) · [GitHub](https://github.com/hydarealman) · [邮件](mailto:2281306133@qq.com)
 
 ## 关于网站
 
